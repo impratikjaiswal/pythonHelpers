@@ -104,13 +104,16 @@ def get_tool_name_w_version(tool_name=None, tool_version=None):
     return ' version is '.join(filter(None, [tool_name, f'v{tool_version}' if tool_version else None]))
 
 
-def print_version(tool_name, tool_version, log=None):
+def print_version(tool_name, tool_version, with_python_version=True, log=None):
     print_or_log = log.info if log else print
     print_separator(log=log)
-    print_or_log(f'Python version is {sys.version}')
+    if with_python_version:
+        print_or_log(f'Python version is {sys.version}')
     print_or_log(get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
     print_separator(log=log)
 
 
-def print_version_pkg(package_name=ConfigConst.TOOL_NAME, package_version=ConfigConst.TOOL_VERSION, log=None):
-    print_version(package_name, package_version, log)
+def print_version_pkg(package_name=ConfigConst.TOOL_NAME, package_version=ConfigConst.TOOL_VERSION,
+                      with_python_version=True, log=None):
+    print_version(tool_name=package_name, tool_version=package_version, with_python_version=with_python_version,
+                  log=log)
