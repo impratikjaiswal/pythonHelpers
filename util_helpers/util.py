@@ -1,7 +1,17 @@
+import re
 import string
 import sys
 
+import pkg_resources
+from packaging import version
+
+from util_helpers.constants import Constants
 from util_helpers.constants_config import ConfigConst
+
+
+def trim_and_kill_all_white_spaces(str):
+    return re.sub(r"\s+", "", str)
+    # return str.translate({ord(c): None for c in string.whitespace})
 
 
 def is_hex(s):
@@ -117,3 +127,52 @@ def print_version_pkg(package_name=ConfigConst.TOOL_NAME, package_version=Config
                       with_python_version=True, log=None):
     print_version(tool_name=package_name, tool_version=package_version, with_python_version=with_python_version,
                   log=log)
+
+
+def hex_str_to_dec(hex_str):
+    if isinstance(hex_str, str):
+        return int(hex_str, 16)
+    return hex_str
+
+
+def to_hex_string(bytes=[], format=0):
+    """Returns a hex string representing bytes
+
+    @param bytes:  a list of bytes to stringify,
+                e.g. [59, 22, 148, 32, 2, 1, 0, 0, 13]
+    @param format: a logical OR of
+      - COMMA: add a comma between bytes
+      - HEX: add the 0x chars before bytes
+      - UPPERCASE: use 0X before bytes (need HEX)
+      - PACK: remove blanks
+    """
+
+    if type(bytes) is not list:
+        raise TypeError('not a list of bytes')
+
+    if bytes is None or bytes == []:
+        return ""
+    else:
+        pformat = "%-0.2X"
+        if Constants.FORMAT_HEX_STRING_AS_COMMA & format:
+            separator = ","
+        else:
+            separator = ""
+        if not Constants.FORMAT_HEX_STRING_AS_PACK & format:
+            separator = separator + " "
+        if Constants.FORMAT_HEX_STRING_AS_HEX & format:
+            if Constants.FORMAT_HEX_STRING_AS_UPPERCASE & format:
+                pformat = "0X" + pformat
+            else:
+                pformat = "0x" + pformat
+        return (separator.join(map(lambda a: pformat % ((a + 256) % 256), bytes))).rstrip()
+
+
+def get_module_version(module_name=Constants.MODULE_PYCRATE_NAME, minimum_version_required=None):
+    module_version = pkg_resources.get_distribution(module_name).version
+    module_version = version.parse(module_version)
+    res = None
+    if minimum_version_required:
+        minimum_version_required = version.parse(minimum_version_required)
+        res = True if module_version >= minimum_version_required else False
+    return module_version, res

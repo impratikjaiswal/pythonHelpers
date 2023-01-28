@@ -15,8 +15,10 @@ if not packages:
     ]
 print(f'Packages are {packages}')
 # potential dependencies
-# install_reqs = ['pycryptodome']
-install_reqs = ['']
+install_reqs = [
+    'packaging',
+    # 'pycryptodome'
+]
 
 # get long description from the README.md
 with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="utf-8") as fd:
