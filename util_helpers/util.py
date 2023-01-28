@@ -135,6 +135,13 @@ def hex_str_to_dec(hex_str):
     return hex_str
 
 
+def hex_str_to_ascii(str):
+    # Check if printable
+    hex_bytes = [hex_str_to_dec(str[i:i + 2]) for i in range(0, len(str), 2)]
+    printable = all((0x20 <= hex_byte <= 0x7E) for hex_byte in hex_bytes)
+    return bytearray.fromhex(str).decode() if printable else ''
+
+
 def to_hex_string(bytes=[], format=0):
     """Returns a hex string representing bytes
 
