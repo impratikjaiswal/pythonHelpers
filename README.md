@@ -1,3 +1,3 @@
 # pythonHelpers
 
-This package contains common utiltiy functions of python.
+This package contains common utility functions of python.
