@@ -4,8 +4,7 @@ import os
 
 from setuptools import setup, find_packages
 
-version = "v1.1.0"
-name = "pythonHelpers"
+from util_helpers.constants_config import ConfigConst
 
 # all packages dependencies
 packages = find_packages()
@@ -24,8 +23,8 @@ with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="u
     long_description = fd.read()
 
 setup(
-    name=name,
-    version=version,
+    name=ConfigConst.TOOL_NAME,
+    version={ConfigConst.TOOL_VERSION_DETAILED},
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
     description="A Python software package suite to provide various utility functions",

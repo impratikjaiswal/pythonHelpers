@@ -1,6 +1,8 @@
 import string
 import sys
 
+from util_helpers.constants_config import ConfigConst
+
 
 def is_hex(s):
     # Don't verify length here, this is just to verify String Type
@@ -108,3 +110,7 @@ def print_version(tool_name, tool_version, log=None):
     print_or_log(f'Python version is {sys.version}')
     print_or_log(get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
     print_separator(log=log)
+
+
+def print_version_pkg(package_name=ConfigConst.tool_name, package_version=ConfigConst.tool_version, log=None):
+    print_version(package_name, package_version, log)
