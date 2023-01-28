@@ -24,7 +24,7 @@ with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="u
 
 setup(
     name=ConfigConst.TOOL_NAME,
-    version={ConfigConst.TOOL_VERSION_DETAILED},
+    version=ConfigConst.TOOL_VERSION_DETAILED,
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
     description="A Python software package suite to provide various utility functions",
