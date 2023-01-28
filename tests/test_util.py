@@ -5,6 +5,7 @@ from argparse import Namespace
 from pathlib import PurePath
 
 from util_helpers import util
+from util_helpers.constants import Constants
 
 STR_TEST_OBJ = 'test_obj :'
 
@@ -50,6 +51,13 @@ class test_obj_dec_to_hex:
 class test_obj_hex_str_to_dec:
     def __init__(self, hex_str, expected_op=None):
         self.hex_str = hex_str
+        self.expected_op = expected_op
+
+
+class test_obj_to_hex_string:
+    def __init__(self, hex_bytes, format=None, expected_op=None):
+        self.hex_bytes = hex_bytes
+        self.format = format
         self.expected_op = expected_op
 
 
@@ -143,7 +151,7 @@ class util_test(unittest.TestCase):
                                          new_ext='.out', expected_op='pjklmnop_output_data_20210721.out'),
             test_obj_append_in_file_name(
                 str_file_path=os.sep.join([util.path_default_tst_folder, 'prog', 'raw', 'prog']), new_ext='.txt',
-                expected_op= os.sep.join([util.path_default_tst_folder, 'prog', 'raw', 'prog.txt'])),
+                expected_op=os.sep.join([util.path_default_tst_folder, 'prog', 'raw', 'prog.txt'])),
             test_obj_append_in_file_name(
                 str_file_path=os.sep.join([util.path_default_out_folder, 'names_Generated']),
                 str_append='fileNameKeyword', new_ext='.txt',
@@ -305,6 +313,38 @@ class util_test(unittest.TestCase):
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 self.assertEqual(util.hex_str_to_dec(test_obj.hex_str), test_obj.expected_op)
+
+    def test_to_hex_string(self):
+        """
+
+        :return:
+        """
+        hex_bytes = [0x3B, 0x65, 0x00, 0x00, 0x9C, 0x11, 0x01, 0x01, 0x03]
+        test_obj_pool = [
+            test_obj_to_hex_string(hex_bytes, expected_op='3B 65 00 00 9C 11 01 01 03'),
+            test_obj_to_hex_string(hex_bytes, format=Constants.FORMAT_HEX_STRING_AS_COMMA,
+                                   expected_op='3B, 65, 00, 00, 9C, 11, 01, 01, 03'),
+            test_obj_to_hex_string(hex_bytes, format=Constants.FORMAT_HEX_STRING_AS_HEX,
+                                   expected_op='0x3B 0x65 0x00 0x00 0x9C 0x11 0x01 0x01 0x03'),
+            test_obj_to_hex_string(hex_bytes,
+                                   format=Constants.FORMAT_HEX_STRING_AS_HEX | Constants.FORMAT_HEX_STRING_AS_COMMA,
+                                   expected_op='0x3B, 0x65, 0x00, 0x00, 0x9C, 0x11, 0x01, 0x01, 0x03'),
+            test_obj_to_hex_string(hex_bytes,
+                                   format=Constants.FORMAT_HEX_STRING_AS_HEX | Constants.FORMAT_HEX_STRING_AS_UPPERCASE,
+                                   expected_op='0X3B 0X65 0X00 0X00 0X9C 0X11 0X01 0X01 0X03'),
+            test_obj_to_hex_string(hex_bytes,
+                                   format=Constants.FORMAT_HEX_STRING_AS_HEX | Constants.FORMAT_HEX_STRING_AS_UPPERCASE | Constants.FORMAT_HEX_STRING_AS_COMMA,
+                                   expected_op='0X3B, 0X65, 0X00, 0X00, 0X9C, 0X11, 0X01, 0X01, 0X03'),
+            test_obj_to_hex_string(hex_bytes, format=Constants.FORMAT_HEX_STRING_AS_PACK,
+                                   expected_op='3B6500009C11010103'),
+        ]
+
+        for count, test_obj in enumerate(test_obj_pool, start=1):
+            with self.subTest(STR_TEST_OBJ + str(count)):
+                if test_obj.format:
+                    self.assertEqual(util.to_hex_string(test_obj.hex_bytes, test_obj.format), test_obj.expected_op)
+                else:
+                    self.assertEqual(util.to_hex_string(test_obj.hex_bytes), test_obj.expected_op)
 
     def test_hex_str_to_hex_list(self):
         """
