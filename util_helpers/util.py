@@ -112,5 +112,5 @@ def print_version(tool_name, tool_version, log=None):
     print_separator(log=log)
 
 
-def print_version_pkg(package_name=ConfigConst.tool_name, package_version=ConfigConst.tool_version, log=None):
+def print_version_pkg(package_name=ConfigConst.TOOL_NAME, package_version=ConfigConst.TOOL_VERSION, log=None):
     print_version(package_name, package_version, log)
