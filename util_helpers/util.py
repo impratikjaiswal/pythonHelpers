@@ -1,10 +1,13 @@
+import fnmatch
 import os
 import re
 import string
-import sys
+from datetime import datetime
 from io import TextIOWrapper
 
 import pkg_resources
+import sys
+import time
 from packaging import version
 
 from util_helpers.constants import Constants
@@ -422,7 +425,6 @@ def makedirs(dir_path):
         os.makedirs(dir_path)
 
 
-
 def dec_to_hex(dec_num, digit_required=None, even_digits=True):
     # return hex(dec_num).split('x')[-1].upper()
     # return '0x{:02x}'.format(dec_num)
@@ -480,6 +482,19 @@ def normalise_name_pandas_to_user(col_name, all_caps_keywords=None):
         all_caps_keywords = ['ICCID', 'IMSI', 'ID', 'MSISDN']
     return ' '.join(
         x.title() if x not in all_caps_keywords else x for x in [x for x in re.split('_', string=str(col_name))])
+
+
+def str_insert_char_repeatedly(my_str, group=3, char=',', reverse=False):
+    my_str = str(my_str)
+    start = 0
+    end = len(my_str)
+    pre_str = ''
+    post_str = ''
+    if reverse:
+        start = end % group
+        pre_str = my_str[0:start]
+    post_str = char.join(my_str[i:i + group] for i in range(start, end, group))
+    return char.join(filter(None, [pre_str, post_str]))
 
 
 def hex_str_to_ascii(str):
