@@ -321,6 +321,108 @@ def get_time_stamp(files_format=True, date_only=False):
     return str(date_time)
 
 
+traverse_modes = ['ImmediateFilesOnly', 'ImmediateFoldersOnly', 'ImmediateFolderAndFiles',
+                  'RecursiveFilesOnly', 'RecursiveFoldersOnly', 'RecursiveAll', 'Regex']
+
+
+def traverse_it(top=path_current_folder, traverse_mode='Regex', include_files=[], include_dirs=[], excludes=[],
+                detail_info=False):
+    """
+    Usage: python <programName.py> <folderName>
+
+    glob: https://en.wikipedia.org/wiki/Glob_(programming)
+    :param top:
+    :param traverse_mode:
+    :param include_files: applicable only when traverseMode is 'Regex'
+        Sample: ['*.mp3', '*.mp4']
+    :param include_dirs:
+    :param excludes: for dirs and files, applicable only when traverseMode is 'Regex'
+        Sample1: ['/home/paulo-freitas/Documents']
+        Sample2: ["E:\\Entertainment\\Songs_Mp3\\19's", "E:\\Entertainment\\Songs_Mp3\\2000-2009"]
+    :param detail_info:
+    :return:
+    """
+    output_list = []
+    output_list_temp = []
+
+    print("traverseMode: ", traverse_mode)
+    print("top: ", top)
+
+    if traverse_mode == 'Regex':
+        # transform glob patterns to regular expressions
+        include_files = r'|'.join([fnmatch.translate(x) for x in include_files])
+        include_dirs = r'|'.join([fnmatch.translate(x) for x in include_dirs])
+        excludes = r'|'.join([fnmatch.translate(x) for x in excludes]) or r'$.'
+        print("include_files: ", include_files)
+        print("include_dirs: ", include_dirs)
+        print("excludes: ", excludes)
+
+    for dirpath, dirnames, filenames in os.walk(top):
+        if traverse_mode == 'ImmediateFilesOnly':
+            for filename in filenames:
+                if dirpath == top:
+                    filepath = os.path.join(dirpath, filename)
+                    output_list.append(filepath)
+
+        if traverse_mode == 'ImmediateFoldersOnly':
+            for dirname in dirnames:
+                if dirpath == top:
+                    filepath = os.path.join(dirpath, dirname)
+                    output_list.append(filepath)
+
+        if traverse_mode == 'ImmediateFolderAndFiles':
+            output_list_temp = traverse_it(top, traverse_mode='ImmediateFoldersOnly')
+            output_list = output_list_temp
+            output_list_temp = traverse_it(top, traverse_mode='ImmediateFilesOnly')
+            output_list = output_list + output_list_temp
+
+        if traverse_mode == 'RecursiveFilesOnly':
+            for filename in filenames:
+                try:
+                    filepath = os.path.join(dirpath, filename)
+                    if detail_info:
+                        filesize = str_insert_char_repeatedly(os.stat(filepath).st_size, reverse=True)
+                        fileext = get_file_name_and_extn(filename, only_extn=True, extn_with_out_dot=True)
+                        pattern = [filename, filepath, filesize, fileext]
+                        output_list.append("\t".join(pattern))
+                    else:
+                        output_list.append(filepath)
+                except:
+                    pass
+
+        if traverse_mode == 'RecursiveFoldersOnly':
+            for dirname in dirnames:
+                filepath = os.path.join(dirpath, dirname)
+                output_list.append(filepath)
+
+        if traverse_mode == 'RecursiveAll':
+            output_list_temp = traverse_it(top, traverse_mode='RecursiveFoldersOnly')
+            output_list = output_list_temp
+            output_list_temp = traverse_it(top, traverse_mode='RecursiveFilesOnly')
+            output_list = output_list + output_list_temp
+
+        if traverse_mode == 'Regex':
+            # Ref: https://stackoverflow.com/a/5141829
+
+            # exclude dirs
+            dirnames[:] = [os.path.join(dirpath, d) for d in dirnames]
+            dirnames[:] = [d for d in dirnames if not re.match(excludes, d)]
+            # include dirs
+            dirnames[:] = [d for d in dirnames if re.match(include_dirs, d)]
+            # exclude/include filenames
+            filenames = [os.path.join(dirpath, f) for f in filenames]
+            filenames = [f for f in filenames if not re.match(excludes, f, re.IGNORECASE)]
+            filenames = [f for f in filenames if re.match(include_files, f, re.IGNORECASE)]
+            output_list = output_list + filenames
+    return output_list
+
+
+def makedirs(dir_path):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+
+
+
 def dec_to_hex(dec_num, digit_required=None, even_digits=True):
     # return hex(dec_num).split('x')[-1].upper()
     # return '0x{:02x}'.format(dec_num)
