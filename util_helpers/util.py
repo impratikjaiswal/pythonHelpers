@@ -200,7 +200,7 @@ def analyse_data(str_hex_data, cmt_to_print='', print_also=False, log=None):
 
 
 def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False, extn_with_out_dot=False,
-                           only_path=False, ext_available=True, path_with_out_extn=False):
+                           only_path=False, ext_available=True, path_with_out_extn=False, only_folder_name=False):
     """
 
     :param file_path:
@@ -223,6 +223,8 @@ def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False,
     path = file_path.replace(file_name, '')
     if only_path:
         return path
+    if only_folder_name:
+        return os.path.split(file_path)[-1]
     if ext_available:
         extn = os.path.splitext(file_path)[1]
         if not extn:
