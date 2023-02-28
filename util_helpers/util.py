@@ -1,14 +1,30 @@
+import enum
 import fnmatch
+import inspect
 import os
+import random
 import re
+import secrets
 import string
 from datetime import datetime
-from io import TextIOWrapper
+from io import TextIOWrapper, StringIO
 
+import math
+import pandas as pd
 import pkg_resources
 import sys
 import time
 from packaging import version
+from pandas import DataFrame
+
+from util_helpers.constants_config import ConfigConst
+
+_base_profiles_available = False
+_psutil_available = True
+try:
+    import psutil
+except ImportError:
+    _psutil_available = False
 
 from util_helpers.constants import Constants
 
@@ -18,7 +34,55 @@ path_default_res_folder = path_current_folder + os.sep + 'res'
 path_default_log_folder = path_current_folder + os.sep + 'logs'
 path_default_out_folder = path_current_folder + os.sep + 'out'
 path_default_tst_folder = path_current_folder + os.sep + 'tests'
-from util_helpers.constants_config import ConfigConst
+# Sample Data:
+# in Real Environament: D:\ProgramFiles\Python37
+# in Virtual Environament: D:\Other\Github_Self\asn1Play\.venv\Scripts
+path_python_folder = os.path.split(sys.executable)[0]
+path_python_script_folder = os.sep.join([path_python_folder, 'Scripts']) if not path_python_folder.endswith(
+    'Scripts') else path_python_folder
+path_python_executable = sys.executable
+
+
+def test(actual, expected):
+    """
+    Simple provided test() function used in other functions() to print what each function returns vs. what it's supposed to return.
+    :param actual: any Object (Actual Output)
+    :param expected: any Object (Expected Output)
+    :return: None
+    """
+    if actual == expected:
+        prefix = ' OK '
+    else:
+        prefix = '    X '
+    print('%s got: %s, expected: %s' % (prefix, repr(actual), repr(expected)))
+
+
+# Deprecated
+def line_is_comment(str):
+    return line_is_comment_or_empty(str)
+
+
+def line_is_comment_or_empty(str):
+    # Check if line is a comment
+    comments_pool = ['#', '*', ';', '-', '/*']
+    for comment_char in comments_pool:
+        if len(str.strip()) == 0 or str.strip().startswith(comment_char):
+            return True
+    return False
+
+
+def string_is_blank(str):
+    # Check if line is a comment
+    return True if str is None or str.strip() == '' else False
+
+
+def string_is_not_blank(str):
+    """
+
+    :param str:
+    :return:
+    """
+    return not string_is_blank(str)
 
 
 def trim_and_kill_all_white_spaces(str):
@@ -157,7 +221,10 @@ def print_error(str_heading, log=None):
 
 
 def get_tool_name_w_version(tool_name=None, tool_version=None):
-    return ' version is '.join(filter(None, [tool_name, f'v{tool_version}' if tool_version else None]))
+    if tool_version:
+        version_keyword_needed = False if tool_version.strip().lower().startswith('v') else True
+        tool_version = f'v{tool_version}' if version_keyword_needed else tool_version
+    return ' version is '.join(filter(None, [tool_name, tool_version]))
 
 
 def print_version(tool_name, tool_version, with_python_version=True, log=None):
@@ -173,6 +240,13 @@ def print_version_pkg(package_name=ConfigConst.TOOL_NAME, package_version=Config
                       with_python_version=True, log=None):
     print_version(tool_name=package_name, tool_version=package_version, with_python_version=with_python_version,
                   log=log)
+
+
+def print_heading(str_heading, char='#', count=80, log=None):
+    print_or_log = log.info if log else print
+    remaining_count = count - len(str_heading) - 2
+    print_or_log(
+        ''.join([char * math.ceil(remaining_count / 2), ' ', str_heading, ' ', char * int(remaining_count / 2)]))
 
 
 def print_data(cmt_to_print, str_hex_data='', log=None):
@@ -220,11 +294,12 @@ def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False,
         file_path = file_path.replace('\\', '/')
         sep_char = '/'
     file_name = file_path.split(sep_char)[-1]
+    folder_name = file_path.split(sep_char)[-2]
     path = file_path.replace(file_name, '')
     if only_path:
         return path
     if only_folder_name:
-        return os.path.split(file_path)[-1]
+        return folder_name
     if ext_available:
         extn = os.path.splitext(file_path)[1]
         if not extn:
@@ -326,6 +401,18 @@ def get_time_stamp(files_format=True, date_only=False):
     return str(date_time)
 
 
+def get_user_friendly_name(python_variable_name):
+    temp_data = re.sub(r'[_]', repl=' ', string=python_variable_name)
+    return temp_data.title()
+
+
+def get_python_friendly_name(user_variable_name, all_lower=True):
+    if isinstance(user_variable_name, str):
+        temp_data = re.sub(r'[ |-]', repl='_', string=user_variable_name)
+        return temp_data.lower() if all_lower else temp_data.title()
+    return user_variable_name
+
+
 traverse_modes = ['ImmediateFilesOnly', 'ImmediateFoldersOnly', 'ImmediateFolderAndFiles',
                   'RecursiveFilesOnly', 'RecursiveFoldersOnly', 'RecursiveAll', 'Regex']
 
@@ -422,9 +509,161 @@ def traverse_it(top=path_current_folder, traverse_mode='Regex', include_files=[]
     return output_list
 
 
+def get_random_string_for_variable(var_name):
+    """
+
+    :param var_name:
+    :return:
+    """
+    var_name = get_synonym_of_variable_name(var_name)
+    if var_name in Constants.POOL_4_DIGITS_LENGTH:
+        size = 4
+        str_type = Constants.STR_TYPE_NUMERIC
+    elif var_name in Constants.POOL_8_DIGITS_LENGTH:
+        size = 8
+        str_type = Constants.STR_TYPE_NUMERIC
+    elif var_name in Constants.POOL_16_BYTES_LENGTH:
+        size = 16
+        str_type = Constants.STR_TYPE_HEX
+    else:
+        return ''
+    return get_random_string(size, str_type)
+
+
+def get_random_string(target_str_length=8, str_type=Constants.STR_TYPE_HEX):
+    """
+
+    :param target_str_length:
+    :param str_type:
+    :return:
+    """
+    if str_type == Constants.STR_TYPE_PLAIN:
+        letters = string.ascii_letters + string.digits
+        return ''.join(random.choice(letters) for _ in range(target_str_length))
+    if str_type == Constants.STR_TYPE_HEX:
+        return secrets.token_hex(target_str_length).upper()
+    if str_type == Constants.STR_TYPE_NUMERIC:
+        letters = string.digits
+    return ''.join(random.choice(letters) for _ in range(target_str_length))
+
+
+def get_synonym_of_variable_name(var_name, var_type=Constants.VAR_TYPE_OUT):
+    """
+
+    :param var_name:
+    :param var_type:
+    :return:
+    """
+    default_offset = (1 if var_type == Constants.VAR_TYPE_PROFILE else 0)
+    pools = [
+        Constants.VAR_POOL_ICCID, Constants.VAR_POOL_IMSI, Constants.VAR_POOL_IMSI2, Constants.VAR_POOL_KI,
+        #
+        Constants.VAR_POOL_PIN1, Constants.VAR_POOL_PIN2, Constants.VAR_POOL_2_PIN1, Constants.VAR_POOL_3_PIN1,
+        #
+        Constants.VAR_POOL_PUK1, Constants.VAR_POOL_PUK2, Constants.VAR_POOL_2_PUK1, Constants.VAR_POOL_3_PUK1,
+        #
+        Constants.VAR_POOL_ADM1, Constants.VAR_POOL_ADM2, Constants.VAR_POOL_ADM3,
+        #
+        Constants.VAR_POOL_ACC,
+        #
+        Constants.VAR_POOL_KIC1, Constants.VAR_POOL_KID1, Constants.VAR_POOL_KIK1,
+        #
+        Constants.VAR_POOL_KIC2, Constants.VAR_POOL_KID2, Constants.VAR_POOL_KIK2,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_01, Constants.VAR_POOL_MNO_SD_KID_01, Constants.VAR_POOL_MNO_SD_KIK_01,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_02, Constants.VAR_POOL_MNO_SD_KID_02, Constants.VAR_POOL_MNO_SD_KIK_02,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_03, Constants.VAR_POOL_MNO_SD_KID_03, Constants.VAR_POOL_MNO_SD_KIK_03,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_04, Constants.VAR_POOL_MNO_SD_KID_04, Constants.VAR_POOL_MNO_SD_KIK_04,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_05, Constants.VAR_POOL_MNO_SD_KID_05, Constants.VAR_POOL_MNO_SD_KIK_05,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_06, Constants.VAR_POOL_MNO_SD_KID_06, Constants.VAR_POOL_MNO_SD_KIK_06,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_07, Constants.VAR_POOL_MNO_SD_KID_07, Constants.VAR_POOL_MNO_SD_KIK_07,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_08, Constants.VAR_POOL_MNO_SD_KID_08, Constants.VAR_POOL_MNO_SD_KIK_08,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_09, Constants.VAR_POOL_MNO_SD_KID_09, Constants.VAR_POOL_MNO_SD_KIK_09,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_0A, Constants.VAR_POOL_MNO_SD_KID_0A, Constants.VAR_POOL_MNO_SD_KIK_0A,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_0B, Constants.VAR_POOL_MNO_SD_KID_0B, Constants.VAR_POOL_MNO_SD_KIK_0B,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_0C, Constants.VAR_POOL_MNO_SD_KID_0C, Constants.VAR_POOL_MNO_SD_KIK_0C,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_0D, Constants.VAR_POOL_MNO_SD_KID_0D, Constants.VAR_POOL_MNO_SD_KIK_0D,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_0E, Constants.VAR_POOL_MNO_SD_KID_0E, Constants.VAR_POOL_MNO_SD_KIK_0E,
+        #
+        Constants.VAR_POOL_MNO_SD_KIC_0F, Constants.VAR_POOL_MNO_SD_KID_0F, Constants.VAR_POOL_MNO_SD_KIK_0F,
+        #
+    ]
+    for pool in pools:
+        if var_name in pool:
+            return pool[default_offset]
+    return var_name
+
+
+def generate_range_str(start_point, end_point, func=None):
+    range_data = []
+    start_counter = int(start_point[len(start_point) - Constants.MAX_SUPPORTED_DIGIT_IN_INT:])
+    end_counter = int(end_point[len(end_point) - Constants.MAX_SUPPORTED_DIGIT_IN_INT:])
+    start_point = start_point[:-Constants.MAX_SUPPORTED_DIGIT_IN_INT]
+    for count in range(start_counter, end_counter + 1):
+        data = start_point + str(count).zfill(Constants.MAX_SUPPORTED_DIGIT_IN_INT)
+        if func:
+            data = func(data)
+        range_data.append(data)
+    return range_data
+
+
 def makedirs(dir_path):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
+
+
+def find_offset_of_section(data, char_to_find, corresponding_char_to_find):
+    """
+    Considering Ideal Scenario: Any target char is not present as a comment
+    Data Pattern is correct,target characters are available in pairs
+
+    :param data:
+    :param char_to_find:
+    :param corresponding_char_to_find:
+    :return:
+    """
+    slack = []
+    start_char_list = [m.start() for m in re.finditer(char_to_find, data)]
+    end_char_list = [m.start() for m in re.finditer(corresponding_char_to_find, data)]
+    start_char_list_len = len(start_char_list)
+    end_char_list_len = len(end_char_list)
+    # print('start_char_list', start_char_list)
+    # print('end_char_list', end_char_list)
+    # print('start_char_list_len', start_char_list_len)
+    # print('end_char_list_len', end_char_list_len)
+    index_start_char = 0
+    index_end_char = 0
+    count = 0
+    end_char = len(data)  # assignment is needed for the wrong case when target chars are not present
+    while count < start_char_list_len + end_char_list_len:
+        count += 1
+        start_char = int(start_char_list[index_start_char]) if index_start_char < start_char_list_len else -1
+        end_char = int(end_char_list[index_end_char]) if index_end_char < end_char_list_len else -1
+        if start_char < end_char and start_char != -1:
+            # print('pushed', start_char)
+            index_start_char += 1
+            slack.append(start_char)
+        else:
+            # print('poped', end_char)
+            index_end_char += 1
+            slack.pop()
+        if len(slack) == 0:
+            # print(corresponding_char_to_find, end_char)
+            break;
+    return end_char
 
 
 def dec_to_hex(dec_num, digit_required=None, even_digits=True):
@@ -473,6 +712,113 @@ def lstrip_str(plain_str, data_to_strip):
     return re.sub(pattern, '', plain_str)
 
 
+def analyse_profile(base_profile, imp_info=False):
+    if isinstance(base_profile, bytes):
+        base_profile = base_profile.hex()
+    bp_name = ''
+    bp_status = False
+    if _base_profiles_available:
+        for key in base_profiles.profile_pool_hex:
+            if base_profiles.profile_pool_hex.get(key).lower() in base_profile.lower():
+                bp_name = key
+                bp_status = True
+                break
+    # Logic is needed to analyse Custom Profiles
+    msg = [f'Profile Name is: {bp_name}{" (Base Profile)" if bp_status else ""}']
+    if imp_info:
+        module_name = Constants.MODULE_PYCRATE_NAME
+        module_version = get_module_version(module_name)[0]
+        msg.append(
+            f'\n',
+            f'Important Info: ',
+            f'{module_name} version is: {module_version}',
+        )
+    return '\n'.join(msg), bp_status
+
+
+def get_key_from_dict_based_on_val(my_dict, value_to_check, operation=None):
+    for key, value in my_dict.items():
+        if operation == 'startswith':
+            if value_to_check.startswith(value):
+                return key
+        elif value == value_to_check:
+            return key
+    return None
+
+
+def remove_file(file_path):
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        print('File {0} deleted successfully.'.format(file_path))
+    else:
+        print('File {0} does not exist.'.format(file_path))
+
+
+def get_current_func_name():
+    # print(inspect.stack()[0][3])  # will give current
+    # print(inspect.stack()[1][3])  # will give the caller (Parent)
+    return inspect.stack()[1][3]
+
+
+ENCLOSE_HEX = 1
+ENCLOSE_NAME_VALUE = 2
+ENCLOSE_NAME_VALUE_HEX = 3
+ENCLOSE_NAME_VALUE_DICT = 4
+ENCLOSE_NAME_VALUE_HEX_DICT = 5
+ENCLOSE_NAME_VALUE_SEQ_DICT = 6
+ENCLOSE_NAME_VALUE_SEQ = 7
+ENCLOSE_COMMENT = 8
+
+
+def enclose(format, data1, data2='', indent_level=0):
+    space = '  ' * indent_level
+    if format == ENCLOSE_COMMENT:
+        return space + "-- " + str(data1)
+    if format == ENCLOSE_HEX:
+        return space + "'" + str(data1) + "'H"
+    if format == ENCLOSE_NAME_VALUE:  # identification 0
+        return space + data1 + ' ' + data2
+    if format == ENCLOSE_NAME_VALUE_HEX:  # efFileSize '68'H
+        return space + data1 + ' ' + enclose(ENCLOSE_HEX, data2)
+    if format == ENCLOSE_NAME_VALUE_DICT:  # doNotCreate : NULL
+        return space + data1 + ' : ' + data2
+    if format == ENCLOSE_NAME_VALUE_HEX_DICT:  # filePath : '7FF1'H
+        return space + data1 + ' : ' + enclose(ENCLOSE_HEX, data2)
+    if format in [ENCLOSE_NAME_VALUE_SEQ, ENCLOSE_NAME_VALUE_SEQ_DICT]:  # templateID {0 0} # fileDescriptor : {...}
+        separator = ' ' if format == ENCLOSE_NAME_VALUE_SEQ else ' : '
+        if data1 == '':
+            separator = ''
+        if isinstance(data2, str):
+            return space + data1 + separator + '{' + data2 + '}'
+        if isinstance(data2, list):
+            if len(data2) == 0:  # Empty List
+                return space + data1 + separator + '{ }'
+            return space + data1 + separator + '{\n' + ',\n'.join(data2) + '\n' + space + '}'
+    return data1
+
+
+def normalise_name_user_to_pandas(col_name, upper_case=True, fix_names=[]):
+    # Remove unwanted var_out
+    res_items = [ele for ele in Constants.KEYWORD_VARIABLE_DECLARATION_OUT if (ele in col_name)]
+    for item in res_items:
+        col_name = col_name.replace(item, '')
+    # Remove these Chars
+    temp_data = re.sub(r'[(]|[)]|[.]|[:]', repl='', string=col_name)
+    # Strip Unnecessary White Spaces
+    temp_data = temp_data.strip()
+    # Replace these Chars
+    temp_data = re.sub(r'[ ]|[/]', repl='_', string=temp_data)
+    # Remove Multiple Occurrences Of '_'
+    temp_data = re.sub(r'[_]+', repl='_', string=temp_data)
+    # Convert the case
+    if fix_names:
+        temp_fix_names = [each_string.lower() for each_string in fix_names]
+        if temp_data.lower() in temp_fix_names:
+            return fix_names[temp_fix_names.index(temp_data.lower())]
+    temp_data = temp_data.upper() if upper_case else temp_data.lower()
+    return temp_data
+
+
 def normalise_name_pandas_to_user(col_name, all_caps_keywords=None):
     """
 
@@ -486,6 +832,169 @@ def normalise_name_pandas_to_user(col_name, all_caps_keywords=None):
         x.title() if x not in all_caps_keywords else x for x in [x for x in re.split('_', string=str(col_name))])
 
 
+def read_csv(file_name, sep='\s+', rename_col=False, comment='*', print_shape=True, print_frame=False
+             # , encoding='unicode_escape'
+             , names=None
+             , encoding=None
+             , log=None):
+    if names:
+        obj = pd.read_csv(file_name, sep=sep, dtype='str', na_filter=False, skip_blank_lines=True, comment=comment,
+                          encoding=encoding, names=names)
+    else:
+        obj = pd.read_csv(file_name, sep=sep, dtype='str', na_filter=False, skip_blank_lines=True, comment=comment,
+                          encoding=encoding)
+    #
+    rename_col_dict = {}
+    if rename_col:
+        # Fixing Messy Column Names
+        for col_name in list(obj):
+            rename_col_dict[col_name] = normalise_name_user_to_pandas(col_name)
+        obj.rename(columns=rename_col_dict, inplace='True')
+    if print_shape:
+        print_data_frame_shape(obj, '' if isinstance(file_name, StringIO) else file_name, log=log)
+    if print_frame:
+        print_data_frame(obj, log=log)
+    return obj
+
+
+def to_csv(output, file_name, str_append='', new_ext='', sep=' ', index=False, print_shape=True, print_frame=False,
+           encoding=None, log=None):
+    if print_shape:
+        print_data_frame_shape(output, file_name, log=log)
+    if print_frame:
+        print_data_frame(output)
+    if str_append or new_ext:
+        file_name = append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
+    makedirs(get_file_name_and_extn(file_name, only_path=True))
+    output.to_csv(path_or_buf=file_name, index=index, sep=sep, encoding=encoding)
+    return file_name
+
+
+def compare_two_data_frame(file_input_left, file_input_right, col_name, file_result='', sort=False, print_shape=True,
+                           print_frame=False, encoding=None, log=None):
+    local_data_left = file_input_left if isinstance(file_input_left, DataFrame) else \
+        read_csv(file_input_left, sep=',', encoding=encoding, log=log)
+    local_data_right = file_input_right if isinstance(file_input_right, DataFrame) else \
+        read_csv(file_input_right, sep=',', encoding=encoding, log=log)
+    file_output_left = ''
+    file_output_common = ''
+    file_output_right = ''
+    if not file_result:
+        file_result = append_in_file_name(
+            str_file_path=append_in_file_name(
+                str_file_path=os.sep.join([path_default_out_folder, '']),
+                str_append=[col_name, '1st'], new_ext='.txt')
+            if isinstance(file_input_left, DataFrame) else file_input_left,
+            str_append=['vs', ('2nd' if isinstance(file_input_right, DataFrame) else
+                               get_file_name_and_extn(file_input_right, name_with_out_extn=True))])
+    """
+    Left
+    """
+    file_output_left = append_in_file_name(str_file_path=file_result, str_append='left')
+    # outData = local_data_left[~local_data_left.col_name.isin(local_data_right.col_name)] # Getting error for this
+    out_data = local_data_left[~local_data_left[col_name].isin(local_data_right[col_name])]
+    out_data.to_csv(path_or_buf=file_output_left, index=False)
+    if sort:
+        file_output_left = append_in_file_name(str_file_path=file_output_left, str_append='sorted')
+    out_data = out_data.sort_values(by=col_name)
+    out_data.to_csv(path_or_buf=file_output_left, index=False)
+    if print_shape:
+        print_data_frame_shape(out_data, file_output_left, log=log)
+    if print_frame:
+        print_data_frame(out_data, log=log)
+    """
+    Right
+    """
+    file_output_right = append_in_file_name(str_file_path=file_result, str_append='right')
+    out_data = local_data_right[~local_data_right[col_name].isin(local_data_left[col_name])]
+    out_data.to_csv(path_or_buf=file_output_right, index=False)
+    if sort:
+        file_output_right = append_in_file_name(str_file_path=file_output_right, str_append='sorted')
+    out_data = out_data.sort_values(by=col_name)
+    out_data.to_csv(path_or_buf=file_output_right, index=False)
+    if print_shape:
+        print_data_frame_shape(out_data, file_output_right, log=log)
+    if print_frame:
+        print_data_frame(out_data, log=log)
+    """
+    Common
+    """
+    file_output_common = append_in_file_name(str_file_path=file_result, str_append='common')
+    out_data = local_data_left[local_data_left[col_name].isin(local_data_right[col_name])]
+    out_data.to_csv(path_or_buf=file_output_common, index=False)
+    if sort:
+        file_output_common = append_in_file_name(str_file_path=file_output_common, str_append='sorted')
+        out_data = out_data.sort_values(by=col_name)
+        out_data.to_csv(path_or_buf=file_output_common, index=False)
+    if print_shape:
+        print_data_frame_shape(out_data, file_output_common, log=log)
+    if print_frame:
+        print_data_frame(out_data, log=log)
+    return file_output_left, file_output_common, file_output_right
+
+
+def strip_all_columns(df_input):
+    df_obj = df_input.select_dtypes(['object'])
+    df_input[df_obj.columns] = df_obj.apply(lambda x: x.str.strip())
+    return df_input
+
+
+"""
+    Help: Print
+    options:
+    print(list(output))
+    output.info()
+    print(output)
+    print(output.head())
+    print(output[['ICCID']])
+    print(output['ICCID'].head())
+
+"""
+
+
+def print_data_frame(output, cmt='', level=0, log=None):
+    if not isinstance(output, DataFrame):
+        return
+    pd.set_option('display.max_columns', None)
+    print_or_log = log.info if log else print
+    # pd.set_option('display.max_rows', None)
+    print_or_log(cmt)
+    if level == 0:
+        print_or_log(output.head())
+    if level == 1:
+        print_or_log(output.tail())
+    if level == 2:
+        print_or_log(output.to_string(index=False))
+    if level == 3:
+        pd.set_option("display.max_rows", None, "display.max_columns", None)
+        print_or_log(output)
+
+
+def print_data_frame_shape(output, cmt='', level=1, log=None):
+    if not isinstance(output, DataFrame):
+        return
+    count_row, count_col = output.shape
+    print_or_log = log.info if log else print
+    print_or_log(','.join(filter(None, ["Shape: {} x {}".format(count_row, count_col), cmt])))
+    # Faster alternate
+    # count_row = len(output.index)
+    if level < 1:
+        return
+    print_or_log(list(output))
+    if level < 2:
+        return
+    print_or_log(output.info())
+
+
+def find_offset_of_next_non_white_space_char(temp, current_offset):
+    new_offset = current_offset
+    for a in temp[current_offset:]:
+        if not a.isspace():
+            break
+        new_offset += 1
+    return new_offset
+
+
 def str_insert_char_repeatedly(my_str, group=3, char=',', reverse=False):
     my_str = str(my_str)
     start = 0
@@ -497,6 +1006,63 @@ def str_insert_char_repeatedly(my_str, group=3, char=',', reverse=False):
         pre_str = my_str[0:start]
     post_str = char.join(my_str[i:i + group] for i in range(start, end, group))
     return char.join(filter(None, [pre_str, post_str]))
+
+
+def prepare_file_name(keywords_list, file_ext='.txt', time_stamp=True):
+    sep = '_'
+    file_name = keywords_list
+    time_str = get_time_stamp(files_format=True) if time_stamp else ''
+    if isinstance(keywords_list, list):
+        keywords_list.append(time_str)
+        file_name = sep.join(filter(None, keywords_list))
+    sep = ''
+    return sep.join([file_name, file_ext])
+
+
+def format_profile_parsing_log(profile_hex_data, profiles_asn_data, profile_name=None):
+    """
+
+    :param profile_hex_data:
+    :param profiles_asn_data:
+    :param profile_name:
+    :return: dict with log_folder, log_name, log_data
+    """
+    if not profile_name:
+        profile_name = 'Profile'
+    full_logging = True if (profile_hex_data and profiles_asn_data) else False
+    logging_data_list = []
+    file_ext = '.txt'
+    log_folder = None
+    file_name_keywords = []
+    if full_logging:
+        res_profile_name, res_bp_status = analyse_profile(profile_hex_data)
+        logging_data_list.append(res_profile_name)
+        logging_data_list.append('\n\n' + 'Hex Profile is: \n')
+    else:  # Any one is definitely True
+        if not profile_hex_data:
+            log_folder = 'asn1'
+            file_ext = '.asn1'
+        if not profiles_asn_data:
+            log_folder = 'hex'
+            file_ext = '.hex'
+    log_name = append_in_file_name(str_file_path=profile_name, str_append=file_name_keywords, new_ext=file_ext,
+                                   # Profile name could have a '.'
+                                   ext_available_in_file_name=False)
+    if profile_hex_data:
+        logging_data_list.append(profile_hex_data)
+    if full_logging:
+        logging_data_list.append('\n\n' + 'ASN Profile is: \n')
+    if profiles_asn_data:
+        logging_data_list.append(profiles_asn_data)
+    return {
+        'log_folder': log_folder,
+        'log_name': log_name,
+        'log_content': ''.join(logging_data_list),
+    }
+
+
+def ascii_to_hex_str(ascii_str):
+    return ascii_str.encode('utf-8').hex()
 
 
 def hex_str_to_ascii(str):
@@ -582,6 +1148,113 @@ def get_version_from_name(name, max_depth=None, trim_v=False):
         result = re.sub('[._-]', '_', match.group(0))
         return result[1:] if trim_v else result
     return ''
+
+
+def print_all_environment_variables(custom_only=False):
+    if custom_only:
+        for var in Constants.ENV_VARIABLES:
+            print(get_environment_variables(var))
+    else:
+        print_iter(os.environ)
+
+
+def str_to_bool(value):
+    if isinstance(value, bool):
+        return value
+    value = value.lower().strip()
+    if value in Constants.TRUE_VALUE_POOL:
+        return True
+    elif value in Constants.FALSE_VALUE_POOL:
+        return False
+    return None
+
+
+def is_clean_name(name):
+    return not name.startswith('_') and not name.endswith('_')
+
+
+def clean_names(lst):
+    return [n for n in lst if is_clean_name(n)]
+
+
+def get_obj_list(cls_to_explore, obj_name_filter, obj_name_needed=False, obj_value_to_find=None, clean_name=False,
+                 sort=False):
+    if cls_to_explore is None:
+        return ''
+    obj_list = [obj if obj_name_needed else getattr(cls_to_explore, obj)
+                for obj in cls_to_explore.__dict__ if str(obj).startswith(obj_name_filter)]
+    if clean_name:
+        obj_list = clean_names(obj_list)
+    if sort:
+        obj_list.sort()
+    if len(obj_list) > 0 and isinstance(obj_list[0], list):
+        obj_list = obj_list[0]
+    if isinstance(cls_to_explore, enum.EnumMeta):
+        obj_list = [cls_to_explore(obj).name for obj in obj_list]
+    if obj_value_to_find is None:
+        return obj_list
+    for obj in obj_list:
+        if obj.value == obj_value_to_find:
+            return obj.name
+    return ''
+
+
+def normalise_user_input(user_input):
+    temp_user_input = str_to_bool(user_input)
+    if temp_user_input is not None:
+        return temp_user_input
+    if user_input in Constants.EXIT_VALUE_POOL:
+        # return 'e'
+        sys.exit()
+    print(f'Oops! "{user_input}" was not a valid input. Try again...')
+    return None
+
+
+def get_environment_variables(var_name, check_presence_only=False):
+    # Check for Custom Variables
+    env_variable_name, env_variable_default_value = Constants.ENV_VARIABLES.get(var_name, (None, None))
+    if env_variable_name is None:
+        env_variable_name = var_name
+    try:
+        env_variable_value = os.environ[env_variable_name]
+        if check_presence_only:
+            return True
+        print(f'Environment Variable {env_variable_name} Found, value is {env_variable_value}')
+    except:
+        if check_presence_only:
+            return False
+        print(f'Environment Variable {env_variable_name} Not Found, using default Value {env_variable_default_value}')
+        env_variable_value = env_variable_default_value
+    return env_variable_value
+
+
+def format_data_as_hex(str_data):
+    return ' '.join(re.findall('([0-9a-zA-Z]{2}|[0-9a-zA-Z])', str_data))
+
+
+def append_path(dir_file_list):
+    return os.sep.join(filter(None, dir_file_list))
+
+
+def cpu_usage():
+    if _psutil_available:
+        res = psutil.cpu_times()
+        print(f'cpu_times is {res}')
+
+        res = psutil.cpu_percent(0.1)
+        print(f'cpu_percent is {res}')
+
+        res = psutil.cpu_times_percent(0.1)
+        print(f'cpu_times_percent is {res}')
+
+        res = psutil.cpu_stats()
+        print(f'cpu_stats is {res}')
+
+        res = psutil.cpu_freq()
+        print(f'cpu_freq is {res}')
+
+        res = [x / psutil.cpu_count() * 100 for x in psutil.getloadavg()]
+        print(f'getloadavg is {res}')
 
 
 def get_module_version(module_name=Constants.MODULE_PYCRATE_NAME, minimum_version_required=None):
