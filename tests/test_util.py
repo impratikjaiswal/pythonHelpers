@@ -123,6 +123,10 @@ class util_test(unittest.TestCase):
         op_file_path = os.sep.join([util.path_default_out_folder, 'Youtube_PlayList.tmp'])
         src_file_path = 'D:/abc/def/123/out_file_12564.txt'
         test_obj_pool = [
+            test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
+                                         expected_op='D:\\Other\\python_gen\\sgp22\\sgp22_mapping.py'),
+            test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py.py', new_ext='.pyc',
+                                         expected_op='D:\\Other\\python_gen\\sgp22\\sgp22.py.pyc'),
             test_obj_append_in_file_name(str_file_path='temp_file.txt', str_append='pjkl',
                                          expected_op='temp_file_pjkl.txt'),
             test_obj_append_in_file_name(str_file_path=r'F:\Android\obb\com.jio.yt\temp_file.txt', str_append='pjkl',

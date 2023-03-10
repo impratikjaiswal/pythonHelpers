@@ -293,8 +293,9 @@ def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False,
         # needed to avoid escape sequence chars in file path
         file_path = file_path.replace('\\', '/')
         sep_char = '/'
-    file_name = file_path.split(sep_char)[-1]
-    folder_name = file_path.split(sep_char)[-2]
+    split_data = file_path.split(sep_char)
+    file_name = split_data[-1]
+    folder_name = split_data[-2] if len(split_data) > 1 else ''
     path = file_path.replace(file_name, '')
     if only_path:
         return path
@@ -324,6 +325,10 @@ def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False,
 
 def backup_file_name(str_file_path):
     return append_in_file_name(str_file_path, str_append=['backup', get_time_stamp()])
+
+
+def rreplace(main_str, old, new, max_split=1):
+    return new.join(main_str.rsplit(old, max_split))
 
 
 def append_in_file_name(str_file_path, str_append=None, sep=None, new_name=None, new_ext=None,
@@ -380,11 +385,11 @@ def append_in_file_name(str_file_path, str_append=None, sep=None, new_name=None,
     str_new_file_name = (str_temp_name + str_append) if append_post else (str_append + str_temp_name)
 
     # file name is present
-    str_file_path = str_file_path.replace(str_file_name, str_new_file_name) if str_file_name else (
+    str_file_path = rreplace(str_file_path, str_file_name, str_new_file_name, 1) if str_file_name else (
             str_file_path + str_new_file_name)
 
     # extension is present
-    str_file_path = str_file_path.replace(str_ext, str_new_ext) if str_ext else (str_file_path + str_new_ext)
+    str_file_path = rreplace(str_file_path, str_ext, str_new_ext, 1) if str_ext else (str_file_path + str_new_ext)
     return str_file_path
 
 
