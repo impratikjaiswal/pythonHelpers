@@ -291,13 +291,14 @@ def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False,
     sep_char = os.sep
     if sep_char == '\\':
         # needed to avoid escape sequence chars in file path
-        file_path = file_path.replace('\\', '/')
+        file_path = re.sub(r'\\{1,}', '/', file_path)
         sep_char = '/'
-    split_data = file_path.split(sep_char)
+    split_data = list(filter(None, file_path.split(sep_char)))
     file_name = split_data[-1]
     folder_name = split_data[-2] if len(split_data) > 1 else ''
     path = file_path.replace(file_name, '')
     if only_path:
+        path = re.sub(r'/{1,}$', '/', path)
         return path
     if only_folder_name:
         return folder_name

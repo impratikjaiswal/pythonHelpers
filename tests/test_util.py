@@ -10,6 +10,21 @@ from util_helpers.constants import Constants
 STR_TEST_OBJ = 'test_obj :'
 
 
+class test_obj_get_file_name_and_extn:
+    def __init__(self, str_file_path, name_with_out_extn=None, only_extn=None, extn_with_out_dot=None, only_path=None,
+                 ext_available=None, path_with_out_extn=None, only_folder_name=None,
+                 expected_op=None):
+        self.str_file_path = str_file_path
+        self.name_with_out_extn = name_with_out_extn
+        self.only_extn = only_extn
+        self.extn_with_out_dot = extn_with_out_dot
+        self.only_path = only_path
+        self.ext_available = ext_available
+        self.path_with_out_extn = path_with_out_extn
+        self.only_folder_name = only_folder_name
+        self.expected_op = expected_op
+
+
 class test_obj_append_in_file_name:
     def __init__(self, str_file_path, str_append=None, sep=None, new_name=None, new_ext=None,
                  file_path_is_dir=None, ext_available_in_file_name=None, append_post=None,
@@ -114,6 +129,46 @@ class test_obj_len_hex:
 
 
 class util_test(unittest.TestCase):
+
+    def test_get_file_name_and_extn(self):
+        """
+        :return:
+        """
+        src_file_path_bs = r'D:\\Other\\sgp22\\sgp22.py'
+        src_file_path_fs = r'D:/Other/sgp22/sgp22.py'
+        op_file_name = 'sgp22.py'
+        op_folder_path = r'D:/Other/sgp22/'
+        op_folder_name = 'sgp22'
+        test_obj_pool = [
+            #
+            test_obj_get_file_name_and_extn(str_file_path=src_file_path_bs, expected_op=op_file_name),
+            test_obj_get_file_name_and_extn(str_file_path=src_file_path_fs, expected_op=op_file_name),
+            #
+            test_obj_get_file_name_and_extn(str_file_path=src_file_path_bs, only_path=True, expected_op=op_folder_path),
+            test_obj_get_file_name_and_extn(str_file_path=src_file_path_fs, only_path=True, expected_op=op_folder_path),
+            #
+            test_obj_get_file_name_and_extn(str_file_path=src_file_path_bs, only_folder_name=True,
+                                            expected_op=op_folder_name),
+            test_obj_get_file_name_and_extn(str_file_path=src_file_path_fs, only_folder_name=True,
+                                            expected_op=op_folder_name),
+            #
+            test_obj_get_file_name_and_extn(str_file_path=r'D:/Other/sgp22', only_path=True, expected_op=r'D:/Other/'),
+            test_obj_get_file_name_and_extn(str_file_path=r'D:/Other/sgp22/', only_path=True, expected_op=r'D:/Other/'),
+        ]
+        for count, test_obj in enumerate(test_obj_pool, start=1):
+            with self.subTest(STR_TEST_OBJ + str(count)):
+                self.assertEqual(
+                    util.get_file_name_and_extn(
+                        file_path=test_obj.str_file_path,
+                        name_with_out_extn=test_obj.name_with_out_extn,
+                        only_extn=test_obj.only_extn,
+                        extn_with_out_dot=test_obj.extn_with_out_dot,
+                        only_path=test_obj.only_path,
+                        ext_available=test_obj.ext_available,
+                        path_with_out_extn=test_obj.path_with_out_extn,
+                        only_folder_name=test_obj.only_folder_name
+                    ),
+                    test_obj.expected_op)
 
     def test_appendInFileName(self):
         """
