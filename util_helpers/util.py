@@ -216,30 +216,31 @@ def print_done(log=None):
 
 def print_error(str_heading, log=None):
     print_separator(log=log)
-    print_separator(main_text=f'Error Occured: {str_heading}', log=log)
+    print_separator(main_text=f'Error Occurred: {str_heading}', log=log)
     print_separator(log=log)
 
 
-def get_tool_name_w_version(tool_name=None, tool_version=None):
+def get_tool_name_w_version(tool_name=None, tool_version=None, dic_format=False):
+    str_format_keyword = ' version is '
+    version_keyword = 'v'
+    tool_name = 'Python' if tool_name is None else tool_name
+    tool_version = sys.version if tool_name == 'Python' else tool_version
     if tool_version:
-        version_keyword_needed = False if tool_version.strip().lower().startswith('v') else True
-        tool_version = f'v{tool_version}' if version_keyword_needed else tool_version
-    return ' version is '.join(filter(None, [tool_name, tool_version]))
+        version_keyword_needed = False if tool_version.strip().lower().startswith(version_keyword) else True
+        tool_version = f'{version_keyword}{tool_version}' if version_keyword_needed else tool_version
+    if dic_format:
+        return {tool_name: tool_version}
+    return str_format_keyword.join(filter(None, [tool_name, tool_version]))
 
 
-def print_version(tool_name, tool_version, with_python_version=True, log=None):
+def print_version(tool_name=None, tool_version=None, log=None, with_libs=False):
     print_or_log = log.info if log else print
+    if with_libs:
+        print_version(log=log)
+        print_version(tool_name=ConfigConst.TOOL_NAME, tool_version=ConfigConst.TOOL_VERSION, log=log)
     print_separator(log=log)
-    if with_python_version:
-        print_or_log(f'Python version is {sys.version}')
     print_or_log(get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
     print_separator(log=log)
-
-
-def print_version_pkg(package_name=ConfigConst.TOOL_NAME, package_version=ConfigConst.TOOL_VERSION,
-                      with_python_version=True, log=None):
-    print_version(tool_name=package_name, tool_version=package_version, with_python_version=with_python_version,
-                  log=log)
 
 
 def print_heading(str_heading, char='#', count=80, log=None):
@@ -325,7 +326,7 @@ def get_file_name_and_extn(file_path, name_with_out_extn=False, only_extn=False,
 
 
 def backup_file_name(str_file_path):
-    return append_in_file_name(str_file_path, str_append=['backup', get_time_stamp()])
+    return append_in_file_name(str_file_path, str_append=['backup', get_time_stamp(files_format=True)])
 
 
 def rreplace(main_str, old, new, max_split=1):
@@ -394,7 +395,7 @@ def append_in_file_name(str_file_path, str_append=None, sep=None, new_name=None,
     return str_file_path
 
 
-def get_time_stamp(files_format=True, date_only=False):
+def get_time_stamp(files_format=True, date_only=False, default_format=False):
     if files_format:
         time_format = "%Y%m%d" if date_only else "%Y%m%d_%H%M%S%f"
         # Unique time must be generated
@@ -403,8 +404,12 @@ def get_time_stamp(files_format=True, date_only=False):
         time_format = "%Y %m %d" if date_only else "%Y %m %d:%H %M %S %f"
     # current date and time
     now = datetime.now()  # current date and time
+    if default_format:
+        return now
     date_time = now.strftime(time_format)
-    return str(date_time)
+    if files_format:
+        return str(date_time)
+    return date_time
 
 
 def get_user_friendly_name(python_variable_name):
