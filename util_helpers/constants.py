@@ -1,8 +1,4 @@
-import os
-
-
 class Constants:
-
     OFFSET_NAME_FOR_OUTPUT_FILE = 0
     OFFSET_NAME_FOR_ASN_FILE = 1
     KEYWORD_VARIABLE_DECLARATION_IN = ['var_In', 'var_in_list', 'var_in']
@@ -155,3 +151,9 @@ class Constants:
     SEARCH_TYPE_REGEX = 2
 
     FILE_EXTN_TMP = '.tmp'
+
+    SEPERATOR_TWO_WORDS = ' '
+    SEPERATOR_ONE_LINE = ': '
+    SEPERATOR_INFO = ' => '
+    SEPERATOR_MULTI_LINE = ':\n'
+    SEPERATOR_MULTI_OBJ = '; '

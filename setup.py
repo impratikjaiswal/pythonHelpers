@@ -17,7 +17,7 @@ print(f'Packages are {packages}')
 # potential dependencies
 install_reqs = [
     'packaging',
-    # 'pycryptodome'
+    'pandas',
 ]
 
 # get long description from the README.md

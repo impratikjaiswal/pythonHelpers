@@ -36,7 +36,7 @@ path_default_out_folder = path_current_folder + os.sep + 'out'
 path_default_tst_folder = path_current_folder + os.sep + 'tests'
 # Sample Data:
 # in Real Environament: D:\ProgramFiles\Python37
-# in Virtual Environament: D:\Other\Github_Self\asn1Play\.venv\Scripts
+# in Virtual Environament: D:\Other\Github_Self\asn1Play\venv\Scripts
 path_python_folder = os.path.split(sys.executable)[0]
 path_python_script_folder = os.sep.join([path_python_folder, 'Scripts']) if not path_python_folder.endswith(
     'Scripts') else path_python_folder
@@ -220,6 +220,18 @@ def print_error(str_heading, log=None):
     print_separator(log=log)
 
 
+def get_key_value_pair(key, value, sep=Constants.SEPERATOR_ONE_LINE, dic_format=False, print_also=False, log=None):
+    print_or_log = log.info if log else print
+    if value is None:
+        value = ''
+    str_data = f'{get_user_friendly_name(key)}{sep}{value}'
+    if print_also:
+        print_or_log(str_data)
+    if dic_format:
+        return {key: value}
+    return str_data
+
+
 def get_tool_name_w_version(tool_name=None, tool_version=None, dic_format=False):
     str_format_keyword = ' version is '
     version_keyword = 'v'
@@ -237,13 +249,28 @@ def print_version(tool_name=None, tool_version=None, log=None, with_libs=False):
     print_or_log = log.info if log else print
     if with_libs:
         print_version(log=log)
+        print(f'Python executable Path is {path_python_folder}')
         print_version(tool_name=ConfigConst.TOOL_NAME, tool_version=ConfigConst.TOOL_VERSION, log=log)
     print_separator(log=log)
     print_or_log(get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
     print_separator(log=log)
 
 
-def print_heading(str_heading, char='#', count=80, log=None):
+def print_heading(str_heading, heading_level=1, char=None, count=80, log=None, max_allowed_length=None):
+    char_selector = {
+        1: '-',
+        2: '*',
+        3: '+',
+    }
+    if char is None:
+        char = char_selector.get(heading_level, '-')
+    if str_heading is None:
+        str_heading = ''
+    if isinstance(str_heading, list):
+        str_heading = Constants.SEPERATOR_MULTI_OBJ.join(filter(None, str_heading))
+    if max_allowed_length is None:
+        max_allowed_length = count - 6
+    str_heading = str_heading[:max_allowed_length].replace('\n', ' ')
     print_or_log = log.info if log else print
     remaining_count = count - len(str_heading) - 2
     print_or_log(
@@ -364,10 +391,12 @@ def append_in_file_name(str_file_path, str_append=None, sep=None, new_name=None,
     if isinstance(str_file_path, TextIOWrapper):
         str_file_path = str_file_path.name
     if file_path_is_dir or str_file_path.endswith(os.sep):
+        str_path = str_file_path
         str_ext = ''
         str_file_name = ''
         ext_available_in_file_name = False
     else:
+        str_path = get_file_name_and_extn(str_file_path, only_path=True)
         str_ext = get_file_name_and_extn(str_file_path, only_extn=True, ext_available=ext_available_in_file_name)
         str_file_name = get_file_name_and_extn(str_file_path, name_with_out_extn=True,
                                                ext_available=ext_available_in_file_name)
@@ -388,8 +417,7 @@ def append_in_file_name(str_file_path, str_append=None, sep=None, new_name=None,
 
     # file name is present
     str_file_path = rreplace(str_file_path, str_file_name, str_new_file_name, 1) if str_file_name else (
-            str_file_path + str_new_file_name)
-
+            str_path + str_new_file_name + str_ext)
     # extension is present
     str_file_path = rreplace(str_file_path, str_ext, str_new_ext, 1) if str_ext else (str_file_path + str_new_ext)
     return str_file_path
@@ -428,7 +456,7 @@ traverse_modes = ['ImmediateFilesOnly', 'ImmediateFoldersOnly', 'ImmediateFolder
                   'RecursiveFilesOnly', 'RecursiveFoldersOnly', 'RecursiveAll', 'Regex']
 
 
-def traverse_it(top=path_current_folder, traverse_mode='Regex', include_files=[], include_dirs=[], excludes=[],
+def traverse_it(top=path_current_folder, traverse_mode='Regex', include_files=None, include_dirs=None, excludes=None,
                 detail_info=False):
     """
     Usage: python <programName.py> <folderName>
@@ -445,6 +473,12 @@ def traverse_it(top=path_current_folder, traverse_mode='Regex', include_files=[]
     :param detail_info:
     :return:
     """
+    if not include_files:
+        include_files = []
+    if not include_dirs:
+        include_dirs = []
+    if not excludes:
+        excludes = []
     output_list = []
     output_list_temp = []
 

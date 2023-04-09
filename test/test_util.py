@@ -253,12 +253,14 @@ class util_test(unittest.TestCase):
             test_obj_append_in_file_name(
                 str_file_path=util.path_default_out_folder, str_append=['Youtube', 'PlayList'], new_ext='.tmp',
                 expected_op=util.path_default_out_folder + '_Youtube_PlayList.tmp'),
-            test_obj_append_in_file_name(
-                str_file_path=util.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
-                new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path),
+            test_obj_append_in_file_name(str_file_path='.txt', str_append='mapping',
+                                         expected_op='mapping.txt'),
             test_obj_append_in_file_name(
                 str_file_path=util.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
+            test_obj_append_in_file_name(
+                str_file_path=util.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
+                new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path),
             test_obj_append_in_file_name(
                 str_file_path=os.sep.join([util.path_default_out_folder, '']), str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
