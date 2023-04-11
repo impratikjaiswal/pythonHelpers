@@ -4,7 +4,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from python_helpers.constants_config import ConfigConst
+from python_helpers.ph_constants_config import PhConfigConst
 
 # all packages dependencies
 packages = find_packages()
@@ -25,8 +25,8 @@ with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="u
     long_description = fd.read()
 
 setup(
-    name=ConfigConst.TOOL_NAME,
-    version=ConfigConst.TOOL_VERSION_DETAILED,
+    name=PhConfigConst.TOOL_NAME,
+    version=PhConfigConst.TOOL_VERSION_DETAILED,
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
     description="A Python software package suite to provide various utility functions",
