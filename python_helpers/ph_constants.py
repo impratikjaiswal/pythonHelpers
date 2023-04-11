@@ -1,4 +1,4 @@
-class Constants:
+class PhConstants:
     OFFSET_NAME_FOR_OUTPUT_FILE = 0
     OFFSET_NAME_FOR_ASN_FILE = 1
     KEYWORD_VARIABLE_DECLARATION_IN = ['var_In', 'var_in_list', 'var_in']
@@ -7,7 +7,7 @@ class Constants:
     PLACE_HOLDERS_FOR_VARIABLES = ['${VAR}', '${VAR  }', '${VAR    }']
 
     # 0th offset contains most preferred name for output file
-    # 1th offset contains most preferred name for ASN file (if Applicable)
+    # 1st offset contains most preferred name for ASN file (if Applicable)
     VAR_POOL_ICCID_WO_CHECKSUM = ['SER_NB', 'Ser_nb']
     VAR_POOL_ICCID = ['ICCID', 'iccid', 'ICCID_FROM'] + VAR_POOL_ICCID_WO_CHECKSUM
     VAR_POOL_IMSI = ['IMSI', 'imsi', 'IMSI_FROM']
@@ -153,6 +153,7 @@ class Constants:
     FILE_EXTN_TMP = '.tmp'
 
     SEPERATOR_TWO_WORDS = ' '
+    SEPERATOR_FILE_NAME = '_'
     SEPERATOR_ONE_LINE = ': '
     SEPERATOR_INFO = ' => '
     SEPERATOR_MULTI_LINE = ':\n'

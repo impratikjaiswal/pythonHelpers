@@ -2,7 +2,7 @@ import binascii
 from Crypto.Cipher import AES
 from itertools import cycle
 
-from util_helpers.util import is_numeric
+from python_helpers import ph_util
 
 
 def logical_xor_(hex_str_msg, hex_str_key):
@@ -112,7 +112,7 @@ def validate_luhn_digit(msg):
     """
     if not msg:
         return False
-    if not is_numeric(msg):
+    if not ph_util.is_numeric(msg):
         return False
     last_digit = int(msg[-1])
     luhn = get_luhn_digit(msg[:-1])

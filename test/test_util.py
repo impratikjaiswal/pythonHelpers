@@ -4,8 +4,8 @@ import unittest.mock
 from argparse import Namespace
 from pathlib import PurePath
 
-from util_helpers import util
-from util_helpers.constants import Constants
+from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_util import PhUtil
 
 STR_TEST_OBJ = 'test_obj :'
 
@@ -141,6 +141,8 @@ class util_test(unittest.TestCase):
         op_folder_name = 'sgp22'
         test_obj_pool = [
             #
+            test_obj_get_file_name_and_extn(str_file_path=r'..\\..\\UserData\\Temp\\', expected_op='Temp'),
+            test_obj_get_file_name_and_extn(str_file_path=r'..\\..\\UserData\\Temp', expected_op='Temp'),
             test_obj_get_file_name_and_extn(str_file_path=src_file_path_bs, expected_op=op_file_name),
             test_obj_get_file_name_and_extn(str_file_path=src_file_path_fs, expected_op=op_file_name),
             #
@@ -158,7 +160,7 @@ class util_test(unittest.TestCase):
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 self.assertEqual(
-                    util.get_file_name_and_extn(
+                    PhUtil.get_file_name_and_extn(
                         file_path=test_obj.str_file_path,
                         name_with_out_extn=test_obj.name_with_out_extn,
                         only_extn=test_obj.only_extn,
@@ -175,7 +177,7 @@ class util_test(unittest.TestCase):
         :return:
         """
         op_file_name = 'myNameIsKhan.tmp'
-        op_file_path = os.sep.join([util.path_default_out_folder, 'Youtube_PlayList.tmp'])
+        op_file_path = os.sep.join([PhUtil.path_default_out_folder, 'Youtube_PlayList.tmp'])
         src_file_path = 'D:/abc/def/123/out_file_12564.txt'
         test_obj_pool = [
             test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
@@ -188,13 +190,13 @@ class util_test(unittest.TestCase):
                                          expected_op=r'F:\Android\obb\com.jio.yt\temp_file_pjkl.txt'),
             test_obj_append_in_file_name(str_file_path='temp_file.txt', str_append='pjkl', append_post=False,
                                          expected_op='pjkl_temp_file.txt'),
-            test_obj_append_in_file_name(str_file_path=util.get_file_name_and_extn(
+            test_obj_append_in_file_name(str_file_path=PhUtil.get_file_name_and_extn(
                 r'F:\Android\data\com.jio.myhome.mediasharedmp\files\uploads\myNameIsKhan.txt'),
                 new_ext='.tmp', expected_op=op_file_name),
-            test_obj_append_in_file_name(str_file_path=util.get_file_name_and_extn(
+            test_obj_append_in_file_name(str_file_path=PhUtil.get_file_name_and_extn(
                 'F://Android//data//com.jio.myhome.mediasharedmp//files//uploads/myNameIsKhan.txt'),
                 new_ext='.tmp', expected_op=op_file_name),
-            test_obj_append_in_file_name(str_file_path=util.get_file_name_and_extn('myNameIsKhan.txt'),
+            test_obj_append_in_file_name(str_file_path=PhUtil.get_file_name_and_extn('myNameIsKhan.txt'),
                                          new_ext='.tmp', expected_op=op_file_name),
             test_obj_append_in_file_name(str_file_path='myNameIsKhan.txt', new_ext='.tmp', expected_op=op_file_name),
             test_obj_append_in_file_name(str_file_path='myNameIsKhan', new_ext='.tmp', expected_op=op_file_name),
@@ -209,16 +211,16 @@ class util_test(unittest.TestCase):
             test_obj_append_in_file_name(str_file_path='pjklmnop.txt', str_append=['output', 'data', '20210721'],
                                          new_ext='.out', expected_op='pjklmnop_output_data_20210721.out'),
             test_obj_append_in_file_name(
-                str_file_path=os.sep.join([util.path_default_tst_folder, 'prog', 'raw', 'prog']), new_ext='.txt',
-                expected_op=os.sep.join([util.path_default_tst_folder, 'prog', 'raw', 'prog.txt'])),
+                str_file_path=os.sep.join([PhUtil.path_default_tst_folder, 'prog', 'raw', 'prog']), new_ext='.txt',
+                expected_op=os.sep.join([PhUtil.path_default_tst_folder, 'prog', 'raw', 'prog.txt'])),
             test_obj_append_in_file_name(
-                str_file_path=os.sep.join([util.path_default_out_folder, 'names_Generated']),
+                str_file_path=os.sep.join([PhUtil.path_default_out_folder, 'names_Generated']),
                 str_append='fileNameKeyword', new_ext='.txt',
-                expected_op=os.sep.join([util.path_default_out_folder, 'names_Generated_fileNameKeyword.txt'])),
+                expected_op=os.sep.join([PhUtil.path_default_out_folder, 'names_Generated_fileNameKeyword.txt'])),
             test_obj_append_in_file_name(
-                str_file_path=os.sep.join([util.path_default_out_folder, 'names_Generated.asn']),
+                str_file_path=os.sep.join([PhUtil.path_default_out_folder, 'names_Generated.asn']),
                 str_append='fileNameKeyword', new_ext='.txt',
-                expected_op=os.sep.join([util.path_default_out_folder, 'names_Generated_fileNameKeyword.txt'])),
+                expected_op=os.sep.join([PhUtil.path_default_out_folder, 'names_Generated_fileNameKeyword.txt'])),
             test_obj_append_in_file_name(
                 str_file_path='names_Generated.asn', str_append='fileNameKeyword', new_ext='.txt',
                 expected_op='names_Generated_fileNameKeyword.txt'),
@@ -241,41 +243,41 @@ class util_test(unittest.TestCase):
             test_obj_append_in_file_name(str_file_path=src_file_path, new_name='123456',
                                          expected_op='D:/abc/def/123/123456.txt'),
             test_obj_append_in_file_name(
-                str_file_path=util.get_file_name_and_extn(src_file_path,
-                                                          only_path=True) + os.sep + '_file_name', new_ext='.asn',
+                str_file_path=PhUtil.get_file_name_and_extn(src_file_path,
+                                                            only_path=True) + os.sep + '_file_name', new_ext='.asn',
                 expected_op='D:/abc/def/123/\_file_name.asn'),
             test_obj_append_in_file_name(str_file_path=os.sep.join(
-                [util.get_file_name_and_extn(src_file_path, only_path=True),
+                [PhUtil.get_file_name_and_extn(src_file_path, only_path=True),
                  '_file_name']), new_ext='.asn', expected_op='D:/abc/def/123/\_file_name.asn'),
             test_obj_append_in_file_name(str_file_path=src_file_path, str_append=PurePath(src_file_path).parent.name,
                                          new_ext='.asn',
                                          expected_op='D:/abc/def/123/out_file_12564_123.asn'),
             test_obj_append_in_file_name(
-                str_file_path=util.path_default_out_folder, str_append=['Youtube', 'PlayList'], new_ext='.tmp',
-                expected_op=util.path_default_out_folder + '_Youtube_PlayList.tmp'),
+                str_file_path=PhUtil.path_default_out_folder, str_append=['Youtube', 'PlayList'], new_ext='.tmp',
+                expected_op=PhUtil.path_default_out_folder + '_Youtube_PlayList.tmp'),
             test_obj_append_in_file_name(str_file_path='.txt', str_append='mapping',
                                          expected_op='mapping.txt'),
             test_obj_append_in_file_name(
-                str_file_path=util.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
+                str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
             test_obj_append_in_file_name(
-                str_file_path=util.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
+                str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path),
             test_obj_append_in_file_name(
-                str_file_path=os.sep.join([util.path_default_out_folder, '']), str_append=['Youtube', 'PlayList'],
+                str_file_path=os.sep.join([PhUtil.path_default_out_folder, '']), str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
             test_obj_append_in_file_name(
-                str_file_path=os.sep.join([util.path_default_out_folder, '']), new_name='dest_vs_block',
-                new_ext='.txt', expected_op=os.sep.join([util.path_default_out_folder, 'dest_vs_block.txt'])),
+                str_file_path=os.sep.join([PhUtil.path_default_out_folder, '']), new_name='dest_vs_block',
+                new_ext='.txt', expected_op=os.sep.join([PhUtil.path_default_out_folder, 'dest_vs_block.txt'])),
         ]
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 self.assertEqual(
-                    util.append_in_file_name(str_file_path=test_obj.str_file_path, str_append=test_obj.str_append,
-                                             sep=test_obj.sep, new_name=test_obj.new_name, new_ext=test_obj.new_ext,
-                                             file_path_is_dir=test_obj.file_path_is_dir,
-                                             ext_available_in_file_name=test_obj.ext_available_in_file_name,
-                                             append_post=test_obj.append_post), test_obj.expected_op)
+                    PhUtil.append_in_file_name(str_file_path=test_obj.str_file_path, str_append=test_obj.str_append,
+                                               sep=test_obj.sep, new_name=test_obj.new_name, new_ext=test_obj.new_ext,
+                                               file_path_is_dir=test_obj.file_path_is_dir,
+                                               ext_available_in_file_name=test_obj.ext_available_in_file_name,
+                                               append_post=test_obj.append_post), test_obj.expected_op)
 
     def test_get_version_from_name(self):
         """
@@ -297,7 +299,7 @@ class util_test(unittest.TestCase):
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 self.assertEqual(
-                    util.get_version_from_name(test_obj.name, max_depth=test_obj.max_depth),
+                    PhUtil.get_version_from_name(test_obj.name, max_depth=test_obj.max_depth),
                     test_obj.expected_op)
 
     def test_normalise_name_pandas_to_user(self):
@@ -319,7 +321,7 @@ class util_test(unittest.TestCase):
         ]
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                self.assertEqual(util.normalise_name_pandas_to_user(test_obj.name, test_obj.all_caps_keywords),
+                self.assertEqual(PhUtil.normalise_name_pandas_to_user(test_obj.name, test_obj.all_caps_keywords),
                                  test_obj.expected_op)
 
     def test_dec_to_hex(self):
@@ -346,15 +348,15 @@ class util_test(unittest.TestCase):
                     self.assertEqual(hex(test_obj.dec_num), test_obj.expected_op)
                     continue
                 if test_obj.digit_required is not None:
-                    self.assertEqual(util.dec_to_hex(test_obj.dec_num, test_obj.digit_required),
+                    self.assertEqual(PhUtil.dec_to_hex(test_obj.dec_num, test_obj.digit_required),
                                      test_obj.expected_op)
                 else:
                     if test_obj.even_digits is not None:
-                        self.assertEqual(util.dec_to_hex(test_obj.dec_num, test_obj.digit_required,
-                                                         even_digits=test_obj.even_digits),
+                        self.assertEqual(PhUtil.dec_to_hex(test_obj.dec_num, test_obj.digit_required,
+                                                           even_digits=test_obj.even_digits),
                                          test_obj.expected_op)
                     else:
-                        self.assertEqual(util.dec_to_hex(test_obj.dec_num), test_obj.expected_op)
+                        self.assertEqual(PhUtil.dec_to_hex(test_obj.dec_num), test_obj.expected_op)
 
     def test_hex_str_to_dec(self):
         """
@@ -373,7 +375,7 @@ class util_test(unittest.TestCase):
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                self.assertEqual(util.hex_str_to_dec(test_obj.hex_str), test_obj.expected_op)
+                self.assertEqual(PhUtil.hex_str_to_dec(test_obj.hex_str), test_obj.expected_op)
 
     def test_to_hex_string(self):
         """
@@ -383,29 +385,29 @@ class util_test(unittest.TestCase):
         hex_bytes = [0x3B, 0x65, 0x00, 0x00, 0x9C, 0x11, 0x01, 0x01, 0x03]
         test_obj_pool = [
             test_obj_to_hex_string(hex_bytes, expected_op='3B 65 00 00 9C 11 01 01 03'),
-            test_obj_to_hex_string(hex_bytes, format=Constants.FORMAT_HEX_STRING_AS_COMMA,
+            test_obj_to_hex_string(hex_bytes, format=PhConstants.FORMAT_HEX_STRING_AS_COMMA,
                                    expected_op='3B, 65, 00, 00, 9C, 11, 01, 01, 03'),
-            test_obj_to_hex_string(hex_bytes, format=Constants.FORMAT_HEX_STRING_AS_HEX,
+            test_obj_to_hex_string(hex_bytes, format=PhConstants.FORMAT_HEX_STRING_AS_HEX,
                                    expected_op='0x3B 0x65 0x00 0x00 0x9C 0x11 0x01 0x01 0x03'),
             test_obj_to_hex_string(hex_bytes,
-                                   format=Constants.FORMAT_HEX_STRING_AS_HEX | Constants.FORMAT_HEX_STRING_AS_COMMA,
+                                   format=PhConstants.FORMAT_HEX_STRING_AS_HEX | PhConstants.FORMAT_HEX_STRING_AS_COMMA,
                                    expected_op='0x3B, 0x65, 0x00, 0x00, 0x9C, 0x11, 0x01, 0x01, 0x03'),
             test_obj_to_hex_string(hex_bytes,
-                                   format=Constants.FORMAT_HEX_STRING_AS_HEX | Constants.FORMAT_HEX_STRING_AS_UPPERCASE,
+                                   format=PhConstants.FORMAT_HEX_STRING_AS_HEX | PhConstants.FORMAT_HEX_STRING_AS_UPPERCASE,
                                    expected_op='0X3B 0X65 0X00 0X00 0X9C 0X11 0X01 0X01 0X03'),
             test_obj_to_hex_string(hex_bytes,
-                                   format=Constants.FORMAT_HEX_STRING_AS_HEX | Constants.FORMAT_HEX_STRING_AS_UPPERCASE | Constants.FORMAT_HEX_STRING_AS_COMMA,
+                                   format=PhConstants.FORMAT_HEX_STRING_AS_HEX | PhConstants.FORMAT_HEX_STRING_AS_UPPERCASE | PhConstants.FORMAT_HEX_STRING_AS_COMMA,
                                    expected_op='0X3B, 0X65, 0X00, 0X00, 0X9C, 0X11, 0X01, 0X01, 0X03'),
-            test_obj_to_hex_string(hex_bytes, format=Constants.FORMAT_HEX_STRING_AS_PACK,
+            test_obj_to_hex_string(hex_bytes, format=PhConstants.FORMAT_HEX_STRING_AS_PACK,
                                    expected_op='3B6500009C11010103'),
         ]
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 if test_obj.format:
-                    self.assertEqual(util.to_hex_string(test_obj.hex_bytes, test_obj.format), test_obj.expected_op)
+                    self.assertEqual(PhUtil.to_hex_string(test_obj.hex_bytes, test_obj.format), test_obj.expected_op)
                 else:
-                    self.assertEqual(util.to_hex_string(test_obj.hex_bytes), test_obj.expected_op)
+                    self.assertEqual(PhUtil.to_hex_string(test_obj.hex_bytes), test_obj.expected_op)
 
     def test_hex_str_to_hex_list(self):
         """
@@ -421,7 +423,7 @@ class util_test(unittest.TestCase):
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                self.assertEqual(util.hex_str_to_hex_list(test_obj.hex_str), test_obj.expected_op)
+                self.assertEqual(PhUtil.hex_str_to_hex_list(test_obj.hex_str), test_obj.expected_op)
 
     def test_rstrip_hex(self):
         """
@@ -440,7 +442,7 @@ class util_test(unittest.TestCase):
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                self.assertEqual(util.rstrip_hex_str(test_obj.hex_data), test_obj.expected_op)
+                self.assertEqual(PhUtil.rstrip_hex_str(test_obj.hex_data), test_obj.expected_op)
 
     def test_analyse_data(self):
         """
@@ -471,13 +473,13 @@ class util_test(unittest.TestCase):
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 if test_obj.cmt_to_print and test_obj.print_also:
-                    self.assertEqual(util.analyse_data(test_obj.str_hex_data, test_obj.cmt_to_print,
-                                                       test_obj.print_also), test_obj.expected_op)
+                    self.assertEqual(PhUtil.analyse_data(test_obj.str_hex_data, test_obj.cmt_to_print,
+                                                         test_obj.print_also), test_obj.expected_op)
                 elif test_obj.cmt_to_print:
-                    self.assertEqual(util.analyse_data(test_obj.str_hex_data, test_obj.cmt_to_print),
+                    self.assertEqual(PhUtil.analyse_data(test_obj.str_hex_data, test_obj.cmt_to_print),
                                      test_obj.expected_op)
                 else:
-                    self.assertEqual(util.analyse_data(test_obj.str_hex_data), test_obj.expected_op)
+                    self.assertEqual(PhUtil.analyse_data(test_obj.str_hex_data), test_obj.expected_op)
 
     def test_print_iter(self):
         dict_1 = {'pre_defined_script': 'cmds_esim_ara_m_select',
@@ -558,7 +560,7 @@ class util_test(unittest.TestCase):
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def assert_stdout_print_iter(self, test_obj, mock_stdout):
         self.maxDiff = None
-        util.print_iter(the_iter=test_obj.the_iter, list_as_str=test_obj.list_as_str, header=test_obj.header)
+        PhUtil.print_iter(the_iter=test_obj.the_iter, list_as_str=test_obj.list_as_str, header=test_obj.header)
         actual_value = mock_stdout.getvalue()
         expected_value = test_obj.expected_op
         self.assertEqual(actual_value, expected_value)
@@ -580,12 +582,12 @@ class util_test(unittest.TestCase):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 if test_obj.output_in_str_format:
                     self.assertEqual(
-                        util.len_hex(str_hex_data=test_obj.str_hex_data,
-                                     output_in_str_format=test_obj.output_in_str_format),
+                        PhUtil.len_hex(str_hex_data=test_obj.str_hex_data,
+                                       output_in_str_format=test_obj.output_in_str_format),
                         test_obj.expected_op)
                 else:
                     self.assertEqual(
-                        util.len_hex(str_hex_data=test_obj.str_hex_data),
+                        PhUtil.len_hex(str_hex_data=test_obj.str_hex_data),
                         test_obj.expected_op)
 
     def test_gen_isim_data(self):
@@ -618,8 +620,8 @@ class util_test(unittest.TestCase):
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
                 self.assertEqual(
-                    util.gen_isim_data(imsi=test_obj.imsi, mcc_mnc=test_obj.mcc_mnc,
-                                       pattern_or_data=test_obj.pattern_or_data),
+                    PhUtil.gen_isim_data(imsi=test_obj.imsi, mcc_mnc=test_obj.mcc_mnc,
+                                         pattern_or_data=test_obj.pattern_or_data),
                     test_obj.expected_op)
 
     def test_print_separator(self):
@@ -676,8 +678,8 @@ class util_test(unittest.TestCase):
             tc_name = test_obj.tc_name if test_obj.tc_name else str(count)
             with self.subTest(STR_TEST_OBJ + tc_name):
                 self.assertEqual(
-                    util.print_separator(character=test_obj.character, count=test_obj.count,
-                                         main_text=test_obj.main_text, get_only=True)
+                    PhUtil.print_separator(character=test_obj.character, count=test_obj.count,
+                                           main_text=test_obj.main_text, get_only=True)
                     , test_obj.expected_op)
 
 

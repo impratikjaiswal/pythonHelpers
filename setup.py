@@ -4,14 +4,14 @@ import os
 
 from setuptools import setup, find_packages
 
-from util_helpers.constants_config import ConfigConst
+from python_helpers.constants_config import ConfigConst
 
 # all packages dependencies
 packages = find_packages()
 if not packages:
     print(f'Selecting Hardcoded Packages')
     packages = [
-        "util_helpers",
+        "python_helpers",
     ]
 print(f'Packages are {packages}')
 # potential dependencies
