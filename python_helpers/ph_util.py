@@ -17,20 +17,19 @@ import time
 from packaging import version
 from pandas import DataFrame
 
-from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+
+_base_profiles_available = False
+_psutil_available = True
+try:
+    import psutil
+except ImportError:
+    _psutil_available = False
+
+from python_helpers.ph_constants import PhConstants
 
 
 class PhUtil:
-    _base_profiles_available = False
-    _psutil_available = True
-    try:
-        import psutil
-    except ImportError:
-        _psutil_available = False
-
-    from python_helpers.ph_constants import PhConstants
-
     # path_current_file = os.path.realpath(__file__)
     path_current_folder = os.path.realpath(sys.path[0])
     path_default_res_folder = path_current_folder + os.sep + 'res'
@@ -783,7 +782,7 @@ class PhUtil:
             base_profile = base_profile.hex()
         bp_name = ''
         bp_status = False
-        if cls._base_profiles_available:
+        if _base_profiles_available:
             for key in base_profiles.profile_pool_hex:
                 if base_profiles.profile_pool_hex.get(key).lower() in base_profile.lower():
                     bp_name = key
@@ -825,33 +824,24 @@ class PhUtil:
         # print(inspect.stack()[1][3])  # will give the caller (Parent)
         return inspect.stack()[1][3]
 
-    ENCLOSE_HEX = 1
-    ENCLOSE_NAME_VALUE = 2
-    ENCLOSE_NAME_VALUE_HEX = 3
-    ENCLOSE_NAME_VALUE_DICT = 4
-    ENCLOSE_NAME_VALUE_HEX_DICT = 5
-    ENCLOSE_NAME_VALUE_SEQ_DICT = 6
-    ENCLOSE_NAME_VALUE_SEQ = 7
-    ENCLOSE_COMMENT = 8
-
     @classmethod
     def enclose(cls, format, data1, data2='', indent_level=0):
         space = '  ' * indent_level
-        if format == cls.ENCLOSE_COMMENT:
+        if format == cls.PhConstants.ENCLOSE_COMMENT:
             return space + "-- " + str(data1)
-        if format == cls.ENCLOSE_HEX:
+        if format == cls.PhConstants.ENCLOSE_HEX:
             return space + "'" + str(data1) + "'H"
-        if format == cls.ENCLOSE_NAME_VALUE:  # identification 0
+        if format == cls.PhConstants.ENCLOSE_NAME_VALUE:  # identification 0
             return space + data1 + ' ' + data2
-        if format == cls.ENCLOSE_NAME_VALUE_HEX:  # efFileSize '68'H
-            return space + data1 + ' ' + cls.enclose(cls.ENCLOSE_HEX, data2)
-        if format == cls.ENCLOSE_NAME_VALUE_DICT:  # doNotCreate : NULL
+        if format == cls.PhConstants.ENCLOSE_NAME_VALUE_HEX:  # efFileSize '68'H
+            return space + data1 + ' ' + cls.enclose(cls.PhConstants.ENCLOSE_HEX, data2)
+        if format == cls.PhConstants.ENCLOSE_NAME_VALUE_DICT:  # doNotCreate : NULL
             return space + data1 + ' : ' + data2
-        if format == cls.ENCLOSE_NAME_VALUE_HEX_DICT:  # filePath : '7FF1'H
-            return space + data1 + ' : ' + cls.enclose(cls.ENCLOSE_HEX, data2)
-        if format in [cls.ENCLOSE_NAME_VALUE_SEQ,
-                      cls.ENCLOSE_NAME_VALUE_SEQ_DICT]:  # templateID {0 0} # fileDescriptor : {...}
-            separator = ' ' if format == cls.ENCLOSE_NAME_VALUE_SEQ else ' : '
+        if format == cls.PhConstants.ENCLOSE_NAME_VALUE_HEX_DICT:  # filePath : '7FF1'H
+            return space + data1 + ' : ' + cls.enclose(cls.PhConstants.ENCLOSE_HEX, data2)
+        if format in [cls.PhConstants.ENCLOSE_NAME_VALUE_SEQ,
+                      cls.PhConstants.ENCLOSE_NAME_VALUE_SEQ_DICT]:  # templateID {0 0} # fileDescriptor : {...}
+            separator = ' ' if format == cls.PhConstants.ENCLOSE_NAME_VALUE_SEQ else ' : '
             if data1 == '':
                 separator = ''
             if isinstance(data2, str):
@@ -1015,7 +1005,7 @@ class PhUtil:
         print(output.head())
         print(output[['ICCID']])
         print(output['ICCID'].head())
-    
+
     """
 
     @classmethod
@@ -1305,8 +1295,8 @@ class PhUtil:
         return os.sep.join(filter(None, dir_file_list))
 
     @classmethod
-    def cpu_usage(cls, ):
-        if cls._psutil_available:
+    def cpu_usage(cls):
+        if _psutil_available:
             res = psutil.cpu_times()
             print(f'cpu_times is {res}')
 
