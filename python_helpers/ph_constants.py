@@ -137,7 +137,7 @@ class PhConstants:
     TRUE_VALUE_POOL = ('yes', 'true', 't', 'y', '1')
     FALSE_VALUE_POOL = ('no', 'false', 'f', 'n', '0')
     EXIT_VALUE_POOL = ('e', 'exit')
-    USER_INPUT_OPTIONS = " [Yes/No/Exit]: "
+    USER_INPUT_OPTIONS = ' [Yes/No/Exit]: '
     MAX_SUPPORTED_DIGIT_IN_INT = 9
     FORMAT_HEX_STRING_AS_PACK = 1
     FORMAT_HEX_STRING_AS_HEX = 2

@@ -1,3 +1,4 @@
+import ctypes
 import enum
 import fnmatch
 import inspect
@@ -88,7 +89,7 @@ class PhUtil:
 
     @classmethod
     def trim_and_kill_all_white_spaces(cls, str):
-        return re.sub(r"\s+", "", str)
+        return re.sub(r'\s+', '', str)
         # return str.translate({ord(c): None for c in string.whitespace})
 
     @classmethod
@@ -154,9 +155,9 @@ class PhUtil:
     @classmethod
     def print_iter(cls, the_iter, header=None, log=None, list_as_str=None):
         """
-        This function takes a positional argument called "the_iter", which is any
-            Python list (of, possibly, nested lists). Each data item in the provided list
-            is (recursively) printed to the screen on its own line.
+        This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
+        nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
+
         :param the_iter:
         :param header:
         :param log:
@@ -248,15 +249,27 @@ class PhUtil:
         return str_format_keyword.join(filter(None, [tool_name, tool_version]))
 
     @classmethod
-    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=False):
+    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=False, with_user_info=False):
         print_or_log = log.info if log else print
+        sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
+        if sep_needed:
+            cls.print_separator(log=log)
         if with_libs:
             cls.print_version(log=log)
+            cls.print_separator(log=log)
             print(f'Python executable Path is {cls.path_python_folder}')
+            cls.print_separator(log=log)
+        if with_user_info:
+            print(f'User Name is {cls.get_user_details_display_name_windows()}')
+            cls.print_separator(log=log)
+            print(f'User Account is {cls.get_user_details_account_name()}')
+            cls.print_separator(log=log)
+        if with_libs:
             cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log)
-        cls.print_separator(log=log)
+            cls.print_separator(log=log)
         print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
-        cls.print_separator(log=log)
+        if sep_needed:
+            cls.print_separator(log=log)
 
     @classmethod
     def print_heading(cls, str_heading, heading_level=1, char=None, count=80, log=None, max_allowed_length=None):
@@ -442,11 +455,11 @@ class PhUtil:
     @classmethod
     def get_time_stamp(cls, files_format=True, date_only=False, default_format=False):
         if files_format:
-            time_format = "%Y%m%d" if date_only else "%Y%m%d_%H%M%S%f"
+            time_format = '%Y%m%d' if date_only else '%Y%m%d_%H%M%S%f'
             # Unique time must be generated
             time.sleep(0.1)
         else:
-            time_format = "%Y %m %d" if date_only else "%Y %m %d:%H %M %S %f"
+            time_format = '%Y %m %d' if date_only else '%Y %m %d:%H %M %S %f'
         # current date and time
         now = datetime.now()  # current date and time
         if default_format:
@@ -486,7 +499,7 @@ class PhUtil:
         :param include_dirs:
         :param excludes: for dirs and files, applicable only when traverseMode is 'Regex'
             Sample1: ['/home/paulo-freitas/Documents']
-            Sample2: ["E:\\Entertainment\\Songs_Mp3\\19's", "E:\\Entertainment\\Songs_Mp3\\2000-2009"]
+            Sample2: ['E:\\Entertainment\\Songs_Mp3\\19's', 'E:\\Entertainment\\Songs_Mp3\\2000-2009']
         :param detail_info:
         :return:
         """
@@ -499,17 +512,17 @@ class PhUtil:
         output_list = []
         output_list_temp = []
 
-        print("traverseMode: ", traverse_mode)
-        print("top: ", top)
+        print('traverseMode: ', traverse_mode)
+        print('top: ', top)
 
         if traverse_mode == 'Regex':
             # transform glob patterns to regular expressions
             include_files = r'|'.join([fnmatch.translate(x) for x in include_files])
             include_dirs = r'|'.join([fnmatch.translate(x) for x in include_dirs])
             excludes = r'|'.join([fnmatch.translate(x) for x in excludes]) or r'$.'
-            print("include_files: ", include_files)
-            print("include_dirs: ", include_dirs)
-            print("excludes: ", excludes)
+            print('include_files: ', include_files)
+            print('include_dirs: ', include_dirs)
+            print('excludes: ', excludes)
 
         for dirpath, dirnames, filenames in os.walk(top):
             if traverse_mode == 'ImmediateFilesOnly':
@@ -538,7 +551,7 @@ class PhUtil:
                             filesize = cls.str_insert_char_repeatedly(os.stat(filepath).st_size, reverse=True)
                             fileext = cls.get_file_name_and_extn(filename, only_extn=True, extn_with_out_dot=True)
                             pattern = [filename, filepath, filesize, fileext]
-                            output_list.append("\t".join(pattern))
+                            output_list.append('\t'.join(pattern))
                         else:
                             output_list.append(filepath)
                     except:
@@ -761,7 +774,7 @@ class PhUtil:
     @classmethod
     def rstrip_str(cls, plain_str, data_to_strip):
         # data = data.rstrip('FF')
-        # data = data[:data.rfind("FF$")]
+        # data = data[:data.rfind('FF$')]
         # Must be removed in pair
         # pattern = '(FF)*$'
         pattern = '(' + data_to_strip + ')*$'
@@ -827,21 +840,21 @@ class PhUtil:
     @classmethod
     def enclose(cls, format, data1, data2='', indent_level=0):
         space = '  ' * indent_level
-        if format == cls.PhConstants.ENCLOSE_COMMENT:
-            return space + "-- " + str(data1)
-        if format == cls.PhConstants.ENCLOSE_HEX:
+        if format == PhConstants.ENCLOSE_COMMENT:
+            return space + '-- ' + str(data1)
+        if format == PhConstants.ENCLOSE_HEX:
             return space + "'" + str(data1) + "'H"
-        if format == cls.PhConstants.ENCLOSE_NAME_VALUE:  # identification 0
+        if format == PhConstants.ENCLOSE_NAME_VALUE:  # identification 0
             return space + data1 + ' ' + data2
-        if format == cls.PhConstants.ENCLOSE_NAME_VALUE_HEX:  # efFileSize '68'H
-            return space + data1 + ' ' + cls.enclose(cls.PhConstants.ENCLOSE_HEX, data2)
-        if format == cls.PhConstants.ENCLOSE_NAME_VALUE_DICT:  # doNotCreate : NULL
+        if format == PhConstants.ENCLOSE_NAME_VALUE_HEX:  # efFileSize '68'H
+            return space + data1 + ' ' + cls.enclose(PhConstants.ENCLOSE_HEX, data2)
+        if format == PhConstants.ENCLOSE_NAME_VALUE_DICT:  # doNotCreate : NULL
             return space + data1 + ' : ' + data2
-        if format == cls.PhConstants.ENCLOSE_NAME_VALUE_HEX_DICT:  # filePath : '7FF1'H
-            return space + data1 + ' : ' + cls.enclose(cls.PhConstants.ENCLOSE_HEX, data2)
-        if format in [cls.PhConstants.ENCLOSE_NAME_VALUE_SEQ,
-                      cls.PhConstants.ENCLOSE_NAME_VALUE_SEQ_DICT]:  # templateID {0 0} # fileDescriptor : {...}
-            separator = ' ' if format == cls.PhConstants.ENCLOSE_NAME_VALUE_SEQ else ' : '
+        if format == PhConstants.ENCLOSE_NAME_VALUE_HEX_DICT:  # filePath : '7FF1'H
+            return space + data1 + ' : ' + cls.enclose(PhConstants.ENCLOSE_HEX, data2)
+        if format in [PhConstants.ENCLOSE_NAME_VALUE_SEQ,
+                      PhConstants.ENCLOSE_NAME_VALUE_SEQ_DICT]:  # templateID {0 0} # fileDescriptor : {...}
+            separator = ' ' if format == PhConstants.ENCLOSE_NAME_VALUE_SEQ else ' : '
             if data1 == '':
                 separator = ''
             if isinstance(data2, str):
@@ -1023,7 +1036,7 @@ class PhUtil:
         if level == 2:
             print_or_log(output.to_string(index=False))
         if level == 3:
-            pd.set_option("display.max_rows", None, "display.max_columns", None)
+            pd.set_option('display.max_rows', None, 'display.max_columns', None)
             print_or_log(output)
 
     @classmethod
@@ -1032,7 +1045,7 @@ class PhUtil:
             return
         count_row, count_col = output.shape
         print_or_log = log.info if log else print
-        print_or_log(','.join(filter(None, ["Shape: {} x {}".format(count_row, count_col), cmt])))
+        print_or_log(','.join(filter(None, ['Shape: {} x {}'.format(count_row, count_col), cmt])))
         # Faster alternate
         # count_row = len(output.index)
         if level < 1:
@@ -1130,6 +1143,11 @@ class PhUtil:
 
     @classmethod
     def gen_acc(cls, str_imsi):
+        """
+
+        :param str_imsi:
+        :return:
+        """
         # formula: 2 ^ imsi_last_digit
         return cls.dec_to_hex(pow(2, int(str_imsi[-1])), 4)
 
@@ -1156,39 +1174,45 @@ class PhUtil:
 
     @classmethod
     def to_hex_string(cls, bytes=[], format=0):
-        """Returns a hex string representing bytes
-
-        @param bytes:  a list of bytes to stringify,
-                    e.g. [59, 22, 148, 32, 2, 1, 0, 0, 13]
-        @param format: a logical OR of
-          - COMMA: add a comma between bytes
-          - HEX: add the 0x chars before bytes
-          - UPPERCASE: use 0X before bytes (need HEX)
-          - PACK: remove blanks
         """
+        Returns a hex string representing bytes
 
+        :param bytes: a list of bytes to stringify; e.g. [59, 22, 148, 32, 2, 1, 0, 0, 13]
+        :param format: a logical OR of
+            - COMMA: add a comma between bytes
+            - HEX: add the 0x chars before bytes
+            - UPPERCASE: use 0X before bytes (need HEX)
+            - PACK: remove blanks
+        :return:
+        """
         if type(bytes) is not list:
             raise TypeError('not a list of bytes')
 
         if bytes is None or bytes == []:
-            return ""
+            return ''
         else:
-            pformat = "%-0.2X"
+            pformat = '%-0.2X'
             if PhConstants.FORMAT_HEX_STRING_AS_COMMA & format:
-                separator = ","
+                separator = ','
             else:
-                separator = ""
+                separator = ''
             if not PhConstants.FORMAT_HEX_STRING_AS_PACK & format:
-                separator = separator + " "
+                separator = separator + ' '
             if PhConstants.FORMAT_HEX_STRING_AS_HEX & format:
                 if PhConstants.FORMAT_HEX_STRING_AS_UPPERCASE & format:
-                    pformat = "0X" + pformat
+                    pformat = '0X' + pformat
                 else:
-                    pformat = "0x" + pformat
+                    pformat = '0x' + pformat
             return (separator.join(map(lambda a: pformat % ((a + 256) % 256), bytes))).rstrip()
 
     @classmethod
     def check_and_assign(cls, primary_value, secondry_value):
+        """
+
+        :param primary_value:
+        :param secondry_value:
+        :return:
+        """
         if primary_value is not None:
             return primary_value
         if secondry_value is not None:
@@ -1197,6 +1221,13 @@ class PhUtil:
 
     @classmethod
     def get_version_from_name(cls, name, max_depth=None, trim_v=False):
+        """
+
+        :param name:
+        :param max_depth:
+        :param trim_v:
+        :return:
+        """
         if max_depth is None:
             match = re.search('(v|V)([\d._-])*(\d)', name)
         else:
@@ -1208,6 +1239,11 @@ class PhUtil:
 
     @classmethod
     def print_all_environment_variables(cls, custom_only=False):
+        """
+
+        :param custom_only:
+        :return:
+        """
         if custom_only:
             for var in PhConstants.ENV_VARIABLES:
                 print(cls.get_environment_variables(var))
@@ -1216,6 +1252,11 @@ class PhUtil:
 
     @classmethod
     def str_to_bool(cls, value):
+        """
+
+        :param value:
+        :return:
+        """
         if isinstance(value, bool):
             return value
         value = value.lower().strip()
@@ -1227,6 +1268,11 @@ class PhUtil:
 
     @classmethod
     def is_clean_name(cls, name):
+        """
+
+        :param name:
+        :return:
+        """
         return not name.startswith('_') and not name.endswith('_')
 
     @classmethod
@@ -1237,6 +1283,16 @@ class PhUtil:
     def get_obj_list(cls, cls_to_explore, obj_name_filter, obj_name_needed=False, obj_value_to_find=None,
                      clean_name=False,
                      sort=False):
+        """
+
+        :param cls_to_explore:
+        :param obj_name_filter:
+        :param obj_name_needed:
+        :param obj_value_to_find:
+        :param clean_name:
+        :param sort:
+        :return:
+        """
         if cls_to_explore is None:
             return ''
         obj_list = [obj if obj_name_needed else getattr(cls_to_explore, obj)
@@ -1258,6 +1314,11 @@ class PhUtil:
 
     @classmethod
     def normalise_user_input(cls, user_input):
+        """
+
+        :param user_input:
+        :return:
+        """
         temp_user_input = cls.str_to_bool(user_input)
         if temp_user_input is not None:
             return temp_user_input
@@ -1269,6 +1330,12 @@ class PhUtil:
 
     @classmethod
     def get_environment_variables(cls, var_name, check_presence_only=False):
+        """
+
+        :param var_name:
+        :param check_presence_only:
+        :return:
+        """
         # Check for Custom Variables
         env_variable_name, env_variable_default_value = PhConstants.ENV_VARIABLES.get(var_name, (None, None))
         if env_variable_name is None:
@@ -1288,14 +1355,28 @@ class PhUtil:
 
     @classmethod
     def format_data_as_hex(cls, str_data):
+        """
+
+        :param str_data:
+        :return:
+        """
         return ' '.join(re.findall('([0-9a-zA-Z]{2}|[0-9a-zA-Z])', str_data))
 
     @classmethod
     def append_path(cls, dir_file_list):
+        """
+
+        :param dir_file_list:
+        :return:
+        """
         return os.sep.join(filter(None, dir_file_list))
 
     @classmethod
     def cpu_usage(cls):
+        """
+
+        :return:
+        """
         if _psutil_available:
             res = psutil.cpu_times()
             print(f'cpu_times is {res}')
@@ -1317,6 +1398,12 @@ class PhUtil:
 
     @classmethod
     def get_module_version(cls, module_name=PhConstants.MODULE_PYCRATE_NAME, minimum_version_required=None):
+        """
+
+        :param module_name:
+        :param minimum_version_required:
+        :return:
+        """
         module_version = pkg_resources.get_distribution(module_name).version
         module_version = version.parse(module_version)
         res = None
@@ -1324,3 +1411,27 @@ class PhUtil:
             minimum_version_required = version.parse(minimum_version_required)
             res = True if module_version >= minimum_version_required else False
         return module_version, res
+
+    @classmethod
+    def get_user_details_display_name_windows(cls):
+        """
+
+        :return:
+        """
+        get_user_name_ex = ctypes.windll.secur32.GetUserNameExW
+        name_display = 3
+
+        size = ctypes.pointer(ctypes.c_ulong(0))
+        get_user_name_ex(name_display, None, size)
+
+        name_buffer = ctypes.create_unicode_buffer(size.contents.value)
+        get_user_name_ex(name_display, name_buffer, size)
+        return name_buffer.value
+
+    @classmethod
+    def get_user_details_account_name(cls):
+        """
+
+        :return:
+        """
+        return os.environ.get('USERNAME')

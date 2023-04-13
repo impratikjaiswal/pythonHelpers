@@ -72,7 +72,7 @@ def gen_opc(ki_hex, op_hex):
     :param op_hex:
     :return:
     """
-    iv = "00000000000000000000000000000000"
+    iv = '00000000000000000000000000000000'
     opc_hex = binascii.hexlify(AES.new(binascii.unhexlify(ki_hex), AES.MODE_CBC, IV=binascii.unhexlify(iv)).encrypt(
         binascii.unhexlify(op_hex))).decode()
     # print(opc_hex)
