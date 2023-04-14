@@ -1,4 +1,4 @@
-class ExecutionModes:
+class PhExecutionModes:
     USER = 1
     DEV = 2
     UNIT_TESTING = 3
