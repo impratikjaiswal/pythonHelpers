@@ -249,13 +249,13 @@ class PhUtil:
         return str_format_keyword.join(filter(None, [tool_name, tool_version]))
 
     @classmethod
-    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=False, with_user_info=False):
+    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True):
         print_or_log = log.info if log else print
         sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
         if sep_needed:
             cls.print_separator(log=log)
         if with_libs:
-            cls.print_version(log=log)
+            cls.print_version(log=log, with_libs=False, with_user_info=False)
             cls.print_separator(log=log)
             print(f'Python executable Path is {cls.path_python_folder}')
             cls.print_separator(log=log)
@@ -265,7 +265,8 @@ class PhUtil:
             print(f'User Account is {cls.get_user_details_account_name()}')
             cls.print_separator(log=log)
         if with_libs:
-            cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log)
+            cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
+                              with_libs=False, with_user_info=False)
             cls.print_separator(log=log)
         print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
         if sep_needed:
