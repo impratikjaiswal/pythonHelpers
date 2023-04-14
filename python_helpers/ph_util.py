@@ -273,7 +273,8 @@ class PhUtil:
             cls.print_separator(log=log)
 
     @classmethod
-    def print_heading(cls, str_heading, heading_level=1, char=None, count=80, log=None, max_allowed_length=None):
+    def print_heading(cls, str_heading, heading_level=1, char=None, count=PhConstants.MAX_HEADING_LENGTH, log=None,
+                      max_allowed_length=None):
         char_selector = {
             1: '-',
             2: '*',
@@ -286,7 +287,7 @@ class PhUtil:
         if isinstance(str_heading, list):
             str_heading = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, str_heading))
         if max_allowed_length is None:
-            max_allowed_length = count - 6
+            max_allowed_length = count - PhConstants.LENGTH_RESERVE_LIST_REMARKS
         str_heading = str_heading[:max_allowed_length].replace('\n', ' ')
         print_or_log = log.info if log else print
         remaining_count = count - len(str_heading) - 2
@@ -1436,3 +1437,19 @@ class PhUtil:
         :return:
         """
         return os.environ.get('USERNAME')
+
+    @classmethod
+    def append_remarks(cls, remarks1, remarks2, max_length=PhConstants.DEFAULT_REMARKS_MAX_LENGTH):
+        if remarks2 is not None:
+            sep = PhConstants.SEPERATOR_MULTI_OBJ
+            remarks1 = cls.trim_remarks(remarks1, max_length - (len(remarks2) + len(sep)))
+            remarks1 = sep.join(filter(None, [remarks1, remarks2]))
+        return remarks1
+
+    @classmethod
+    def trim_remarks(cls, user_remarks, max_length=PhConstants.DEFAULT_REMARKS_MAX_LENGTH):
+        if len(user_remarks) > max_length > 0:
+            # Trimming is needed
+            user_remarks = user_remarks[
+                           :max_length - PhConstants.DEFAULT_TRIM_STRING_LENGTH] + PhConstants.DEFAULT_TRIM_STRING
+        return user_remarks
