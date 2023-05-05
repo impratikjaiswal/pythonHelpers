@@ -18,6 +18,8 @@ print(f'Packages are {packages}')
 install_reqs = [
     'packaging',
     'pandas',
+    'psutil',
+    'tzlocal',
 ]
 
 # get long description from the README.md

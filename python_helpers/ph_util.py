@@ -15,9 +15,11 @@ import pandas as pd
 import pkg_resources
 import sys
 import time
+import tzlocal
 from packaging import version
 from pandas import DataFrame
 
+from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 
 _base_profiles_available = False
@@ -26,8 +28,6 @@ try:
     import psutil
 except ImportError:
     _psutil_available = False
-
-from python_helpers.ph_constants import PhConstants
 
 
 class PhUtil:
@@ -38,8 +38,8 @@ class PhUtil:
     path_default_out_folder = path_current_folder + os.sep + 'out'
     path_default_tst_folder = path_current_folder + os.sep + 'tests'
     # Sample Data:
-    # in Real Environament: D:\ProgramFiles\Python37
-    # in Virtual Environament: D:\Other\Github_Self\asn1Play\venv\Scripts
+    # in Real Environment: D:\ProgramFiles\Python37
+    # in Virtual Environment: D:\Other\Github_Self\asn1Play\venv\Scripts
     path_python_folder = os.path.split(sys.executable)[0]
     path_python_script_folder = os.sep.join([path_python_folder, 'Scripts']) if not path_python_folder.endswith(
         'Scripts') else path_python_folder
@@ -48,7 +48,8 @@ class PhUtil:
     @classmethod
     def test(cls, actual, expected):
         """
-        Simple provided test() function used in other functions() to print what each function returns vs. what it's supposed to return.
+        Simple provided test() function used in other functions() to print what each function returns vs. what it's
+        supposed to return.
         :param actual: any Object (Actual Output)
         :param expected: any Object (Expected Output)
         :return: None
@@ -61,36 +62,40 @@ class PhUtil:
 
     # Deprecated
     @classmethod
-    def line_is_comment(cls, str):
-        return cls.line_is_comment_or_empty(str)
+    def line_is_comment(cls, str_data):
+        return cls.line_is_comment_or_empty(str_data)
 
     @classmethod
-    def line_is_comment_or_empty(cls, str):
+    def line_is_comment_or_empty(cls, str_data):
         # Check if line is a comment
         comments_pool = ['#', '*', ';', '-', '/*']
         for comment_char in comments_pool:
-            if len(str.strip()) == 0 or str.strip().startswith(comment_char):
+            if len(str_data.strip()) == 0 or str_data.strip().startswith(comment_char):
                 return True
         return False
 
     @classmethod
-    def string_is_blank(cls, str):
+    def string_is_blank(cls, str_data):
         # Check if line is a comment
-        return True if str is None or str.strip() == '' else False
+        return True if str_data is None or str_data.strip() == '' else False
 
     @classmethod
-    def string_is_not_blank(cls, str):
+    def string_is_not_blank(cls, str_data):
         """
 
-        :param str:
+        :param str_data:
         :return:
         """
-        return not cls.string_is_blank(str)
+        return not cls.string_is_blank(str_data)
 
     @classmethod
-    def trim_and_kill_all_white_spaces(cls, str):
-        return re.sub(r'\s+', '', str)
-        # return str.translate({ord(c): None for c in string.whitespace})
+    def trim_and_kill_all_white_spaces(cls, str_data):
+        return re.sub(r'\s+', '', str_data)
+        # return str_data.translate({ord(c): None for c in string.whitespace})
+
+    @classmethod
+    def trim_white_spaces_in_str(cls, data):
+        return data.strip() if isinstance(data, str) else data
 
     @classmethod
     def is_hex(cls, s):
@@ -111,12 +116,12 @@ class PhUtil:
         return '%02X' % data_len if output_in_str_format else data_len
 
     @classmethod
-    def len_odd(cls, str):
-        return True if len(str) % 2 else False
+    def len_odd(cls, str_data):
+        return True if len(str_data) % 2 else False
 
     @classmethod
-    def len_even(cls, str):
-        return not cls.len_odd(str)
+    def len_even(cls, str_data):
+        return not cls.len_odd(str_data)
 
     @classmethod
     def swap_nibbles_str(cls, hex_str_data, pad_if_required=True):
@@ -240,7 +245,7 @@ class PhUtil:
         str_format_keyword = ' version is '
         version_keyword = 'v'
         tool_name = 'Python' if tool_name is None else tool_name
-        tool_version = sys.version if tool_name == 'Python' else tool_version
+        tool_version = sys.version if tool_name == 'Python' else str(tool_version)
         if tool_version:
             version_keyword_needed = False if tool_version.strip().lower().startswith(version_keyword) else True
             tool_version = f'{version_keyword}{tool_version}' if version_keyword_needed else tool_version
@@ -249,31 +254,36 @@ class PhUtil:
         return str_format_keyword.join(filter(None, [tool_name, tool_version]))
 
     @classmethod
-    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True):
+    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
+                      with_time_stamp=True, no_additional_info=False):
         print_or_log = log.info if log else print
         sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
         if sep_needed:
             cls.print_separator(log=log)
-        if with_libs:
-            cls.print_version(log=log, with_libs=False, with_user_info=False)
-            cls.print_separator(log=log)
-            print(f'Python executable Path is {cls.path_python_folder}')
-            cls.print_separator(log=log)
-        if with_user_info:
-            print(f'User Name is {cls.get_user_details_display_name_windows()}')
-            cls.print_separator(log=log)
-            print(f'User Account is {cls.get_user_details_account_name()}')
-            cls.print_separator(log=log)
-        if with_libs:
-            cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
-                              with_libs=False, with_user_info=False)
-            cls.print_separator(log=log)
+        if not no_additional_info:
+            if with_libs:
+                cls.print_version(log=log, no_additional_info=True)
+                cls.print_separator(log=log)
+                print(f'Python executable Path is {cls.path_python_folder}')
+                cls.print_separator(log=log)
+            if with_user_info:
+                print(f'User Name is {cls.get_user_details_display_name_windows()}')
+                cls.print_separator(log=log)
+                print(f'User Account is {cls.get_user_details_account_name()}')
+                cls.print_separator(log=log)
+            if with_time_stamp:
+                print(f'Time Stamp is {cls.get_time_stamp(files_format=False)}')
+                cls.print_separator(log=log)
+            if with_libs:
+                cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
+                                  no_additional_info=True)
+                cls.print_separator(log=log)
         print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
         if sep_needed:
             cls.print_separator(log=log)
 
     @classmethod
-    def print_heading(cls, str_heading, heading_level=1, char=None, count=PhConstants.MAX_HEADING_LENGTH, log=None,
+    def print_heading(cls, str_heading=None, heading_level=1, char=None, count=PhConstants.MAX_HEADING_LENGTH, log=None,
                       max_allowed_length=None):
         char_selector = {
             1: '-',
@@ -283,7 +293,7 @@ class PhUtil:
         if char is None:
             char = char_selector.get(heading_level, '-')
         if str_heading is None:
-            str_heading = ''
+            str_heading = cls.get_current_func_name(parent_level=2)
         if isinstance(str_heading, list):
             str_heading = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, str_heading))
         if max_allowed_length is None:
@@ -305,10 +315,10 @@ class PhUtil:
             str_hex_data = str(str_hex_data)  # Needed to convert any type
             if cls.len_odd(str_hex_data):
                 analysed_str = 'Odd Length'
-            analysed_str = ', '.join(filter(None, [analysed_str, 'Length: '
-                                                   + str(len(str_hex_data)) + ' digits(s) / ' + cls.len_hex(
-                str_hex_data, output_in_str_format=True)
-                                                   + ' byte(s)', 'Data: ' + str_hex_data]))
+            analysed_str = ', '.join(filter(None, [analysed_str,
+                                                   'Length: ' + str(len(str_hex_data)) + ' digits(s) / ' + cls.len_hex(
+                                                       str_hex_data, output_in_str_format=True) + ' byte(s)',
+                                                   'Data: ' + str_hex_data]))
         if cmt_to_print:
             if str_hex_data:
                 cmt_to_print = '\n' + cmt_to_print + '\t'
@@ -319,7 +329,7 @@ class PhUtil:
         return analysed_str
 
     @classmethod
-    def set_if_not_none(cls, current_value, new_value):
+    def set_if_not_none(cls, current_value, new_value=''):
         return new_value if current_value is None else current_value
 
     @classmethod
@@ -332,8 +342,9 @@ class PhUtil:
         :param only_extn:
         :param extn_with_out_dot:
         :param only_path:
+        :param ext_available:
         :param path_with_out_extn:
-
+        :param only_folder_name:
         :return:
         """
         name_with_out_extn = cls.set_if_not_none(name_with_out_extn, False)
@@ -457,13 +468,19 @@ class PhUtil:
     @classmethod
     def get_time_stamp(cls, files_format=True, date_only=False, default_format=False):
         if files_format:
-            time_format = '%Y%m%d' if date_only else '%Y%m%d_%H%M%S%f'
+            date_format = '%Y%m%d'
+            time_format = date_format if date_only else f'{date_format}_%H%M%S%f'
             # Unique time must be generated
             time.sleep(0.1)
         else:
-            time_format = '%Y %m %d' if date_only else '%Y %m %d:%H %M %S %f'
+            # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
+            # Date & Time: Thursday, Apr 04 2023, 18:44:44:356307, IST (GMT+0530)
+            date_format = '%A, %b %m %Y'
+            time_format = date_format if date_only else f'{date_format}, %H:%M:%S:%f, %Z (GMT%z)'
         # current date and time
-        now = datetime.now()  # current date and time
+        # now = datetime.now()  # current date and time
+        # now = datetime.now().astimezone() # needed for %z & %Z
+        now = datetime.now(tzlocal.get_localzone())
         if default_format:
             return now
         date_time = now.strftime(time_format)
@@ -477,10 +494,17 @@ class PhUtil:
         return temp_data.title()
 
     @classmethod
-    def get_python_friendly_name(cls, user_variable_name, all_lower=True):
+    def get_python_friendly_name(cls, user_variable_name, all_lower=True, case_sensitive=True):
         if isinstance(user_variable_name, str):
-            temp_data = re.sub(r'[ |-]', repl='_', string=user_variable_name)
-            return temp_data.lower() if all_lower else temp_data.title()
+            temp_data = user_variable_name
+            temp_data = temp_data.replace(PhConstants.DEFAULT_TRIM_STRING, '_')
+            temp_data = re.sub(r'[^a-zA-Z0-9_.]', repl='_', string=temp_data)
+            temp_data = re.sub(r'(_)\1+', repl=r'\1', string=temp_data)
+            temp_data = temp_data.strip('_')
+            if case_sensitive:
+                return temp_data.lower() if all_lower else temp_data.title()
+            else:
+                return temp_data
         return user_variable_name
 
     traverse_modes = ['ImmediateFilesOnly', 'ImmediateFoldersOnly', 'ImmediateFolderAndFiles',
@@ -701,6 +725,7 @@ class PhUtil:
 
     @classmethod
     def makedirs(cls, dir_path):
+        # dir_path = cls.get_absolute_path(dir_path)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
@@ -808,11 +833,7 @@ class PhUtil:
         if imp_info:
             module_name = PhConstants.MODULE_PYCRATE_NAME
             module_version = cls.get_module_version(module_name)[0]
-            msg.append(
-                f'\n',
-                f'Important Info: ',
-                f'{module_name} version is: {module_version}',
-            )
+            msg.append(f'\nImportant Info: {module_name} version is: {module_version}')
         return '\n'.join(msg), bp_status
 
     @classmethod
@@ -834,10 +855,12 @@ class PhUtil:
             print('File {0} does not exist.'.format(file_path))
 
     @classmethod
-    def get_current_func_name(cls, ):
+    def get_current_func_name(cls, parent_level=1):
         # print(inspect.stack()[0][3])  # will give current
         # print(inspect.stack()[1][3])  # will give the caller (Parent)
-        return inspect.stack()[1][3]
+        # print(inspect.stack()[2][3])  # will give the caller of caller (Grand Parent)
+        # cls.print_iter(inspect.stack())
+        return inspect.stack()[parent_level][3]
 
     @classmethod
     def enclose(cls, format, data1, data2='', indent_level=0):
@@ -903,11 +926,18 @@ class PhUtil:
             x.title() if x not in all_caps_keywords else x for x in [x for x in re.split('_', string=str(col_name))])
 
     @classmethod
-    def read_csv(cls, file_name, sep='\s+', rename_col=False, comment='*', print_shape=True, print_frame=False
-                 # , encoding='unicode_escape'
-                 , names=None
-                 , encoding=None
-                 , log=None):
+    def read_csv(cls,
+                 file_name,
+                 sep='\s+',
+                 rename_col=False,
+                 comment='*',
+                 print_shape=True,
+                 print_frame=False,
+                 # encoding='unicode_escape',
+                 names=None,
+                 encoding=None,
+                 log=None,
+                 ):
         if names:
             obj = pd.read_csv(file_name, sep=sep, dtype='str', na_filter=False, skip_blank_lines=True, comment=comment,
                               encoding=encoding, names=names)
@@ -1137,11 +1167,11 @@ class PhUtil:
         return ascii_str.encode('utf-8').hex()
 
     @classmethod
-    def hex_str_to_ascii(cls, str):
+    def hex_str_to_ascii(cls, str_data):
         # Check if printable
-        hex_bytes = [cls.hex_str_to_dec(str[i:i + 2]) for i in range(0, len(str), 2)]
+        hex_bytes = [cls.hex_str_to_dec(str_data[i:i + 2]) for i in range(0, len(str_data), 2)]
         printable = all((0x20 <= hex_byte <= 0x7E) for hex_byte in hex_bytes)
-        return bytearray.fromhex(str).decode() if printable else ''
+        return bytearray.fromhex(str_data).decode() if printable else ''
 
     @classmethod
     def gen_acc(cls, str_imsi):
@@ -1175,50 +1205,50 @@ class PhUtil:
         return pattern_or_data
 
     @classmethod
-    def to_hex_string(cls, bytes=[], format=0):
+    def to_hex_string(cls, bytes_data=[], required_format=0):
         """
         Returns a hex string representing bytes
 
-        :param bytes: a list of bytes to stringify; e.g. [59, 22, 148, 32, 2, 1, 0, 0, 13]
-        :param format: a logical OR of
+        :param bytes_data: a list of bytes to stringify; e.g. [59, 22, 148, 32, 2, 1, 0, 0, 13]
+        :param required_format: a logical OR of
             - COMMA: add a comma between bytes
             - HEX: add the 0x chars before bytes
             - UPPERCASE: use 0X before bytes (need HEX)
             - PACK: remove blanks
         :return:
         """
-        if type(bytes) is not list:
+        if type(bytes_data) is not list:
             raise TypeError('not a list of bytes')
 
-        if bytes is None or bytes == []:
+        if bytes_data is None or bytes_data == []:
             return ''
         else:
             pformat = '%-0.2X'
-            if PhConstants.FORMAT_HEX_STRING_AS_COMMA & format:
+            if PhConstants.FORMAT_HEX_STRING_AS_COMMA & required_format:
                 separator = ','
             else:
                 separator = ''
-            if not PhConstants.FORMAT_HEX_STRING_AS_PACK & format:
+            if not PhConstants.FORMAT_HEX_STRING_AS_PACK & required_format:
                 separator = separator + ' '
-            if PhConstants.FORMAT_HEX_STRING_AS_HEX & format:
-                if PhConstants.FORMAT_HEX_STRING_AS_UPPERCASE & format:
+            if PhConstants.FORMAT_HEX_STRING_AS_HEX & required_format:
+                if PhConstants.FORMAT_HEX_STRING_AS_UPPERCASE & required_format:
                     pformat = '0X' + pformat
                 else:
                     pformat = '0x' + pformat
-            return (separator.join(map(lambda a: pformat % ((a + 256) % 256), bytes))).rstrip()
+            return (separator.join(map(lambda a: pformat % ((a + 256) % 256), bytes_data))).rstrip()
 
     @classmethod
-    def check_and_assign(cls, primary_value, secondry_value):
+    def check_and_assign(cls, primary_value, secondary_value):
         """
 
         :param primary_value:
-        :param secondry_value:
+        :param secondary_value:
         :return:
         """
         if primary_value is not None:
             return primary_value
-        if secondry_value is not None:
-            return secondry_value
+        if secondary_value is not None:
+            return secondary_value
         return None
 
     @classmethod
@@ -1231,9 +1261,9 @@ class PhUtil:
         :return:
         """
         if max_depth is None:
-            match = re.search('(v|V)([\d._-])*(\d)', name)
+            match = re.search(r'(v|V)([\d._-])*(\d)', name)
         else:
-            match = re.search('(v|V)([\d._-]){0,' + str(max_depth + 1) + '}(\d)', name)
+            match = re.search(r'(v|V)([\d._-]){0,' + str(max_depth + 1) + r'}(\d)', name)
         if match:
             result = re.sub('[._-]', '_', match.group(0))
             return result[1:] if trim_v else result
@@ -1440,10 +1470,10 @@ class PhUtil:
 
     @classmethod
     def append_remarks(cls, remarks1, remarks2, max_length=PhConstants.DEFAULT_REMARKS_MAX_LENGTH):
-        if remarks2 is not None:
-            sep = PhConstants.SEPERATOR_MULTI_OBJ
-            remarks1 = cls.trim_remarks(remarks1, max_length - (len(remarks2) + len(sep)))
-            remarks1 = sep.join(filter(None, [remarks1, remarks2]))
+        remarks1 = cls.set_if_not_none(remarks1)
+        remarks2 = cls.set_if_not_none(remarks2)
+        remarks1 = cls.trim_remarks(remarks1, max_length - (len(remarks2) + len(PhConstants.SEPERATOR_MULTI_OBJ)))
+        remarks1 = cls.combine_list_items([remarks1, remarks2])
         return remarks1
 
     @classmethod
@@ -1453,3 +1483,44 @@ class PhUtil:
             user_remarks = user_remarks[
                            :max_length - PhConstants.DEFAULT_TRIM_STRING_LENGTH] + PhConstants.DEFAULT_TRIM_STRING
         return user_remarks
+
+    @classmethod
+    def cast_to_list(cls, obj, all_str=False, trim_data=False):
+        data_list = [] if obj is None else (obj if isinstance(obj, list) else [obj])
+        if all_str:
+            data_list = [str(x) for x in data_list]
+        if trim_data:
+            data_list = [cls.trim_white_spaces_in_str(x) for x in data_list]
+        return data_list
+
+    @classmethod
+    def extend_list(cls, obj, expected_length=0, filler='', unique_entries=False, trim_data=False):
+        obj = cls.cast_to_list(obj, trim_data)
+        current_length = len(obj)
+        if expected_length <= current_length:
+            return obj
+        target_filler = filler if filler or current_length < 1 else obj[-1]
+        if trim_data:
+            target_filler = cls.trim_white_spaces_in_str(target_filler)
+        extended_list = ([target_filler] * (expected_length - current_length))
+        if unique_entries:
+            extended_list = [PhConstants.SEPERATOR_FILE_NAME.join(filter(None, [str(x), str(y + 1)])) for x, y in
+                             zip(extended_list, range(len(extended_list)))]
+        return obj + extended_list
+
+    @classmethod
+    def combine_list_items(cls, list_data):
+        list_data = list(filter(None, list_data))
+        if 0 < len(list_data) < 2:
+            return list_data[0]
+        list_data = [x.strip(PhConstants.SEPERATOR_MULTI_OBJ.strip()).strip(
+            PhConstants.SEPERATOR_MULTI_OBJ) if x is not None else x for x in list_data]
+        return PhConstants.SEPERATOR_MULTI_OBJ.join(list_data)
+
+    @classmethod
+    def get_absolute_path(cls, rel_path):
+        return os.path.abspath(rel_path)
+
+    @classmethod
+    def get_relative_path(cls, abs_path):
+        return os.path.relpath(abs_path)

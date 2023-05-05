@@ -1,5 +1,11 @@
+# Packaging
+packaging
+
 # Pandas
 pandas
 
-# Packaging
-packaging
+# Cpu Usage
+psutil
+
+# TimeZone
+tzlocal
