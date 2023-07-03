@@ -283,8 +283,7 @@ class PhUtil:
             cls.print_separator(log=log)
 
     @classmethod
-    def print_heading(cls, str_heading=None, heading_level=1, char=None, count=PhConstants.MAX_HEADING_LENGTH, log=None,
-                      max_allowed_length=None):
+    def print_heading(cls, str_heading=None, heading_level=1, char=None, max_length=None, log=None):
         char_selector = {
             1: '-',
             2: '*',
@@ -296,11 +295,13 @@ class PhUtil:
             str_heading = cls.get_current_func_name(parent_level=2)
         if isinstance(str_heading, list):
             str_heading = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, str_heading))
-        if max_allowed_length is None:
-            max_allowed_length = count - PhConstants.LENGTH_RESERVE_LIST_REMARKS
-        str_heading = str_heading[:max_allowed_length].replace('\n', ' ')
+        if max_length is None:
+            max_length = PhConstants.HEADING_LENGTH_MAX
+        data_max_length = max_length - PhConstants.HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_SYMBOL - PhConstants.HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_WHITE_SPACES
+        str_heading = str_heading[:data_max_length].replace('\n', ' ')
         print_or_log = log.info if log else print
-        remaining_count = count - len(str_heading) - 2
+        current_len = len(str_heading)
+        remaining_count = max_length - current_len - PhConstants.HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_WHITE_SPACES
         print_or_log(
             ''.join([char * math.ceil(remaining_count / 2), ' ', str_heading, ' ', char * int(remaining_count / 2)]))
 
@@ -329,8 +330,11 @@ class PhUtil:
         return analysed_str
 
     @classmethod
-    def set_if_not_none(cls, current_value, new_value=''):
-        return new_value if current_value is None else current_value
+    def set_if_not_none(cls, current_value, new_value='', new_type=None):
+        value = new_value if current_value is None else current_value
+        if new_type and not isinstance(value, new_type):
+            return new_type(value)
+        return value
 
     @classmethod
     def get_file_name_and_extn(cls, file_path, name_with_out_extn=None, only_extn=None, extn_with_out_dot=None,
@@ -475,7 +479,7 @@ class PhUtil:
         else:
             # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
             # Date & Time: Thursday, Apr 04 2023, 18:44:44:356307, IST (GMT+0530)
-            date_format = '%A, %b %m %Y'
+            date_format = '%A, %b %d %Y'
             time_format = date_format if date_only else f'{date_format}, %H:%M:%S:%f, %Z (GMT%z)'
         # current date and time
         # now = datetime.now()  # current date and time
@@ -1469,15 +1473,24 @@ class PhUtil:
         return os.environ.get('USERNAME')
 
     @classmethod
-    def append_remarks(cls, remarks1, remarks2, max_length=PhConstants.DEFAULT_REMARKS_MAX_LENGTH):
-        remarks1 = cls.set_if_not_none(remarks1)
-        remarks2 = cls.set_if_not_none(remarks2)
-        remarks1 = cls.trim_remarks(remarks1, max_length - (len(remarks2) + len(PhConstants.SEPERATOR_MULTI_OBJ)))
-        remarks1 = cls.combine_list_items([remarks1, remarks2])
-        return remarks1
+    def append_remarks(cls, main_remarks, additional_remarks=None, max_length=PhConstants.REMARKS_MAX_LENGTH,
+                       append_mode_post=True):
+        main_remarks = cls.set_if_not_none(main_remarks, new_type=str)
+        additional_remarks = cls.set_if_not_none(additional_remarks, new_type=str)
+        len_sep = len(PhConstants.SEPERATOR_MULTI_OBJ) if len(main_remarks) > 0 and len(additional_remarks) > 0 else 0
+        len_main_remarks = len(main_remarks)
+        diff_length = len_main_remarks - max_length + len_sep + PhConstants.DEFAULT_TRIM_STRING_LENGTH
+        if diff_length > 0:
+            return cls.trim_remarks(main_remarks, max_length)
+        diff_length = max_length - len_main_remarks - len_sep
+        additional_remarks = cls.trim_remarks(additional_remarks, diff_length)
+        if append_mode_post:
+            return cls.combine_list_items([main_remarks, additional_remarks])
+        else:
+            return cls.combine_list_items([additional_remarks, main_remarks])
 
     @classmethod
-    def trim_remarks(cls, user_remarks, max_length=PhConstants.DEFAULT_REMARKS_MAX_LENGTH):
+    def trim_remarks(cls, user_remarks, max_length=PhConstants.REMARKS_MAX_LENGTH):
         if len(user_remarks) > max_length > 0:
             # Trimming is needed
             user_remarks = user_remarks[
@@ -1485,7 +1498,7 @@ class PhUtil:
         return user_remarks
 
     @classmethod
-    def cast_to_list(cls, obj, all_str=False, trim_data=False):
+    def cast_to_list(cls, obj, all_str=False, trim_data=True):
         data_list = [] if obj is None else (obj if isinstance(obj, list) else [obj])
         if all_str:
             data_list = [str(x) for x in data_list]
@@ -1495,7 +1508,7 @@ class PhUtil:
 
     @classmethod
     def extend_list(cls, obj, expected_length=0, filler='', unique_entries=False, trim_data=False):
-        obj = cls.cast_to_list(obj, trim_data)
+        obj = cls.cast_to_list(obj, trim_data=trim_data)
         current_length = len(obj)
         if expected_length <= current_length:
             return obj
@@ -1509,13 +1522,16 @@ class PhUtil:
         return obj + extended_list
 
     @classmethod
-    def combine_list_items(cls, list_data):
+    def combine_list_items(cls, list_data, trim_data=True, clean_data=True):
         list_data = list(filter(None, list_data))
+        if trim_data:
+            list_data = [x.strip() if x is not None else x for x in list_data]
+        if clean_data:
+            list_data = [re.sub(r'^(;+ *)*|(;+ *)*$', '', x) if x is not None else x for x in list_data]
         if 0 < len(list_data) < 2:
             return list_data[0]
-        list_data = [x.strip(PhConstants.SEPERATOR_MULTI_OBJ.strip()).strip(
-            PhConstants.SEPERATOR_MULTI_OBJ) if x is not None else x for x in list_data]
-        return PhConstants.SEPERATOR_MULTI_OBJ.join(list_data)
+        res = PhConstants.SEPERATOR_MULTI_OBJ.join(list_data)
+        return res
 
     @classmethod
     def get_absolute_path(cls, rel_path):
