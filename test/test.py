@@ -53,6 +53,7 @@ def test_list():
     PhUtil.print_heading(str_heading='combine_list_items')
     print(PhUtil.combine_list_items(['Pj', 'Lp', ' nn'], trim_data=True))
     print(PhUtil.combine_list_items(['Pj', 'Lp', ' nn'], trim_data=False))
+    print(PhUtil.combine_list_items('Pj'))
     PhUtil.print_heading(str_heading='combine_list_items ; clean_data=False')
     print(PhUtil.combine_list_items([';Pj ', 'Lp', 'nn'], clean_data=False))
     print(PhUtil.combine_list_items(['Pj; ', 'Lp', 'nn'], clean_data=False))

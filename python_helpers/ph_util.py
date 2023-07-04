@@ -1523,6 +1523,10 @@ class PhUtil:
 
     @classmethod
     def combine_list_items(cls, list_data, trim_data=True, clean_data=True):
+        if not isinstance(list_data, list):
+            temp = list_data
+            list_data = list()
+            list_data.append(temp)
         list_data = list(filter(None, list_data))
         if trim_data:
             list_data = [x.strip() if x is not None else x for x in list_data]
