@@ -55,17 +55,18 @@ class test_obj_normalise_name_pandas_to_user:
 
 
 class test_obj_dec_to_hex:
-    def __init__(self, dec_num, digit_required=None, even_digits=None, inbuilt=False, expected_op=None):
+    def __init__(self, dec_num, digit_required=None, even_digits=None, assert_w_inbuilt=False, expected_op=None):
         self.dec_num = dec_num
         self.digit_required = digit_required
         self.even_digits = even_digits
-        self.inbuilt = inbuilt
+        self.assert_w_inbuilt = assert_w_inbuilt
         self.expected_op = expected_op
 
 
 class test_obj_hex_str_to_dec:
-    def __init__(self, hex_str, expected_op=None):
+    def __init__(self, hex_str, signed_byte_handling=False, expected_op=None):
         self.hex_str = hex_str
+        self.signed_byte_handling = signed_byte_handling
         self.expected_op = expected_op
 
 
@@ -76,9 +77,10 @@ class test_obj_to_hex_string:
         self.expected_op = expected_op
 
 
-class test_obj_hex_str_to_hex_list:
-    def __init__(self, hex_str, expected_op=None):
+class test_obj_hex_str_to_dec_list:
+    def __init__(self, hex_str, signed_byte_handling=False, expected_op=None):
         self.hex_str = hex_str
+        self.signed_byte_handling = signed_byte_handling
         self.expected_op = expected_op
 
 
@@ -338,13 +340,15 @@ class util_test(unittest.TestCase):
             test_obj_dec_to_hex(16, expected_op='10', even_digits=False),
             test_obj_dec_to_hex(15, digit_required=32, expected_op='0000000000000000000000000000000F'),
             test_obj_dec_to_hex(16, digit_required=32, expected_op='00000000000000000000000000000010'),
-            test_obj_dec_to_hex(15, expected_op='0xf', inbuilt=True),
-            test_obj_dec_to_hex(16, expected_op='0x10', inbuilt=True),
+            test_obj_dec_to_hex(15, expected_op='0xf', assert_w_inbuilt=True),
+            test_obj_dec_to_hex(16, expected_op='0x10', assert_w_inbuilt=True),
+            test_obj_dec_to_hex(-68, expected_op='BC'),
+            test_obj_dec_to_hex([10, -68, -46, 85], expected_op='0ABCD255'),
         ]
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                if test_obj.inbuilt:
+                if test_obj.assert_w_inbuilt:
                     self.assertEqual(hex(test_obj.dec_num), test_obj.expected_op)
                     continue
                 if test_obj.digit_required is not None:
@@ -371,11 +375,15 @@ class util_test(unittest.TestCase):
             test_obj_hex_str_to_dec('10', expected_op=16),
             test_obj_hex_str_to_dec('0x10', expected_op=16),
             test_obj_hex_str_to_dec('0x0A', expected_op=10),
+            test_obj_hex_str_to_dec('0xBC', signed_byte_handling=True, expected_op=-68),
+            test_obj_hex_str_to_dec('0xBC', signed_byte_handling=False, expected_op=188),
         ]
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                self.assertEqual(PhUtil.hex_str_to_dec(test_obj.hex_str), test_obj.expected_op)
+                self.assertEqual(
+                    PhUtil.hex_str_to_dec(test_obj.hex_str, signed_byte_handling=test_obj.signed_byte_handling),
+                    test_obj.expected_op)
 
     def test_to_hex_string(self):
         """
@@ -409,21 +417,25 @@ class util_test(unittest.TestCase):
                 else:
                     self.assertEqual(PhUtil.to_hex_string(test_obj.hex_bytes), test_obj.expected_op)
 
-    def test_hex_str_to_hex_list(self):
+    def test_hex_str_to_dec_list(self):
         """
 
         :return:
         """
         test_obj_pool = [
-            test_obj_hex_str_to_hex_list('A000000559 1010 FFFFFF FF89 000001 00',
+            test_obj_hex_str_to_dec_list('A000000559 1010 FFFFFF FF89 000001 0',
                                          expected_op=[160, 0, 0, 5, 89, 16, 16, 255, 255, 255, 255, 137, 0, 0, 1, 0]),
-            test_obj_hex_str_to_hex_list('A000000559 1010 FFFFFF FF89 000001 0',
+            test_obj_hex_str_to_dec_list('A000000559 1010 FFFFFF FF89 000001 00', signed_byte_handling=False,
                                          expected_op=[160, 0, 0, 5, 89, 16, 16, 255, 255, 255, 255, 137, 0, 0, 1, 0]),
+            test_obj_hex_str_to_dec_list('A000000559 1010 FFFFFF FF89 000001 00', signed_byte_handling=True,
+                                         expected_op=[-96, 0, 0, 5, 89, 16, 16, -1, -1, -1, -1, -119, 0, 0, 1, 0]),
         ]
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
-                self.assertEqual(PhUtil.hex_str_to_hex_list(test_obj.hex_str), test_obj.expected_op)
+                self.assertEqual(PhUtil.hex_str_to_dec_list(test_obj.hex_str,
+                                                            signed_byte_handling=test_obj.signed_byte_handling),
+                                 test_obj.expected_op)
 
     def test_rstrip_hex(self):
         """

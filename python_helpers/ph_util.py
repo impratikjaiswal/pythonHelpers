@@ -775,10 +775,24 @@ class PhUtil:
         return end_char
 
     @classmethod
-    def dec_to_hex(cls, dec_num, digit_required=None, even_digits=True):
+    def dec_to_hex(cls, dec_num, digit_required=None, even_digits=True, signed_byte_handling=True):
+        """
+
+        :param dec_num:
+        :param digit_required:
+        :param even_digits:
+        :param signed_byte_handling: Byte in Java is represented by signed int in range (-128, 127), Byte Python is represented by unsigned int in range(0, 255).
+        :return:
+        """
         # return hex(dec_num).split('x')[-1].upper()
         # return '0x{:02x}'.format(dec_num)
         # return binascii.hexlify(str(dec_num))
+        if isinstance(dec_num, list):
+            res = [cls.dec_to_hex(dec_num=x, digit_required=digit_required, even_digits=even_digits,
+                                  signed_byte_handling=signed_byte_handling) for x in dec_num]
+            return ''.join(res)
+        if dec_num < 0 and signed_byte_handling:
+            dec_num = dec_num + 256
         if digit_required is None:
             digit_required = 0
         temp = format(dec_num, 'X')
@@ -787,16 +801,31 @@ class PhUtil:
         return temp.rjust(digit_required, '0')
 
     @classmethod
-    def hex_str_to_dec(cls, hex_str):
-        if isinstance(hex_str, str):
-            return int(hex_str, 16)
-        return hex_str
+    def hex_str_to_dec(cls, hex_str, signed_byte_handling=False):
+        """
+
+        :param hex_str:
+        :param signed_byte_handling: Byte in Java is represented by signed int in range (-128, 127), Byte Python is represented by unsigned int in range(0, 255).
+        :return:
+        """
+        dec_num = int(hex_str, 16) if isinstance(hex_str, str) else hex_str
+        if 127 < dec_num < 256 and signed_byte_handling:
+            dec_num = dec_num - 256
+        return dec_num
 
     @classmethod
-    def hex_str_to_hex_list(cls, hex_str):
+    def hex_str_to_dec_list(cls, hex_str, signed_byte_handling=False):
+        """
+
+        :param hex_str:
+        :param signed_byte_handling: Byte in Java is represented by signed int in range (-128, 127), Byte Python is represented by unsigned int in range(0, 255).
+        :return:
+        """
         hex_str = cls.trim_and_kill_all_white_spaces(hex_str)
-        chunk_size = 2
-        return [cls.hex_str_to_dec(hex_str[i:i + chunk_size]) for i in range(0, len(hex_str), chunk_size)]
+        if len(hex_str) > 2:
+            chunk_size = 2
+            return [cls.hex_str_to_dec(hex_str[i:i + chunk_size], signed_byte_handling=signed_byte_handling) for i in
+                    range(0, len(hex_str), chunk_size)]
 
     @classmethod
     def rstrip_hex_str(cls, hex_str):
@@ -965,6 +994,25 @@ class PhUtil:
     def to_csv(cls, output, file_name, str_append='', new_ext='', sep=' ', index=False, print_shape=True,
                print_frame=False,
                encoding=None, log=None):
+        """
+
+        :param output: DataFrame
+        :param file_name:
+        :param str_append:
+        :param new_ext:
+        :param sep:
+        :param index:
+        :param print_shape:
+        :param print_frame:
+        :param encoding:
+        :param log:
+        :return:
+        """
+        if output is None:
+            return None
+        if not isinstance(output, DataFrame):
+            return cls.to_file(output_lines=output, file_name=file_name, str_append=str_append, new_ext=new_ext,
+                               encoding=encoding)
         if print_shape:
             cls.print_data_frame_shape(output, file_name, log=log)
         if print_frame:
@@ -973,6 +1021,30 @@ class PhUtil:
             file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
         cls.makedirs(cls.get_file_name_and_extn(file_name, only_path=True))
         output.to_csv(path_or_buf=file_name, index=index, sep=sep, encoding=encoding)
+        return file_name
+
+    @classmethod
+    def to_file(cls, output_lines, file_name, str_append='', new_ext='', lines_sep='\n', encoding='utf-8'):
+        """
+
+        :param output_lines:
+        :param file_name:
+        :param str_append:
+        :param new_ext:
+        :param lines_sep:
+        :param encoding:
+        :return:
+        """
+        if output_lines is None:
+            return None
+        if str_append or new_ext:
+            file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
+        cls.makedirs(cls.get_file_name_and_extn(file_name, only_path=True))
+        with open(file_name, 'w', encoding=encoding) as file_write:
+            if isinstance(output_lines, list):
+                file_write.writelines(lines_sep.join(output_lines))
+            else:
+                file_write.write(output_lines)
         return file_name
 
     @classmethod
@@ -1529,11 +1601,13 @@ class PhUtil:
             list_data.append(temp)
         list_data = list(filter(None, list_data))
         if trim_data:
-            list_data = [x.strip() if x is not None else x for x in list_data]
+            list_data = [x.strip() if x is not None and isinstance(x, str) else x for x in list_data]
         if clean_data:
-            list_data = [re.sub(r'^(;+ *)*|(;+ *)*$', '', x) if x is not None else x for x in list_data]
+            list_data = [re.sub(r'^(;+ *)*|(;+ *)*$', '', x) if x is not None and isinstance(x, str) else x for x in
+                         list_data]
         if 0 < len(list_data) < 2:
             return list_data[0]
+        list_data = [str(x) for x in list_data]
         res = PhConstants.SEPERATOR_MULTI_OBJ.join(list_data)
         return res
 

@@ -78,6 +78,7 @@ def test_list():
     print(PhUtil.combine_list_items(['Pj;'], clean_data=True))
     print(PhUtil.combine_list_items(['Remarks semi colon 1;', 'Remarks semi colon 2; '], clean_data=True))
     print(PhUtil.combine_list_items(['Remarks semi colon 1;', 'Remarks semi colon 2; ; '], clean_data=True))
+    print(PhUtil.combine_list_items([5,6,7], clean_data=True))
 
 
 def test_heading():
