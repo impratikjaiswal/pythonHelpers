@@ -31,7 +31,7 @@ except ImportError:
 
 
 class PhUtil:
-    # path_current_file = os.path.realpath(__file__)
+    # path_current_folder = os.getcwd()
     path_current_folder = os.path.realpath(sys.path[0])
     path_default_res_folder = path_current_folder + os.sep + 'res'
     path_default_log_folder = path_current_folder + os.sep + 'logs'
@@ -1618,3 +1618,23 @@ class PhUtil:
     @classmethod
     def get_relative_path(cls, abs_path):
         return os.path.relpath(abs_path)
+
+    @classmethod
+    def get_current_dir_path(cls):
+        return cls.path_current_folder
+
+    @classmethod
+    def get_current_script_path(cls):
+        path_current_file = os.path.realpath(__file__)
+        # path_current_file = os.path.abspath(inspect.getfile(inspect.currentframe()))
+        return path_current_file
+
+    @classmethod
+    def get_current_script_folder(cls):
+        return cls.get_directory_path(cls.get_current_script_path())
+
+    @classmethod
+    def get_directory_path(cls, path):
+        return os.path.dirname(path)
+
+
