@@ -1636,5 +1636,3 @@ class PhUtil:
     @classmethod
     def get_directory_path(cls, path):
         return os.path.dirname(path)
-
-
