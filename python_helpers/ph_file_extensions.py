@@ -12,3 +12,7 @@ class PhFileExtensions:
     CSV = '.csv'
     XLSX = '.xlsx'
     XLS = '.xls'
+    PNG = '.png'
+    SVG = '.svg'
+    JPG = '.jpg'
+    JPEG = '.jpeg'

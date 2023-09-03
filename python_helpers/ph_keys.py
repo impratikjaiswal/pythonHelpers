@@ -29,12 +29,20 @@ class PhKeys:
     REMARKS_LIST = 'remarks_list'
     REMARKS_LIST_GENERATED = 'remarks_list_generated'
 
-    #
+    # tlvPlay
     ONE_LINER = 'one_liner'
     VALUE_IN_ASCII = 'value_in_ascii'
     LENGTH_IN_DECIMAL = 'length_in_decimal'
+
+    # qrPlay
+    QR_CODE_VERSION = 'qr_code_version'
+    SCALE = 'scale'
+    IMAGE_FORMAT = 'image_format'
+    SPLIT_QRS = 'split_qrs'
+
     #
     OUTPUT_VERSION = 'output_version'
+
     #
     PYTHON = 'Python'
     SGP22 = 'SGP22'
