@@ -1,4 +1,8 @@
 class PhKeys:
+    #
+    PH_KEYS = 'PhKeys'
+    VERSION = 'version'
+    #
     INPUT = 'input'
     INPUT_FORMAT = 'input_format'
     INPUT_DATA = 'input_data'
@@ -36,9 +40,11 @@ class PhKeys:
 
     # qrPlay
     QR_CODE_VERSION = 'qr_code_version'
+    QR_CODE_VERSIONS = 'qr_code_versions'
     SCALE = 'scale'
     IMAGE_FORMAT = 'image_format'
     SPLIT_QRS = 'split_qrs'
+    SELECTED_QR_CODE_VERSION = 'selected_qr_code_version'
 
     #
     OUTPUT_VERSION = 'output_version'
@@ -50,3 +56,23 @@ class PhKeys:
     EUICC_PROFILE_PACKAGE = 'eUICC_Profile_Package'
     PYTHONHELPERS = 'pythonHelpers'
     TIME_STAMP = 'time_stamp'
+
+    #
+    SAMPLE = 'sample'
+    SAMPLE_1 = 'sample_1'
+    SAMPLE_2 = 'sample_2'
+    SAMPLE_3 = 'sample_3'
+    SAMPLE_4 = 'sample_4'
+    SAMPLE_5 = 'sample_5'
+    SAMPLE_6 = 'sample_6'
+    SAMPLE_7 = 'sample_7'
+    SAMPLE_8 = 'sample_8'
+    SAMPLE_9 = 'sample_9'
+    SAMPLE_10 = 'sample_10'
+    SAMPLE_PROCESSING = 'sample_processing'
+    SAMPLE_LOAD_ONLY = 'load_only'
+    SAMPLE_LOAD_AND_SUBMIT = 'load_and_submit'
+
+    #
+    GET = 'GET'
+    POST = 'POST'
