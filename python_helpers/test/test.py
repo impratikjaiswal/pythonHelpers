@@ -176,8 +176,15 @@ def test_temp():
     pass
 
 
+def test_to_file():
+    PhUtil.to_file(output_lines='abc', file_name='abc.txt')
+    PhUtil.to_file(output_lines=['abc', 'def', 'ghi'], file_name='abc_list.txt')
+    PhUtil.to_file(output_lines='abc', back_up_file=True)
+
+
 def main():
     test_temp()
+    test_to_file()
     test_version()
     test_misc()
     test_list()

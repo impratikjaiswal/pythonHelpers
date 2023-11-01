@@ -153,6 +153,7 @@ class PhConstants:
     FILE_EXTN_TMP = '.tmp'
 
     SEPERATOR_TWO_WORDS = ' '
+    SEPERATOR_TWO_LINES = '\n'
     SEPERATOR_FILE_NAME = '_'
     SEPERATOR_ONE_LINE = ': '
     SEPERATOR_INFO = ' => '
@@ -177,8 +178,11 @@ class PhConstants:
 
     REMARKS_MAX_LENGTH = HEADING_LENGTH_MAX - HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_SYMBOL - HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_WHITE_SPACES
 
-    EXCEPTION_KNOWN = 'Known Exception Occurred'
-    EXCEPTION_UNKNOWN = 'UnKnown Exception Occurred'
+    KNOWN = 'Known'
+    UNKNOWN = 'UnKnown'
+    EXCEPTION_OCCURRED = 'Exception Occurred'
+    EXCEPTION_OCCURRED_AT_FUNC = 'Exception Occurred at function'
+
     KEY_DATE_TIME = 'Date & Time'
 
     ENV_VARIABLES = {}
