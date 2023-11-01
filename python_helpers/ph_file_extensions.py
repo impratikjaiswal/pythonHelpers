@@ -16,3 +16,5 @@ class PhFileExtensions:
     SVG = '.svg'
     JPG = '.jpg'
     JPEG = '.jpeg'
+    BKP = '.bkp'
+    TMP = '.tmp'

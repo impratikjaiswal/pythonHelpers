@@ -21,6 +21,7 @@ from pandas import DataFrame
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_file_extensions import PhFileExtensions
 
 _base_profiles_available = False
 _psutil_available = True
@@ -397,8 +398,11 @@ class PhUtil:
         return file_name
 
     @classmethod
-    def backup_file_name(cls, str_file_path):
-        return cls.append_in_file_name(str_file_path, str_append=['backup', cls.get_time_stamp(files_format=True)])
+    def backup_file_name(cls, str_file_path, default_file_ext=PhFileExtensions.BKP, default_key_word='backup'):
+        if not str_file_path:
+            str_file_path = default_file_ext
+        return cls.append_in_file_name(str_file_path,
+                                       str_append=[default_key_word, cls.get_time_stamp(files_format=True)])
 
     @classmethod
     def rreplace(cls, main_str, old, new, max_split=1):
@@ -1024,7 +1028,8 @@ class PhUtil:
         return file_name
 
     @classmethod
-    def to_file(cls, output_lines, file_name, str_append='', new_ext='', lines_sep='\n', encoding='utf-8'):
+    def to_file(cls, output_lines, file_name='', str_append='', new_ext='', lines_sep='\n', encoding='utf-8',
+                back_up_file=False):
         """
 
         :param output_lines:
@@ -1033,13 +1038,18 @@ class PhUtil:
         :param new_ext:
         :param lines_sep:
         :param encoding:
+        :param back_up_file:
         :return:
         """
         if output_lines is None:
             return None
+        if back_up_file:
+            file_name = cls.backup_file_name(file_name)
         if str_append or new_ext:
             file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
-        cls.makedirs(cls.get_file_name_and_extn(file_name, only_path=True))
+        folder_path = cls.get_file_name_and_extn(file_name, only_path=True)
+        if folder_path:
+            cls.makedirs(folder_path)
         with open(file_name, 'w', encoding=encoding) as file_write:
             if isinstance(output_lines, list):
                 file_write.writelines(lines_sep.join(output_lines))
@@ -1636,3 +1646,12 @@ class PhUtil:
     @classmethod
     def get_directory_path(cls, path):
         return os.path.dirname(path)
+
+    @classmethod
+    def generalise_list(cls, data_list, append_na=True, sort=True):
+        new_data_list = data_list.copy() if data_list is not None else []
+        if append_na:
+            new_data_list.append('--')
+        if sort:
+            new_data_list.sort()
+        return new_data_list
