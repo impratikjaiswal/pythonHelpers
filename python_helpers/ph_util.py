@@ -1651,7 +1651,7 @@ class PhUtil:
     def generalise_list(cls, data_list, append_na=True, sort=True):
         new_data_list = data_list.copy() if data_list is not None else []
         if append_na:
-            new_data_list.append('--')
+            new_data_list.append('')
         if sort:
             new_data_list.sort()
         return new_data_list
