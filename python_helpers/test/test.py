@@ -3,12 +3,18 @@ from python_helpers.ph_util import PhUtil
 
 def test_version():
     PhUtil.print_heading()
-    PhUtil.print_heading(str_heading='')
+    PhUtil.print_heading(str_heading='tool_version="1.0.1"')
     PhUtil.print_version('Test Tool', '1.0.1')
     PhUtil.print_heading(str_heading='')
     PhUtil.print_version()
-    PhUtil.print_heading(str_heading='')
+    PhUtil.print_heading(str_heading='no_additional_info=True')
     PhUtil.print_version('Test Tool', '1.0.1', no_additional_info=True)
+    PhUtil.print_heading(str_heading='tool_version=None')
+    PhUtil.print_version('Test Tool', None)
+    PhUtil.print_heading(str_heading='with_ip=True')
+    PhUtil.print_version('Test Tool', '1.0.1', with_ip=True)
+    PhUtil.print_heading(str_heading='with_ip=False')
+    PhUtil.print_version('Test Tool', '1.0.1', with_ip=False)
 
 
 def test_misc():

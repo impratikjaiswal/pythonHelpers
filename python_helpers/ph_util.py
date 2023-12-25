@@ -13,6 +13,7 @@ from io import TextIOWrapper, StringIO
 import math
 import pandas as pd
 import pkg_resources
+import requests
 import sys
 import time
 import tzlocal

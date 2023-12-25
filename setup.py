@@ -3,8 +3,7 @@
 import os
 
 from setuptools import setup, find_packages
-
-from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers._tool_name import TOOL_NAME
 
 # all packages dependencies
 packages = find_packages()
@@ -16,19 +15,26 @@ if not packages:
 print(f'Packages are {packages}')
 # potential dependencies
 install_reqs = [
+    'incremental',
     'packaging',
     'pandas',
     'psutil',
     'tzlocal',
 ]
 
+setup_reqs = [
+    'incremental',
+]
+
+
 # get long description from the README.md
 with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="utf-8") as fd:
     long_description = fd.read()
 
 setup(
-    name=PhConfigConst.TOOL_NAME,
-    version=PhConfigConst.TOOL_VERSION_DETAILED,
+    use_incremental=True,
+    setup_requires=setup_reqs,
+    name=TOOL_NAME,
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
     description="A Python software package suite to provide various utility functions",

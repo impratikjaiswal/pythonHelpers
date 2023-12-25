@@ -186,3 +186,26 @@ class PhConstants:
     KEY_DATE_TIME = 'Date & Time'
 
     ENV_VARIABLES = {}
+
+    PUBLIC_IP_SERVICES_POOL = [
+        'https://ifconfig.co/ip',  # Seems machine based protocol (IPV4/IPV6)
+        'https://ipecho.net/plain',  # Seems machine based protocol (IPV4/IPV6)
+        'https://checkip.amazonaws.com',  # Seems only IPV4
+        'https://ipinfo.io/ip', # Dedicated IPV4 & IPV6
+        'https://api.ipify.org', # Dedicated IPV4 & IPV6
+        'https://icanhazip.com/',  # Dedicated IPV4 & IPV6
+        'https://ident.me', # Dedicated IPV4 & IPV6
+    ]
+
+    PUBLIC_IP_SERVICES_IPV4_POOL = [
+        'https://ipinfo.io/ip',
+        'https://api.ipify.org/',
+        'https://ipv4.icanhazip.com/',
+        'https://v4.ident.me/',
+    ]
+    PUBLIC_IP_SERVICES_IPV6_POOL = [
+        'https://v6.ipinfo.io/ip',
+        'https://api64.ipify.org/',
+        'https://ipv6.icanhazip.com/',
+        'https://v6.ident.me/',
+    ]
