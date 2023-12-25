@@ -160,11 +160,12 @@ class PhUtil:
         return is_iter, the_iter
 
     @classmethod
-    def print_iter(cls, the_iter, header=None, log=None, list_as_str=None):
+    def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1):
         """
         This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
         nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
 
+        :param depth_level:
         :param the_iter:
         :param header:
         :param log:
@@ -185,7 +186,7 @@ class PhUtil:
         if isinstance(the_iter, dict):
             for key in the_iter.keys():
                 value = the_iter[key]
-                if cls.check_if_iter(value)[0]:
+                if depth_level == -1 and cls.check_if_iter(value)[0]:
                     cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str)
                 else:
                     print_or_log(f'{str(key)}: {value}')
@@ -193,7 +194,7 @@ class PhUtil:
         # Other iterable Items
         for each_item in the_iter:
             # Check if sub-objects are Iterable
-            if cls.check_if_iter(each_item)[0]:
+            if depth_level == -1 and cls.check_if_iter(each_item)[0]:
                 cls.print_iter(the_iter=each_item, log=log)
                 continue
             print_or_log(each_item)
@@ -230,6 +231,17 @@ class PhUtil:
         cls.print_separator(log=log)
 
     @classmethod
+    def print_modules(cls, filter_string=None, depth_level=0):
+        data = sys.modules
+        print(f'Total Modules Count: {len(data)}')
+        if filter_string:
+            filtered_data = {k: v for k, v in data.items() if filter_string in k}
+            print(f'Filtered Modules Count: {len(filtered_data)}')
+            PhUtil.print_iter(filtered_data, depth_level=depth_level)
+        else:
+            PhUtil.print_iter(data, depth_level=depth_level)
+
+    @classmethod
     def get_key_value_pair(cls, key, value, sep=PhConstants.SEPERATOR_ONE_LINE, dic_format=False, print_also=False,
                            log=None):
         print_or_log = log.info if log else print
@@ -247,17 +259,18 @@ class PhUtil:
         str_format_keyword = ' version is '
         version_keyword = 'v'
         tool_name = 'Python' if tool_name is None else tool_name
-        tool_version = sys.version if tool_name == 'Python' else str(tool_version)
+        tool_version = sys.version if tool_name == 'Python' else (
+            str(tool_version) if tool_version is not None else None)
         if tool_version:
             version_keyword_needed = False if tool_version.strip().lower().startswith(version_keyword) else True
             tool_version = f'{version_keyword}{tool_version}' if version_keyword_needed else tool_version
         if dic_format:
             return {tool_name: tool_version}
-        return str_format_keyword.join(filter(None, [tool_name, tool_version]))
+        return str_format_keyword.join([tool_name, cls.set_if_not_none(tool_version)])
 
     @classmethod
     def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
-                      with_time_stamp=True, no_additional_info=False):
+                      with_time_stamp=True, no_additional_info=False, with_ip=True):
         print_or_log = log.info if log else print
         sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
         if sep_needed:
@@ -275,6 +288,10 @@ class PhUtil:
                 cls.print_separator(log=log)
             if with_time_stamp:
                 print(f'Time Stamp is {cls.get_time_stamp(files_format=False)}')
+                cls.print_separator(log=log)
+            if with_ip:
+                print(f'IPV4 is {cls.get_ip(ipv4=True)}')
+                print(f'IPV6 is {cls.get_ip(ipv4=False)}')
                 cls.print_separator(log=log)
             if with_libs:
                 cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
@@ -473,6 +490,31 @@ class PhUtil:
         str_file_path = cls.rreplace(str_file_path, str_ext, str_new_ext, 1) if str_ext else (
                 str_file_path + str_new_ext)
         return str_file_path
+
+    @classmethod
+    def get_ip(cls, ipv4=True):
+        def __get_ip_from_service(ip_service):
+            ext_ip = ''
+            try:
+                ext_ip = requests.get(url=ip_service, timeout=.5).text.strip()
+                # ext_ip = urllib.request.urlopen(ip_service, timeout=1).read().decode('utf8').strip()
+                # print(f'{ext_ip} as per {ip_service}')
+            except Exception as e:
+                # print(f'Error Fetching IP from {ip_service}')
+                pass
+            return ext_ip
+
+        def __get_ip_from_pool(ip_services_pool):
+            for ip_service in ip_services_pool:
+                ext_ip = __get_ip_from_service(ip_service)
+                if ext_ip:
+                    return ext_ip
+
+        if ipv4 is True:
+            return __get_ip_from_pool(PhConstants.PUBLIC_IP_SERVICES_IPV4_POOL)
+        if ipv4 is False:
+            return __get_ip_from_pool(PhConstants.PUBLIC_IP_SERVICES_IPV6_POOL)
+        return __get_ip_from_pool(PhConstants.PUBLIC_IP_SERVICES_POOL)
 
     @classmethod
     def get_time_stamp(cls, files_format=True, date_only=False, default_format=False):
@@ -1399,11 +1441,11 @@ class PhUtil:
         return [n for n in lst if cls.is_clean_name(n)]
 
     @classmethod
-    def get_obj_list(cls, cls_to_explore, obj_name_filter, obj_name_needed=False, obj_value_to_find=None,
-                     clean_name=False,
-                     sort=False):
+    def get_obj_list(cls, cls_to_explore, obj_name_filter='', obj_name_needed=True,
+                     obj_value_to_find=None, clean_name=False, sort=False, print_also=False):
         """
 
+        :param print_also:
         :param cls_to_explore:
         :param obj_name_filter:
         :param obj_name_needed:
@@ -1412,24 +1454,35 @@ class PhUtil:
         :param sort:
         :return:
         """
-        if cls_to_explore is None:
+
+        def __get_obj_list(cls_to_explore, obj_name_filter, obj_name_needed, obj_value_to_find, clean_name, sort):
+            if cls_to_explore is None:
+                return ''
+            obj_dict = cls_to_explore.__dict__
+            obj_list = [obj for obj in obj_dict]
+            if obj_name_filter:
+                obj_list = [obj for obj in obj_list if str(obj).startswith(obj_name_filter)]
+            if obj_name_needed is not True:
+                obj_list = [getattr(cls_to_explore, obj) for obj in obj_list]
+            if clean_name:
+                obj_list = cls.clean_names(obj_list)
+            if sort:
+                obj_list.sort()
+            if len(obj_list) > 0 and isinstance(obj_list[0], list):
+                obj_list = obj_list[0]
+            if isinstance(cls_to_explore, enum.EnumMeta):
+                obj_list = [cls_to_explore(obj).name for obj in obj_list]
+            if obj_value_to_find is None:
+                return obj_list
+            for obj in obj_list:
+                if obj.value == obj_value_to_find:
+                    return obj.name
             return ''
-        obj_list = [obj if obj_name_needed else getattr(cls_to_explore, obj)
-                    for obj in cls_to_explore.__dict__ if str(obj).startswith(obj_name_filter)]
-        if clean_name:
-            obj_list = cls.clean_names(obj_list)
-        if sort:
-            obj_list.sort()
-        if len(obj_list) > 0 and isinstance(obj_list[0], list):
-            obj_list = obj_list[0]
-        if isinstance(cls_to_explore, enum.EnumMeta):
-            obj_list = [cls_to_explore(obj).name for obj in obj_list]
-        if obj_value_to_find is None:
-            return obj_list
-        for obj in obj_list:
-            if obj.value == obj_value_to_find:
-                return obj.name
-        return ''
+
+        data = __get_obj_list(cls_to_explore, obj_name_filter, obj_name_needed, obj_value_to_find, clean_name, sort)
+        if print_also:
+            cls.print_iter(data)
+        return data
 
     @classmethod
     def normalise_user_input(cls, user_input):

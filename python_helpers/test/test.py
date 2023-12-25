@@ -1,3 +1,6 @@
+import sys
+
+import python_helpers
 from python_helpers.ph_util import PhUtil
 
 
@@ -188,7 +191,38 @@ def test_to_file():
     PhUtil.to_file(output_lines='abc', back_up_file=True)
 
 
+def test_print_iter():
+    PhUtil.print_heading(str_heading='')
+    data = sys.modules
+    PhUtil.print_iter(data, depth_level=0)
+    PhUtil.print_heading(str_heading='')
+    # TODO: https://pratikj.atlassian.net/browse/SML-398
+    # PhUtil.print_iter(data)
+
+
+def test_obj_list():
+    PhUtil.print_heading(str_heading='cls_to_explore=PhUtil')
+    PhUtil.get_obj_list(cls_to_explore=PhUtil, print_also=True)
+    PhUtil.print_heading(str_heading="cls_to_explore=PhUtil, obj_name_filter='print'")
+    PhUtil.get_obj_list(cls_to_explore=PhUtil, obj_name_filter='print', print_also=True)
+    PhUtil.print_heading(str_heading='cls_to_explore=python_helpers')
+    PhUtil.get_obj_list(cls_to_explore=python_helpers, print_also=True)
+    PhUtil.print_heading(str_heading="cls_to_explore=python_helpers, obj_name_filter='ph'")
+    PhUtil.get_obj_list(cls_to_explore=python_helpers, obj_name_filter='ph', print_also=True)
+
+
+def test_print_modules():
+    PhUtil.print_heading(str_heading='No filter String')
+    PhUtil.print_modules()
+    PhUtil.print_heading(str_heading="filter_string='python_helpers'")
+    PhUtil.print_modules(filter_string='python_helpers')
+
+
 def main():
+    """
+
+    :return:
+    """
     test_temp()
     test_to_file()
     test_version()
@@ -198,6 +232,9 @@ def main():
     test_python_friendly_name()
     test_remarks_append_post()
     test_remarks_append_pre()
+    test_print_modules()
+    test_print_iter()
+    test_obj_list()
 
 
 if __name__ == '__main__':
