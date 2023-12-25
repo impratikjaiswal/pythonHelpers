@@ -1442,7 +1442,7 @@ class PhUtil:
 
     @classmethod
     def get_obj_list(cls, cls_to_explore, obj_name_filter='', obj_name_needed=True,
-                     obj_value_to_find=None, clean_name=False, sort=False, print_also=False):
+                     obj_value_to_find=None, clean_name=False, sort=True, print_also=False):
         """
 
         :param print_also:
@@ -1482,6 +1482,34 @@ class PhUtil:
         data = __get_obj_list(cls_to_explore, obj_name_filter, obj_name_needed, obj_value_to_find, clean_name, sort)
         if print_also:
             cls.print_iter(data)
+        return data
+
+    @classmethod
+    def get_classes_list(cls, module_to_explore, parent_class=None, obj_name_needed=True, sort=True, print_also=False):
+
+        def __get_classes_list(module_to_explore, parent_class, obj_name_needed, sort):
+            INDEX_CLASS_NAME = 0
+            INDEX_CLASS_OBJECT = 1
+            if module_to_explore is None:
+                return ''
+            if parent_class is None:
+                classes_list = [cls for cls in inspect.getmembers(module_to_explore, inspect.isclass) if
+                                cls[INDEX_CLASS_OBJECT].__module__ == module_to_explore.__name__]
+            else:
+                classes_list = [cls for cls in inspect.getmembers(module_to_explore, inspect.isclass) if
+                                issubclass(cls[INDEX_CLASS_OBJECT], parent_class)]
+            if obj_name_needed is True:
+                classes_list = [cls_name for cls_name, cls in classes_list]
+            else:
+                classes_list = [cls for cls_name, cls in classes_list]
+            if sort:
+                classes_list.sort()
+            return classes_list
+
+        data = __get_classes_list(module_to_explore, parent_class=parent_class, obj_name_needed=obj_name_needed,
+                                  sort=sort)
+        if print_also:
+            cls.print_iter(data, depth_level=0)
         return data
 
     @classmethod

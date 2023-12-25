@@ -15,17 +15,16 @@ if not packages:
 print(f'Packages are {packages}')
 # potential dependencies
 install_reqs = [
-    'incremental',
     'packaging',
     'pandas',
     'psutil',
     'tzlocal',
+    'incremental',
 ]
 
 setup_reqs = [
     'incremental',
 ]
-
 
 # get long description from the README.md
 with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="utf-8") as fd:

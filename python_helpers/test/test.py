@@ -1,7 +1,10 @@
+import unittest
+
 import sys
 
 import python_helpers
 from python_helpers.ph_util import PhUtil
+from python_helpers.test import test_util
 
 
 def test_version():
@@ -211,6 +214,17 @@ def test_obj_list():
     PhUtil.get_obj_list(cls_to_explore=python_helpers, obj_name_filter='ph', print_also=True)
 
 
+def test_get_classes_list():
+    PhUtil.print_heading(str_heading='module_to_explore=python_helpers.ph_util')
+    PhUtil.get_classes_list(module_to_explore=python_helpers.ph_util, print_also=True)
+    PhUtil.print_heading(str_heading='module_to_explore=python_helpers.ph_util, obj_name_needed=False')
+    PhUtil.get_classes_list(module_to_explore=python_helpers.ph_util, obj_name_needed=False, print_also=True)
+    PhUtil.print_heading(str_heading='module_to_explore=test_util')
+    PhUtil.get_classes_list(module_to_explore=test_util, print_also=True)
+    PhUtil.print_heading(str_heading='module_to_explore=test_util, parent_class=unittest.TestCase')
+    PhUtil.get_classes_list(module_to_explore=test_util, parent_class=unittest.TestCase, print_also=True)
+
+
 def test_print_modules():
     PhUtil.print_heading(str_heading='No filter String')
     PhUtil.print_modules()
@@ -235,6 +249,7 @@ def main():
     test_print_modules()
     test_print_iter()
     test_obj_list()
+    test_get_classes_list()
 
 
 if __name__ == '__main__':

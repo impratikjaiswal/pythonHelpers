@@ -9,12 +9,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 12:30:40:394400, IST (GMT+0530)
+Time Stamp is Monday, Dec 25 2023, 13:33:56:401620, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
 IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev2
+pythonHelpers version is v2.2.16.dev3
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -27,12 +27,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 12:30:41:029240, IST (GMT+0530)
+Time Stamp is Monday, Dec 25 2023, 13:33:56:996218, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
 IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev2
+pythonHelpers version is v2.2.16.dev3
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
 ------------------------------------------------ no_additional_info=True -----------------------------------------------
@@ -49,12 +49,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 12:30:41:634043, IST (GMT+0530)
+Time Stamp is Monday, Dec 25 2023, 13:33:57:578430, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
 IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev2
+pythonHelpers version is v2.2.16.dev3
 --------------------------------------------------------------------------------
 Test Tool version is 
 --------------------------------------------------------------------------------
@@ -68,12 +68,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 12:30:42:252220, IST (GMT+0530)
+Time Stamp is Monday, Dec 25 2023, 13:33:58:162930, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
 IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev2
+pythonHelpers version is v2.2.16.dev3
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -87,9 +87,9 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 12:30:42:860245, IST (GMT+0530)
+Time Stamp is Monday, Dec 25 2023, 13:33:58:748997, IST (GMT+0530)
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev2
+pythonHelpers version is v2.2.16.dev3
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -544,7 +544,7 @@ item 100000000000000000000000000000000000000000000000000000000000000000000000000
 item 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...
 item 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...
 --------------------------------------------------- No filter String ---------------------------------------------------
-Total Modules Count: 790
+Total Modules Count: 838
 sys: <module 'sys' (built-in)>
 builtins: <module 'builtins' (built-in)>
 _frozen_importlib: <module 'importlib._bootstrap' (frozen)>
@@ -616,22 +616,39 @@ importlib.abc: <module 'importlib.abc' from 'D:\\ProgramFiles\\Python39\\lib\\im
 importlib.util: <module 'importlib.util' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\util.py'>
 zope: <module 'zope' (namespace)>
 site: <module 'site' from 'D:\\ProgramFiles\\Python39\\lib\\site.py'>
+token: <module 'token' from 'D:\\ProgramFiles\\Python39\\lib\\token.py'>
+tokenize: <module 'tokenize' from 'D:\\ProgramFiles\\Python39\\lib\\tokenize.py'>
+linecache: <module 'linecache' from 'D:\\ProgramFiles\\Python39\\lib\\linecache.py'>
+traceback: <module 'traceback' from 'D:\\ProgramFiles\\Python39\\lib\\traceback.py'>
+unittest.util: <module 'unittest.util' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\util.py'>
+unittest.result: <module 'unittest.result' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\result.py'>
+difflib: <module 'difflib' from 'D:\\ProgramFiles\\Python39\\lib\\difflib.py'>
+pprint: <module 'pprint' from 'D:\\ProgramFiles\\Python39\\lib\\pprint.py'>
+unittest.case: <module 'unittest.case' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\case.py'>
+unittest.suite: <module 'unittest.suite' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\suite.py'>
+posixpath: <module 'posixpath' from 'D:\\ProgramFiles\\Python39\\lib\\posixpath.py'>
+fnmatch: <module 'fnmatch' from 'D:\\ProgramFiles\\Python39\\lib\\fnmatch.py'>
+unittest.loader: <module 'unittest.loader' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\loader.py'>
+gettext: <module 'gettext' from 'D:\\ProgramFiles\\Python39\\lib\\gettext.py'>
+argparse: <module 'argparse' from 'D:\\ProgramFiles\\Python39\\lib\\argparse.py'>
+signal: <module 'signal' from 'D:\\ProgramFiles\\Python39\\lib\\signal.py'>
+_weakrefset: <module '_weakrefset' from 'D:\\ProgramFiles\\Python39\\lib\\_weakrefset.py'>
+weakref: <module 'weakref' from 'D:\\ProgramFiles\\Python39\\lib\\weakref.py'>
+unittest.signals: <module 'unittest.signals' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\signals.py'>
+unittest.runner: <module 'unittest.runner' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\runner.py'>
+unittest.main: <module 'unittest.main' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\main.py'>
+unittest: <module 'unittest' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\__init__.py'>
 python_helpers: <module 'python_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\__init__.py'>
 _ctypes: <module '_ctypes' from 'D:\\ProgramFiles\\Python39\\DLLs\\_ctypes.pyd'>
 _struct: <module '_struct' (built-in)>
 struct: <module 'struct' from 'D:\\ProgramFiles\\Python39\\lib\\struct.py'>
 ctypes._endian: <module 'ctypes._endian' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\_endian.py'>
 ctypes: <module 'ctypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\__init__.py'>
-posixpath: <module 'posixpath' from 'D:\\ProgramFiles\\Python39\\lib\\posixpath.py'>
-fnmatch: <module 'fnmatch' from 'D:\\ProgramFiles\\Python39\\lib\\fnmatch.py'>
 _ast: <module '_ast' (built-in)>
 ast: <module 'ast' from 'D:\\ProgramFiles\\Python39\\lib\\ast.py'>
 _opcode: <module '_opcode' (built-in)>
 opcode: <module 'opcode' from 'D:\\ProgramFiles\\Python39\\lib\\opcode.py'>
 dis: <module 'dis' from 'D:\\ProgramFiles\\Python39\\lib\\dis.py'>
-token: <module 'token' from 'D:\\ProgramFiles\\Python39\\lib\\token.py'>
-tokenize: <module 'tokenize' from 'D:\\ProgramFiles\\Python39\\lib\\tokenize.py'>
-linecache: <module 'linecache' from 'D:\\ProgramFiles\\Python39\\lib\\linecache.py'>
 inspect: <module 'inspect' from 'D:\\ProgramFiles\\Python39\\lib\\inspect.py'>
 math: <module 'math' (built-in)>
 _bisect: <module '_bisect' (built-in)>
@@ -725,8 +742,6 @@ numpy.lib.polynomial: <module 'numpy.lib.polynomial' from 'D:\\Other\\Github_Sel
 textwrap: <module 'textwrap' from 'D:\\ProgramFiles\\Python39\\lib\\textwrap.py'>
 numpy.lib.utils: <module 'numpy.lib.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\utils.py'>
 numpy.lib.arraysetops: <module 'numpy.lib.arraysetops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\arraysetops.py'>
-_weakrefset: <module '_weakrefset' from 'D:\\ProgramFiles\\Python39\\lib\\_weakrefset.py'>
-weakref: <module 'weakref' from 'D:\\ProgramFiles\\Python39\\lib\\weakref.py'>
 numpy.lib.format: <module 'numpy.lib.format' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\format.py'>
 numpy.lib._datasource: <module 'numpy.lib._datasource' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\_datasource.py'>
 numpy.lib._iotools: <module 'numpy.lib._iotools' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\_iotools.py'>
@@ -774,7 +789,6 @@ pytz.tzfile: <module 'pytz.tzfile' from 'D:\\Other\\Github_Self\\pythonHelpers\\
 pytz: <module 'pytz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz\\__init__.py'>
 dateutil._version: <module 'dateutil._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_version.py'>
 dateutil: <module 'dateutil' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\__init__.py'>
-signal: <module 'signal' from 'D:\\ProgramFiles\\Python39\\lib\\signal.py'>
 msvcrt: <module 'msvcrt' (built-in)>
 _winapi: <module '_winapi' (built-in)>
 subprocess: <module 'subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\subprocess.py'>
@@ -801,7 +815,7 @@ zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\l
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x0000022CF59D4070>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000001E90414ACD0>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -1039,7 +1053,6 @@ pandas.core.api: <module 'pandas.core.api' from 'D:\\Other\\Github_Self\\pythonH
 pandas.tseries.api: <module 'pandas.tseries.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\api.py'>
 pandas.core.computation.common: <module 'pandas.core.computation.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\common.py'>
 pandas.core.computation.align: <module 'pandas.core.computation.align' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\align.py'>
-pprint: <module 'pprint' from 'D:\\ProgramFiles\\Python39\\lib\\pprint.py'>
 pandas.core.computation.scope: <module 'pandas.core.computation.scope' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\scope.py'>
 pandas.core.computation.ops: <module 'pandas.core.computation.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\ops.py'>
 pandas.core.computation.engines: <module 'pandas.core.computation.engines' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\engines.py'>
@@ -1149,27 +1162,26 @@ email.feedparser: <module 'email.feedparser' from 'D:\\ProgramFiles\\Python39\\l
 email.parser: <module 'email.parser' from 'D:\\ProgramFiles\\Python39\\lib\\email\\parser.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 importlib._common: <module 'importlib._common' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\_common.py'>
 importlib.resources: <module 'importlib.resources' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\resources.py'>
 _queue: <module '_queue' from 'D:\\ProgramFiles\\Python39\\DLLs\\_queue.pyd'>
 queue: <module 'queue' from 'D:\\ProgramFiles\\Python39\\lib\\queue.py'>
 pkg_resources._vendor.more_itertools.recipes: <module 'pkg_resources._vendor.more_itertools.recipes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\recipes.py'>
 pkg_resources._vendor.more_itertools.more: <module 'pkg_resources._vendor.more_itertools.more' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\more.py'>
-pkg_resources._vendor.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources.extern.jaraco.functools: <module 'pkg_resources.extern.jaraco.functools' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\functools.py'>
 pkg_resources.extern.jaraco.context: <module 'pkg_resources.extern.jaraco.context' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\context.py'>
 pkg_resources.extern.jaraco.text: <module 'pkg_resources.extern.jaraco.text' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\text\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
-traceback: <module 'traceback' from 'D:\\ProgramFiles\\Python39\\lib\\traceback.py'>
 atexit: <module 'atexit' (built-in)>
 logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
 pkg_resources._vendor.packaging._manylinux: <module 'pkg_resources._vendor.packaging._manylinux' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_manylinux.py'>
@@ -1188,8 +1200,8 @@ html: <module 'html' from 'D:\\ProgramFiles\\Python39\\lib\\html\\__init__.py'>
 pkg_resources._vendor.pyparsing.helpers: <module 'pkg_resources._vendor.pyparsing.helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\helpers.py'>
 pkg_resources._vendor.pyparsing.testing: <module 'pkg_resources._vendor.pyparsing.testing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\testing.py'>
 pkg_resources._vendor.pyparsing.common: <module 'pkg_resources._vendor.pyparsing.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\common.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
@@ -1330,14 +1342,50 @@ psutil._psutil_windows: <module 'psutil._psutil_windows' from 'D:\\Other\\Github
 psutil._pswindows: <module 'psutil._pswindows' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_pswindows.py'>
 psutil: <module 'psutil' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\__init__.py'>
 python_helpers.ph_util: <module 'python_helpers.ph_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_util.py'>
+python_helpers.test: <module 'python_helpers.test' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\__init__.py'>
+concurrent: <module 'concurrent' from 'D:\\ProgramFiles\\Python39\\lib\\concurrent\\__init__.py'>
+concurrent.futures._base: <module 'concurrent.futures._base' from 'D:\\ProgramFiles\\Python39\\lib\\concurrent\\futures\\_base.py'>
+concurrent.futures: <module 'concurrent.futures' from 'D:\\ProgramFiles\\Python39\\lib\\concurrent\\futures\\__init__.py'>
+asyncio.constants: <module 'asyncio.constants' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\constants.py'>
+asyncio.format_helpers: <module 'asyncio.format_helpers' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\format_helpers.py'>
+asyncio.base_futures: <module 'asyncio.base_futures' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_futures.py'>
+asyncio.log: <module 'asyncio.log' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\log.py'>
+asyncio.coroutines: <module 'asyncio.coroutines' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\coroutines.py'>
+asyncio.exceptions: <module 'asyncio.exceptions' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\exceptions.py'>
+asyncio.base_tasks: <module 'asyncio.base_tasks' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_tasks.py'>
+_asyncio: <module '_asyncio' from 'D:\\ProgramFiles\\Python39\\DLLs\\_asyncio.pyd'>
+asyncio.events: <module 'asyncio.events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\events.py'>
+asyncio.futures: <module 'asyncio.futures' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\futures.py'>
+asyncio.protocols: <module 'asyncio.protocols' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\protocols.py'>
+asyncio.transports: <module 'asyncio.transports' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\transports.py'>
+asyncio.sslproto: <module 'asyncio.sslproto' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\sslproto.py'>
+asyncio.locks: <module 'asyncio.locks' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\locks.py'>
+asyncio.tasks: <module 'asyncio.tasks' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\tasks.py'>
+asyncio.staggered: <module 'asyncio.staggered' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\staggered.py'>
+asyncio.trsock: <module 'asyncio.trsock' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\trsock.py'>
+asyncio.base_events: <module 'asyncio.base_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_events.py'>
+asyncio.runners: <module 'asyncio.runners' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\runners.py'>
+asyncio.queues: <module 'asyncio.queues' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\queues.py'>
+asyncio.streams: <module 'asyncio.streams' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\streams.py'>
+asyncio.subprocess: <module 'asyncio.subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\subprocess.py'>
+asyncio.threads: <module 'asyncio.threads' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\threads.py'>
+_overlapped: <module '_overlapped' from 'D:\\ProgramFiles\\Python39\\DLLs\\_overlapped.pyd'>
+asyncio.base_subprocess: <module 'asyncio.base_subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_subprocess.py'>
+asyncio.proactor_events: <module 'asyncio.proactor_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\proactor_events.py'>
+asyncio.selector_events: <module 'asyncio.selector_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\selector_events.py'>
+asyncio.windows_utils: <module 'asyncio.windows_utils' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\windows_utils.py'>
+asyncio.windows_events: <module 'asyncio.windows_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\windows_events.py'>
+asyncio: <module 'asyncio' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\__init__.py'>
+unittest.mock: <module 'unittest.mock' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\mock.py'>
+python_helpers.test.test_util: <module 'python_helpers.test.test_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\test_util.py'>
 tzdata: <module 'tzdata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\__init__.py'>
 tzdata.zoneinfo: <module 'tzdata.zoneinfo' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\__init__.py'>
 tzdata.zoneinfo.Asia: <module 'tzdata.zoneinfo.Asia' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\Asia\\__init__.py'>
 shlex: <module 'shlex' from 'D:\\ProgramFiles\\Python39\\lib\\shlex.py'>
 netrc: <module 'netrc' from 'D:\\ProgramFiles\\Python39\\lib\\netrc.py'>
 -------------------------------------------- filter_string='python_helpers' --------------------------------------------
-Total Modules Count: 790
-Filtered Modules Count: 7
+Total Modules Count: 838
+Filtered Modules Count: 9
 python_helpers: <module 'python_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\__init__.py'>
 python_helpers.ph_constants: <module 'python_helpers.ph_constants' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants.py'>
 python_helpers._tool_name: <module 'python_helpers._tool_name' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_tool_name.py'>
@@ -1345,6 +1393,8 @@ python_helpers._version: <module 'python_helpers._version' from 'D:\\Other\\Gith
 python_helpers.ph_constants_config: <module 'python_helpers.ph_constants_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants_config.py'>
 python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
 python_helpers.ph_util: <module 'python_helpers.ph_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_util.py'>
+python_helpers.test: <module 'python_helpers.test' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\__init__.py'>
+python_helpers.test.test_util: <module 'python_helpers.test.test_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\test_util.py'>
 -----------------------------------------------------------  -----------------------------------------------------------
 sys: <module 'sys' (built-in)>
 builtins: <module 'builtins' (built-in)>
@@ -1417,22 +1467,39 @@ importlib.abc: <module 'importlib.abc' from 'D:\\ProgramFiles\\Python39\\lib\\im
 importlib.util: <module 'importlib.util' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\util.py'>
 zope: <module 'zope' (namespace)>
 site: <module 'site' from 'D:\\ProgramFiles\\Python39\\lib\\site.py'>
+token: <module 'token' from 'D:\\ProgramFiles\\Python39\\lib\\token.py'>
+tokenize: <module 'tokenize' from 'D:\\ProgramFiles\\Python39\\lib\\tokenize.py'>
+linecache: <module 'linecache' from 'D:\\ProgramFiles\\Python39\\lib\\linecache.py'>
+traceback: <module 'traceback' from 'D:\\ProgramFiles\\Python39\\lib\\traceback.py'>
+unittest.util: <module 'unittest.util' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\util.py'>
+unittest.result: <module 'unittest.result' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\result.py'>
+difflib: <module 'difflib' from 'D:\\ProgramFiles\\Python39\\lib\\difflib.py'>
+pprint: <module 'pprint' from 'D:\\ProgramFiles\\Python39\\lib\\pprint.py'>
+unittest.case: <module 'unittest.case' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\case.py'>
+unittest.suite: <module 'unittest.suite' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\suite.py'>
+posixpath: <module 'posixpath' from 'D:\\ProgramFiles\\Python39\\lib\\posixpath.py'>
+fnmatch: <module 'fnmatch' from 'D:\\ProgramFiles\\Python39\\lib\\fnmatch.py'>
+unittest.loader: <module 'unittest.loader' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\loader.py'>
+gettext: <module 'gettext' from 'D:\\ProgramFiles\\Python39\\lib\\gettext.py'>
+argparse: <module 'argparse' from 'D:\\ProgramFiles\\Python39\\lib\\argparse.py'>
+signal: <module 'signal' from 'D:\\ProgramFiles\\Python39\\lib\\signal.py'>
+_weakrefset: <module '_weakrefset' from 'D:\\ProgramFiles\\Python39\\lib\\_weakrefset.py'>
+weakref: <module 'weakref' from 'D:\\ProgramFiles\\Python39\\lib\\weakref.py'>
+unittest.signals: <module 'unittest.signals' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\signals.py'>
+unittest.runner: <module 'unittest.runner' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\runner.py'>
+unittest.main: <module 'unittest.main' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\main.py'>
+unittest: <module 'unittest' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\__init__.py'>
 python_helpers: <module 'python_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\__init__.py'>
 _ctypes: <module '_ctypes' from 'D:\\ProgramFiles\\Python39\\DLLs\\_ctypes.pyd'>
 _struct: <module '_struct' (built-in)>
 struct: <module 'struct' from 'D:\\ProgramFiles\\Python39\\lib\\struct.py'>
 ctypes._endian: <module 'ctypes._endian' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\_endian.py'>
 ctypes: <module 'ctypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\__init__.py'>
-posixpath: <module 'posixpath' from 'D:\\ProgramFiles\\Python39\\lib\\posixpath.py'>
-fnmatch: <module 'fnmatch' from 'D:\\ProgramFiles\\Python39\\lib\\fnmatch.py'>
 _ast: <module '_ast' (built-in)>
 ast: <module 'ast' from 'D:\\ProgramFiles\\Python39\\lib\\ast.py'>
 _opcode: <module '_opcode' (built-in)>
 opcode: <module 'opcode' from 'D:\\ProgramFiles\\Python39\\lib\\opcode.py'>
 dis: <module 'dis' from 'D:\\ProgramFiles\\Python39\\lib\\dis.py'>
-token: <module 'token' from 'D:\\ProgramFiles\\Python39\\lib\\token.py'>
-tokenize: <module 'tokenize' from 'D:\\ProgramFiles\\Python39\\lib\\tokenize.py'>
-linecache: <module 'linecache' from 'D:\\ProgramFiles\\Python39\\lib\\linecache.py'>
 inspect: <module 'inspect' from 'D:\\ProgramFiles\\Python39\\lib\\inspect.py'>
 math: <module 'math' (built-in)>
 _bisect: <module '_bisect' (built-in)>
@@ -1526,8 +1593,6 @@ numpy.lib.polynomial: <module 'numpy.lib.polynomial' from 'D:\\Other\\Github_Sel
 textwrap: <module 'textwrap' from 'D:\\ProgramFiles\\Python39\\lib\\textwrap.py'>
 numpy.lib.utils: <module 'numpy.lib.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\utils.py'>
 numpy.lib.arraysetops: <module 'numpy.lib.arraysetops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\arraysetops.py'>
-_weakrefset: <module '_weakrefset' from 'D:\\ProgramFiles\\Python39\\lib\\_weakrefset.py'>
-weakref: <module 'weakref' from 'D:\\ProgramFiles\\Python39\\lib\\weakref.py'>
 numpy.lib.format: <module 'numpy.lib.format' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\format.py'>
 numpy.lib._datasource: <module 'numpy.lib._datasource' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\_datasource.py'>
 numpy.lib._iotools: <module 'numpy.lib._iotools' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\_iotools.py'>
@@ -1575,7 +1640,6 @@ pytz.tzfile: <module 'pytz.tzfile' from 'D:\\Other\\Github_Self\\pythonHelpers\\
 pytz: <module 'pytz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz\\__init__.py'>
 dateutil._version: <module 'dateutil._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_version.py'>
 dateutil: <module 'dateutil' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\__init__.py'>
-signal: <module 'signal' from 'D:\\ProgramFiles\\Python39\\lib\\signal.py'>
 msvcrt: <module 'msvcrt' (built-in)>
 _winapi: <module '_winapi' (built-in)>
 subprocess: <module 'subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\subprocess.py'>
@@ -1602,7 +1666,7 @@ zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\l
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x0000022CF59D4070>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000001E90414ACD0>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -1840,7 +1904,6 @@ pandas.core.api: <module 'pandas.core.api' from 'D:\\Other\\Github_Self\\pythonH
 pandas.tseries.api: <module 'pandas.tseries.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\api.py'>
 pandas.core.computation.common: <module 'pandas.core.computation.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\common.py'>
 pandas.core.computation.align: <module 'pandas.core.computation.align' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\align.py'>
-pprint: <module 'pprint' from 'D:\\ProgramFiles\\Python39\\lib\\pprint.py'>
 pandas.core.computation.scope: <module 'pandas.core.computation.scope' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\scope.py'>
 pandas.core.computation.ops: <module 'pandas.core.computation.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\ops.py'>
 pandas.core.computation.engines: <module 'pandas.core.computation.engines' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\engines.py'>
@@ -1950,27 +2013,26 @@ email.feedparser: <module 'email.feedparser' from 'D:\\ProgramFiles\\Python39\\l
 email.parser: <module 'email.parser' from 'D:\\ProgramFiles\\Python39\\lib\\email\\parser.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 importlib._common: <module 'importlib._common' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\_common.py'>
 importlib.resources: <module 'importlib.resources' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\resources.py'>
 _queue: <module '_queue' from 'D:\\ProgramFiles\\Python39\\DLLs\\_queue.pyd'>
 queue: <module 'queue' from 'D:\\ProgramFiles\\Python39\\lib\\queue.py'>
 pkg_resources._vendor.more_itertools.recipes: <module 'pkg_resources._vendor.more_itertools.recipes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\recipes.py'>
 pkg_resources._vendor.more_itertools.more: <module 'pkg_resources._vendor.more_itertools.more' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\more.py'>
-pkg_resources._vendor.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources.extern.jaraco.functools: <module 'pkg_resources.extern.jaraco.functools' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\functools.py'>
 pkg_resources.extern.jaraco.context: <module 'pkg_resources.extern.jaraco.context' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\context.py'>
 pkg_resources.extern.jaraco.text: <module 'pkg_resources.extern.jaraco.text' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\text\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
-traceback: <module 'traceback' from 'D:\\ProgramFiles\\Python39\\lib\\traceback.py'>
 atexit: <module 'atexit' (built-in)>
 logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
 pkg_resources._vendor.packaging._manylinux: <module 'pkg_resources._vendor.packaging._manylinux' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_manylinux.py'>
@@ -1989,8 +2051,8 @@ html: <module 'html' from 'D:\\ProgramFiles\\Python39\\lib\\html\\__init__.py'>
 pkg_resources._vendor.pyparsing.helpers: <module 'pkg_resources._vendor.pyparsing.helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\helpers.py'>
 pkg_resources._vendor.pyparsing.testing: <module 'pkg_resources._vendor.pyparsing.testing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\testing.py'>
 pkg_resources._vendor.pyparsing.common: <module 'pkg_resources._vendor.pyparsing.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\common.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000022CF71E94F0>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
@@ -2131,6 +2193,42 @@ psutil._psutil_windows: <module 'psutil._psutil_windows' from 'D:\\Other\\Github
 psutil._pswindows: <module 'psutil._pswindows' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_pswindows.py'>
 psutil: <module 'psutil' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\__init__.py'>
 python_helpers.ph_util: <module 'python_helpers.ph_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_util.py'>
+python_helpers.test: <module 'python_helpers.test' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\__init__.py'>
+concurrent: <module 'concurrent' from 'D:\\ProgramFiles\\Python39\\lib\\concurrent\\__init__.py'>
+concurrent.futures._base: <module 'concurrent.futures._base' from 'D:\\ProgramFiles\\Python39\\lib\\concurrent\\futures\\_base.py'>
+concurrent.futures: <module 'concurrent.futures' from 'D:\\ProgramFiles\\Python39\\lib\\concurrent\\futures\\__init__.py'>
+asyncio.constants: <module 'asyncio.constants' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\constants.py'>
+asyncio.format_helpers: <module 'asyncio.format_helpers' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\format_helpers.py'>
+asyncio.base_futures: <module 'asyncio.base_futures' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_futures.py'>
+asyncio.log: <module 'asyncio.log' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\log.py'>
+asyncio.coroutines: <module 'asyncio.coroutines' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\coroutines.py'>
+asyncio.exceptions: <module 'asyncio.exceptions' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\exceptions.py'>
+asyncio.base_tasks: <module 'asyncio.base_tasks' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_tasks.py'>
+_asyncio: <module '_asyncio' from 'D:\\ProgramFiles\\Python39\\DLLs\\_asyncio.pyd'>
+asyncio.events: <module 'asyncio.events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\events.py'>
+asyncio.futures: <module 'asyncio.futures' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\futures.py'>
+asyncio.protocols: <module 'asyncio.protocols' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\protocols.py'>
+asyncio.transports: <module 'asyncio.transports' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\transports.py'>
+asyncio.sslproto: <module 'asyncio.sslproto' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\sslproto.py'>
+asyncio.locks: <module 'asyncio.locks' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\locks.py'>
+asyncio.tasks: <module 'asyncio.tasks' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\tasks.py'>
+asyncio.staggered: <module 'asyncio.staggered' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\staggered.py'>
+asyncio.trsock: <module 'asyncio.trsock' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\trsock.py'>
+asyncio.base_events: <module 'asyncio.base_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_events.py'>
+asyncio.runners: <module 'asyncio.runners' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\runners.py'>
+asyncio.queues: <module 'asyncio.queues' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\queues.py'>
+asyncio.streams: <module 'asyncio.streams' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\streams.py'>
+asyncio.subprocess: <module 'asyncio.subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\subprocess.py'>
+asyncio.threads: <module 'asyncio.threads' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\threads.py'>
+_overlapped: <module '_overlapped' from 'D:\\ProgramFiles\\Python39\\DLLs\\_overlapped.pyd'>
+asyncio.base_subprocess: <module 'asyncio.base_subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\base_subprocess.py'>
+asyncio.proactor_events: <module 'asyncio.proactor_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\proactor_events.py'>
+asyncio.selector_events: <module 'asyncio.selector_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\selector_events.py'>
+asyncio.windows_utils: <module 'asyncio.windows_utils' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\windows_utils.py'>
+asyncio.windows_events: <module 'asyncio.windows_events' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\windows_events.py'>
+asyncio: <module 'asyncio' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\__init__.py'>
+unittest.mock: <module 'unittest.mock' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\mock.py'>
+python_helpers.test.test_util: <module 'python_helpers.test.test_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\test_util.py'>
 tzdata: <module 'tzdata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\__init__.py'>
 tzdata.zoneinfo: <module 'tzdata.zoneinfo' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\__init__.py'>
 tzdata.zoneinfo.Asia: <module 'tzdata.zoneinfo.Asia' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\Asia\\__init__.py'>
@@ -2138,149 +2236,172 @@ shlex: <module 'shlex' from 'D:\\ProgramFiles\\Python39\\lib\\shlex.py'>
 netrc: <module 'netrc' from 'D:\\ProgramFiles\\Python39\\lib\\netrc.py'>
 -----------------------------------------------------------  -----------------------------------------------------------
 ------------------------------------------------- cls_to_explore=PhUtil ------------------------------------------------
+__dict__
+__doc__
 __module__
-path_current_folder
-path_default_res_folder
-path_default_log_folder
-path_default_out_folder
-path_default_tst_folder
-path_python_folder
-path_python_script_folder
-path_python_executable
-test
-line_is_comment
-line_is_comment_or_empty
-string_is_blank
-string_is_not_blank
-trim_and_kill_all_white_spaces
-trim_white_spaces_in_str
-is_hex
-is_numeric
-is_ascii
-len_hex
-len_odd
-len_even
-swap_nibbles_str
-check_if_iter
-print_iter
-print_separator
-print_done
-print_error
-print_modules
-get_key_value_pair
-get_tool_name_w_version
-print_version
-print_heading
-print_data
+__weakref__
 analyse_data
-set_if_not_none
-get_file_name_and_extn
-backup_file_name
-rreplace
-append_in_file_name
-get_ip
-get_time_stamp
-get_user_friendly_name
-get_python_friendly_name
-traverse_modes
-traverse_it
-get_random_string_for_variable
-get_random_string
-get_synonym_of_variable_name
-generate_range_str
-makedirs
-find_offset_of_section
-dec_to_hex
-hex_str_to_dec
-hex_str_to_dec_list
-rstrip_hex_str
-rstrip_str
-lstrip_hex_str
-lstrip_str
 analyse_profile
-get_key_from_dict_based_on_val
-remove_file
-get_current_func_name
-enclose
-normalise_name_user_to_pandas
-normalise_name_pandas_to_user
-read_csv
-to_csv
-to_file
-compare_two_data_frame
-strip_all_columns
-print_data_frame
-print_data_frame_shape
-find_offset_of_next_non_white_space_char
-str_insert_char_repeatedly
-prepare_file_name
-format_profile_parsing_log
+append_in_file_name
+append_path
+append_remarks
 ascii_to_hex_str
-hex_str_to_ascii
+backup_file_name
+cast_to_list
+check_and_assign
+check_if_iter
+clean_names
+combine_list_items
+compare_two_data_frame
+cpu_usage
+dec_to_hex
+enclose
+extend_list
+find_offset_of_next_non_white_space_char
+find_offset_of_section
+format_data_as_hex
+format_profile_parsing_log
 gen_acc
 gen_isim_data
-to_hex_string
-check_and_assign
-get_version_from_name
-print_all_environment_variables
-str_to_bool
-is_clean_name
-clean_names
-get_obj_list
-get_classes_list
-normalise_user_input
-get_environment_variables
-format_data_as_hex
-append_path
-cpu_usage
-get_module_version
-get_user_details_display_name_windows
-get_user_details_account_name
-append_remarks
-trim_remarks
-cast_to_list
-extend_list
-combine_list_items
-get_absolute_path
-get_relative_path
-get_current_dir_path
-get_current_script_path
-get_current_script_folder
-get_directory_path
 generalise_list
-__dict__
-__weakref__
-__doc__
------------------------------------- cls_to_explore=PhUtil, obj_name_filter='print' ------------------------------------
-print_iter
-print_separator
-print_done
-print_error
-print_modules
-print_version
-print_heading
+generate_range_str
+get_absolute_path
+get_classes_list
+get_current_dir_path
+get_current_func_name
+get_current_script_folder
+get_current_script_path
+get_directory_path
+get_environment_variables
+get_file_name_and_extn
+get_ip
+get_key_from_dict_based_on_val
+get_key_value_pair
+get_module_version
+get_obj_list
+get_python_friendly_name
+get_random_string
+get_random_string_for_variable
+get_relative_path
+get_synonym_of_variable_name
+get_time_stamp
+get_tool_name_w_version
+get_user_details_account_name
+get_user_details_display_name_windows
+get_user_friendly_name
+get_version_from_name
+hex_str_to_ascii
+hex_str_to_dec
+hex_str_to_dec_list
+is_ascii
+is_clean_name
+is_hex
+is_numeric
+len_even
+len_hex
+len_odd
+line_is_comment
+line_is_comment_or_empty
+lstrip_hex_str
+lstrip_str
+makedirs
+normalise_name_pandas_to_user
+normalise_name_user_to_pandas
+normalise_user_input
+path_current_folder
+path_default_log_folder
+path_default_out_folder
+path_default_res_folder
+path_default_tst_folder
+path_python_executable
+path_python_folder
+path_python_script_folder
+prepare_file_name
+print_all_environment_variables
 print_data
 print_data_frame
 print_data_frame_shape
+print_done
+print_error
+print_heading
+print_iter
+print_modules
+print_separator
+print_version
+read_csv
+remove_file
+rreplace
+rstrip_hex_str
+rstrip_str
+set_if_not_none
+str_insert_char_repeatedly
+str_to_bool
+string_is_blank
+string_is_not_blank
+strip_all_columns
+swap_nibbles_str
+test
+to_csv
+to_file
+to_hex_string
+traverse_it
+traverse_modes
+trim_and_kill_all_white_spaces
+trim_remarks
+trim_white_spaces_in_str
+------------------------------------ cls_to_explore=PhUtil, obj_name_filter='print' ------------------------------------
 print_all_environment_variables
+print_data
+print_data_frame
+print_data_frame_shape
+print_done
+print_error
+print_heading
+print_iter
+print_modules
+print_separator
+print_version
 --------------------------------------------- cls_to_explore=python_helpers --------------------------------------------
-__name__
-__doc__
-__package__
-__loader__
-__spec__
-__path__
-__file__
-__cached__
 __builtins__
-ph_constants
+__cached__
+__doc__
+__file__
+__loader__
+__name__
+__package__
+__path__
+__spec__
 _tool_name
 _version
+ph_constants
 ph_constants_config
 ph_file_extensions
 ph_util
+test
 ---------------------------------- cls_to_explore=python_helpers, obj_name_filter='ph' ---------------------------------
 ph_constants
 ph_constants_config
 ph_file_extensions
 ph_util
+--------------------------------------- module_to_explore=python_helpers.ph_util ---------------------------------------
+PhUtil
+---------------------------- module_to_explore=python_helpers.ph_util, obj_name_needed=False ---------------------------
+<class 'python_helpers.ph_util.PhUtil'>
+---------------------------------------------- module_to_explore=test_util ---------------------------------------------
+test_obj_analyse_data
+test_obj_append_in_file_name
+test_obj_dec_to_hex
+test_obj_gen_isim_data
+test_obj_get_file_name_and_extn
+test_obj_get_version_from_name
+test_obj_hex_str_to_dec
+test_obj_hex_str_to_dec_list
+test_obj_len_hex
+test_obj_normalise_name_pandas_to_user
+test_obj_print_iter
+test_obj_print_seperator
+test_obj_rstrip_hex
+test_obj_to_hex_string
+util_test
+------------------------------ module_to_explore=test_util, parent_class=unittest.TestCase -----------------------------
+util_test
