@@ -23,6 +23,9 @@ class PhKeys:
     RAW_DATA = 'raw_data'
     RE_PARSED_DATA = 're_parsed_data'
     ASN1_ELEMENT = 'asn1_element'
+    ASN1_SCHEMA = 'asn1_schema'
+    ASN1_OBJECT = 'asn1_object'
+
     INFO = 'info'
 
     PRINT_INPUT = 'print_input'
@@ -52,10 +55,15 @@ class PhKeys:
     #
     PYTHON = 'Python'
     SGP22 = 'SGP22'
+    SGP32 = 'SGP32'
     ASN1PLAY = 'asn1play'
     EUICC_PROFILE_PACKAGE = 'eUICC_Profile_Package'
     PYTHONHELPERS = 'pythonHelpers'
     TIME_STAMP = 'time_stamp'
+
+    #
+    COMPILE_TIME = 'compile_time'
+    RUN_TIME = 'run_time'
 
     #
     SAMPLE = 'sample'

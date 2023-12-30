@@ -1,4 +1,11 @@
 class PhConstants:
+    STR_EMPTY = ''
+    STR_TAB = '    '
+    STR_SPACE = ' '
+
+    STR_CURLY_BRACE_START = '{'
+    STR_CURLY_BRACE_END = '}'
+
     OFFSET_NAME_FOR_OUTPUT_FILE = 0
     OFFSET_NAME_FOR_ASN_FILE = 1
     KEYWORD_VARIABLE_DECLARATION_IN = ['var_In', 'var_in_list', 'var_in']
@@ -156,6 +163,7 @@ class PhConstants:
     SEPERATOR_TWO_LINES = '\n'
     SEPERATOR_FILE_NAME = '_'
     SEPERATOR_ONE_LINE = ': '
+    SEPERATOR_KEY_VALUE = ': '
     SEPERATOR_INFO = ' => '
     SEPERATOR_MULTI_LINE = ':\n'
     SEPERATOR_MULTI_OBJ = '; '
@@ -180,8 +188,15 @@ class PhConstants:
 
     KNOWN = 'Known'
     UNKNOWN = 'UnKnown'
+    DETAILS = 'Details'
+    SUMMARY = 'Summary'
     EXCEPTION_OCCURRED = 'Exception Occurred'
     EXCEPTION_OCCURRED_AT_FUNC = 'Exception Occurred at function'
+    INVALID_RAW_DATA = 'raw_data error'
+    EXPORT_ERROR = 'export error'
+    READ_WRITE_ERROR = 'input/output path reading/writing error'
+    WRITE_PATH_ERROR = 'Output path writing error'
+    INPUTS_ERROR = 'check All your inputs'
 
     KEY_DATE_TIME = 'Date & Time'
 
@@ -191,10 +206,10 @@ class PhConstants:
         'https://ifconfig.co/ip',  # Seems machine based protocol (IPV4/IPV6)
         'https://ipecho.net/plain',  # Seems machine based protocol (IPV4/IPV6)
         'https://checkip.amazonaws.com',  # Seems only IPV4
-        'https://ipinfo.io/ip', # Dedicated IPV4 & IPV6
-        'https://api.ipify.org', # Dedicated IPV4 & IPV6
+        'https://ipinfo.io/ip',  # Dedicated IPV4 & IPV6
+        'https://api.ipify.org',  # Dedicated IPV4 & IPV6
         'https://icanhazip.com/',  # Dedicated IPV4 & IPV6
-        'https://ident.me', # Dedicated IPV4 & IPV6
+        'https://ident.me',  # Dedicated IPV4 & IPV6
     ]
 
     PUBLIC_IP_SERVICES_IPV4_POOL = [

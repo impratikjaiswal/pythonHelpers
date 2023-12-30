@@ -113,6 +113,16 @@ class PhUtil:
         return all(c in (string.ascii_letters + string.digits) for c in s)
 
     @classmethod
+    def is_base64(cls, s):
+        """
+        Data Set is: [A-Za-z0-9+/]
+        :param s: 
+        :return: 
+        """
+        return True if re.search(re.compile(r'^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$'),
+                                 s) else False
+
+    @classmethod
     def len_hex(cls, str_hex_data, output_in_str_format=False):
         data_len = int(len(str_hex_data) / 2)
         return '%02X' % data_len if output_in_str_format else data_len
@@ -135,7 +145,7 @@ class PhUtil:
             if pad_if_required:
                 hex_str_data = hex_str_data + 'F'
             else:
-                raise ValueError()
+                raise ValueError('Odd Length of data; Padding is recommended.')
         return ''.join([y + x for x, y in zip(*[iter(hex_str_data)] * 2)])
 
     @classmethod
@@ -243,11 +253,15 @@ class PhUtil:
 
     @classmethod
     def get_key_value_pair(cls, key, value, sep=PhConstants.SEPERATOR_ONE_LINE, dic_format=False, print_also=False,
-                           log=None):
+                           log=None, user_friendly_key=True, pair_is_must=False):
         print_or_log = log.info if log else print
+        if key is None:
+            return None
         if value is None:
+            if pair_is_must is True:
+                return None
             value = ''
-        str_data = f'{cls.get_user_friendly_name(key)}{sep}{value}'
+        str_data = f'{cls.get_user_friendly_name(key) if user_friendly_key else key}{sep}{value}'
         if print_also:
             print_or_log(str_data)
         if dic_format:
