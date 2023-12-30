@@ -192,11 +192,11 @@ class PhConstants:
     SUMMARY = 'Summary'
     EXCEPTION_OCCURRED = 'Exception Occurred'
     EXCEPTION_OCCURRED_AT_FUNC = 'Exception Occurred at function'
-    INVALID_RAW_DATA = 'raw_data error'
     EXPORT_ERROR = 'export error'
     READ_WRITE_ERROR = 'input/output path reading/writing error'
     WRITE_PATH_ERROR = 'Output path writing error'
-    INPUTS_ERROR = 'check All your inputs'
+    INPUTS_ERROR = 'check all your inputs'
+    INVALID_RAW_DATA = 'check your raw data'
 
     KEY_DATE_TIME = 'Date & Time'
 
