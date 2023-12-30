@@ -9,12 +9,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 13:33:56:401620, IST (GMT+0530)
+Time Stamp is Saturday, Dec 30 2023, 22:49:49:434596, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
+IPV6 is 2405:201:d005:d029:643c:75f:329f:48d6
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev3
+pythonHelpers version is v3.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -27,12 +27,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 13:33:56:996218, IST (GMT+0530)
+Time Stamp is Saturday, Dec 30 2023, 22:49:50:168474, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
+IPV6 is 2405:201:d005:d029:643c:75f:329f:48d6
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev3
+pythonHelpers version is v3.0.0
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
 ------------------------------------------------ no_additional_info=True -----------------------------------------------
@@ -49,12 +49,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 13:33:57:578430, IST (GMT+0530)
+Time Stamp is Saturday, Dec 30 2023, 22:49:50:772589, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
+IPV6 is 2405:201:d005:d029:643c:75f:329f:48d6
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev3
+pythonHelpers version is v3.0.0
 --------------------------------------------------------------------------------
 Test Tool version is 
 --------------------------------------------------------------------------------
@@ -68,12 +68,12 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 13:33:58:162930, IST (GMT+0530)
+Time Stamp is Saturday, Dec 30 2023, 22:49:51:367860, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:b005:11cf:a403:f1e1
+IPV6 is 2405:201:d005:d029:643c:75f:329f:48d6
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev3
+pythonHelpers version is v3.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -87,9 +87,9 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Dec 25 2023, 13:33:58:748997, IST (GMT+0530)
+Time Stamp is Saturday, Dec 30 2023, 22:49:51:948661, IST (GMT+0530)
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.16.dev3
+pythonHelpers version is v3.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -544,7 +544,7 @@ item 100000000000000000000000000000000000000000000000000000000000000000000000000
 item 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...
 item 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...
 --------------------------------------------------- No filter String ---------------------------------------------------
-Total Modules Count: 838
+Total Modules Count: 814
 sys: <module 'sys' (built-in)>
 builtins: <module 'builtins' (built-in)>
 _frozen_importlib: <module 'importlib._bootstrap' (frozen)>
@@ -581,8 +581,6 @@ _sitebuiltins: <module '_sitebuiltins' from 'D:\\ProgramFiles\\Python39\\lib\\_s
 _locale: <module '_locale' (built-in)>
 _bootlocale: <module '_bootlocale' from 'D:\\ProgramFiles\\Python39\\lib\\_bootlocale.py'>
 encodings.cp1252: <module 'encodings.cp1252' from 'D:\\ProgramFiles\\Python39\\lib\\encodings\\cp1252.py'>
-_virtualenv: <module '_virtualenv' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\_virtualenv.py'>
-_distutils_hack: <module '_distutils_hack' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\_distutils_hack\\__init__.py'>
 types: <module 'types' from 'D:\\ProgramFiles\\Python39\\lib\\types.py'>
 importlib._bootstrap: <module 'importlib._bootstrap' (frozen)>
 importlib._bootstrap_external: <module 'importlib._bootstrap_external' (frozen)>
@@ -615,11 +613,12 @@ typing: <module 'typing' from 'D:\\ProgramFiles\\Python39\\lib\\typing.py'>
 importlib.abc: <module 'importlib.abc' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\abc.py'>
 importlib.util: <module 'importlib.util' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\util.py'>
 zope: <module 'zope' (namespace)>
-site: <module 'site' from 'D:\\ProgramFiles\\Python39\\lib\\site.py'>
 token: <module 'token' from 'D:\\ProgramFiles\\Python39\\lib\\token.py'>
 tokenize: <module 'tokenize' from 'D:\\ProgramFiles\\Python39\\lib\\tokenize.py'>
 linecache: <module 'linecache' from 'D:\\ProgramFiles\\Python39\\lib\\linecache.py'>
 traceback: <module 'traceback' from 'D:\\ProgramFiles\\Python39\\lib\\traceback.py'>
+sitecustomize: <module 'sitecustomize' from 'D:\\ProgramFiles\\PyCharm 2023.3.2\\plugins\\python\\helpers\\pycharm_matplotlib_backend\\sitecustomize.py'>
+site: <module 'site' from 'D:\\ProgramFiles\\Python39\\lib\\site.py'>
 unittest.util: <module 'unittest.util' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\util.py'>
 unittest.result: <module 'unittest.result' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\result.py'>
 difflib: <module 'difflib' from 'D:\\ProgramFiles\\Python39\\lib\\difflib.py'>
@@ -668,20 +667,27 @@ string: <module 'string' from 'D:\\ProgramFiles\\Python39\\lib\\string.py'>
 _datetime: <module '_datetime' (built-in)>
 datetime: <module 'datetime' from 'D:\\ProgramFiles\\Python39\\lib\\datetime.py'>
 __future__: <module '__future__' from 'D:\\ProgramFiles\\Python39\\lib\\__future__.py'>
-numpy._globals: <module 'numpy._globals' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_globals.py'>
-numpy.__config__: <module 'numpy.__config__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\__config__.py'>
-glob: <module 'glob' from 'D:\\ProgramFiles\\Python39\\lib\\glob.py'>
-numpy._distributor_init: <module 'numpy._distributor_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_distributor_init.py'>
-_json: <module '_json' (built-in)>
-json.scanner: <module 'json.scanner' from 'D:\\ProgramFiles\\Python39\\lib\\json\\scanner.py'>
-json.decoder: <module 'json.decoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\decoder.py'>
-json.encoder: <module 'json.encoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\encoder.py'>
-json: <module 'json' from 'D:\\ProgramFiles\\Python39\\lib\\json\\__init__.py'>
-numpy._version: <module 'numpy._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_version.py'>
-numpy.version: <module 'numpy.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\version.py'>
-numpy.core._multiarray_umath: <module 'numpy.core._multiarray_umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_multiarray_umath.cp39-win_amd64.pyd'>
-numpy.compat._inspect: <module 'numpy.compat._inspect' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\compat\\_inspect.py'>
 errno: <module 'errno' (built-in)>
+threading: <module 'threading' from 'D:\\ProgramFiles\\Python39\\lib\\threading.py'>
+msvcrt: <module 'msvcrt' (built-in)>
+_winapi: <module '_winapi' (built-in)>
+subprocess: <module 'subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\subprocess.py'>
+platform: <module 'platform' from 'D:\\ProgramFiles\\Python39\\lib\\platform.py'>
+numpy._utils._convertions: <module 'numpy._utils._convertions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_utils\\_convertions.py'>
+numpy._utils: <module 'numpy._utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_utils\\__init__.py'>
+numpy._globals: <module 'numpy._globals' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_globals.py'>
+numpy.exceptions: <module 'numpy.exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\exceptions.py'>
+numpy.version: <module 'numpy.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\version.py'>
+numpy._distributor_init: <module 'numpy._distributor_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_distributor_init.py'>
+numpy._utils._inspect: <module 'numpy._utils._inspect' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_utils\\_inspect.py'>
+numpy.core._exceptions: <module 'numpy.core._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_exceptions.py'>
+numpy.dtypes: <module 'numpy.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\dtypes.py'>
+numpy.core._multiarray_umath: <module 'numpy.core._multiarray_umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_multiarray_umath.cp39-win_amd64.pyd'>
+numpy.core.overrides: <module 'numpy.core.overrides' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\overrides.py'>
+numpy.core.multiarray: <module 'numpy.core.multiarray' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\multiarray.py'>
+numpy.core.umath: <module 'numpy.core.umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\umath.py'>
+numbers: <module 'numbers' from 'D:\\ProgramFiles\\Python39\\lib\\numbers.py'>
+numpy.core._string_helpers: <module 'numpy.core._string_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_string_helpers.py'>
 urllib: <module 'urllib' from 'D:\\ProgramFiles\\Python39\\lib\\urllib\\__init__.py'>
 urllib.parse: <module 'urllib.parse' from 'D:\\ProgramFiles\\Python39\\lib\\urllib\\parse.py'>
 pathlib: <module 'pathlib' from 'D:\\ProgramFiles\\Python39\\lib\\pathlib.py'>
@@ -690,15 +696,9 @@ _pickle: <module '_pickle' (built-in)>
 pickle: <module 'pickle' from 'D:\\ProgramFiles\\Python39\\lib\\pickle.py'>
 numpy.compat.py3k: <module 'numpy.compat.py3k' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\compat\\py3k.py'>
 numpy.compat: <module 'numpy.compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\compat\\__init__.py'>
-numpy.core.overrides: <module 'numpy.core.overrides' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\overrides.py'>
-numpy.core.multiarray: <module 'numpy.core.multiarray' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\multiarray.py'>
-numpy.core.umath: <module 'numpy.core.umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\umath.py'>
-numbers: <module 'numbers' from 'D:\\ProgramFiles\\Python39\\lib\\numbers.py'>
-numpy.core._string_helpers: <module 'numpy.core._string_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_string_helpers.py'>
 numpy.core._dtype: <module 'numpy.core._dtype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_dtype.py'>
 numpy.core._type_aliases: <module 'numpy.core._type_aliases' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_type_aliases.py'>
 numpy.core.numerictypes: <module 'numpy.core.numerictypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\numerictypes.py'>
-numpy.core._exceptions: <module 'numpy.core._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_exceptions.py'>
 _contextvars: <module '_contextvars' (built-in)>
 contextvars: <module 'contextvars' from 'D:\\ProgramFiles\\Python39\\lib\\contextvars.py'>
 numpy.core._ufunc_config: <module 'numpy.core._ufunc_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_ufunc_config.py'>
@@ -722,6 +722,7 @@ numpy.core._dtype_ctypes: <module 'numpy.core._dtype_ctypes' from 'D:\\Other\\Gi
 numpy.core._internal: <module 'numpy.core._internal' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_internal.py'>
 numpy._pytesttester: <module 'numpy._pytesttester' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_pytesttester.py'>
 numpy.core: <module 'numpy.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\__init__.py'>
+numpy.__config__: <module 'numpy.__config__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\__config__.py'>
 numpy.lib.mixins: <module 'numpy.lib.mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\mixins.py'>
 numpy.lib.ufunclike: <module 'numpy.lib.ufunclike' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\ufunclike.py'>
 numpy.lib.type_check: <module 'numpy.lib.type_check' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\type_check.py'>
@@ -729,6 +730,14 @@ numpy.lib.scimath: <module 'numpy.lib.scimath' from 'D:\\Other\\Github_Self\\pyt
 numpy.lib.stride_tricks: <module 'numpy.lib.stride_tricks' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\stride_tricks.py'>
 numpy.lib.twodim_base: <module 'numpy.lib.twodim_base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\twodim_base.py'>
 numpy.linalg._umath_linalg: <module 'numpy.linalg._umath_linalg' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp39-win_amd64.pyd'>
+numpy._typing._nested_sequence: <module 'numpy._typing._nested_sequence' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_nested_sequence.py'>
+numpy._typing._nbit: <module 'numpy._typing._nbit' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_nbit.py'>
+numpy._typing._char_codes: <module 'numpy._typing._char_codes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_char_codes.py'>
+numpy._typing._scalars: <module 'numpy._typing._scalars' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_scalars.py'>
+numpy._typing._shape: <module 'numpy._typing._shape' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_shape.py'>
+numpy._typing._dtype_like: <module 'numpy._typing._dtype_like' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_dtype_like.py'>
+numpy._typing._array_like: <module 'numpy._typing._array_like' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_array_like.py'>
+numpy._typing: <module 'numpy._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\__init__.py'>
 numpy.linalg.linalg: <module 'numpy.linalg.linalg' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\linalg\\linalg.py'>
 numpy.linalg: <module 'numpy.linalg' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\linalg\\__init__.py'>
 numpy.matrixlib.defmatrix: <module 'numpy.matrixlib.defmatrix' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\matrixlib\\defmatrix.py'>
@@ -764,9 +773,9 @@ numpy.polynomial.hermite_e: <module 'numpy.polynomial.hermite_e' from 'D:\\Other
 numpy.polynomial.laguerre: <module 'numpy.polynomial.laguerre' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\polynomial\\laguerre.py'>
 numpy.polynomial: <module 'numpy.polynomial' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\polynomial\\__init__.py'>
 cython_runtime: <module 'cython_runtime'>
-_cython_0_29_33: <module '_cython_0_29_33'>
+gc: <module 'gc' (built-in)>
+_cython_3_0_5: <module '_cython_3_0_5'>
 numpy.random._common: <module 'numpy.random._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\_common.cp39-win_amd64.pyd'>
-threading: <module 'threading' from 'D:\\ProgramFiles\\Python39\\lib\\threading.py'>
 numpy.random.bit_generator: <module 'numpy.random.bit_generator' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\bit_generator.cp39-win_amd64.pyd'>
 numpy.random._bounded_integers: <module 'numpy.random._bounded_integers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\_bounded_integers.cp39-win_amd64.pyd'>
 numpy.random._mt19937: <module 'numpy.random._mt19937' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\_mt19937.cp39-win_amd64.pyd'>
@@ -789,11 +798,7 @@ pytz.tzfile: <module 'pytz.tzfile' from 'D:\\Other\\Github_Self\\pythonHelpers\\
 pytz: <module 'pytz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz\\__init__.py'>
 dateutil._version: <module 'dateutil._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_version.py'>
 dateutil: <module 'dateutil' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\__init__.py'>
-msvcrt: <module 'msvcrt' (built-in)>
-_winapi: <module '_winapi' (built-in)>
-subprocess: <module 'subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\subprocess.py'>
-platform: <module 'platform' from 'D:\\ProgramFiles\\Python39\\lib\\platform.py'>
-pandas._typing: <module 'pandas._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_typing.py'>
+sysconfig: <module 'sysconfig' from 'D:\\ProgramFiles\\Python39\\lib\\sysconfig.py'>
 pandas.compat._constants: <module 'pandas.compat._constants' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\_constants.py'>
 _compression: <module '_compression' from 'D:\\ProgramFiles\\Python39\\lib\\_compression.py'>
 _bz2: <module '_bz2' from 'D:\\ProgramFiles\\Python39\\DLLs\\_bz2.pyd'>
@@ -801,21 +806,34 @@ bz2: <module 'bz2' from 'D:\\ProgramFiles\\Python39\\lib\\bz2.py'>
 _lzma: <module '_lzma' from 'D:\\ProgramFiles\\Python39\\DLLs\\_lzma.pyd'>
 lzma: <module 'lzma' from 'D:\\ProgramFiles\\Python39\\lib\\lzma.py'>
 pandas.compat.compressors: <module 'pandas.compat.compressors' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\compressors.py'>
-_cython_0_29_34: <module '_cython_0_29_34'>
+pandas.util: <module 'pandas.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\__init__.py'>
+pandas.util.version: <module 'pandas.util.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\version\\__init__.py'>
+pandas.compat.numpy: <module 'pandas.compat.numpy' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\numpy\\__init__.py'>
+pandas.compat.pyarrow: <module 'pandas.compat.pyarrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\pyarrow.py'>
+pandas.compat: <module 'pandas.compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\__init__.py'>
+pandas._typing: <module 'pandas._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_typing.py'>
+pandas.util._exceptions: <module 'pandas.util._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_exceptions.py'>
+pandas._config.config: <module 'pandas._config.config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\config.py'>
+pandas._config.dates: <module 'pandas._config.dates' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\dates.py'>
+locale: <module 'locale' from 'D:\\ProgramFiles\\Python39\\lib\\locale.py'>
+pandas._config.display: <module 'pandas._config.display' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\display.py'>
+pandas._config: <module 'pandas._config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\__init__.py'>
+pandas.core: <module 'pandas.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\__init__.py'>
+pandas.core.config_init: <module 'pandas.core.config_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\config_init.py'>
+pandas._libs.pandas_parser: <module 'pandas._libs.pandas_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\pandas_parser.cp39-win_amd64.pyd'>
+pandas._libs.pandas_datetime: <module 'pandas._libs.pandas_datetime' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\pandas_datetime.cp39-win_amd64.pyd'>
+_cython_0_29_36: <module '_cython_0_29_36'>
 pandas._libs.tslibs.np_datetime: <module 'pandas._libs.tslibs.np_datetime' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\np_datetime.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.dtypes: <module 'pandas._libs.tslibs.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\dtypes.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.base: <module 'pandas._libs.tslibs.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\base.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.nattype: <module 'pandas._libs.tslibs.nattype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\nattype.cp39-win_amd64.pyd'>
-pandas.util._exceptions: <module 'pandas.util._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_exceptions.py'>
-pandas.util.version: <module 'pandas.util.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\version\\__init__.py'>
 pandas.compat._optional: <module 'pandas.compat._optional' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\_optional.py'>
-sysconfig: <module 'sysconfig' from 'D:\\ProgramFiles\\Python39\\lib\\sysconfig.py'>
 zoneinfo._tzpath: <module 'zoneinfo._tzpath' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\_tzpath.py'>
 zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\_common.py'>
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000001E90414ACD0>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x0000027B2167A220>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -824,25 +842,19 @@ dateutil.tz.tz: <module 'dateutil.tz.tz' from 'D:\\Other\\Github_Self\\pythonHel
 dateutil.tz: <module 'dateutil.tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\__init__.py'>
 pandas._libs.tslibs.timezones: <module 'pandas._libs.tslibs.timezones' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\timezones.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.ccalendar: <module 'pandas._libs.tslibs.ccalendar' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\ccalendar.cp39-win_amd64.pyd'>
-locale: <module 'locale' from 'D:\\ProgramFiles\\Python39\\lib\\locale.py'>
 calendar: <module 'calendar' from 'D:\\ProgramFiles\\Python39\\lib\\calendar.py'>
 _strptime: <module '_strptime' from 'D:\\ProgramFiles\\Python39\\lib\\_strptime.py'>
-pandas._config.config: <module 'pandas._config.config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\config.py'>
-pandas._config.dates: <module 'pandas._config.dates' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\dates.py'>
-pandas._config.display: <module 'pandas._config.display' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\display.py'>
-pandas._config: <module 'pandas._config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\__init__.py'>
 pandas._config.localization: <module 'pandas._config.localization' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\localization.py'>
 pandas._libs.tslibs.fields: <module 'pandas._libs.tslibs.fields' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\fields.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.timedeltas: <module 'pandas._libs.tslibs.timedeltas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\timedeltas.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.tzconversion: <module 'pandas._libs.tslibs.tzconversion' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\tzconversion.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.timestamps: <module 'pandas._libs.tslibs.timestamps' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\timestamps.cp39-win_amd64.pyd'>
-dateutil.easter: <module 'dateutil.easter' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\easter.py'>
-dateutil._common: <module 'dateutil._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_common.py'>
-dateutil.relativedelta: <module 'dateutil.relativedelta' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\relativedelta.py'>
 pandas._libs.properties: <module 'pandas._libs.properties' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\properties.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.offsets: <module 'pandas._libs.tslibs.offsets' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\offsets.cp39-win_amd64.pyd'>
 _decimal: <module '_decimal' from 'D:\\ProgramFiles\\Python39\\DLLs\\_decimal.pyd'>
 decimal: <module 'decimal' from 'D:\\ProgramFiles\\Python39\\lib\\decimal.py'>
+dateutil._common: <module 'dateutil._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_common.py'>
+dateutil.relativedelta: <module 'dateutil.relativedelta' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\relativedelta.py'>
 dateutil.parser._parser: <module 'dateutil.parser._parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\parser\\_parser.py'>
 dateutil.parser.isoparser: <module 'dateutil.parser.isoparser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\parser\\isoparser.py'>
 dateutil.parser: <module 'dateutil.parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\parser\\__init__.py'>
@@ -858,26 +870,18 @@ pandas._libs.hashtable: <module 'pandas._libs.hashtable' from 'D:\\Other\\Github
 pandas._libs.algos: <module 'pandas._libs.algos' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\algos.cp39-win_amd64.pyd'>
 pandas._libs.interval: <module 'pandas._libs.interval' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\interval.cp39-win_amd64.pyd'>
 pandas._libs: <module 'pandas._libs' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\__init__.py'>
-pandas.util._decorators: <module 'pandas.util._decorators' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_decorators.py'>
-pandas.core: <module 'pandas.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\__init__.py'>
-pandas.core.util: <module 'pandas.core.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\__init__.py'>
-pandas._libs.lib: <module 'pandas._libs.lib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\lib.cp39-win_amd64.pyd'>
-pandas._libs.hashing: <module 'pandas._libs.hashing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\hashing.cp39-win_amd64.pyd'>
 pandas.core.dtypes: <module 'pandas.core.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\__init__.py'>
+pandas._libs.lib: <module 'pandas._libs.lib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\lib.cp39-win_amd64.pyd'>
 pandas.errors: <module 'pandas.errors' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\errors\\__init__.py'>
 pandas.core.dtypes.generic: <module 'pandas.core.dtypes.generic' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\generic.py'>
 pandas.core.dtypes.base: <module 'pandas.core.dtypes.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\base.py'>
 pandas.core.dtypes.inference: <module 'pandas.core.dtypes.inference' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\inference.py'>
 pandas.core.dtypes.dtypes: <module 'pandas.core.dtypes.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\dtypes.py'>
 pandas.core.dtypes.common: <module 'pandas.core.dtypes.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\common.py'>
-pandas.core.util.hashing: <module 'pandas.core.util.hashing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\hashing.py'>
-pandas.util: <module 'pandas.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\__init__.py'>
-pandas.compat.numpy: <module 'pandas.compat.numpy' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\numpy\\__init__.py'>
-pandas.compat.pyarrow: <module 'pandas.compat.pyarrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\pyarrow.py'>
-pandas.compat: <module 'pandas.compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\__init__.py'>
-pandas._libs.tslib: <module 'pandas._libs.tslib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslib.cp39-win_amd64.pyd'>
-pandas.core.config_init: <module 'pandas.core.config_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\config_init.py'>
 pandas.core.dtypes.missing: <module 'pandas.core.dtypes.missing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\missing.py'>
+pandas.util._decorators: <module 'pandas.util._decorators' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_decorators.py'>
+pandas.io: <module 'pandas.io' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\__init__.py'>
+pandas.io._util: <module 'pandas.io._util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\_util.py'>
 pandas.core.dtypes.cast: <module 'pandas.core.dtypes.cast' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\cast.py'>
 pandas.core.dtypes.astype: <module 'pandas.core.dtypes.astype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\astype.py'>
 pandas.core.dtypes.concat: <module 'pandas.core.dtypes.concat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\concat.py'>
@@ -888,8 +892,9 @@ pandas.core.array_algos.take: <module 'pandas.core.array_algos.take' from 'D:\\O
 pandas.core.indexers.utils: <module 'pandas.core.indexers.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexers\\utils.py'>
 pandas.core.indexers: <module 'pandas.core.indexers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexers\\__init__.py'>
 pandas.core.algorithms: <module 'pandas.core.algorithms' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\algorithms.py'>
-copy: <module 'copy' from 'D:\\ProgramFiles\\Python39\\lib\\copy.py'>
+unicodedata: <module 'unicodedata' from 'D:\\ProgramFiles\\Python39\\DLLs\\unicodedata.pyd'>
 pandas.util._validators: <module 'pandas.util._validators' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_validators.py'>
+pandas.core.missing: <module 'pandas.core.missing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\missing.py'>
 pandas.core.roperator: <module 'pandas.core.roperator' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\roperator.py'>
 pandas._libs.ops: <module 'pandas._libs.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\ops.cp39-win_amd64.pyd'>
 pandas.core.computation: <module 'pandas.core.computation' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\__init__.py'>
@@ -902,66 +907,65 @@ pandas.core.ops.array_ops: <module 'pandas.core.ops.array_ops' from 'D:\\Other\\
 pandas.core.ops.common: <module 'pandas.core.ops.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\common.py'>
 pandas.core.ops.docstrings: <module 'pandas.core.ops.docstrings' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\docstrings.py'>
 pandas.core.ops.mask_ops: <module 'pandas.core.ops.mask_ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\mask_ops.py'>
-pandas.core.ops.methods: <module 'pandas.core.ops.methods' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\methods.py'>
 pandas.core.ops: <module 'pandas.core.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\__init__.py'>
 pandas.core.arraylike: <module 'pandas.core.arraylike' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arraylike.py'>
+pandas.core.arrays._arrow_string_mixins: <module 'pandas.core.arrays._arrow_string_mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_arrow_string_mixins.py'>
 pandas.compat.numpy.function: <module 'pandas.compat.numpy.function' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\numpy\\function.py'>
-pandas.core.missing: <module 'pandas.core.missing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\missing.py'>
 pandas.core.array_algos.quantile: <module 'pandas.core.array_algos.quantile' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\quantile.py'>
 pandas.core.sorting: <module 'pandas.core.sorting' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\sorting.py'>
 pandas.core.arrays.base: <module 'pandas.core.arrays.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\base.py'>
+pandas.core.nanops: <module 'pandas.core.nanops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\nanops.py'>
+pandas.core.array_algos.masked_accumulations: <module 'pandas.core.array_algos.masked_accumulations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_accumulations.py'>
+pandas.core.array_algos.masked_reductions: <module 'pandas.core.array_algos.masked_reductions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_reductions.py'>
+pandas.core.arrays.masked: <module 'pandas.core.arrays.masked' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\masked.py'>
+pandas._libs.arrays: <module 'pandas._libs.arrays' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\arrays.cp39-win_amd64.pyd'>
+pandas.core.arrays.numeric: <module 'pandas.core.arrays.numeric' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numeric.py'>
+pandas.core.arrays.floating: <module 'pandas.core.arrays.floating' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\floating.py'>
+pandas.core.arrays.integer: <module 'pandas.core.arrays.integer' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\integer.py'>
+pandas.core.array_algos.transforms: <module 'pandas.core.array_algos.transforms' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\transforms.py'>
+pandas.core.arrays._mixins: <module 'pandas.core.arrays._mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_mixins.py'>
 pandas.core.strings: <module 'pandas.core.strings' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\__init__.py'>
 pandas.core.strings.base: <module 'pandas.core.strings.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\base.py'>
+pandas.core.strings.object_array: <module 'pandas.core.strings.object_array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\object_array.py'>
+pandas.core.arrays.numpy_: <module 'pandas.core.arrays.numpy_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numpy_.py'>
+pandas.core.arrays.string_: <module 'pandas.core.arrays.string_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\string_.py'>
 pandas.tseries: <module 'pandas.tseries' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\__init__.py'>
 pandas.tseries.frequencies: <module 'pandas.tseries.frequencies' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\frequencies.py'>
 pandas.core.arrays.arrow.array: <module 'pandas.core.arrays.arrow.array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\arrow\\array.py'>
-pandas.core.arrays.arrow.dtype: <module 'pandas.core.arrays.arrow.dtype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\arrow\\dtype.py'>
 pandas.core.arrays.arrow: <module 'pandas.core.arrays.arrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\arrow\\__init__.py'>
-pandas.core.array_algos.masked_accumulations: <module 'pandas.core.array_algos.masked_accumulations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_accumulations.py'>
-pandas.core.nanops: <module 'pandas.core.nanops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\nanops.py'>
-pandas.core.array_algos.masked_reductions: <module 'pandas.core.array_algos.masked_reductions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_reductions.py'>
-pandas.core.arrays.masked: <module 'pandas.core.arrays.masked' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\masked.py'>
 pandas.core.arrays.boolean: <module 'pandas.core.arrays.boolean' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\boolean.py'>
 _csv: <module '_csv' (built-in)>
 csv: <module 'csv' from 'D:\\ProgramFiles\\Python39\\lib\\csv.py'>
 zlib: <module 'zlib' (built-in)>
 shutil: <module 'shutil' from 'D:\\ProgramFiles\\Python39\\lib\\shutil.py'>
-pandas._libs.arrays: <module 'pandas._libs.arrays' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\arrays.cp39-win_amd64.pyd'>
 pandas.core.accessor: <module 'pandas.core.accessor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\accessor.py'>
-pandas.core.array_algos.transforms: <module 'pandas.core.array_algos.transforms' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\transforms.py'>
-pandas.core.arrays._mixins: <module 'pandas.core.arrays._mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_mixins.py'>
 pandas.core.base: <module 'pandas.core.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\base.py'>
-unicodedata: <module 'unicodedata' from 'D:\\ProgramFiles\\Python39\\DLLs\\unicodedata.pyd'>
-pandas.core.strings.object_array: <module 'pandas.core.strings.object_array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\object_array.py'>
-pandas.io: <module 'pandas.io' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\__init__.py'>
 pandas.io.formats: <module 'pandas.io.formats' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\formats\\__init__.py'>
 pandas.io.formats.console: <module 'pandas.io.formats.console' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\formats\\console.py'>
 pandas.core.arrays.categorical: <module 'pandas.core.arrays.categorical' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\categorical.py'>
+pandas._libs.tslib: <module 'pandas._libs.tslib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslib.cp39-win_amd64.pyd'>
 pandas.core.array_algos.datetimelike_accumulations: <module 'pandas.core.array_algos.datetimelike_accumulations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\datetimelike_accumulations.py'>
-pandas.core.arrays.numeric: <module 'pandas.core.arrays.numeric' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numeric.py'>
-pandas.core.arrays.integer: <module 'pandas.core.arrays.integer' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\integer.py'>
 pandas.core.arrays.datetimelike: <module 'pandas.core.arrays.datetimelike' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\datetimelike.py'>
 pandas.core.arrays._ranges: <module 'pandas.core.arrays._ranges' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_ranges.py'>
 pandas.tseries.offsets: <module 'pandas.tseries.offsets' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\offsets.py'>
 pandas.core.arrays.datetimes: <module 'pandas.core.arrays.datetimes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\datetimes.py'>
-pandas.core.arrays.floating: <module 'pandas.core.arrays.floating' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\floating.py'>
 pandas.core.arrays.timedeltas: <module 'pandas.core.arrays.timedeltas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\timedeltas.py'>
 pandas.core.arrays.interval: <module 'pandas.core.arrays.interval' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\interval.py'>
-pandas.core.arrays.numpy_: <module 'pandas.core.arrays.numpy_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numpy_.py'>
 pandas.core.arrays.period: <module 'pandas.core.arrays.period' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\period.py'>
 pandas._libs.sparse: <module 'pandas._libs.sparse' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\sparse.cp39-win_amd64.pyd'>
-pandas.core.arrays.sparse.dtype: <module 'pandas.core.arrays.sparse.dtype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\dtype.py'>
 pandas.io.formats.printing: <module 'pandas.io.formats.printing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\formats\\printing.py'>
 pandas.core.arrays.sparse.array: <module 'pandas.core.arrays.sparse.array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\array.py'>
 pandas.core.arrays.sparse.accessor: <module 'pandas.core.arrays.sparse.accessor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\accessor.py'>
 pandas.core.arrays.sparse: <module 'pandas.core.arrays.sparse' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\__init__.py'>
-pandas.core.arrays.string_: <module 'pandas.core.arrays.string_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\string_.py'>
 pandas.core.arrays.string_arrow: <module 'pandas.core.arrays.string_arrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\string_arrow.py'>
 pandas.core.arrays: <module 'pandas.core.arrays' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\__init__.py'>
 pandas.core.flags: <module 'pandas.core.flags' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\flags.py'>
-pandas._libs.reduction: <module 'pandas._libs.reduction' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\reduction.cp39-win_amd64.pyd'>
 pandas.core.apply: <module 'pandas.core.apply' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\apply.py'>
-gc: <module 'gc' (built-in)>
+_json: <module '_json' (built-in)>
+json.scanner: <module 'json.scanner' from 'D:\\ProgramFiles\\Python39\\lib\\json\\scanner.py'>
+json.decoder: <module 'json.decoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\decoder.py'>
+json.encoder: <module 'json.encoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\encoder.py'>
+json: <module 'json' from 'D:\\ProgramFiles\\Python39\\lib\\json\\__init__.py'>
 pandas._libs.indexing: <module 'pandas._libs.indexing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\indexing.cp39-win_amd64.pyd'>
 pandas.core.indexes: <module 'pandas.core.indexes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexes\\__init__.py'>
 pandas._libs.index: <module 'pandas._libs.index' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\index.cp39-win_amd64.pyd'>
@@ -991,15 +995,16 @@ pandas._libs.writers: <module 'pandas._libs.writers' from 'D:\\Other\\Github_Sel
 pandas.core.internals.blocks: <module 'pandas.core.internals.blocks' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\blocks.py'>
 pandas.core.internals.api: <module 'pandas.core.internals.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\api.py'>
 pandas.core.internals.base: <module 'pandas.core.internals.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\base.py'>
-pandas.core.internals.array_manager: <module 'pandas.core.internals.array_manager' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\array_manager.py'>
 pandas.core.internals.ops: <module 'pandas.core.internals.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\ops.py'>
 pandas.core.internals.managers: <module 'pandas.core.internals.managers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\managers.py'>
+pandas.core.internals.array_manager: <module 'pandas.core.internals.array_manager' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\array_manager.py'>
 pandas.core.internals.concat: <module 'pandas.core.internals.concat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\concat.py'>
 pandas.core.internals: <module 'pandas.core.internals' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\__init__.py'>
 pandas.core.internals.construction: <module 'pandas.core.internals.construction' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\construction.py'>
 pandas.core.methods: <module 'pandas.core.methods' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\methods\\__init__.py'>
 pandas.core.reshape: <module 'pandas.core.reshape' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\reshape\\__init__.py'>
 pandas.core.reshape.concat: <module 'pandas.core.reshape.concat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\reshape\\concat.py'>
+copy: <module 'copy' from 'D:\\ProgramFiles\\Python39\\lib\\copy.py'>
 dataclasses: <module 'dataclasses' from 'D:\\ProgramFiles\\Python39\\lib\\dataclasses.py'>
 gzip: <module 'gzip' from 'D:\\ProgramFiles\\Python39\\lib\\gzip.py'>
 mmap: <module 'mmap' (built-in)>
@@ -1013,6 +1018,7 @@ pandas._libs.window: <module 'pandas._libs.window' from 'D:\\Other\\Github_Self\
 pandas._libs.window.aggregations: <module 'pandas._libs.window.aggregations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\window\\aggregations.cp39-win_amd64.pyd'>
 pandas._libs.window.indexers: <module 'pandas._libs.window.indexers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\window\\indexers.cp39-win_amd64.pyd'>
 pandas.core.indexers.objects: <module 'pandas.core.indexers.objects' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexers\\objects.py'>
+pandas.core.util: <module 'pandas.core.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\__init__.py'>
 pandas.core.util.numba_: <module 'pandas.core.util.numba_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\numba_.py'>
 pandas.core.window.common: <module 'pandas.core.window.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\window\\common.py'>
 pandas.core.window.doc: <module 'pandas.core.window.doc' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\window\\doc.py'>
@@ -1041,10 +1047,10 @@ pandas.core.series: <module 'pandas.core.series' from 'D:\\Other\\Github_Self\\p
 pandas.core.frame: <module 'pandas.core.frame' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\frame.py'>
 pandas.core.groupby.base: <module 'pandas.core.groupby.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\base.py'>
 pandas._libs.groupby: <module 'pandas._libs.groupby' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\groupby.cp39-win_amd64.pyd'>
-pandas.core.groupby.numba_: <module 'pandas.core.groupby.numba_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\numba_.py'>
 pandas.core.groupby.categorical: <module 'pandas.core.groupby.categorical' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\categorical.py'>
 pandas.core.groupby.grouper: <module 'pandas.core.groupby.grouper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\grouper.py'>
 pandas.core.groupby.ops: <module 'pandas.core.groupby.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\ops.py'>
+pandas.core.groupby.numba_: <module 'pandas.core.groupby.numba_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\numba_.py'>
 pandas.core.groupby.indexing: <module 'pandas.core.groupby.indexing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\indexing.py'>
 pandas.core.groupby.groupby: <module 'pandas.core.groupby.groupby' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\groupby.py'>
 pandas.core.groupby.generic: <module 'pandas.core.groupby.generic' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\generic.py'>
@@ -1071,19 +1077,27 @@ pandas.api.extensions: <module 'pandas.api.extensions' from 'D:\\Other\\Github_S
 pandas.api.indexers: <module 'pandas.api.indexers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\indexers\\__init__.py'>
 pandas.core.interchange: <module 'pandas.core.interchange' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\__init__.py'>
 pandas.core.interchange.dataframe_protocol: <module 'pandas.core.interchange.dataframe_protocol' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\dataframe_protocol.py'>
-pandas.core.dtypes.api: <module 'pandas.core.dtypes.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\api.py'>
-pandas.api.types: <module 'pandas.api.types' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\types\\__init__.py'>
-pandas.core.interchange.buffer: <module 'pandas.core.interchange.buffer' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\buffer.py'>
 pandas.core.interchange.utils: <module 'pandas.core.interchange.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\utils.py'>
-pandas.core.interchange.column: <module 'pandas.core.interchange.column' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\column.py'>
 pandas.core.interchange.from_dataframe: <module 'pandas.core.interchange.from_dataframe' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\from_dataframe.py'>
 pandas.api.interchange: <module 'pandas.api.interchange' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\interchange\\__init__.py'>
+pandas.core.dtypes.api: <module 'pandas.core.dtypes.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\api.py'>
+pandas.api.types: <module 'pandas.api.types' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\types\\__init__.py'>
+pandas.core.resample: <module 'pandas.core.resample' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\resample.py'>
+pandas._libs.json: <module 'pandas._libs.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\json.cp39-win_amd64.pyd'>
+pandas.io.json._normalize: <module 'pandas.io.json._normalize' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_normalize.py'>
+pandas.io.json._table_schema: <module 'pandas.io.json._table_schema' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_table_schema.py'>
+pandas._libs.parsers: <module 'pandas._libs.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\parsers.cp39-win_amd64.pyd'>
+pandas.io.parsers.base_parser: <module 'pandas.io.parsers.base_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\base_parser.py'>
+pandas.io.parsers.arrow_parser_wrapper: <module 'pandas.io.parsers.arrow_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\arrow_parser_wrapper.py'>
+pandas.io.parsers.c_parser_wrapper: <module 'pandas.io.parsers.c_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\c_parser_wrapper.py'>
+pandas.io.parsers.python_parser: <module 'pandas.io.parsers.python_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\python_parser.py'>
+pandas.io.parsers.readers: <module 'pandas.io.parsers.readers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\readers.py'>
+pandas.io.parsers: <module 'pandas.io.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\__init__.py'>
+pandas.io.json._json: <module 'pandas.io.json._json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_json.py'>
+pandas.io.json: <module 'pandas.io.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\__init__.py'>
+pandas.io.stata: <module 'pandas.io.stata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\stata.py'>
+pandas.api.typing: <module 'pandas.api.typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\typing\\__init__.py'>
 pandas.api: <module 'pandas.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\__init__.py'>
-_socket: <module '_socket' from 'D:\\ProgramFiles\\Python39\\DLLs\\_socket.pyd'>
-select: <module 'select' from 'D:\\ProgramFiles\\Python39\\DLLs\\select.pyd'>
-selectors: <module 'selectors' from 'D:\\ProgramFiles\\Python39\\lib\\selectors.py'>
-socket: <module 'socket' from 'D:\\ProgramFiles\\Python39\\lib\\socket.py'>
-pandas._testing._random: <module 'pandas._testing._random' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_testing\\_random.py'>
 tempfile: <module 'tempfile' from 'D:\\ProgramFiles\\Python39\\lib\\tempfile.py'>
 pandas._testing.contexts: <module 'pandas._testing.contexts' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_testing\\contexts.py'>
 pandas._testing._io: <module 'pandas._testing._io' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_testing\\_io.py'>
@@ -1096,31 +1110,18 @@ pandas._testing: <module 'pandas._testing' from 'D:\\Other\\Github_Self\\pythonH
 pandas.testing: <module 'pandas.testing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\testing.py'>
 pandas.util._print_versions: <module 'pandas.util._print_versions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_print_versions.py'>
 pandas.io.clipboards: <module 'pandas.io.clipboards' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\clipboards.py'>
-pandas._libs.parsers: <module 'pandas._libs.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\parsers.cp39-win_amd64.pyd'>
 pandas.io.excel._util: <module 'pandas.io.excel._util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_util.py'>
-pandas.io._util: <module 'pandas.io._util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\_util.py'>
-pandas.io.parsers.base_parser: <module 'pandas.io.parsers.base_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\base_parser.py'>
-pandas.io.parsers.arrow_parser_wrapper: <module 'pandas.io.parsers.arrow_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\arrow_parser_wrapper.py'>
-pandas.io.parsers.c_parser_wrapper: <module 'pandas.io.parsers.c_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\c_parser_wrapper.py'>
-pandas.io.parsers.python_parser: <module 'pandas.io.parsers.python_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\python_parser.py'>
-pandas.io.parsers.readers: <module 'pandas.io.parsers.readers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\readers.py'>
-pandas.io.parsers: <module 'pandas.io.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\__init__.py'>
 pandas.io.excel._odfreader: <module 'pandas.io.excel._odfreader' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_odfreader.py'>
 pandas.io.excel._openpyxl: <module 'pandas.io.excel._openpyxl' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_openpyxl.py'>
 pandas.io.excel._pyxlsb: <module 'pandas.io.excel._pyxlsb' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_pyxlsb.py'>
 pandas.io.excel._xlrd: <module 'pandas.io.excel._xlrd' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_xlrd.py'>
 pandas.io.excel._base: <module 'pandas.io.excel._base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_base.py'>
-pandas._libs.json: <module 'pandas._libs.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\json.cp39-win_amd64.pyd'>
 pandas.io.excel._odswriter: <module 'pandas.io.excel._odswriter' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_odswriter.py'>
 pandas.io.excel._xlsxwriter: <module 'pandas.io.excel._xlsxwriter' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_xlsxwriter.py'>
 pandas.io.excel: <module 'pandas.io.excel' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\__init__.py'>
 pandas.io.feather_format: <module 'pandas.io.feather_format' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\feather_format.py'>
 pandas.io.gbq: <module 'pandas.io.gbq' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\gbq.py'>
 pandas.io.html: <module 'pandas.io.html' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\html.py'>
-pandas.io.json._normalize: <module 'pandas.io.json._normalize' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_normalize.py'>
-pandas.io.json._table_schema: <module 'pandas.io.json._table_schema' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_table_schema.py'>
-pandas.io.json._json: <module 'pandas.io.json._json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_json.py'>
-pandas.io.json: <module 'pandas.io.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\__init__.py'>
 pandas.io.orc: <module 'pandas.io.orc' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\orc.py'>
 pandas.io.parquet: <module 'pandas.io.parquet' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parquet.py'>
 pandas.compat.pickle_compat: <module 'pandas.compat.pickle_compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\pickle_compat.py'>
@@ -1131,11 +1132,10 @@ pandas.io.sas.sasreader: <module 'pandas.io.sas.sasreader' from 'D:\\Other\\Gith
 pandas.io.sas: <module 'pandas.io.sas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\sas\\__init__.py'>
 pandas.io.spss: <module 'pandas.io.spss' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\spss.py'>
 pandas.io.sql: <module 'pandas.io.sql' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\sql.py'>
-pandas.io.stata: <module 'pandas.io.stata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\stata.py'>
 pandas.io.xml: <module 'pandas.io.xml' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\xml.py'>
 pandas.io.api: <module 'pandas.io.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\api.py'>
 pandas.util._tester: <module 'pandas.util._tester' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_tester.py'>
-pandas._version: <module 'pandas._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_version.py'>
+pandas._version_meson: <module 'pandas._version_meson' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_version_meson.py'>
 pandas: <module 'pandas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\__init__.py'>
 pkgutil: <module 'pkgutil' from 'D:\\ProgramFiles\\Python39\\lib\\pkgutil.py'>
 xml: <module 'xml' from 'D:\\ProgramFiles\\Python39\\lib\\xml\\__init__.py'>
@@ -1155,6 +1155,10 @@ quopri: <module 'quopri' from 'D:\\ProgramFiles\\Python39\\lib\\quopri.py'>
 email.encoders: <module 'email.encoders' from 'D:\\ProgramFiles\\Python39\\lib\\email\\encoders.py'>
 email.charset: <module 'email.charset' from 'D:\\ProgramFiles\\Python39\\lib\\email\\charset.py'>
 email.header: <module 'email.header' from 'D:\\ProgramFiles\\Python39\\lib\\email\\header.py'>
+_socket: <module '_socket' from 'D:\\ProgramFiles\\Python39\\DLLs\\_socket.pyd'>
+select: <module 'select' from 'D:\\ProgramFiles\\Python39\\DLLs\\select.pyd'>
+selectors: <module 'selectors' from 'D:\\ProgramFiles\\Python39\\lib\\selectors.py'>
+socket: <module 'socket' from 'D:\\ProgramFiles\\Python39\\lib\\socket.py'>
 email._parseaddr: <module 'email._parseaddr' from 'D:\\ProgramFiles\\Python39\\lib\\email\\_parseaddr.py'>
 email.utils: <module 'email.utils' from 'D:\\ProgramFiles\\Python39\\lib\\email\\utils.py'>
 email._policybase: <module 'email._policybase' from 'D:\\ProgramFiles\\Python39\\lib\\email\\_policybase.py'>
@@ -1162,49 +1166,24 @@ email.feedparser: <module 'email.feedparser' from 'D:\\ProgramFiles\\Python39\\l
 email.parser: <module 'email.parser' from 'D:\\ProgramFiles\\Python39\\lib\\email\\parser.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-importlib._common: <module 'importlib._common' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\_common.py'>
-importlib.resources: <module 'importlib.resources' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\resources.py'>
-_queue: <module '_queue' from 'D:\\ProgramFiles\\Python39\\DLLs\\_queue.pyd'>
-queue: <module 'queue' from 'D:\\ProgramFiles\\Python39\\lib\\queue.py'>
-pkg_resources._vendor.more_itertools.recipes: <module 'pkg_resources._vendor.more_itertools.recipes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\recipes.py'>
-pkg_resources._vendor.more_itertools.more: <module 'pkg_resources._vendor.more_itertools.more' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\more.py'>
-pkg_resources._vendor.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.jaraco.functools: <module 'pkg_resources.extern.jaraco.functools' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\functools.py'>
-pkg_resources.extern.jaraco.context: <module 'pkg_resources.extern.jaraco.context' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\context.py'>
-pkg_resources.extern.jaraco.text: <module 'pkg_resources.extern.jaraco.text' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\text\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
+pkg_resources.extern.packaging._typing: <module 'pkg_resources.extern.packaging._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_typing.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
-atexit: <module 'atexit' (built-in)>
-logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
-pkg_resources._vendor.packaging._manylinux: <module 'pkg_resources._vendor.packaging._manylinux' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_manylinux.py'>
-pkg_resources._vendor.packaging._musllinux: <module 'pkg_resources._vendor.packaging._musllinux' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_musllinux.py'>
-pkg_resources.extern.packaging.tags: <module 'pkg_resources.extern.packaging.tags' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\tags.py'>
+pkg_resources.extern.packaging._compat: <module 'pkg_resources.extern.packaging._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_compat.py'>
 pkg_resources.extern.packaging.utils: <module 'pkg_resources.extern.packaging.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py'>
 pkg_resources.extern.packaging.specifiers: <module 'pkg_resources.extern.packaging.specifiers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py'>
-pkg_resources._vendor.pyparsing.util: <module 'pkg_resources._vendor.pyparsing.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\util.py'>
-pkg_resources._vendor.pyparsing.unicode: <module 'pkg_resources._vendor.pyparsing.unicode' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\unicode.py'>
-pkg_resources._vendor.pyparsing.exceptions: <module 'pkg_resources._vendor.pyparsing.exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\exceptions.py'>
-pkg_resources._vendor.pyparsing.actions: <module 'pkg_resources._vendor.pyparsing.actions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\actions.py'>
-pkg_resources._vendor.pyparsing.results: <module 'pkg_resources._vendor.pyparsing.results' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\results.py'>
-pkg_resources._vendor.pyparsing.core: <module 'pkg_resources._vendor.pyparsing.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\core.py'>
-html.entities: <module 'html.entities' from 'D:\\ProgramFiles\\Python39\\lib\\html\\entities.py'>
-html: <module 'html' from 'D:\\ProgramFiles\\Python39\\lib\\html\\__init__.py'>
-pkg_resources._vendor.pyparsing.helpers: <module 'pkg_resources._vendor.pyparsing.helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\helpers.py'>
-pkg_resources._vendor.pyparsing.testing: <module 'pkg_resources._vendor.pyparsing.testing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\testing.py'>
-pkg_resources._vendor.pyparsing.common: <module 'pkg_resources._vendor.pyparsing.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\common.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
+atexit: <module 'atexit' (built-in)>
+logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
 http: <module 'http' from 'D:\\ProgramFiles\\Python39\\lib\\http\\__init__.py'>
 uu: <module 'uu' from 'D:\\ProgramFiles\\Python39\\lib\\uu.py'>
 email._encoded_words: <module 'email._encoded_words' from 'D:\\ProgramFiles\\Python39\\lib\\email\\_encoded_words.py'>
@@ -1228,6 +1207,8 @@ urllib3.util: <module 'urllib3.util' from 'D:\\Other\\Github_Self\\pythonHelpers
 urllib3._base_connection: <module 'urllib3._base_connection' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\_base_connection.py'>
 urllib3._collections: <module 'urllib3._collections' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\_collections.py'>
 urllib3._version: <module 'urllib3._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\_version.py'>
+_queue: <module '_queue' from 'D:\\ProgramFiles\\Python39\\DLLs\\_queue.pyd'>
+queue: <module 'queue' from 'D:\\ProgramFiles\\Python39\\lib\\queue.py'>
 mimetypes: <module 'mimetypes' from 'D:\\ProgramFiles\\Python39\\lib\\mimetypes.py'>
 urllib3.fields: <module 'urllib3.fields' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\fields.py'>
 urllib3.filepost: <module 'urllib3.filepost' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\filepost.py'>
@@ -1296,6 +1277,8 @@ requests.packages.idna.core: <module 'idna.core' from 'D:\\Other\\Github_Self\\p
 requests.packages.idna: <module 'idna' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\idna\\__init__.py'>
 requests.packages.chardet: <module 'charset_normalizer.constant' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\charset_normalizer\\constant.py'>
 requests.packages: <module 'requests.packages' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\packages.py'>
+importlib._common: <module 'importlib._common' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\_common.py'>
+importlib.resources: <module 'importlib.resources' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\resources.py'>
 certifi.core: <module 'certifi.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\certifi\\core.py'>
 certifi: <module 'certifi' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\certifi\\__init__.py'>
 requests.certs: <module 'requests.certs' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\certs.py'>
@@ -1315,13 +1298,6 @@ requests.adapters: <module 'requests.adapters' from 'D:\\Other\\Github_Self\\pyt
 requests.sessions: <module 'requests.sessions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\sessions.py'>
 requests.api: <module 'requests.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\api.py'>
 requests: <module 'requests' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\__init__.py'>
-pytz_deprecation_shim._common: <module 'pytz_deprecation_shim._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_common.py'>
-pytz_deprecation_shim._compat_py3: <module 'pytz_deprecation_shim._compat_py3' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_compat_py3.py'>
-pytz_deprecation_shim._compat: <module 'pytz_deprecation_shim._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_compat.py'>
-pytz_deprecation_shim._exceptions: <module 'pytz_deprecation_shim._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_exceptions.py'>
-pytz_deprecation_shim._impl: <module 'pytz_deprecation_shim._impl' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_impl.py'>
-pytz_deprecation_shim.helpers: <module 'pytz_deprecation_shim.helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\helpers.py'>
-pytz_deprecation_shim: <module 'pytz_deprecation_shim' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\__init__.py'>
 tzlocal.windows_tz: <module 'tzlocal.windows_tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\windows_tz.py'>
 tzlocal.utils: <module 'tzlocal.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\utils.py'>
 tzlocal.win32: <module 'tzlocal.win32' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\win32.py'>
@@ -1384,7 +1360,7 @@ tzdata.zoneinfo.Asia: <module 'tzdata.zoneinfo.Asia' from 'D:\\Other\\Github_Sel
 shlex: <module 'shlex' from 'D:\\ProgramFiles\\Python39\\lib\\shlex.py'>
 netrc: <module 'netrc' from 'D:\\ProgramFiles\\Python39\\lib\\netrc.py'>
 -------------------------------------------- filter_string='python_helpers' --------------------------------------------
-Total Modules Count: 838
+Total Modules Count: 814
 Filtered Modules Count: 9
 python_helpers: <module 'python_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\__init__.py'>
 python_helpers.ph_constants: <module 'python_helpers.ph_constants' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants.py'>
@@ -1432,8 +1408,6 @@ _sitebuiltins: <module '_sitebuiltins' from 'D:\\ProgramFiles\\Python39\\lib\\_s
 _locale: <module '_locale' (built-in)>
 _bootlocale: <module '_bootlocale' from 'D:\\ProgramFiles\\Python39\\lib\\_bootlocale.py'>
 encodings.cp1252: <module 'encodings.cp1252' from 'D:\\ProgramFiles\\Python39\\lib\\encodings\\cp1252.py'>
-_virtualenv: <module '_virtualenv' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\_virtualenv.py'>
-_distutils_hack: <module '_distutils_hack' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\_distutils_hack\\__init__.py'>
 types: <module 'types' from 'D:\\ProgramFiles\\Python39\\lib\\types.py'>
 importlib._bootstrap: <module 'importlib._bootstrap' (frozen)>
 importlib._bootstrap_external: <module 'importlib._bootstrap_external' (frozen)>
@@ -1466,11 +1440,12 @@ typing: <module 'typing' from 'D:\\ProgramFiles\\Python39\\lib\\typing.py'>
 importlib.abc: <module 'importlib.abc' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\abc.py'>
 importlib.util: <module 'importlib.util' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\util.py'>
 zope: <module 'zope' (namespace)>
-site: <module 'site' from 'D:\\ProgramFiles\\Python39\\lib\\site.py'>
 token: <module 'token' from 'D:\\ProgramFiles\\Python39\\lib\\token.py'>
 tokenize: <module 'tokenize' from 'D:\\ProgramFiles\\Python39\\lib\\tokenize.py'>
 linecache: <module 'linecache' from 'D:\\ProgramFiles\\Python39\\lib\\linecache.py'>
 traceback: <module 'traceback' from 'D:\\ProgramFiles\\Python39\\lib\\traceback.py'>
+sitecustomize: <module 'sitecustomize' from 'D:\\ProgramFiles\\PyCharm 2023.3.2\\plugins\\python\\helpers\\pycharm_matplotlib_backend\\sitecustomize.py'>
+site: <module 'site' from 'D:\\ProgramFiles\\Python39\\lib\\site.py'>
 unittest.util: <module 'unittest.util' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\util.py'>
 unittest.result: <module 'unittest.result' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\result.py'>
 difflib: <module 'difflib' from 'D:\\ProgramFiles\\Python39\\lib\\difflib.py'>
@@ -1519,20 +1494,27 @@ string: <module 'string' from 'D:\\ProgramFiles\\Python39\\lib\\string.py'>
 _datetime: <module '_datetime' (built-in)>
 datetime: <module 'datetime' from 'D:\\ProgramFiles\\Python39\\lib\\datetime.py'>
 __future__: <module '__future__' from 'D:\\ProgramFiles\\Python39\\lib\\__future__.py'>
-numpy._globals: <module 'numpy._globals' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_globals.py'>
-numpy.__config__: <module 'numpy.__config__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\__config__.py'>
-glob: <module 'glob' from 'D:\\ProgramFiles\\Python39\\lib\\glob.py'>
-numpy._distributor_init: <module 'numpy._distributor_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_distributor_init.py'>
-_json: <module '_json' (built-in)>
-json.scanner: <module 'json.scanner' from 'D:\\ProgramFiles\\Python39\\lib\\json\\scanner.py'>
-json.decoder: <module 'json.decoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\decoder.py'>
-json.encoder: <module 'json.encoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\encoder.py'>
-json: <module 'json' from 'D:\\ProgramFiles\\Python39\\lib\\json\\__init__.py'>
-numpy._version: <module 'numpy._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_version.py'>
-numpy.version: <module 'numpy.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\version.py'>
-numpy.core._multiarray_umath: <module 'numpy.core._multiarray_umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_multiarray_umath.cp39-win_amd64.pyd'>
-numpy.compat._inspect: <module 'numpy.compat._inspect' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\compat\\_inspect.py'>
 errno: <module 'errno' (built-in)>
+threading: <module 'threading' from 'D:\\ProgramFiles\\Python39\\lib\\threading.py'>
+msvcrt: <module 'msvcrt' (built-in)>
+_winapi: <module '_winapi' (built-in)>
+subprocess: <module 'subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\subprocess.py'>
+platform: <module 'platform' from 'D:\\ProgramFiles\\Python39\\lib\\platform.py'>
+numpy._utils._convertions: <module 'numpy._utils._convertions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_utils\\_convertions.py'>
+numpy._utils: <module 'numpy._utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_utils\\__init__.py'>
+numpy._globals: <module 'numpy._globals' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_globals.py'>
+numpy.exceptions: <module 'numpy.exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\exceptions.py'>
+numpy.version: <module 'numpy.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\version.py'>
+numpy._distributor_init: <module 'numpy._distributor_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_distributor_init.py'>
+numpy._utils._inspect: <module 'numpy._utils._inspect' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_utils\\_inspect.py'>
+numpy.core._exceptions: <module 'numpy.core._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_exceptions.py'>
+numpy.dtypes: <module 'numpy.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\dtypes.py'>
+numpy.core._multiarray_umath: <module 'numpy.core._multiarray_umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_multiarray_umath.cp39-win_amd64.pyd'>
+numpy.core.overrides: <module 'numpy.core.overrides' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\overrides.py'>
+numpy.core.multiarray: <module 'numpy.core.multiarray' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\multiarray.py'>
+numpy.core.umath: <module 'numpy.core.umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\umath.py'>
+numbers: <module 'numbers' from 'D:\\ProgramFiles\\Python39\\lib\\numbers.py'>
+numpy.core._string_helpers: <module 'numpy.core._string_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_string_helpers.py'>
 urllib: <module 'urllib' from 'D:\\ProgramFiles\\Python39\\lib\\urllib\\__init__.py'>
 urllib.parse: <module 'urllib.parse' from 'D:\\ProgramFiles\\Python39\\lib\\urllib\\parse.py'>
 pathlib: <module 'pathlib' from 'D:\\ProgramFiles\\Python39\\lib\\pathlib.py'>
@@ -1541,15 +1523,9 @@ _pickle: <module '_pickle' (built-in)>
 pickle: <module 'pickle' from 'D:\\ProgramFiles\\Python39\\lib\\pickle.py'>
 numpy.compat.py3k: <module 'numpy.compat.py3k' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\compat\\py3k.py'>
 numpy.compat: <module 'numpy.compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\compat\\__init__.py'>
-numpy.core.overrides: <module 'numpy.core.overrides' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\overrides.py'>
-numpy.core.multiarray: <module 'numpy.core.multiarray' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\multiarray.py'>
-numpy.core.umath: <module 'numpy.core.umath' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\umath.py'>
-numbers: <module 'numbers' from 'D:\\ProgramFiles\\Python39\\lib\\numbers.py'>
-numpy.core._string_helpers: <module 'numpy.core._string_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_string_helpers.py'>
 numpy.core._dtype: <module 'numpy.core._dtype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_dtype.py'>
 numpy.core._type_aliases: <module 'numpy.core._type_aliases' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_type_aliases.py'>
 numpy.core.numerictypes: <module 'numpy.core.numerictypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\numerictypes.py'>
-numpy.core._exceptions: <module 'numpy.core._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_exceptions.py'>
 _contextvars: <module '_contextvars' (built-in)>
 contextvars: <module 'contextvars' from 'D:\\ProgramFiles\\Python39\\lib\\contextvars.py'>
 numpy.core._ufunc_config: <module 'numpy.core._ufunc_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_ufunc_config.py'>
@@ -1573,6 +1549,7 @@ numpy.core._dtype_ctypes: <module 'numpy.core._dtype_ctypes' from 'D:\\Other\\Gi
 numpy.core._internal: <module 'numpy.core._internal' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\_internal.py'>
 numpy._pytesttester: <module 'numpy._pytesttester' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_pytesttester.py'>
 numpy.core: <module 'numpy.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\core\\__init__.py'>
+numpy.__config__: <module 'numpy.__config__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\__config__.py'>
 numpy.lib.mixins: <module 'numpy.lib.mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\mixins.py'>
 numpy.lib.ufunclike: <module 'numpy.lib.ufunclike' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\ufunclike.py'>
 numpy.lib.type_check: <module 'numpy.lib.type_check' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\type_check.py'>
@@ -1580,6 +1557,14 @@ numpy.lib.scimath: <module 'numpy.lib.scimath' from 'D:\\Other\\Github_Self\\pyt
 numpy.lib.stride_tricks: <module 'numpy.lib.stride_tricks' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\stride_tricks.py'>
 numpy.lib.twodim_base: <module 'numpy.lib.twodim_base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\lib\\twodim_base.py'>
 numpy.linalg._umath_linalg: <module 'numpy.linalg._umath_linalg' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\linalg\\_umath_linalg.cp39-win_amd64.pyd'>
+numpy._typing._nested_sequence: <module 'numpy._typing._nested_sequence' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_nested_sequence.py'>
+numpy._typing._nbit: <module 'numpy._typing._nbit' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_nbit.py'>
+numpy._typing._char_codes: <module 'numpy._typing._char_codes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_char_codes.py'>
+numpy._typing._scalars: <module 'numpy._typing._scalars' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_scalars.py'>
+numpy._typing._shape: <module 'numpy._typing._shape' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_shape.py'>
+numpy._typing._dtype_like: <module 'numpy._typing._dtype_like' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_dtype_like.py'>
+numpy._typing._array_like: <module 'numpy._typing._array_like' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\_array_like.py'>
+numpy._typing: <module 'numpy._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\_typing\\__init__.py'>
 numpy.linalg.linalg: <module 'numpy.linalg.linalg' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\linalg\\linalg.py'>
 numpy.linalg: <module 'numpy.linalg' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\linalg\\__init__.py'>
 numpy.matrixlib.defmatrix: <module 'numpy.matrixlib.defmatrix' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\matrixlib\\defmatrix.py'>
@@ -1615,9 +1600,9 @@ numpy.polynomial.hermite_e: <module 'numpy.polynomial.hermite_e' from 'D:\\Other
 numpy.polynomial.laguerre: <module 'numpy.polynomial.laguerre' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\polynomial\\laguerre.py'>
 numpy.polynomial: <module 'numpy.polynomial' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\polynomial\\__init__.py'>
 cython_runtime: <module 'cython_runtime'>
-_cython_0_29_33: <module '_cython_0_29_33'>
+gc: <module 'gc' (built-in)>
+_cython_3_0_5: <module '_cython_3_0_5'>
 numpy.random._common: <module 'numpy.random._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\_common.cp39-win_amd64.pyd'>
-threading: <module 'threading' from 'D:\\ProgramFiles\\Python39\\lib\\threading.py'>
 numpy.random.bit_generator: <module 'numpy.random.bit_generator' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\bit_generator.cp39-win_amd64.pyd'>
 numpy.random._bounded_integers: <module 'numpy.random._bounded_integers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\_bounded_integers.cp39-win_amd64.pyd'>
 numpy.random._mt19937: <module 'numpy.random._mt19937' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\numpy\\random\\_mt19937.cp39-win_amd64.pyd'>
@@ -1640,11 +1625,7 @@ pytz.tzfile: <module 'pytz.tzfile' from 'D:\\Other\\Github_Self\\pythonHelpers\\
 pytz: <module 'pytz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz\\__init__.py'>
 dateutil._version: <module 'dateutil._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_version.py'>
 dateutil: <module 'dateutil' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\__init__.py'>
-msvcrt: <module 'msvcrt' (built-in)>
-_winapi: <module '_winapi' (built-in)>
-subprocess: <module 'subprocess' from 'D:\\ProgramFiles\\Python39\\lib\\subprocess.py'>
-platform: <module 'platform' from 'D:\\ProgramFiles\\Python39\\lib\\platform.py'>
-pandas._typing: <module 'pandas._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_typing.py'>
+sysconfig: <module 'sysconfig' from 'D:\\ProgramFiles\\Python39\\lib\\sysconfig.py'>
 pandas.compat._constants: <module 'pandas.compat._constants' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\_constants.py'>
 _compression: <module '_compression' from 'D:\\ProgramFiles\\Python39\\lib\\_compression.py'>
 _bz2: <module '_bz2' from 'D:\\ProgramFiles\\Python39\\DLLs\\_bz2.pyd'>
@@ -1652,21 +1633,34 @@ bz2: <module 'bz2' from 'D:\\ProgramFiles\\Python39\\lib\\bz2.py'>
 _lzma: <module '_lzma' from 'D:\\ProgramFiles\\Python39\\DLLs\\_lzma.pyd'>
 lzma: <module 'lzma' from 'D:\\ProgramFiles\\Python39\\lib\\lzma.py'>
 pandas.compat.compressors: <module 'pandas.compat.compressors' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\compressors.py'>
-_cython_0_29_34: <module '_cython_0_29_34'>
+pandas.util: <module 'pandas.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\__init__.py'>
+pandas.util.version: <module 'pandas.util.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\version\\__init__.py'>
+pandas.compat.numpy: <module 'pandas.compat.numpy' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\numpy\\__init__.py'>
+pandas.compat.pyarrow: <module 'pandas.compat.pyarrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\pyarrow.py'>
+pandas.compat: <module 'pandas.compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\__init__.py'>
+pandas._typing: <module 'pandas._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_typing.py'>
+pandas.util._exceptions: <module 'pandas.util._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_exceptions.py'>
+pandas._config.config: <module 'pandas._config.config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\config.py'>
+pandas._config.dates: <module 'pandas._config.dates' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\dates.py'>
+locale: <module 'locale' from 'D:\\ProgramFiles\\Python39\\lib\\locale.py'>
+pandas._config.display: <module 'pandas._config.display' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\display.py'>
+pandas._config: <module 'pandas._config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\__init__.py'>
+pandas.core: <module 'pandas.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\__init__.py'>
+pandas.core.config_init: <module 'pandas.core.config_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\config_init.py'>
+pandas._libs.pandas_parser: <module 'pandas._libs.pandas_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\pandas_parser.cp39-win_amd64.pyd'>
+pandas._libs.pandas_datetime: <module 'pandas._libs.pandas_datetime' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\pandas_datetime.cp39-win_amd64.pyd'>
+_cython_0_29_36: <module '_cython_0_29_36'>
 pandas._libs.tslibs.np_datetime: <module 'pandas._libs.tslibs.np_datetime' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\np_datetime.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.dtypes: <module 'pandas._libs.tslibs.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\dtypes.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.base: <module 'pandas._libs.tslibs.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\base.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.nattype: <module 'pandas._libs.tslibs.nattype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\nattype.cp39-win_amd64.pyd'>
-pandas.util._exceptions: <module 'pandas.util._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_exceptions.py'>
-pandas.util.version: <module 'pandas.util.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\version\\__init__.py'>
 pandas.compat._optional: <module 'pandas.compat._optional' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\_optional.py'>
-sysconfig: <module 'sysconfig' from 'D:\\ProgramFiles\\Python39\\lib\\sysconfig.py'>
 zoneinfo._tzpath: <module 'zoneinfo._tzpath' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\_tzpath.py'>
 zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\_common.py'>
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000001E90414ACD0>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x0000027B2167A220>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -1675,25 +1669,19 @@ dateutil.tz.tz: <module 'dateutil.tz.tz' from 'D:\\Other\\Github_Self\\pythonHel
 dateutil.tz: <module 'dateutil.tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\__init__.py'>
 pandas._libs.tslibs.timezones: <module 'pandas._libs.tslibs.timezones' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\timezones.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.ccalendar: <module 'pandas._libs.tslibs.ccalendar' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\ccalendar.cp39-win_amd64.pyd'>
-locale: <module 'locale' from 'D:\\ProgramFiles\\Python39\\lib\\locale.py'>
 calendar: <module 'calendar' from 'D:\\ProgramFiles\\Python39\\lib\\calendar.py'>
 _strptime: <module '_strptime' from 'D:\\ProgramFiles\\Python39\\lib\\_strptime.py'>
-pandas._config.config: <module 'pandas._config.config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\config.py'>
-pandas._config.dates: <module 'pandas._config.dates' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\dates.py'>
-pandas._config.display: <module 'pandas._config.display' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\display.py'>
-pandas._config: <module 'pandas._config' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\__init__.py'>
 pandas._config.localization: <module 'pandas._config.localization' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_config\\localization.py'>
 pandas._libs.tslibs.fields: <module 'pandas._libs.tslibs.fields' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\fields.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.timedeltas: <module 'pandas._libs.tslibs.timedeltas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\timedeltas.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.tzconversion: <module 'pandas._libs.tslibs.tzconversion' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\tzconversion.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.timestamps: <module 'pandas._libs.tslibs.timestamps' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\timestamps.cp39-win_amd64.pyd'>
-dateutil.easter: <module 'dateutil.easter' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\easter.py'>
-dateutil._common: <module 'dateutil._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_common.py'>
-dateutil.relativedelta: <module 'dateutil.relativedelta' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\relativedelta.py'>
 pandas._libs.properties: <module 'pandas._libs.properties' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\properties.cp39-win_amd64.pyd'>
 pandas._libs.tslibs.offsets: <module 'pandas._libs.tslibs.offsets' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslibs\\offsets.cp39-win_amd64.pyd'>
 _decimal: <module '_decimal' from 'D:\\ProgramFiles\\Python39\\DLLs\\_decimal.pyd'>
 decimal: <module 'decimal' from 'D:\\ProgramFiles\\Python39\\lib\\decimal.py'>
+dateutil._common: <module 'dateutil._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\_common.py'>
+dateutil.relativedelta: <module 'dateutil.relativedelta' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\relativedelta.py'>
 dateutil.parser._parser: <module 'dateutil.parser._parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\parser\\_parser.py'>
 dateutil.parser.isoparser: <module 'dateutil.parser.isoparser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\parser\\isoparser.py'>
 dateutil.parser: <module 'dateutil.parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\parser\\__init__.py'>
@@ -1709,26 +1697,18 @@ pandas._libs.hashtable: <module 'pandas._libs.hashtable' from 'D:\\Other\\Github
 pandas._libs.algos: <module 'pandas._libs.algos' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\algos.cp39-win_amd64.pyd'>
 pandas._libs.interval: <module 'pandas._libs.interval' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\interval.cp39-win_amd64.pyd'>
 pandas._libs: <module 'pandas._libs' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\__init__.py'>
-pandas.util._decorators: <module 'pandas.util._decorators' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_decorators.py'>
-pandas.core: <module 'pandas.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\__init__.py'>
-pandas.core.util: <module 'pandas.core.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\__init__.py'>
-pandas._libs.lib: <module 'pandas._libs.lib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\lib.cp39-win_amd64.pyd'>
-pandas._libs.hashing: <module 'pandas._libs.hashing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\hashing.cp39-win_amd64.pyd'>
 pandas.core.dtypes: <module 'pandas.core.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\__init__.py'>
+pandas._libs.lib: <module 'pandas._libs.lib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\lib.cp39-win_amd64.pyd'>
 pandas.errors: <module 'pandas.errors' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\errors\\__init__.py'>
 pandas.core.dtypes.generic: <module 'pandas.core.dtypes.generic' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\generic.py'>
 pandas.core.dtypes.base: <module 'pandas.core.dtypes.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\base.py'>
 pandas.core.dtypes.inference: <module 'pandas.core.dtypes.inference' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\inference.py'>
 pandas.core.dtypes.dtypes: <module 'pandas.core.dtypes.dtypes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\dtypes.py'>
 pandas.core.dtypes.common: <module 'pandas.core.dtypes.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\common.py'>
-pandas.core.util.hashing: <module 'pandas.core.util.hashing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\hashing.py'>
-pandas.util: <module 'pandas.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\__init__.py'>
-pandas.compat.numpy: <module 'pandas.compat.numpy' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\numpy\\__init__.py'>
-pandas.compat.pyarrow: <module 'pandas.compat.pyarrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\pyarrow.py'>
-pandas.compat: <module 'pandas.compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\__init__.py'>
-pandas._libs.tslib: <module 'pandas._libs.tslib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslib.cp39-win_amd64.pyd'>
-pandas.core.config_init: <module 'pandas.core.config_init' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\config_init.py'>
 pandas.core.dtypes.missing: <module 'pandas.core.dtypes.missing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\missing.py'>
+pandas.util._decorators: <module 'pandas.util._decorators' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_decorators.py'>
+pandas.io: <module 'pandas.io' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\__init__.py'>
+pandas.io._util: <module 'pandas.io._util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\_util.py'>
 pandas.core.dtypes.cast: <module 'pandas.core.dtypes.cast' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\cast.py'>
 pandas.core.dtypes.astype: <module 'pandas.core.dtypes.astype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\astype.py'>
 pandas.core.dtypes.concat: <module 'pandas.core.dtypes.concat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\concat.py'>
@@ -1739,8 +1719,9 @@ pandas.core.array_algos.take: <module 'pandas.core.array_algos.take' from 'D:\\O
 pandas.core.indexers.utils: <module 'pandas.core.indexers.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexers\\utils.py'>
 pandas.core.indexers: <module 'pandas.core.indexers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexers\\__init__.py'>
 pandas.core.algorithms: <module 'pandas.core.algorithms' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\algorithms.py'>
-copy: <module 'copy' from 'D:\\ProgramFiles\\Python39\\lib\\copy.py'>
+unicodedata: <module 'unicodedata' from 'D:\\ProgramFiles\\Python39\\DLLs\\unicodedata.pyd'>
 pandas.util._validators: <module 'pandas.util._validators' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_validators.py'>
+pandas.core.missing: <module 'pandas.core.missing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\missing.py'>
 pandas.core.roperator: <module 'pandas.core.roperator' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\roperator.py'>
 pandas._libs.ops: <module 'pandas._libs.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\ops.cp39-win_amd64.pyd'>
 pandas.core.computation: <module 'pandas.core.computation' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\computation\\__init__.py'>
@@ -1753,66 +1734,65 @@ pandas.core.ops.array_ops: <module 'pandas.core.ops.array_ops' from 'D:\\Other\\
 pandas.core.ops.common: <module 'pandas.core.ops.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\common.py'>
 pandas.core.ops.docstrings: <module 'pandas.core.ops.docstrings' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\docstrings.py'>
 pandas.core.ops.mask_ops: <module 'pandas.core.ops.mask_ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\mask_ops.py'>
-pandas.core.ops.methods: <module 'pandas.core.ops.methods' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\methods.py'>
 pandas.core.ops: <module 'pandas.core.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\ops\\__init__.py'>
 pandas.core.arraylike: <module 'pandas.core.arraylike' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arraylike.py'>
+pandas.core.arrays._arrow_string_mixins: <module 'pandas.core.arrays._arrow_string_mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_arrow_string_mixins.py'>
 pandas.compat.numpy.function: <module 'pandas.compat.numpy.function' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\numpy\\function.py'>
-pandas.core.missing: <module 'pandas.core.missing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\missing.py'>
 pandas.core.array_algos.quantile: <module 'pandas.core.array_algos.quantile' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\quantile.py'>
 pandas.core.sorting: <module 'pandas.core.sorting' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\sorting.py'>
 pandas.core.arrays.base: <module 'pandas.core.arrays.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\base.py'>
+pandas.core.nanops: <module 'pandas.core.nanops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\nanops.py'>
+pandas.core.array_algos.masked_accumulations: <module 'pandas.core.array_algos.masked_accumulations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_accumulations.py'>
+pandas.core.array_algos.masked_reductions: <module 'pandas.core.array_algos.masked_reductions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_reductions.py'>
+pandas.core.arrays.masked: <module 'pandas.core.arrays.masked' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\masked.py'>
+pandas._libs.arrays: <module 'pandas._libs.arrays' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\arrays.cp39-win_amd64.pyd'>
+pandas.core.arrays.numeric: <module 'pandas.core.arrays.numeric' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numeric.py'>
+pandas.core.arrays.floating: <module 'pandas.core.arrays.floating' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\floating.py'>
+pandas.core.arrays.integer: <module 'pandas.core.arrays.integer' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\integer.py'>
+pandas.core.array_algos.transforms: <module 'pandas.core.array_algos.transforms' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\transforms.py'>
+pandas.core.arrays._mixins: <module 'pandas.core.arrays._mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_mixins.py'>
 pandas.core.strings: <module 'pandas.core.strings' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\__init__.py'>
 pandas.core.strings.base: <module 'pandas.core.strings.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\base.py'>
+pandas.core.strings.object_array: <module 'pandas.core.strings.object_array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\object_array.py'>
+pandas.core.arrays.numpy_: <module 'pandas.core.arrays.numpy_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numpy_.py'>
+pandas.core.arrays.string_: <module 'pandas.core.arrays.string_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\string_.py'>
 pandas.tseries: <module 'pandas.tseries' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\__init__.py'>
 pandas.tseries.frequencies: <module 'pandas.tseries.frequencies' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\frequencies.py'>
 pandas.core.arrays.arrow.array: <module 'pandas.core.arrays.arrow.array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\arrow\\array.py'>
-pandas.core.arrays.arrow.dtype: <module 'pandas.core.arrays.arrow.dtype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\arrow\\dtype.py'>
 pandas.core.arrays.arrow: <module 'pandas.core.arrays.arrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\arrow\\__init__.py'>
-pandas.core.array_algos.masked_accumulations: <module 'pandas.core.array_algos.masked_accumulations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_accumulations.py'>
-pandas.core.nanops: <module 'pandas.core.nanops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\nanops.py'>
-pandas.core.array_algos.masked_reductions: <module 'pandas.core.array_algos.masked_reductions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\masked_reductions.py'>
-pandas.core.arrays.masked: <module 'pandas.core.arrays.masked' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\masked.py'>
 pandas.core.arrays.boolean: <module 'pandas.core.arrays.boolean' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\boolean.py'>
 _csv: <module '_csv' (built-in)>
 csv: <module 'csv' from 'D:\\ProgramFiles\\Python39\\lib\\csv.py'>
 zlib: <module 'zlib' (built-in)>
 shutil: <module 'shutil' from 'D:\\ProgramFiles\\Python39\\lib\\shutil.py'>
-pandas._libs.arrays: <module 'pandas._libs.arrays' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\arrays.cp39-win_amd64.pyd'>
 pandas.core.accessor: <module 'pandas.core.accessor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\accessor.py'>
-pandas.core.array_algos.transforms: <module 'pandas.core.array_algos.transforms' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\transforms.py'>
-pandas.core.arrays._mixins: <module 'pandas.core.arrays._mixins' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_mixins.py'>
 pandas.core.base: <module 'pandas.core.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\base.py'>
-unicodedata: <module 'unicodedata' from 'D:\\ProgramFiles\\Python39\\DLLs\\unicodedata.pyd'>
-pandas.core.strings.object_array: <module 'pandas.core.strings.object_array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\strings\\object_array.py'>
-pandas.io: <module 'pandas.io' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\__init__.py'>
 pandas.io.formats: <module 'pandas.io.formats' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\formats\\__init__.py'>
 pandas.io.formats.console: <module 'pandas.io.formats.console' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\formats\\console.py'>
 pandas.core.arrays.categorical: <module 'pandas.core.arrays.categorical' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\categorical.py'>
+pandas._libs.tslib: <module 'pandas._libs.tslib' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\tslib.cp39-win_amd64.pyd'>
 pandas.core.array_algos.datetimelike_accumulations: <module 'pandas.core.array_algos.datetimelike_accumulations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\array_algos\\datetimelike_accumulations.py'>
-pandas.core.arrays.numeric: <module 'pandas.core.arrays.numeric' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numeric.py'>
-pandas.core.arrays.integer: <module 'pandas.core.arrays.integer' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\integer.py'>
 pandas.core.arrays.datetimelike: <module 'pandas.core.arrays.datetimelike' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\datetimelike.py'>
 pandas.core.arrays._ranges: <module 'pandas.core.arrays._ranges' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\_ranges.py'>
 pandas.tseries.offsets: <module 'pandas.tseries.offsets' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\tseries\\offsets.py'>
 pandas.core.arrays.datetimes: <module 'pandas.core.arrays.datetimes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\datetimes.py'>
-pandas.core.arrays.floating: <module 'pandas.core.arrays.floating' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\floating.py'>
 pandas.core.arrays.timedeltas: <module 'pandas.core.arrays.timedeltas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\timedeltas.py'>
 pandas.core.arrays.interval: <module 'pandas.core.arrays.interval' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\interval.py'>
-pandas.core.arrays.numpy_: <module 'pandas.core.arrays.numpy_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\numpy_.py'>
 pandas.core.arrays.period: <module 'pandas.core.arrays.period' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\period.py'>
 pandas._libs.sparse: <module 'pandas._libs.sparse' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\sparse.cp39-win_amd64.pyd'>
-pandas.core.arrays.sparse.dtype: <module 'pandas.core.arrays.sparse.dtype' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\dtype.py'>
 pandas.io.formats.printing: <module 'pandas.io.formats.printing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\formats\\printing.py'>
 pandas.core.arrays.sparse.array: <module 'pandas.core.arrays.sparse.array' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\array.py'>
 pandas.core.arrays.sparse.accessor: <module 'pandas.core.arrays.sparse.accessor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\accessor.py'>
 pandas.core.arrays.sparse: <module 'pandas.core.arrays.sparse' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\sparse\\__init__.py'>
-pandas.core.arrays.string_: <module 'pandas.core.arrays.string_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\string_.py'>
 pandas.core.arrays.string_arrow: <module 'pandas.core.arrays.string_arrow' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\string_arrow.py'>
 pandas.core.arrays: <module 'pandas.core.arrays' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\arrays\\__init__.py'>
 pandas.core.flags: <module 'pandas.core.flags' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\flags.py'>
-pandas._libs.reduction: <module 'pandas._libs.reduction' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\reduction.cp39-win_amd64.pyd'>
 pandas.core.apply: <module 'pandas.core.apply' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\apply.py'>
-gc: <module 'gc' (built-in)>
+_json: <module '_json' (built-in)>
+json.scanner: <module 'json.scanner' from 'D:\\ProgramFiles\\Python39\\lib\\json\\scanner.py'>
+json.decoder: <module 'json.decoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\decoder.py'>
+json.encoder: <module 'json.encoder' from 'D:\\ProgramFiles\\Python39\\lib\\json\\encoder.py'>
+json: <module 'json' from 'D:\\ProgramFiles\\Python39\\lib\\json\\__init__.py'>
 pandas._libs.indexing: <module 'pandas._libs.indexing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\indexing.cp39-win_amd64.pyd'>
 pandas.core.indexes: <module 'pandas.core.indexes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexes\\__init__.py'>
 pandas._libs.index: <module 'pandas._libs.index' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\index.cp39-win_amd64.pyd'>
@@ -1842,15 +1822,16 @@ pandas._libs.writers: <module 'pandas._libs.writers' from 'D:\\Other\\Github_Sel
 pandas.core.internals.blocks: <module 'pandas.core.internals.blocks' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\blocks.py'>
 pandas.core.internals.api: <module 'pandas.core.internals.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\api.py'>
 pandas.core.internals.base: <module 'pandas.core.internals.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\base.py'>
-pandas.core.internals.array_manager: <module 'pandas.core.internals.array_manager' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\array_manager.py'>
 pandas.core.internals.ops: <module 'pandas.core.internals.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\ops.py'>
 pandas.core.internals.managers: <module 'pandas.core.internals.managers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\managers.py'>
+pandas.core.internals.array_manager: <module 'pandas.core.internals.array_manager' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\array_manager.py'>
 pandas.core.internals.concat: <module 'pandas.core.internals.concat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\concat.py'>
 pandas.core.internals: <module 'pandas.core.internals' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\__init__.py'>
 pandas.core.internals.construction: <module 'pandas.core.internals.construction' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\internals\\construction.py'>
 pandas.core.methods: <module 'pandas.core.methods' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\methods\\__init__.py'>
 pandas.core.reshape: <module 'pandas.core.reshape' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\reshape\\__init__.py'>
 pandas.core.reshape.concat: <module 'pandas.core.reshape.concat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\reshape\\concat.py'>
+copy: <module 'copy' from 'D:\\ProgramFiles\\Python39\\lib\\copy.py'>
 dataclasses: <module 'dataclasses' from 'D:\\ProgramFiles\\Python39\\lib\\dataclasses.py'>
 gzip: <module 'gzip' from 'D:\\ProgramFiles\\Python39\\lib\\gzip.py'>
 mmap: <module 'mmap' (built-in)>
@@ -1864,6 +1845,7 @@ pandas._libs.window: <module 'pandas._libs.window' from 'D:\\Other\\Github_Self\
 pandas._libs.window.aggregations: <module 'pandas._libs.window.aggregations' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\window\\aggregations.cp39-win_amd64.pyd'>
 pandas._libs.window.indexers: <module 'pandas._libs.window.indexers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\window\\indexers.cp39-win_amd64.pyd'>
 pandas.core.indexers.objects: <module 'pandas.core.indexers.objects' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\indexers\\objects.py'>
+pandas.core.util: <module 'pandas.core.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\__init__.py'>
 pandas.core.util.numba_: <module 'pandas.core.util.numba_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\util\\numba_.py'>
 pandas.core.window.common: <module 'pandas.core.window.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\window\\common.py'>
 pandas.core.window.doc: <module 'pandas.core.window.doc' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\window\\doc.py'>
@@ -1892,10 +1874,10 @@ pandas.core.series: <module 'pandas.core.series' from 'D:\\Other\\Github_Self\\p
 pandas.core.frame: <module 'pandas.core.frame' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\frame.py'>
 pandas.core.groupby.base: <module 'pandas.core.groupby.base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\base.py'>
 pandas._libs.groupby: <module 'pandas._libs.groupby' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\groupby.cp39-win_amd64.pyd'>
-pandas.core.groupby.numba_: <module 'pandas.core.groupby.numba_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\numba_.py'>
 pandas.core.groupby.categorical: <module 'pandas.core.groupby.categorical' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\categorical.py'>
 pandas.core.groupby.grouper: <module 'pandas.core.groupby.grouper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\grouper.py'>
 pandas.core.groupby.ops: <module 'pandas.core.groupby.ops' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\ops.py'>
+pandas.core.groupby.numba_: <module 'pandas.core.groupby.numba_' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\numba_.py'>
 pandas.core.groupby.indexing: <module 'pandas.core.groupby.indexing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\indexing.py'>
 pandas.core.groupby.groupby: <module 'pandas.core.groupby.groupby' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\groupby.py'>
 pandas.core.groupby.generic: <module 'pandas.core.groupby.generic' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\groupby\\generic.py'>
@@ -1922,19 +1904,27 @@ pandas.api.extensions: <module 'pandas.api.extensions' from 'D:\\Other\\Github_S
 pandas.api.indexers: <module 'pandas.api.indexers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\indexers\\__init__.py'>
 pandas.core.interchange: <module 'pandas.core.interchange' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\__init__.py'>
 pandas.core.interchange.dataframe_protocol: <module 'pandas.core.interchange.dataframe_protocol' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\dataframe_protocol.py'>
-pandas.core.dtypes.api: <module 'pandas.core.dtypes.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\api.py'>
-pandas.api.types: <module 'pandas.api.types' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\types\\__init__.py'>
-pandas.core.interchange.buffer: <module 'pandas.core.interchange.buffer' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\buffer.py'>
 pandas.core.interchange.utils: <module 'pandas.core.interchange.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\utils.py'>
-pandas.core.interchange.column: <module 'pandas.core.interchange.column' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\column.py'>
 pandas.core.interchange.from_dataframe: <module 'pandas.core.interchange.from_dataframe' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\interchange\\from_dataframe.py'>
 pandas.api.interchange: <module 'pandas.api.interchange' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\interchange\\__init__.py'>
+pandas.core.dtypes.api: <module 'pandas.core.dtypes.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\dtypes\\api.py'>
+pandas.api.types: <module 'pandas.api.types' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\types\\__init__.py'>
+pandas.core.resample: <module 'pandas.core.resample' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\core\\resample.py'>
+pandas._libs.json: <module 'pandas._libs.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\json.cp39-win_amd64.pyd'>
+pandas.io.json._normalize: <module 'pandas.io.json._normalize' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_normalize.py'>
+pandas.io.json._table_schema: <module 'pandas.io.json._table_schema' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_table_schema.py'>
+pandas._libs.parsers: <module 'pandas._libs.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\parsers.cp39-win_amd64.pyd'>
+pandas.io.parsers.base_parser: <module 'pandas.io.parsers.base_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\base_parser.py'>
+pandas.io.parsers.arrow_parser_wrapper: <module 'pandas.io.parsers.arrow_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\arrow_parser_wrapper.py'>
+pandas.io.parsers.c_parser_wrapper: <module 'pandas.io.parsers.c_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\c_parser_wrapper.py'>
+pandas.io.parsers.python_parser: <module 'pandas.io.parsers.python_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\python_parser.py'>
+pandas.io.parsers.readers: <module 'pandas.io.parsers.readers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\readers.py'>
+pandas.io.parsers: <module 'pandas.io.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\__init__.py'>
+pandas.io.json._json: <module 'pandas.io.json._json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_json.py'>
+pandas.io.json: <module 'pandas.io.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\__init__.py'>
+pandas.io.stata: <module 'pandas.io.stata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\stata.py'>
+pandas.api.typing: <module 'pandas.api.typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\typing\\__init__.py'>
 pandas.api: <module 'pandas.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\api\\__init__.py'>
-_socket: <module '_socket' from 'D:\\ProgramFiles\\Python39\\DLLs\\_socket.pyd'>
-select: <module 'select' from 'D:\\ProgramFiles\\Python39\\DLLs\\select.pyd'>
-selectors: <module 'selectors' from 'D:\\ProgramFiles\\Python39\\lib\\selectors.py'>
-socket: <module 'socket' from 'D:\\ProgramFiles\\Python39\\lib\\socket.py'>
-pandas._testing._random: <module 'pandas._testing._random' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_testing\\_random.py'>
 tempfile: <module 'tempfile' from 'D:\\ProgramFiles\\Python39\\lib\\tempfile.py'>
 pandas._testing.contexts: <module 'pandas._testing.contexts' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_testing\\contexts.py'>
 pandas._testing._io: <module 'pandas._testing._io' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_testing\\_io.py'>
@@ -1947,31 +1937,18 @@ pandas._testing: <module 'pandas._testing' from 'D:\\Other\\Github_Self\\pythonH
 pandas.testing: <module 'pandas.testing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\testing.py'>
 pandas.util._print_versions: <module 'pandas.util._print_versions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_print_versions.py'>
 pandas.io.clipboards: <module 'pandas.io.clipboards' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\clipboards.py'>
-pandas._libs.parsers: <module 'pandas._libs.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\parsers.cp39-win_amd64.pyd'>
 pandas.io.excel._util: <module 'pandas.io.excel._util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_util.py'>
-pandas.io._util: <module 'pandas.io._util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\_util.py'>
-pandas.io.parsers.base_parser: <module 'pandas.io.parsers.base_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\base_parser.py'>
-pandas.io.parsers.arrow_parser_wrapper: <module 'pandas.io.parsers.arrow_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\arrow_parser_wrapper.py'>
-pandas.io.parsers.c_parser_wrapper: <module 'pandas.io.parsers.c_parser_wrapper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\c_parser_wrapper.py'>
-pandas.io.parsers.python_parser: <module 'pandas.io.parsers.python_parser' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\python_parser.py'>
-pandas.io.parsers.readers: <module 'pandas.io.parsers.readers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\readers.py'>
-pandas.io.parsers: <module 'pandas.io.parsers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parsers\\__init__.py'>
 pandas.io.excel._odfreader: <module 'pandas.io.excel._odfreader' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_odfreader.py'>
 pandas.io.excel._openpyxl: <module 'pandas.io.excel._openpyxl' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_openpyxl.py'>
 pandas.io.excel._pyxlsb: <module 'pandas.io.excel._pyxlsb' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_pyxlsb.py'>
 pandas.io.excel._xlrd: <module 'pandas.io.excel._xlrd' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_xlrd.py'>
 pandas.io.excel._base: <module 'pandas.io.excel._base' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_base.py'>
-pandas._libs.json: <module 'pandas._libs.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_libs\\json.cp39-win_amd64.pyd'>
 pandas.io.excel._odswriter: <module 'pandas.io.excel._odswriter' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_odswriter.py'>
 pandas.io.excel._xlsxwriter: <module 'pandas.io.excel._xlsxwriter' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\_xlsxwriter.py'>
 pandas.io.excel: <module 'pandas.io.excel' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\excel\\__init__.py'>
 pandas.io.feather_format: <module 'pandas.io.feather_format' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\feather_format.py'>
 pandas.io.gbq: <module 'pandas.io.gbq' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\gbq.py'>
 pandas.io.html: <module 'pandas.io.html' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\html.py'>
-pandas.io.json._normalize: <module 'pandas.io.json._normalize' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_normalize.py'>
-pandas.io.json._table_schema: <module 'pandas.io.json._table_schema' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_table_schema.py'>
-pandas.io.json._json: <module 'pandas.io.json._json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\_json.py'>
-pandas.io.json: <module 'pandas.io.json' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\json\\__init__.py'>
 pandas.io.orc: <module 'pandas.io.orc' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\orc.py'>
 pandas.io.parquet: <module 'pandas.io.parquet' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\parquet.py'>
 pandas.compat.pickle_compat: <module 'pandas.compat.pickle_compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\compat\\pickle_compat.py'>
@@ -1982,11 +1959,10 @@ pandas.io.sas.sasreader: <module 'pandas.io.sas.sasreader' from 'D:\\Other\\Gith
 pandas.io.sas: <module 'pandas.io.sas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\sas\\__init__.py'>
 pandas.io.spss: <module 'pandas.io.spss' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\spss.py'>
 pandas.io.sql: <module 'pandas.io.sql' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\sql.py'>
-pandas.io.stata: <module 'pandas.io.stata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\stata.py'>
 pandas.io.xml: <module 'pandas.io.xml' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\xml.py'>
 pandas.io.api: <module 'pandas.io.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\io\\api.py'>
 pandas.util._tester: <module 'pandas.util._tester' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\util\\_tester.py'>
-pandas._version: <module 'pandas._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_version.py'>
+pandas._version_meson: <module 'pandas._version_meson' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\_version_meson.py'>
 pandas: <module 'pandas' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pandas\\__init__.py'>
 pkgutil: <module 'pkgutil' from 'D:\\ProgramFiles\\Python39\\lib\\pkgutil.py'>
 xml: <module 'xml' from 'D:\\ProgramFiles\\Python39\\lib\\xml\\__init__.py'>
@@ -2006,6 +1982,10 @@ quopri: <module 'quopri' from 'D:\\ProgramFiles\\Python39\\lib\\quopri.py'>
 email.encoders: <module 'email.encoders' from 'D:\\ProgramFiles\\Python39\\lib\\email\\encoders.py'>
 email.charset: <module 'email.charset' from 'D:\\ProgramFiles\\Python39\\lib\\email\\charset.py'>
 email.header: <module 'email.header' from 'D:\\ProgramFiles\\Python39\\lib\\email\\header.py'>
+_socket: <module '_socket' from 'D:\\ProgramFiles\\Python39\\DLLs\\_socket.pyd'>
+select: <module 'select' from 'D:\\ProgramFiles\\Python39\\DLLs\\select.pyd'>
+selectors: <module 'selectors' from 'D:\\ProgramFiles\\Python39\\lib\\selectors.py'>
+socket: <module 'socket' from 'D:\\ProgramFiles\\Python39\\lib\\socket.py'>
 email._parseaddr: <module 'email._parseaddr' from 'D:\\ProgramFiles\\Python39\\lib\\email\\_parseaddr.py'>
 email.utils: <module 'email.utils' from 'D:\\ProgramFiles\\Python39\\lib\\email\\utils.py'>
 email._policybase: <module 'email._policybase' from 'D:\\ProgramFiles\\Python39\\lib\\email\\_policybase.py'>
@@ -2013,49 +1993,24 @@ email.feedparser: <module 'email.feedparser' from 'D:\\ProgramFiles\\Python39\\l
 email.parser: <module 'email.parser' from 'D:\\ProgramFiles\\Python39\\lib\\email\\parser.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.jaraco: <module 'pkg_resources.extern.jaraco' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-importlib._common: <module 'importlib._common' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\_common.py'>
-importlib.resources: <module 'importlib.resources' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\resources.py'>
-_queue: <module '_queue' from 'D:\\ProgramFiles\\Python39\\DLLs\\_queue.pyd'>
-queue: <module 'queue' from 'D:\\ProgramFiles\\Python39\\lib\\queue.py'>
-pkg_resources._vendor.more_itertools.recipes: <module 'pkg_resources._vendor.more_itertools.recipes' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\recipes.py'>
-pkg_resources._vendor.more_itertools.more: <module 'pkg_resources._vendor.more_itertools.more' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\more_itertools\\more.py'>
-pkg_resources._vendor.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.more_itertools: <module 'pkg_resources.extern.more_itertools' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.jaraco.functools: <module 'pkg_resources.extern.jaraco.functools' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\functools.py'>
-pkg_resources.extern.jaraco.context: <module 'pkg_resources.extern.jaraco.context' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\context.py'>
-pkg_resources.extern.jaraco.text: <module 'pkg_resources.extern.jaraco.text' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\jaraco\\text\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
+pkg_resources.extern.packaging._typing: <module 'pkg_resources.extern.packaging._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_typing.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
-atexit: <module 'atexit' (built-in)>
-logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
-pkg_resources._vendor.packaging._manylinux: <module 'pkg_resources._vendor.packaging._manylinux' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_manylinux.py'>
-pkg_resources._vendor.packaging._musllinux: <module 'pkg_resources._vendor.packaging._musllinux' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_musllinux.py'>
-pkg_resources.extern.packaging.tags: <module 'pkg_resources.extern.packaging.tags' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\tags.py'>
+pkg_resources.extern.packaging._compat: <module 'pkg_resources.extern.packaging._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_compat.py'>
 pkg_resources.extern.packaging.utils: <module 'pkg_resources.extern.packaging.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py'>
 pkg_resources.extern.packaging.specifiers: <module 'pkg_resources.extern.packaging.specifiers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py'>
-pkg_resources._vendor.pyparsing.util: <module 'pkg_resources._vendor.pyparsing.util' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\util.py'>
-pkg_resources._vendor.pyparsing.unicode: <module 'pkg_resources._vendor.pyparsing.unicode' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\unicode.py'>
-pkg_resources._vendor.pyparsing.exceptions: <module 'pkg_resources._vendor.pyparsing.exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\exceptions.py'>
-pkg_resources._vendor.pyparsing.actions: <module 'pkg_resources._vendor.pyparsing.actions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\actions.py'>
-pkg_resources._vendor.pyparsing.results: <module 'pkg_resources._vendor.pyparsing.results' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\results.py'>
-pkg_resources._vendor.pyparsing.core: <module 'pkg_resources._vendor.pyparsing.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\core.py'>
-html.entities: <module 'html.entities' from 'D:\\ProgramFiles\\Python39\\lib\\html\\entities.py'>
-html: <module 'html' from 'D:\\ProgramFiles\\Python39\\lib\\html\\__init__.py'>
-pkg_resources._vendor.pyparsing.helpers: <module 'pkg_resources._vendor.pyparsing.helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\helpers.py'>
-pkg_resources._vendor.pyparsing.testing: <module 'pkg_resources._vendor.pyparsing.testing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\testing.py'>
-pkg_resources._vendor.pyparsing.common: <module 'pkg_resources._vendor.pyparsing.common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\pyparsing\\common.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001E905945A60>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x0000027B22C1CE80>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
+atexit: <module 'atexit' (built-in)>
+logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
 http: <module 'http' from 'D:\\ProgramFiles\\Python39\\lib\\http\\__init__.py'>
 uu: <module 'uu' from 'D:\\ProgramFiles\\Python39\\lib\\uu.py'>
 email._encoded_words: <module 'email._encoded_words' from 'D:\\ProgramFiles\\Python39\\lib\\email\\_encoded_words.py'>
@@ -2079,6 +2034,8 @@ urllib3.util: <module 'urllib3.util' from 'D:\\Other\\Github_Self\\pythonHelpers
 urllib3._base_connection: <module 'urllib3._base_connection' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\_base_connection.py'>
 urllib3._collections: <module 'urllib3._collections' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\_collections.py'>
 urllib3._version: <module 'urllib3._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\_version.py'>
+_queue: <module '_queue' from 'D:\\ProgramFiles\\Python39\\DLLs\\_queue.pyd'>
+queue: <module 'queue' from 'D:\\ProgramFiles\\Python39\\lib\\queue.py'>
 mimetypes: <module 'mimetypes' from 'D:\\ProgramFiles\\Python39\\lib\\mimetypes.py'>
 urllib3.fields: <module 'urllib3.fields' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\fields.py'>
 urllib3.filepost: <module 'urllib3.filepost' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\filepost.py'>
@@ -2147,6 +2104,8 @@ requests.packages.idna.core: <module 'idna.core' from 'D:\\Other\\Github_Self\\p
 requests.packages.idna: <module 'idna' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\idna\\__init__.py'>
 requests.packages.chardet: <module 'charset_normalizer.constant' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\charset_normalizer\\constant.py'>
 requests.packages: <module 'requests.packages' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\packages.py'>
+importlib._common: <module 'importlib._common' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\_common.py'>
+importlib.resources: <module 'importlib.resources' from 'D:\\ProgramFiles\\Python39\\lib\\importlib\\resources.py'>
 certifi.core: <module 'certifi.core' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\certifi\\core.py'>
 certifi: <module 'certifi' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\certifi\\__init__.py'>
 requests.certs: <module 'requests.certs' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\certs.py'>
@@ -2166,13 +2125,6 @@ requests.adapters: <module 'requests.adapters' from 'D:\\Other\\Github_Self\\pyt
 requests.sessions: <module 'requests.sessions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\sessions.py'>
 requests.api: <module 'requests.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\api.py'>
 requests: <module 'requests' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\__init__.py'>
-pytz_deprecation_shim._common: <module 'pytz_deprecation_shim._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_common.py'>
-pytz_deprecation_shim._compat_py3: <module 'pytz_deprecation_shim._compat_py3' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_compat_py3.py'>
-pytz_deprecation_shim._compat: <module 'pytz_deprecation_shim._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_compat.py'>
-pytz_deprecation_shim._exceptions: <module 'pytz_deprecation_shim._exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_exceptions.py'>
-pytz_deprecation_shim._impl: <module 'pytz_deprecation_shim._impl' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\_impl.py'>
-pytz_deprecation_shim.helpers: <module 'pytz_deprecation_shim.helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\helpers.py'>
-pytz_deprecation_shim: <module 'pytz_deprecation_shim' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pytz_deprecation_shim\\__init__.py'>
 tzlocal.windows_tz: <module 'tzlocal.windows_tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\windows_tz.py'>
 tzlocal.utils: <module 'tzlocal.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\utils.py'>
 tzlocal.win32: <module 'tzlocal.win32' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\win32.py'>
@@ -2294,6 +2246,7 @@ hex_str_to_ascii
 hex_str_to_dec
 hex_str_to_dec_list
 is_ascii
+is_base64
 is_clean_name
 is_hex
 is_numeric
