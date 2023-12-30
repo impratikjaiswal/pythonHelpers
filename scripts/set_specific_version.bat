@@ -1,5 +1,5 @@
 REM Variable Part
-set package_name=python_helpers
+set /p package_name=<.\..\package_name.txt
 
 REM Constant Part
 set package_path=.\..\%package_name%

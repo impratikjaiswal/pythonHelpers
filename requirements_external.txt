@@ -16,3 +16,12 @@ tzlocal
 
 # incremental
 incremental
+
+# Required by incremental CLI
+click
+
+# Required by incremental CLI
+twisted
+
+# Required for IPV4 & IPV6
+requests
