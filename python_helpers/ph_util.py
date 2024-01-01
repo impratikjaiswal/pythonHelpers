@@ -170,7 +170,7 @@ class PhUtil:
         return is_iter, the_iter
 
     @classmethod
-    def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1):
+    def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False):
         """
         This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
         nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
@@ -188,7 +188,11 @@ class PhUtil:
         if header:
             header = f'{header}:'
         if (list_as_str and isinstance(the_iter, list)) or not is_iter:
-            print_or_log(' '.join(filter(None, [header, str(the_iter)])))
+            each_item = ' '.join(filter(None, [header, str(the_iter)]))
+            if verbose:
+                print_or_log(f'{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
+            else:
+                print_or_log(f'{each_item}')
             return
         if header:
             print_or_log(header)
@@ -199,7 +203,10 @@ class PhUtil:
                 if depth_level == -1 and cls.check_if_iter(value)[0]:
                     cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str)
                 else:
-                    print_or_log(f'{str(key)}: {value}')
+                    if verbose:
+                        print_or_log(f'{str(key)}: {value}; type: {type(value)}, length: {len(str(value))}')
+                    else:
+                        print_or_log(f'{str(key)}: {value}')
             return
         # Other iterable Items
         for each_item in the_iter:
@@ -207,7 +214,10 @@ class PhUtil:
             if depth_level == -1 and cls.check_if_iter(each_item)[0]:
                 cls.print_iter(the_iter=each_item, log=log)
                 continue
-            print_or_log(each_item)
+            if verbose:
+                print_or_log(f'{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
+            else:
+                print_or_log(f'{each_item}')
 
     @classmethod
     def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False):
@@ -1478,10 +1488,11 @@ class PhUtil:
                 obj_list = [obj for obj in obj_list if str(obj).startswith(obj_name_filter)]
             if obj_name_needed is not True:
                 obj_list = [getattr(cls_to_explore, obj) for obj in obj_list]
-            if clean_name:
-                obj_list = cls.clean_names(obj_list)
-            if sort:
-                obj_list.sort()
+            if obj_name_needed:
+                if clean_name:
+                    obj_list = cls.clean_names(obj_list)
+                if sort:
+                    obj_list.sort()
             if len(obj_list) > 0 and isinstance(obj_list[0], list):
                 obj_list = obj_list[0]
             if isinstance(cls_to_explore, enum.EnumMeta):
@@ -1489,8 +1500,9 @@ class PhUtil:
             if obj_value_to_find is None:
                 return obj_list
             for obj in obj_list:
-                if obj.value == obj_value_to_find:
-                    return obj.name
+                if isinstance(obj, cls_to_explore):
+                    if obj.value == obj_value_to_find:
+                        return obj.name
             return ''
 
         data = __get_obj_list(cls_to_explore, obj_name_filter, obj_name_needed, obj_value_to_find, clean_name, sort)
@@ -1746,8 +1758,8 @@ class PhUtil:
     @classmethod
     def generalise_list(cls, data_list, append_na=True, sort=True):
         new_data_list = data_list.copy() if data_list is not None else []
-        if append_na:
-            new_data_list.append('')
         if sort:
             new_data_list.sort()
+        if append_na:
+            new_data_list.insert(PhConstants.OFFSET_ZERO, PhConstants.STR_SELECT_OPTION)
         return new_data_list

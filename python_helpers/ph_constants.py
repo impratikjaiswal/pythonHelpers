@@ -6,6 +6,8 @@ class PhConstants:
     STR_CURLY_BRACE_START = '{'
     STR_CURLY_BRACE_END = '}'
 
+    OFFSET_ZERO = 0
+    OFFSET_ONE = 1
     OFFSET_NAME_FOR_OUTPUT_FILE = 0
     OFFSET_NAME_FOR_ASN_FILE = 1
     KEYWORD_VARIABLE_DECLARATION_IN = ['var_In', 'var_in_list', 'var_in']
@@ -224,3 +226,5 @@ class PhConstants:
         'https://ipv6.icanhazip.com/',
         'https://v6.ident.me/',
     ]
+
+    STR_SELECT_OPTION = '-- Select --'

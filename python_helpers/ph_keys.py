@@ -25,6 +25,8 @@ class PhKeys:
     ASN1_ELEMENT = 'asn1_element'
     ASN1_SCHEMA = 'asn1_schema'
     ASN1_OBJECT = 'asn1_object'
+    ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
+    FETCH_ASN1_OBJECTS_LIST = 'fetch_asn1_objects_list'
 
     INFO = 'info'
 
@@ -66,6 +68,8 @@ class PhKeys:
     RUN_TIME = 'run_time'
 
     #
+    PROCESS = 'process'
+
     SAMPLE = 'sample'
     SAMPLE_1 = 'sample_1'
     SAMPLE_2 = 'sample_2'
