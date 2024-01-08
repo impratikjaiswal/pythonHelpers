@@ -232,6 +232,18 @@ def test_print_modules():
     PhUtil.print_modules(filter_string='python_helpers')
 
 
+def test_generalise_list():
+    PhUtil.print_heading(str_heading='')
+    list1 = [1, 2, 3, 4, 5]
+    PhUtil.print_iter(list1, header='list1')
+    generalise_list = PhUtil.generalise_list(list1)
+    PhUtil.print_iter(generalise_list, header='generalise_list')
+    generalise_list_rev = PhUtil.generalise_list_reverse(generalise_list)
+    PhUtil.print_iter(generalise_list_rev, header='generalise_list_rev')
+    list1_rev = PhUtil.generalise_list_reverse(list1)
+    PhUtil.print_iter(list1_rev, header='list1_rev')
+
+
 def main():
     """
 
@@ -250,6 +262,7 @@ def main():
     test_print_iter()
     test_obj_list()
     test_get_classes_list()
+    test_generalise_list()
 
 
 if __name__ == '__main__':

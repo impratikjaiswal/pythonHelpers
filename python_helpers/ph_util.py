@@ -520,7 +520,7 @@ class PhUtil:
         def __get_ip_from_service(ip_service):
             ext_ip = ''
             try:
-                ext_ip = requests.get(url=ip_service, timeout=.5).text.strip()
+                ext_ip = requests.get(url=ip_service, timeout=1).text.strip()
                 # ext_ip = urllib.request.urlopen(ip_service, timeout=1).read().decode('utf8').strip()
                 # print(f'{ext_ip} as per {ip_service}')
             except Exception as e:
@@ -1763,3 +1763,14 @@ class PhUtil:
         if append_na:
             new_data_list.insert(PhConstants.OFFSET_ZERO, PhConstants.STR_SELECT_OPTION)
         return new_data_list
+
+    @classmethod
+    def generalise_list_reverse(cls, data_list):
+        new_data_list = data_list.copy() if data_list is not None else []
+        if cls.is_generalised_item(new_data_list[PhConstants.OFFSET_ZERO]):
+            new_data_list = new_data_list[1:]
+        return new_data_list
+
+    @classmethod
+    def is_generalised_item(cls, item):
+        return True if str(item) in PhConstants.STR_SELECT_OPTION else False
