@@ -27,3 +27,9 @@ There are various ways to Get Started:
   - Offline Mode (Requires Download / Cloning of the Repo)
     - Code (as a library) can be directly imported from ```pythonHelpers/ph_*.py``` using any IDE
 
+# Help
+Issue tracker can be found [here](CONTRIBUTING.md#issue-tracker).
+
+# Contributing
+ - Code of Conduct can be found [here](CODE_OF_CONDUCT.md).
+ - Contributing Guidelines can be found [here](CONTRIBUTING.md).
