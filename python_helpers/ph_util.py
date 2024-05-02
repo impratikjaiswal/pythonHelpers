@@ -465,7 +465,7 @@ class PhUtil:
         :param append_post:
         :return:
         """
-        # Set Default Values
+        # Set Default Values, if not available
         if str_append is None:
             str_append = ''
         if sep is None:
@@ -482,10 +482,16 @@ class PhUtil:
         if isinstance(str_file_path, TextIOWrapper):
             str_file_path = str_file_path.name
         if file_path_is_dir or str_file_path.endswith(os.sep):
-            str_path = str_file_path
             str_ext = ''
-            str_file_name = ''
             ext_available_in_file_name = False
+            if file_path_is_dir:
+                # consider folder name as file name
+                str_file_name = cls.get_file_name_and_extn(str_file_path)
+                str_path = cls.get_file_name_and_extn(str_file_path, only_path=True)
+            else:
+                # consider folder name as folder name
+                str_file_name = ''
+                str_path = str_file_path
         else:
             str_path = cls.get_file_name_and_extn(str_file_path, only_path=True)
             str_ext = cls.get_file_name_and_extn(str_file_path, only_extn=True,
@@ -506,7 +512,6 @@ class PhUtil:
         str_new_ext = (str_ext if not new_ext else new_ext)
         str_temp_name = new_name if new_name is not None else str_file_name
         str_new_file_name = (str_temp_name + str_append) if append_post else (str_append + str_temp_name)
-
         # file name is present
         str_file_path = cls.rreplace(str_file_path, str_file_name, str_new_file_name, 1) if str_file_name else (
                 str_path + str_new_file_name + str_ext)

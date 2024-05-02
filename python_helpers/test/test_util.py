@@ -180,6 +180,7 @@ class util_test(unittest.TestCase):
         """
         op_file_name = 'myNameIsKhan.tmp'
         op_file_path = os.sep.join([PhUtil.path_default_out_folder, 'Youtube_PlayList.tmp'])
+        op_file_path_dir = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\out_Youtube_PlayList\\.tmp'
         src_file_path = 'D:/abc/def/123/out_file_12564.txt'
         test_obj_pool = [
             test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
@@ -259,12 +260,18 @@ class util_test(unittest.TestCase):
                 expected_op=PhUtil.path_default_out_folder + '_Youtube_PlayList.tmp'),
             test_obj_append_in_file_name(str_file_path='.txt', str_append='mapping',
                                          expected_op='mapping.txt'),
+            test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
+                                         file_path_is_dir=True,
+                                         expected_op='D:\\Other\\python_gen\\sgp22\\sgp22.py_mapping'),
+            test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22', str_append='mapping',
+                                         file_path_is_dir=True,
+                                         expected_op='D:\\Other\\python_gen\\sgp22\\sgp22_mapping'),
             test_obj_append_in_file_name(
                 str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
             test_obj_append_in_file_name(
                 str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
-                new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path),
+                new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path_dir),
             test_obj_append_in_file_name(
                 str_file_path=os.sep.join([PhUtil.path_default_out_folder, '']), str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
