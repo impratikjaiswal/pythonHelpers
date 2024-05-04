@@ -20,6 +20,8 @@ install_reqs = [
     'psutil',
     'tzlocal',
     'incremental',
+    'click',
+    'twisted',
     'requests',
 ]
 
