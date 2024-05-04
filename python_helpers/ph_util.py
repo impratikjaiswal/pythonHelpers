@@ -23,6 +23,7 @@ from pandas import DataFrame
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_file_extensions import PhFileExtensions
+from python_helpers.ph_git import PhGit
 
 _base_profiles_available = False
 _psutil_available = True
@@ -294,7 +295,8 @@ class PhUtil:
 
     @classmethod
     def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
-                      with_time_stamp=True, no_additional_info=False, with_ip=True):
+                      with_time_stamp=True, no_additional_info=False, with_ip=False, with_git_summary=True,
+                      with_git_detailed_info=False):
         print_or_log = log.info if log else print
         sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
         if sep_needed:
@@ -316,6 +318,13 @@ class PhUtil:
             if with_ip:
                 print(f'IPV4 is {cls.get_ip(ipv4=True)}')
                 print(f'IPV6 is {cls.get_ip(ipv4=False)}')
+                cls.print_separator(log=log)
+            if with_git_summary:
+                print(f'Git Summary is {PhConfigConst.TOOL_GIT_SUMMARY}')
+                cls.print_separator(log=log)
+            if with_git_detailed_info:
+                print(f'Git Details are')
+                cls.print_iter(PhGit.get_git_info_detailed())
                 cls.print_separator(log=log)
             if with_libs:
                 cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
@@ -551,7 +560,7 @@ class PhUtil:
             date_format = '%Y%m%d'
             time_format = date_format if date_only else f'{date_format}_%H%M%S%f'
             # Unique time must be generated
-            time.sleep(0.1)
+            time.sleep(0.001)
         else:
             # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
             # Date & Time: Thursday, Apr 04 2023, 18:44:44:356307, IST (GMT+0530)
@@ -1693,7 +1702,7 @@ class PhUtil:
         return user_remarks
 
     @classmethod
-    def cast_to_list(cls, obj, all_str=False, trim_data=True):
+    def to_list(cls, obj, all_str=False, trim_data=True):
         data_list = [] if obj is None else (obj if isinstance(obj, list) else [obj])
         if all_str:
             data_list = [str(x) for x in data_list]
@@ -1703,7 +1712,7 @@ class PhUtil:
 
     @classmethod
     def extend_list(cls, obj, expected_length=0, filler='', unique_entries=False, trim_data=False):
-        obj = cls.cast_to_list(obj, trim_data=trim_data)
+        obj = cls.to_list(obj, trim_data=trim_data)
         current_length = len(obj)
         if expected_length <= current_length:
             return obj

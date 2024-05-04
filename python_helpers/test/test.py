@@ -3,6 +3,7 @@ import unittest
 import sys
 
 import python_helpers
+from python_helpers.ph_git import PhGit
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
 
@@ -21,6 +22,14 @@ def test_version():
     PhUtil.print_version('Test Tool', '1.0.1', with_ip=True)
     PhUtil.print_heading(str_heading='with_ip=False')
     PhUtil.print_version('Test Tool', '1.0.1', with_ip=False)
+    PhUtil.print_heading(str_heading='with_git_summary=True')
+    PhUtil.print_version('Test Tool', '1.0.1', with_git_summary=True)
+    PhUtil.print_heading(str_heading='with_git_summary=False')
+    PhUtil.print_version('Test Tool', '1.0.1', with_git_summary=False)
+    PhUtil.print_heading(str_heading='with_git_detailed_info=True')
+    PhUtil.print_version('Test Tool', '1.0.1', with_git_detailed_info=True)
+    PhUtil.print_heading(str_heading='with_git_detailed_info=False')
+    PhUtil.print_version('Test Tool', '1.0.1', with_git_detailed_info=False)
 
 
 def test_misc():
@@ -32,13 +41,13 @@ def test_misc():
 def test_list():
     PhUtil.print_heading()
     PhUtil.print_heading(str_heading='cast_to_list')
-    print(PhUtil.cast_to_list(5))
-    print(PhUtil.cast_to_list('5'))
-    print(PhUtil.cast_to_list('6   ', trim_data=False))
-    print(PhUtil.cast_to_list('6   ', trim_data=True))
-    print(PhUtil.cast_to_list(['5']))
-    print(PhUtil.cast_to_list(None))
-    print(PhUtil.cast_to_list([]))
+    print(PhUtil.to_list(5))
+    print(PhUtil.to_list('5'))
+    print(PhUtil.to_list('6   ', trim_data=False))
+    print(PhUtil.to_list('6   ', trim_data=True))
+    print(PhUtil.to_list(['5']))
+    print(PhUtil.to_list(None))
+    print(PhUtil.to_list([]))
     PhUtil.print_heading(str_heading='extend_list')
     print(PhUtil.extend_list([6], 5))
     print(PhUtil.extend_list(['Pj'], 9))
@@ -184,26 +193,51 @@ def test_remarks_append_pre():
 
 
 def test_temp():
-    # print(PhUtil.combine_list_items(['Pj;'], clean_data=True))
-    pass
+    PhUtil.print_heading()
+
+
+def test_get_git_info():
+    PhUtil.print_heading()
+    PhUtil.print_heading('get_git_info_detailed; GIT_SUMMARY')
+    print(f'GIT_SUMMARY: {PhGit.get_git_info_detailed(key=PhGit.KEY_GIT_SUMMARY)}')
+    PhUtil.print_heading('get_git_info_detailed')
+    print(PhGit.get_git_info_detailed())
+    PhUtil.print_heading('get_git_info_detailed iter')
+    PhUtil.print_iter(PhGit.get_git_info_detailed())
+
+
+def test_get_time_stamp_file_name():
+    PhUtil.print_heading()
+    outputs = []
+    for _ in range(15):
+        data = PhUtil.get_time_stamp(files_format=True)
+        print(f'{data[:13]} {data[13:15]} {data[15:]}')
+    for _ in range(500):
+        outputs.append(PhUtil.get_time_stamp(files_format=True))
+    dup_list = [x for x in outputs if outputs.count(x) > 1]
+    PhUtil.print_iter(dup_list, header='Duplicate Items')
 
 
 def test_to_file():
+    PhUtil.print_heading()
     PhUtil.to_file(output_lines='abc', file_name='abc.txt')
     PhUtil.to_file(output_lines=['abc', 'def', 'ghi'], file_name='abc_list.txt')
     PhUtil.to_file(output_lines='abc', back_up_file=True)
 
 
 def test_print_iter():
-    PhUtil.print_heading(str_heading='')
+    PhUtil.print_heading()
+    PhUtil.print_heading(str_heading='sys.modules; depth_level=0')
     data = sys.modules
     PhUtil.print_iter(data, depth_level=0)
-    PhUtil.print_heading(str_heading='')
+    PhUtil.print_heading(str_heading='sys.modules')
     # TODO: https://pratikj.atlassian.net/browse/SML-398
     # PhUtil.print_iter(data)
+    pass
 
 
 def test_obj_list():
+    PhUtil.print_heading()
     PhUtil.print_heading(str_heading='cls_to_explore=PhUtil')
     PhUtil.get_obj_list(cls_to_explore=PhUtil, print_also=True)
     PhUtil.print_heading(str_heading="cls_to_explore=PhUtil, obj_name_filter='print'")
@@ -215,6 +249,7 @@ def test_obj_list():
 
 
 def test_get_classes_list():
+    PhUtil.print_heading()
     PhUtil.print_heading(str_heading='module_to_explore=python_helpers.ph_util')
     PhUtil.get_classes_list(module_to_explore=python_helpers.ph_util, print_also=True)
     PhUtil.print_heading(str_heading='module_to_explore=python_helpers.ph_util, obj_name_needed=False')
@@ -226,6 +261,7 @@ def test_get_classes_list():
 
 
 def test_print_modules():
+    PhUtil.print_heading()
     PhUtil.print_heading(str_heading='No filter String')
     PhUtil.print_modules()
     PhUtil.print_heading(str_heading="filter_string='python_helpers'")
@@ -233,7 +269,7 @@ def test_print_modules():
 
 
 def test_generalise_list():
-    PhUtil.print_heading(str_heading='')
+    PhUtil.print_heading()
     list1 = [1, 2, 3, 4, 5]
     PhUtil.print_iter(list1, header='list1')
     generalise_list = PhUtil.generalise_list(list1)
@@ -250,8 +286,11 @@ def main():
     :return:
     """
     test_temp()
-    test_to_file()
+    # Keep on the 2nd Number
     test_version()
+    test_get_git_info()
+    test_get_time_stamp_file_name()
+    test_to_file()
     test_misc()
     test_list()
     test_heading()
