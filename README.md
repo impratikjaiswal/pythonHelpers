@@ -11,7 +11,10 @@ This package contains common utility functions written in python.
 [![Website](https://img.shields.io/website?url=https://amenitypj.in&label=website%20status)](https://amenitypj.in)
 
 [![Static Badge](https://img.shields.io/badge/impratikjaiswal.github.io/pythonHelpers-a?label=gihub%20website%20url)](https://impratikjaiswal.github.io/pythonHelpers)
-[![Website](https://img.shields.io/website?url=https://amenitypj.in/pythonHelpers&label=website%20status)](https://impratikjaiswal.github.io/pythonHelpers)
+[![Website](https://img.shields.io/website?url=https://impratikjaiswal.github.io/pythonHelpers&label=website%20status)](https://impratikjaiswal.github.io/pythonHelpers)
+
+# Url(s) of AmenityPj 
+Refer [Url(s) of AmenityPj](https://impratikjaiswal.github.io/amenitypj/#urls-of-amenitypj) for details.
 
 # Screen Shot(s) of Web App [![Static Badge](https://img.shields.io/badge/amenitypj.in-a)](https://amenitypj.in/) 
 ![sample_web_1](https://github.com/impratikjaiswal/amenitypj/blob/main/static/images/sample_web_1.gif?raw=true)
