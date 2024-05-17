@@ -196,9 +196,13 @@ class PhConstants:
     EXCEPTION_OCCURRED_AT_FUNC = 'Exception Occurred at function'
     EXPORT_ERROR = 'export error'
     READ_WRITE_ERROR = 'input/output path reading/writing error'
-    WRITE_PATH_ERROR = 'Output path writing error'
+    WRITE_PATH_ERROR = 'output path writing error'
+    TIME_OUT_ERROR = 'time out error'
+    NON_ZERO_EXIT_STATUS_ERROR = 'non-zero exit status error'
     INPUTS_ERROR = 'check all your inputs'
     INVALID_RAW_DATA = 'check your raw data'
+    CERTIFICATE = 'CERTIFICATE'
+    OPEN_SSL_CERTIFICATE_COMMENTS = '-'
 
     KEY_DATE_TIME = 'Date & Time'
 
@@ -228,3 +232,5 @@ class PhConstants:
     ]
 
     STR_SELECT_OPTION = '-- Select --'
+    DECODE_MODE_ASCII = 'ascii'
+    DECODE_MODE_UTF8 = 'utf-8'

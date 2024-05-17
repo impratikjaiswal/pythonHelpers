@@ -1,6 +1,8 @@
 import os
-import subprocess
 from pathlib import Path
+
+from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_process import PhProcess
 
 
 class PhGit:
@@ -10,14 +12,12 @@ class PhGit:
     KEY_GIT_SUMMARY = 'git_summary'
     KEY_GIT_DESCRIBE_ALWAYS = 'git_describe_always'
     KEY_GIT_LOCAL_FILE_HEAD = 'git_local_file_head'
-    DECODE_MODE_ASCII = 'ascii'
-    DECODE_MODE_UTF8 = 'utf-8'
 
     _CWD_ABS = os.path.dirname(os.path.abspath(__file__))
     _CWD_PATH_LIB = Path(__file__).resolve().parent
 
     _cwd_default = _CWD_PATH_LIB
-    _decode_mode_default = DECODE_MODE_ASCII
+    _decode_mode_default = PhConstants.DECODE_MODE_ASCII
 
     git_cmds_pool = {
         'git_rev_parse_hash': ['git', 'rev-parse', 'HEAD'],
@@ -46,7 +46,7 @@ class PhGit:
 
     @classmethod
     def get_git_summary(cls):
-        return cls.get_git_info_detailed(key=cls.KEY_GIT_SUMMARY)
+        return cls.get_git_info_detailed(key=cls.KEY_GIT_SUMMARY, with_path_always=True)
 
     @classmethod
     def get_git_info_detailed(cls, key=None, cwd=None, decode_mode=None, with_path_always=False):
@@ -55,10 +55,10 @@ class PhGit:
         if decode_mode is None:
             decode_mode = cls._decode_mode_default
         if key:
-            return cls._check_output(cmd=cls.git_cmds_pool.get(key), cwd=cwd, decode_mode=decode_mode)
+            return cls.execute_command_in_shell(cmd=cls.git_cmds_pool.get(key), cwd=cwd, decode_mode=decode_mode)
         output = {}
         for key in cls.git_cmds_pool:
-            output[key] = cls._check_output(cmd=cls.git_cmds_pool.get(key), cwd=cwd, decode_mode=decode_mode)
+            output[key] = cls.execute_command_in_shell(cmd=cls.git_cmds_pool.get(key), cwd=cwd, decode_mode=decode_mode)
         # Additional data
         # TODO: To be removed post analysis
         output[cls.KEY_GIT_DESCRIBE_ALWAYS + '_path'] = cls.get_git_info_detailed(key=cls.KEY_GIT_DESCRIBE_ALWAYS,
@@ -73,11 +73,12 @@ class PhGit:
         return output
 
     @classmethod
-    def _check_output(cls, cmd, cwd, decode_mode):
+    def execute_command_in_shell(cls, cmd, cwd=None, decode_mode='utf-8'):
         try:
-            return subprocess.check_output(cmd, cwd=cwd).decode(decode_mode).strip()
+            return PhProcess.execute_command_in_shell(cmd=cmd, cwd=cwd, decode_mode=decode_mode)
         except Exception as e:
-            pass
+            # print(f"Error executing command: {e}")
             # TODO: Future handling; Additional data for '_path & _pathlib can be removed
             # if cwd is None:
             #     return cls._check_output(cmd=cmd, cwd=cls._cwd_default,decode_mode=decode_mode)
+            return None
