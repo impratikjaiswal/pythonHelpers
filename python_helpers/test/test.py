@@ -227,13 +227,60 @@ def test_to_file():
 
 def test_print_iter():
     PhUtil.print_heading()
+    dic1 = {
+        'raw_data': '',
+        'input_format': 'url',
+        'remarks_list': '',
+        'sample_data': 'AmenityPj',
+        'sample_option': 'Load Only',
+        'sample_process': '',
+    }
+    dic2 = {
+        'app_title': '',
+        'app_description': 'url',
+        'app_version': '',
+        'app_github_url': 'AmenityPj',
+        'app_github_pages_url': 'Load Only',
+    }
+    dic3 = {
+        '1': dic1,
+        '2': dic2,
+    }
+    dic4 = {}
+    dic5 = {'app_title': ''}
+    list1 = ['raw_data', 'input_format', 'remarks_list', 'sample_data', 'sample_option', 'sample_process']
+    list2 = ['app_title', 'app_description', 'app_version', 'app_github_url', 'app_github_pages_url']
+    list3 = [list1, list2]
+    list4 = []
+    list5 = ['app_title']
+    PhUtil.print_heading(str_heading='iters printing')
+    PhUtil.print_iter(dic1)
+    PhUtil.print_iter(dic2)
+    PhUtil.print_iter(dic3)
+    PhUtil.print_iter(dic4)
+    PhUtil.print_iter(dic5)
+    PhUtil.print_iter(list1)
+    PhUtil.print_iter(list2)
+    PhUtil.print_iter(list3)
+    PhUtil.print_iter(list4)
+    PhUtil.print_iter(list5)
+    PhUtil.print_heading(str_heading='iters printing with heading')
+    PhUtil.print_iter(dic1, header='dic1')
+    PhUtil.print_iter(dic2, header='dic2')
+    PhUtil.print_iter(dic3, header='dic3')
+    PhUtil.print_iter(dic4, header='dic4')
+    PhUtil.print_iter(dic5, header='dic5')
+    PhUtil.print_iter(list1, header='list1')
+    PhUtil.print_iter(list2, header='list2')
+    PhUtil.print_iter(list3, header='list3')
+    PhUtil.print_iter(list4, header='list4')
+    PhUtil.print_iter(list5, header='list5')
     PhUtil.print_heading(str_heading='sys.modules; depth_level=0')
     data = sys.modules
     PhUtil.print_iter(data, depth_level=0)
     PhUtil.print_heading(str_heading='sys.modules')
     # TODO: https://pratikj.atlassian.net/browse/SML-398
     # PhUtil.print_iter(data)
-    pass
 
 
 def test_obj_list():
@@ -278,6 +325,10 @@ def test_generalise_list():
     PhUtil.print_iter(generalise_list_rev, header='generalise_list_rev')
     list1_rev = PhUtil.generalise_list_reverse(list1)
     PhUtil.print_iter(list1_rev, header='list1_rev')
+    generalise_list_append_others = PhUtil.generalise_list(list1, append_others=True)
+    PhUtil.print_iter(generalise_list_append_others, header='generalise_list_append_others')
+    generalise_list_append_others_rev = PhUtil.generalise_list_reverse(generalise_list_append_others)
+    PhUtil.print_iter(generalise_list_append_others_rev, header='generalise_list_append_others_rev')
 
 
 def main():

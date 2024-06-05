@@ -530,7 +530,8 @@ class util_test(unittest.TestCase):
                        f'auto_cmd_for_6cxx: True\n' \
                        f'log_mode_append: True\n' \
                        f'help_mode: False\n' \
-                       f'virtual_card: False\n'
+                       f'virtual_card: False\n' \
+                       f'\n'
         list_1 = ['F9526EFF9CAE23D00C77860F9BAEB301', '554B60ACA30428BF920918F16D102218',
                   '237CC88B687C5C97F9FD9A504BD7BB4C', '408FE089A8665EFC3419EF20277C2020',
                   '4DD24459B14E1E8A71C17578854A94EB', '3A0FD2809DAE5A7E884D0B22FFFA6134',
@@ -545,7 +546,8 @@ class util_test(unittest.TestCase):
                        f'FEF2A8D1E05CF65B4A61CC3BF05F5395\n' \
                        f'4DD7419D2AFB3D44DC19BF0D344F36AC\n' \
                        f'D241FD541C09A30E87429E42CB8C66BA\n' \
-                       f'22FB24FF6D553A0A5589B171A2EAB725\n'
+                       f'22FB24FF6D553A0A5589B171A2EAB725\n' \
+                       f'\n'
         list_1_str_print = f"[" \
                            f"'F9526EFF9CAE23D00C77860F9BAEB301', " \
                            f"'554B60ACA30428BF920918F16D102218', " \

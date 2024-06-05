@@ -1,3 +1,4 @@
+import base64
 import ctypes
 import enum
 import fnmatch
@@ -17,6 +18,7 @@ import requests
 import sys
 import time
 import tzlocal
+from binascii import unhexlify
 from packaging import version
 from pandas import DataFrame
 
@@ -124,6 +126,12 @@ class PhUtil:
                                  s) else False
 
     @classmethod
+    def decode_to_base64_if_hex(cls, raw_data):
+        if PhUtil.is_hex(raw_data):
+            return base64.b64encode(unhexlify(raw_data)).decode()
+        return raw_data
+
+    @classmethod
     def len_hex(cls, str_hex_data, output_in_str_format=False):
         data_len = int(len(str_hex_data) / 2)
         return '%02X' % data_len if output_in_str_format else data_len
@@ -171,11 +179,14 @@ class PhUtil:
         return is_iter, the_iter
 
     @classmethod
-    def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False):
+    def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False,
+                   formatting_level=0):
         """
         This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
         nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
 
+        :param verbose:
+        :param formatting_level:
         :param depth_level:
         :param the_iter:
         :param header:
@@ -183,17 +194,22 @@ class PhUtil:
         :param list_as_str:
         :return:
         """
+        # TODO: Need to fix support of formatting_level
+        formatting_level = 0
+        spaces = PhConstants.STR_TAB * formatting_level
         print_or_log = log.info if log else print
         list_as_str = False if list_as_str is None else list_as_str
+        nested = PhConstants.NO
         is_iter, the_iter = cls.check_if_iter(the_iter)
+        the_iter_length = len(the_iter) if is_iter else None
         if header:
             header = f'{header}:'
         if (list_as_str and isinstance(the_iter, list)) or not is_iter:
             each_item = ' '.join(filter(None, [header, str(the_iter)]))
             if verbose:
-                print_or_log(f'{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
+                print_or_log(f'{spaces}{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
             else:
-                print_or_log(f'{each_item}')
+                print_or_log(f'{spaces}{each_item}')
             return
         if header:
             print_or_log(header)
@@ -202,23 +218,30 @@ class PhUtil:
             for key in the_iter.keys():
                 value = the_iter[key]
                 if depth_level == -1 and cls.check_if_iter(value)[0]:
-                    cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str)
+                    nested = PhConstants.YES
+                    cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str,
+                                   formatting_level=formatting_level + 1)
                 else:
                     if verbose:
                         print_or_log(f'{str(key)}: {value}; type: {type(value)}, length: {len(str(value))}')
                     else:
                         print_or_log(f'{str(key)}: {value}')
+            if not nested and (the_iter_length > 1 or header):
+                print_or_log()
             return
         # Other iterable Items
         for each_item in the_iter:
             # Check if sub-objects are Iterable
             if depth_level == -1 and cls.check_if_iter(each_item)[0]:
-                cls.print_iter(the_iter=each_item, log=log)
+                nested = PhConstants.YES
+                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1)
                 continue
             if verbose:
-                print_or_log(f'{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
+                print_or_log(f'{spaces}{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
             else:
-                print_or_log(f'{each_item}')
+                print_or_log(f'{spaces}{each_item}')
+        if not nested and (the_iter_length > 1 or header):
+            print_or_log()
 
     @classmethod
     def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False):
@@ -1770,21 +1793,25 @@ class PhUtil:
         return os.path.dirname(path)
 
     @classmethod
-    def generalise_list(cls, data_list, append_na=True, sort=True):
+    def generalise_list(cls, data_list, append_na=True, sort=True, append_others=False):
         new_data_list = data_list.copy() if data_list is not None else []
         if sort:
             new_data_list.sort()
         if append_na:
             new_data_list.insert(PhConstants.OFFSET_ZERO, PhConstants.STR_SELECT_OPTION)
+        if append_others:
+            new_data_list.append(PhConstants.STR_OTHER_OPTION)
         return new_data_list
 
     @classmethod
     def generalise_list_reverse(cls, data_list):
         new_data_list = data_list.copy() if data_list is not None else []
-        if cls.is_generalised_item(new_data_list[PhConstants.OFFSET_ZERO]):
+        if cls.is_generalised_item(new_data_list[PhConstants.OFFSET_ZERO], PhConstants.STR_SELECT_OPTION):
             new_data_list = new_data_list[1:]
+        if cls.is_generalised_item(new_data_list[-1], PhConstants.STR_OTHER_OPTION):
+            new_data_list = new_data_list[:-1]
         return new_data_list
 
     @classmethod
-    def is_generalised_item(cls, item):
-        return True if str(item) in PhConstants.STR_SELECT_OPTION else False
+    def is_generalised_item(cls, item, target_item):
+        return True if str(item) in target_item else False

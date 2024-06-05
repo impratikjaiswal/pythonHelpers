@@ -201,8 +201,7 @@ class PhConstants:
     NON_ZERO_EXIT_STATUS_ERROR = 'non-zero exit status error'
     INPUTS_ERROR = 'check all your inputs'
     INVALID_RAW_DATA = 'check your raw data'
-    CERTIFICATE = 'CERTIFICATE'
-    OPEN_SSL_CERTIFICATE_COMMENTS = '-'
+    UNKNOWN_INPUT_FORMAT = 'unknown input format'
 
     KEY_DATE_TIME = 'Date & Time'
 
@@ -232,5 +231,14 @@ class PhConstants:
     ]
 
     STR_SELECT_OPTION = '-- Select --'
+    STR_OTHER_OPTION = '-- Other --'
     DECODE_MODE_ASCII = 'ascii'
     DECODE_MODE_UTF8 = 'utf-8'
+
+    BEGIN_CERTIFICATE = '-----BEGIN CERTIFICATE-----'
+    END_CERTIFICATE = '-----END CERTIFICATE-----'
+    CERTIFICATE = 'CERTIFICATE'
+    OPEN_SSL_CERTIFICATE_COMMENTS = '-'
+
+    YES = True
+    NO = False
