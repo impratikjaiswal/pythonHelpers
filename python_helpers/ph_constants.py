@@ -201,7 +201,11 @@ class PhConstants:
     NON_ZERO_EXIT_STATUS_ERROR = 'non-zero exit status error'
     INPUTS_ERROR = 'check all your inputs'
     INVALID_RAW_DATA = 'check your raw data'
-    UNKNOWN_INPUT_FORMAT = 'unknown input format'
+    INVALID_INPUT_DATA = 'check your input data'
+    MISSING_INPUT_DATA = 'Missing Input Data'
+    UNKNOWN_INPUT_FORMAT = 'Unknown Input Format'
+    INVALID_TIME_OUT = 'Invalid Time Out'
+    INVALID_URL_TIME_OUT = 'Invalid URL Time Out'
 
     KEY_DATE_TIME = 'Date & Time'
 

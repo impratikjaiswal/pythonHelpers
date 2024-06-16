@@ -26,6 +26,7 @@ from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_git import PhGit
+from python_helpers.ph_keys import PhKeys
 
 _base_profiles_available = False
 _psutil_available = True
@@ -1813,5 +1814,16 @@ class PhUtil:
         return new_data_list
 
     @classmethod
-    def is_generalised_item(cls, item, target_item):
+    def is_generalised_item(cls, item, target_item=PhConstants.STR_SELECT_OPTION):
         return True if str(item) in target_item else False
+
+    @classmethod
+    def filter_processing_related_keys(cls, data_dic):
+        return {k: v for k, v in data_dic.items() if not (k.startswith(PhKeys.SAMPLE) or k.startswith(PhKeys.PROCESS))}
+
+    @classmethod
+    def generate_key_and_data_group(cls, remarks):
+        remarks = PhUtil.to_list(remarks, all_str=True, trim_data=True)[0]
+        data_group_list = remarks.split(PhConstants.SEPERATOR_MULTI_OBJ)
+        data_group = data_group_list[0] if len(data_group_list) > 0 else data_group_list
+        return remarks, data_group
