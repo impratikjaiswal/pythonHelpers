@@ -139,6 +139,7 @@ class PhKeys:
     RAW_DATA = 'raw_data'
     REMARKS_LIST = 'remarks_list'
     REMARKS_LIST_GENERATED = 'remarks_list_generated'
-    ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
     SAMPLE_PROCESSING = 'sample_processing'
+    ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
+    TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
     # End
