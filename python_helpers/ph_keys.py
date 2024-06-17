@@ -32,6 +32,12 @@ class PhKeys:
     QR_CODE_VERSIONS = 'qr_code_versions'
     QR_CODE_VERSION_SELECTED = 'qr_code_version_selected'
 
+    #
+    IMAGE_FORMAT = 'image_format'
+    IMAGE_FORMATS = 'image_formats'
+    IMAGE_FORMAT_SELECTED = 'image_format_selected'
+
+    #
     URL_TIME_OUT = 'url_time_out'
     URL_TIME_OUTS = 'url_time_outs'
     URL_TIME_OUT_SELECTED = 'url_time_out_selected'
@@ -49,7 +55,6 @@ class PhKeys:
 
     # qrPlay
     SCALE = 'scale'
-    IMAGE_FORMAT = 'image_format'
     SPLIT_QRS = 'split_qrs'
 
     # certPlay
