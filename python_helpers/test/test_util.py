@@ -99,11 +99,12 @@ class test_obj_analyse_data:
 
 
 class test_obj_print_iter:
-    def __init__(self, the_iter, expected_op=None, header=None, list_as_str=None):
+    def __init__(self, the_iter, expected_op=None, header=None, list_as_str=None, sep=None):
         self.the_iter = the_iter
         self.expected_op = expected_op
         self.header = header
         self.list_as_str = list_as_str
+        self.sep = sep
 
 
 class test_obj_gen_isim_data:
@@ -532,6 +533,22 @@ class util_test(unittest.TestCase):
                        f'help_mode: False\n' \
                        f'virtual_card: False\n' \
                        f'\n'
+        dict_1_print_sep = f'pre_defined_script: cmds_esim_ara_m_select; ' \
+                           f'pre_defined_script_multi: None; ' \
+                           f'custom_script: ; ' \
+                           f'iccid: 89111100000000000008; ' \
+                           f'imsi: 222013000000000; ' \
+                           f'aid_usim: A0000000871002FF33FF018900000100; ' \
+                           f'aid_isim: A0000000871004FF33FF018900000100; ' \
+                           f'param_gen_1: None; ' \
+                           f'param_gen_2: ; ' \
+                           f'auto_fetch: True; ' \
+                           f'auto_get_response: True; ' \
+                           f'auto_cmd_for_6cxx: True; ' \
+                           f'log_mode_append: True; ' \
+                           f'help_mode: False; ' \
+                           f'virtual_card: False' \
+                           f'\n'
         list_1 = ['F9526EFF9CAE23D00C77860F9BAEB301', '554B60ACA30428BF920918F16D102218',
                   '237CC88B687C5C97F9FD9A504BD7BB4C', '408FE089A8665EFC3419EF20277C2020',
                   '4DD24459B14E1E8A71C17578854A94EB', '3A0FD2809DAE5A7E884D0B22FFFA6134',
@@ -548,6 +565,17 @@ class util_test(unittest.TestCase):
                        f'D241FD541C09A30E87429E42CB8C66BA\n' \
                        f'22FB24FF6D553A0A5589B171A2EAB725\n' \
                        f'\n'
+        list_1_print_sep = f'F9526EFF9CAE23D00C77860F9BAEB301; ' \
+                           f'554B60ACA30428BF920918F16D102218; ' \
+                           f'237CC88B687C5C97F9FD9A504BD7BB4C; ' \
+                           f'408FE089A8665EFC3419EF20277C2020; ' \
+                           f'4DD24459B14E1E8A71C17578854A94EB; ' \
+                           f'3A0FD2809DAE5A7E884D0B22FFFA6134; ' \
+                           f'FEF2A8D1E05CF65B4A61CC3BF05F5395; ' \
+                           f'4DD7419D2AFB3D44DC19BF0D344F36AC; ' \
+                           f'D241FD541C09A30E87429E42CB8C66BA; ' \
+                           f'22FB24FF6D553A0A5589B171A2EAB725' \
+                           f'\n'
         list_1_str_print = f"[" \
                            f"'F9526EFF9CAE23D00C77860F9BAEB301', " \
                            f"'554B60ACA30428BF920918F16D102218', " \
@@ -559,7 +587,8 @@ class util_test(unittest.TestCase):
                            f"'4DD7419D2AFB3D44DC19BF0D344F36AC', " \
                            f"'D241FD541C09A30E87429E42CB8C66BA', " \
                            f"'22FB24FF6D553A0A5589B171A2EAB725'" \
-                           f"]\n"
+                           f"]" \
+                           f'\n'
         list_1_str_print_header = 'List as Str'
         header_joiner = ': '
         test_obj_pool = [
@@ -572,6 +601,8 @@ class util_test(unittest.TestCase):
             test_obj_print_iter(list_1, expected_op=list_1_str_print, list_as_str=True),
             test_obj_print_iter(list_1, expected_op=header_joiner.join([list_1_str_print_header, list_1_str_print]),
                                 header=list_1_str_print_header, list_as_str=True),
+            test_obj_print_iter(list_1, expected_op=list_1_print_sep, sep=PhConstants.SEPERATOR_MULTI_OBJ),
+            test_obj_print_iter(dict_1, expected_op=dict_1_print_sep, sep=PhConstants.SEPERATOR_MULTI_OBJ),
         ]
 
         for count, test_obj in enumerate(test_obj_pool, start=1):
@@ -581,7 +612,8 @@ class util_test(unittest.TestCase):
     @unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
     def assert_stdout_print_iter(self, test_obj, mock_stdout):
         self.maxDiff = None
-        PhUtil.print_iter(the_iter=test_obj.the_iter, list_as_str=test_obj.list_as_str, header=test_obj.header)
+        PhUtil.print_iter(the_iter=test_obj.the_iter, list_as_str=test_obj.list_as_str, header=test_obj.header,
+                          sep=test_obj.sep)
         actual_value = mock_stdout.getvalue()
         expected_value = test_obj.expected_op
         self.assertEqual(actual_value, expected_value)

@@ -181,11 +181,12 @@ class PhUtil:
 
     @classmethod
     def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False,
-                   formatting_level=0):
+                   formatting_level=0, sep=None):
         """
         This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
         nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
 
+        :param sep:
         :param verbose:
         :param formatting_level:
         :param depth_level:
@@ -195,22 +196,53 @@ class PhUtil:
         :param list_as_str:
         :return:
         """
+
+        def _print_item():
+            """
+
+            :param _value:
+            :return:
+            """
+            if data_pool:
+                print_or_log(sep.join(data_pool))
+            if PhConstants.SEPERATOR_TWO_LINES in sep and (
+                    not nested and (the_iter_length > 1 or header)) and not list_as_str:
+                print_or_log()
+
+        def _collect_item(_value=None, _key=None, _dict_format=False, _empty_data=False):
+            """
+
+            :param _value:
+            :param _key:
+            :param _dict_format:
+            :return:
+            """
+            if _empty_data is True:
+                data_pool.append('')
+                return
+            _data = f'{str(key)}: {value}' if _dict_format else _value
+            if verbose:
+                data_pool.append(f'{spaces}{_data}; type: {type(_value)}, length: {len(str(_value))}')
+            else:
+                data_pool.append(f'{spaces}{_data}')
+            return
+
         # TODO: Need to fix support of formatting_level
+
+        data_pool = []
         formatting_level = 0
         spaces = PhConstants.STR_TAB * formatting_level
         print_or_log = log.info if log else print
         list_as_str = False if list_as_str is None else list_as_str
+        sep = PhConstants.SEPERATOR_TWO_LINES if sep is None else sep
         nested = PhConstants.NO
         is_iter, the_iter = cls.check_if_iter(the_iter)
-        the_iter_length = len(the_iter) if is_iter else None
+        the_iter_length = len(the_iter) if is_iter else 0
         if header:
             header = f'{header}:'
         if (list_as_str and isinstance(the_iter, list)) or not is_iter:
-            each_item = ' '.join(filter(None, [header, str(the_iter)]))
-            if verbose:
-                print_or_log(f'{spaces}{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
-            else:
-                print_or_log(f'{spaces}{each_item}')
+            _collect_item(_value=' '.join(filter(None, [header, str(the_iter)])))
+            _print_item()
             return
         if header:
             print_or_log(header)
@@ -221,28 +253,20 @@ class PhUtil:
                 if depth_level == -1 and cls.check_if_iter(value)[0]:
                     nested = PhConstants.YES
                     cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str,
-                                   formatting_level=formatting_level + 1)
+                                   formatting_level=formatting_level + 1, sep=sep)
                 else:
-                    if verbose:
-                        print_or_log(f'{str(key)}: {value}; type: {type(value)}, length: {len(str(value))}')
-                    else:
-                        print_or_log(f'{str(key)}: {value}')
-            if not nested and (the_iter_length > 1 or header):
-                print_or_log()
+                    _collect_item(_key=key, _value=value, _dict_format=True)
+            _print_item()
             return
         # Other iterable Items
         for each_item in the_iter:
             # Check if sub-objects are Iterable
             if depth_level == -1 and cls.check_if_iter(each_item)[0]:
                 nested = PhConstants.YES
-                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1)
+                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1, sep=sep)
                 continue
-            if verbose:
-                print_or_log(f'{spaces}{each_item}; type: {type(each_item)}, length: {len(str(each_item))}')
-            else:
-                print_or_log(f'{spaces}{each_item}')
-        if not nested and (the_iter_length > 1 or header):
-            print_or_log()
+            _collect_item(_value=each_item)
+        _print_item()
 
     @classmethod
     def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False):

@@ -3,6 +3,7 @@ import unittest
 import sys
 
 import python_helpers
+from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
@@ -253,6 +254,18 @@ def test_print_iter():
     list3 = [list1, list2]
     list4 = []
     list5 = ['app_title']
+    sep = PhConstants.SEPERATOR_MULTI_OBJ
+    PhUtil.print_heading(str_heading='iters printing, with sep')
+    PhUtil.print_iter(dic1, sep=sep)
+    PhUtil.print_iter(dic2, sep=sep)
+    PhUtil.print_iter(dic3, sep=sep)
+    PhUtil.print_iter(dic4, sep=sep)
+    PhUtil.print_iter(dic5, sep=sep)
+    PhUtil.print_iter(list1, sep=sep)
+    PhUtil.print_iter(list2, sep=sep)
+    PhUtil.print_iter(list3, sep=sep)
+    PhUtil.print_iter(list4, sep=sep)
+    PhUtil.print_iter(list5, sep=sep)
     PhUtil.print_heading(str_heading='iters printing')
     PhUtil.print_iter(dic1)
     PhUtil.print_iter(dic2)
