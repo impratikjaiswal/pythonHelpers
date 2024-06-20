@@ -181,12 +181,13 @@ class PhUtil:
 
     @classmethod
     def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False,
-                   formatting_level=0, sep=None):
+                   formatting_level=0, sep=None, sep_child=None):
         """
         This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
         nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
 
         :param sep:
+        :param sep_child:
         :param verbose:
         :param formatting_level:
         :param depth_level:
@@ -235,6 +236,7 @@ class PhUtil:
         print_or_log = log.info if log else print
         list_as_str = False if list_as_str is None else list_as_str
         sep = PhConstants.SEPERATOR_TWO_LINES if sep is None else sep
+        sep_child = PhConstants.SEPERATOR_MULTI_OBJ if sep_child is None else sep_child
         nested = PhConstants.NO
         is_iter, the_iter = cls.check_if_iter(the_iter)
         the_iter_length = len(the_iter) if is_iter else 0
@@ -253,7 +255,7 @@ class PhUtil:
                 if depth_level == -1 and cls.check_if_iter(value)[0]:
                     nested = PhConstants.YES
                     cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str,
-                                   formatting_level=formatting_level + 1, sep=sep)
+                                   formatting_level=formatting_level + 1, sep=sep_child)
                 else:
                     _collect_item(_key=key, _value=value, _dict_format=True)
             _print_item()
@@ -263,7 +265,7 @@ class PhUtil:
             # Check if sub-objects are Iterable
             if depth_level == -1 and cls.check_if_iter(each_item)[0]:
                 nested = PhConstants.YES
-                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1, sep=sep)
+                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1, sep=sep_child)
                 continue
             _collect_item(_value=each_item)
         _print_item()
