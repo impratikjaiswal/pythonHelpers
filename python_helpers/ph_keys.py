@@ -3,6 +3,11 @@ class PhKeys:
     PH_KEYS = 'PhKeys'
 
     #
+    TRANSACTION_ID = 'transaction_id'
+    OUTPUT_DATA = 'output_data'
+    INFO_DATA = 'info_data'
+
+    #
     INPUT_FORMAT = 'input_format'
     INPUT_FORMATS = 'input_formats'
     INPUT_FORMAT_SELECTED = 'input_format_selected'
@@ -74,6 +79,10 @@ class PhKeys:
     SAMPLE_LOAD_ONLY = 'load_only'
     SAMPLE_LOAD_AND_SUBMIT = 'load_and_submit'
 
+    # App Parent
+    APP_PARENT_TITLE = 'app_parent_title'
+    APP_PARENT_VERSION = 'app_parent_version'
+
     # App
     APP_TITLE = 'app_title'
     APP_DESCRIPTION = 'app_description'
@@ -85,6 +94,7 @@ class PhKeys:
     ##############
     INFO = 'info'
     VERSION = 'version'
+    MODE = 'mode'
     PRINT_INPUT = 'print_input'
     PRINT_OUTPUT = 'print_output'
     PRINT_INFO = 'print_info'
@@ -103,7 +113,6 @@ class PhKeys:
     INPUT_MODES_HIERARCHY = 'input_modes_hierarchy'
     #
     OUTPUT = 'output'
-    OUTPUT_DATA = 'output_data'
     OUTPUT_FILE = 'output_file'
     EXPORT_FILE = 'export_file'
     RE_OUTPUT_FILE = 're_output_file'

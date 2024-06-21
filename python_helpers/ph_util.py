@@ -764,28 +764,50 @@ class PhUtil:
             str_type = PhConstants.STR_TYPE_NUMERIC
         elif var_name in PhConstants.POOL_16_BYTES_LENGTH:
             size = 16
-            str_type = PhConstants.STR_TYPE_HEX
+            str_type = PhConstants.STR_TYPE_HEX_UPPER_CASE
         else:
             return ''
         return cls.get_random_string(size, str_type)
 
     @classmethod
-    def get_random_string(cls, target_str_length=8, str_type=PhConstants.STR_TYPE_HEX):
+    def get_random_string(cls, target_str_length=8, str_type=PhConstants.STR_TYPE_HEX_UPPER_CASE):
         """
 
         :param target_str_length:
         :param str_type:
         :return:
         """
-        letters = ''
-        if str_type == PhConstants.STR_TYPE_PLAIN:
-            letters = string.ascii_letters + string.digits
-            return ''.join(random.choice(letters) for _ in range(target_str_length))
-        if str_type == PhConstants.STR_TYPE_HEX:
-            return secrets.token_hex(target_str_length).upper()
-        if str_type == PhConstants.STR_TYPE_NUMERIC:
-            letters = string.digits
-        return ''.join(random.choice(letters) for _ in range(target_str_length))
+        if str_type == PhConstants.STR_TYPE_HEX_LOWER_CASE:
+            return secrets.token_hex(target_str_length)
+        letters_mapping = {
+            PhConstants.STR_TYPE_NUMERIC_BIN: '01',
+            PhConstants.STR_TYPE_NUMERIC_OCT: string.octdigits,
+            PhConstants.STR_TYPE_NUMERIC: string.digits,
+            #
+            PhConstants.STR_TYPE_HEX_LOWER_CASE: string.digits + 'abcdef',
+            PhConstants.STR_TYPE_HEX_UPPER_CASE: string.digits + 'ABCDEF',
+            PhConstants.STR_TYPE_HEX_RANDOM_CASE: string.hexdigits,
+            #
+            PhConstants.STR_TYPE_ASCII_LOWER_CASE: string.ascii_lowercase,
+            PhConstants.STR_TYPE_ASCII_UPPER_CASE: string.ascii_uppercase,
+            PhConstants.STR_TYPE_ASCII_RANDOM_CASE: string.ascii_letters,
+            #
+            PhConstants.STR_TYPE_ALPHA_NUMERIC_LOWER_CASE: string.ascii_lowercase + string.digits,
+            PhConstants.STR_TYPE_ALPHA_NUMERIC_UPPER_CASE: string.ascii_uppercase + string.digits,
+            PhConstants.STR_TYPE_ALPHA_NUMERIC_RANDOM_CASE: string.ascii_letters + string.digits,
+            #
+            PhConstants.STR_TYPE_PASSWORD_LOWER_CASE: string.ascii_lowercase + string.digits + string.punctuation,
+            PhConstants.STR_TYPE_PASSWORD_UPPER_CASE: string.ascii_uppercase + string.digits + string.punctuation,
+            PhConstants.STR_TYPE_PASSWORD_RANDOM_CASE: string.ascii_letters + string.digits + string.punctuation,
+            #
+        }
+        return ''.join(
+            random.choice(letters_mapping.get(str_type, letters_mapping.get(PhConstants.STR_TYPE_HEX_UPPER_CASE))) for _
+            in range(target_str_length))
+
+    @classmethod
+    def generate_transaction_id(cls):
+        return cls.get_random_string(target_str_length=12, str_type=PhConstants.STR_TYPE_ALPHA_NUMERIC_LOWER_CASE)
 
     @classmethod
     def get_synonym_of_variable_name(cls, var_name, var_type=PhConstants.VAR_TYPE_OUT):
