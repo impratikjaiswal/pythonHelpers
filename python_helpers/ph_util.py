@@ -128,8 +128,24 @@ class PhUtil:
 
     @classmethod
     def decode_to_base64_if_hex(cls, raw_data):
+        """
+
+        :param raw_data:
+        :return:
+        """
         if PhUtil.is_hex(raw_data):
             return base64.b64encode(unhexlify(raw_data)).decode()
+        return raw_data
+
+    @classmethod
+    def decode_to_hex_if_base64(cls, raw_data):
+        """
+
+        :param raw_data:
+        :return:
+        """
+        if not PhUtil.is_hex(raw_data) and PhUtil.is_base64(raw_data):
+            return base64.b64decode(raw_data).hex()
         return raw_data
 
     @classmethod
