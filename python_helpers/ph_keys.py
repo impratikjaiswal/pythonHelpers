@@ -51,6 +51,9 @@ class PhKeys:
     # asn1Play
     RE_PARSED_DATA = 're_parsed_data'
     ASN1_ELEMENT = 'asn1_element'
+    ASN1_MODULE = 'asn1_module'
+    ASN1_MODULE_VERSION = 'asn1_module_version'
+    ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
     FETCH_ASN1_OBJECTS_LIST = 'fetch_asn1_objects_list'
 
     # tlvPlay
@@ -154,6 +157,5 @@ class PhKeys:
     REMARKS_LIST = 'remarks_list'
     REMARKS_LIST_GENERATED = 'remarks_list_generated'
     SAMPLE_PROCESSING = 'sample_processing'
-    ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
     TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
     # End
