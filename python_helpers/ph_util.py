@@ -196,6 +196,11 @@ class PhUtil:
         return is_iter, the_iter
 
     @classmethod
+    def print_(cls, data, log=None):
+        print_or_log = log.info if log else print
+        print_or_log(data)
+
+    @classmethod
     def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False,
                    formatting_level=0, sep=None, sep_child=None):
         """
@@ -224,7 +229,7 @@ class PhUtil:
                 print_or_log(sep.join(data_pool))
             if PhConstants.SEPERATOR_TWO_LINES in sep and (
                     not nested and (the_iter_length > 1 or header)) and not list_as_str:
-                print_or_log()
+                print_or_log(PhConstants.STR_EMPTY)
 
         def _collect_item(_value=None, _key=None, _dict_format=False, _empty_data=False):
             """
@@ -246,10 +251,10 @@ class PhUtil:
 
         # TODO: Need to fix support of formatting_level
 
+        print_or_log = log.info if log else print
         data_pool = []
         formatting_level = 0
         spaces = PhConstants.STR_TAB * formatting_level
-        print_or_log = log.info if log else print
         list_as_str = False if list_as_str is None else list_as_str
         sep = PhConstants.SEPERATOR_TWO_LINES if sep is None else sep
         sep_child = PhConstants.SEPERATOR_MULTI_OBJ if sep_child is None else sep_child
@@ -288,6 +293,15 @@ class PhUtil:
 
     @classmethod
     def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False):
+        """
+
+        :param character:
+        :param count:
+        :param main_text:
+        :param log:
+        :param get_only:
+        :return:
+        """
         print_or_log = log.info if log else print
         if main_text is None:
             main_text = ''
@@ -331,6 +345,18 @@ class PhUtil:
     @classmethod
     def get_key_value_pair(cls, key, value, sep=PhConstants.SEPERATOR_ONE_LINE, dic_format=False, print_also=False,
                            log=None, user_friendly_key=True, pair_is_must=False):
+        """
+
+        :param key:
+        :param value:
+        :param sep:
+        :param dic_format:
+        :param print_also:
+        :param log:
+        :param user_friendly_key:
+        :param pair_is_must:
+        :return:
+        """
         print_or_log = log.info if log else print
         if key is None:
             return None
@@ -363,6 +389,20 @@ class PhUtil:
     def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
                       with_time_stamp=True, no_additional_info=False, with_ip=False, with_git_summary=True,
                       with_git_detailed_info=False):
+        """
+
+        :param tool_name:
+        :param tool_version:
+        :param log:
+        :param with_libs:
+        :param with_user_info:
+        :param with_time_stamp:
+        :param no_additional_info:
+        :param with_ip:
+        :param with_git_summary:
+        :param with_git_detailed_info:
+        :return:
+        """
         print_or_log = log.info if log else print
         sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
         if sep_needed:
@@ -402,6 +442,16 @@ class PhUtil:
 
     @classmethod
     def print_heading(cls, str_heading=None, heading_level=1, char=None, max_length=None, log=None):
+        """
+
+        :param str_heading:
+        :param heading_level:
+        :param char:
+        :param max_length:
+        :param log:
+        :return:
+        """
+        print_or_log = log.info if log else print
         char_selector = {
             1: '-',
             2: '*',
@@ -417,7 +467,6 @@ class PhUtil:
             max_length = PhConstants.HEADING_LENGTH_MAX
         data_max_length = max_length - PhConstants.HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_SYMBOL - PhConstants.HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_WHITE_SPACES
         str_heading = str_heading[:data_max_length].replace('\n', ' ')
-        print_or_log = log.info if log else print
         current_len = len(str_heading)
         remaining_count = max_length - current_len - PhConstants.HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_WHITE_SPACES
         print_or_log(
@@ -429,6 +478,15 @@ class PhUtil:
 
     @classmethod
     def analyse_data(cls, str_hex_data, cmt_to_print='', print_also=False, log=None):
+        """
+
+        :param str_hex_data:
+        :param cmt_to_print:
+        :param print_also:
+        :param log:
+        :return:
+        """
+        print_or_log = log.info if log else print
         analysed_str = ''
         if str_hex_data:
             str_hex_data = str(str_hex_data)  # Needed to convert any type
@@ -443,7 +501,6 @@ class PhUtil:
                 cmt_to_print = '\n' + cmt_to_print + '\t'
             analysed_str = ':'.join(filter(None, [cmt_to_print, analysed_str]))
         if print_also:
-            print_or_log = log.info if log else print
             print_or_log(analysed_str)
         return analysed_str
 
@@ -1310,10 +1367,18 @@ class PhUtil:
 
     @classmethod
     def print_data_frame(cls, output, cmt='', level=0, log=None):
+        """
+
+        :param output:
+        :param cmt:
+        :param level:
+        :param log:
+        :return:
+        """
+        print_or_log = log.info if log else print
         if not isinstance(output, DataFrame):
             return
         pd.set_option('display.max_columns', None)
-        print_or_log = log.info if log else print
         # pd.set_option('display.max_rows', None)
         print_or_log(cmt)
         if level == 0:
