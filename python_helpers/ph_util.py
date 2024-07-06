@@ -1956,3 +1956,11 @@ class PhUtil:
         data_group_list = remarks.split(PhConstants.SEPERATOR_MULTI_OBJ)
         data_group = data_group_list[0] if len(data_group_list) > 0 else data_group_list
         return remarks, data_group
+
+    @classmethod
+    def dict_merge(cls, dict1, dict2):
+        if not dict2:
+            return dict1
+        if not dict1:
+            return dict2
+        return {**dict1, **dict2}

@@ -1,4 +1,7 @@
 class PhConstants:
+    DICT_EMPTY = {}
+    LIST_EMPTY = []
+
     STR_EMPTY = ''
     STR_TAB = '    '
     STR_SPACE = ' '

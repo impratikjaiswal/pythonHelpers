@@ -93,6 +93,18 @@ class PhKeys:
     APP_GITHUB_URL = 'app_github_url'
     APP_GITHUB_PAGES_URL = 'app_github_pages_url'
     APP_GIT_SUMMARY = 'app_git_summary'
+    APP_URL = 'app_url'
+    APP_URL_API = 'app_url_api'
+    APP_TEMPLATE = 'app_template'
+    APP_HOST = 'app_host'
+
+    #
+    TESTIMONIAL_POSTS = 'testimonial_posts'
+    TESTIMONIAL_POST = 'testimonial_post'
+    TESTIMONIAL_POST_ID = 'testimonial_post_id'
+    TESTIMONIAL_POST_TITLE = 'testimonial_post_title'
+    TESTIMONIAL_POST_CREATED = 'testimonial_post_created'
+    TESTIMONIAL_POST_PUBLISHER = 'testimonial_post_publisher'
 
     ##############
     INFO = 'info'
@@ -140,6 +152,11 @@ class PhKeys:
     #
     COMPILE_TIME = 'compile_time'
     RUN_TIME = 'run_time'
+
+    #
+    API = 'api'
+    LOG = 'log'
+    INTERNAL = 'internal'
 
     # Deprecated
     # Start
