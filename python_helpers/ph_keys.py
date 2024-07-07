@@ -94,9 +94,13 @@ class PhKeys:
     APP_GITHUB_PAGES_URL = 'app_github_pages_url'
     APP_GIT_SUMMARY = 'app_git_summary'
     APP_URL = 'app_url'
+    APP_URL_ALT = 'app_url_alt'
     APP_URL_API = 'app_url_api'
     APP_TEMPLATE = 'app_template'
     APP_HOST = 'app_host'
+    APP_END_POINT = 'app_end_point'
+    APP_CODE = 'app_code'
+    NAV_BAR_APP_ITEMS = 'nav_bar_app_items'
 
     #
     TESTIMONIAL_POSTS = 'testimonial_posts'
