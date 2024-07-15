@@ -4,6 +4,7 @@ import sys
 
 import python_helpers
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_crypto import PhCrypto
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
@@ -197,6 +198,17 @@ def test_temp():
     PhUtil.print_heading()
 
 
+def test_hash():
+    PhUtil.print_heading()
+    PhUtil.print_heading(str_heading='hash_algos_list')
+    print(PhCrypto.hash_algos_list())
+    msg = 'First'
+    PhUtil.print_heading(str_heading='Str hash')
+    print(f'Input String: {msg}; hash_str_sha256: {PhCrypto.hash_str_sha256(msg=msg)}')
+    print(f'Input String: {msg}; hash_str: {PhCrypto.hash_str(msg=msg)}')
+    print(f'Input String: {msg}; hash_str(hash_algo=sha512) {PhCrypto.hash_str(msg=msg, hash_algo="sha512")}')
+
+
 def test_get_git_info():
     PhUtil.print_heading()
     PhUtil.print_heading('get_git_info_detailed; GIT_SUMMARY')
@@ -366,6 +378,7 @@ def main():
     test_obj_list()
     test_get_classes_list()
     test_generalise_list()
+    test_hash()
 
 
 if __name__ == '__main__':

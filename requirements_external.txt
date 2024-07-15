@@ -16,3 +16,6 @@ tzlocal
 
 # Required for IPV4 & IPV6
 requests
+
+# Crypto
+pycryptodome

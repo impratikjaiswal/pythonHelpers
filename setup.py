@@ -3,6 +3,7 @@
 import os
 
 from setuptools import setup, find_packages
+
 from python_helpers._tool_name import TOOL_NAME
 
 # all packages dependencies
@@ -23,6 +24,7 @@ install_reqs = [
     'click',
     'twisted',
     'requests',
+    'pycryptodome',
 ]
 
 setup_reqs = [

@@ -88,7 +88,10 @@ class PhKeys:
 
     # App
     APP_TITLE = 'app_title'
+    APP_TITLE_PRE = 'app_title_pre'
+    APP_TITLE_POST = 'app_title_post'
     APP_DESCRIPTION = 'app_description'
+    APP_DESCRIPTION_LEVEL_2 = 'app_description_level_2'
     APP_VERSION = 'app_version'
     APP_GITHUB_URL = 'app_github_url'
     APP_GITHUB_PAGES_URL = 'app_github_pages_url'
@@ -103,12 +106,30 @@ class PhKeys:
     NAV_BAR_APP_ITEMS = 'nav_bar_app_items'
 
     #
+    ALERT_CSS_CLASS_DANGER = 'danger'
+    ALERT_CSS_CLASS_DARK = 'dark'
+    ALERT_CSS_CLASS_DISMISSIBLE = 'dismissible'
+    ALERT_CSS_CLASS_HEADING = 'heading'
+    ALERT_CSS_CLASS_INFO = 'info'
+    ALERT_CSS_CLASS_LIGHT = 'light'
+    ALERT_CSS_CLASS_LINK = 'link'
+    ALERT_CSS_CLASS_PRIMARY = 'primary'
+    ALERT_CSS_CLASS_SECONDARY = 'secondary'
+    ALERT_CSS_CLASS_SUCCESS = 'success'
+    ALERT_CSS_CLASS_WARNING = 'warning'
+
+    #
     TESTIMONIAL_POSTS = 'testimonial_posts'
     TESTIMONIAL_POST = 'testimonial_post'
     TESTIMONIAL_POST_ID = 'testimonial_post_id'
     TESTIMONIAL_POST_TITLE = 'testimonial_post_title'
-    TESTIMONIAL_POST_CREATED = 'testimonial_post_created'
+    TESTIMONIAL_POST_CONTENT = 'testimonial_post_content'
     TESTIMONIAL_POST_PUBLISHER = 'testimonial_post_publisher'
+    TESTIMONIAL_POST_CREATED = 'testimonial_post_created'
+
+    #
+    LOGIN_USER_NAME = 'login_user_name'
+    LOGIN_USER_NAME = 'login_pass_word'
 
     ##############
     INFO = 'info'
