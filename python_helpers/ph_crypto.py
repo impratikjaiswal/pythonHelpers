@@ -12,7 +12,7 @@ class PhCrypto:
 
     @classmethod
     def hash_algos_list(cls):
-        return hashlib.algorithms_available
+        return list(sorted(hashlib.algorithms_available))
 
     @classmethod
     def hash_str(cls, msg, hash_algo='sha256', encoding=PhConstants.DECODE_MODE_UTF8, hex_digest=True):

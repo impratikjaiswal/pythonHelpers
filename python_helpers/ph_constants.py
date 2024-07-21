@@ -187,6 +187,7 @@ class PhConstants:
 
     SEPERATOR_TWO_WORDS = ' '
     SEPERATOR_TWO_LINES = '\n'
+    SEPERATOR_TWO_LINES_MULTI = '\n\n'
     SEPERATOR_FILE_NAME = '_'
     SEPERATOR_ONE_LINE = ': '
     SEPERATOR_KEY_VALUE = ': '

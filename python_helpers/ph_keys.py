@@ -60,6 +60,7 @@ class PhKeys:
     ONE_LINER = 'one_liner'
     VALUE_IN_ASCII = 'value_in_ascii'
     LENGTH_IN_DECIMAL = 'length_in_decimal'
+    NON_TLV_NEIGHBOR = 'non_tlv_neighbor'
 
     # qrPlay
     SCALE = 'scale'
@@ -85,6 +86,11 @@ class PhKeys:
     # App Parent
     APP_PARENT_TITLE = 'app_parent_title'
     APP_PARENT_VERSION = 'app_parent_version'
+
+    # Result
+    RESULT = 'result'
+    RESULT_PROCESSED = 'result_processed'
+    RESULT_UNPROCESSED = 'result_unprocessed'
 
     # App
     APP_TITLE = 'app_title'
