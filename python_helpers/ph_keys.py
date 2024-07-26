@@ -189,6 +189,10 @@ class PhKeys:
     LOG = 'log'
     INTERNAL = 'internal'
 
+    #
+    BEFORE = 'Before: '
+    AFTER = 'After : '
+
     # Deprecated
     # Start
     SAMPLE_1 = 'sample_1'

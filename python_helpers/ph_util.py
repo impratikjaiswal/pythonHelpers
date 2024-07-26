@@ -958,8 +958,9 @@ class PhUtil:
         return range_data
 
     @classmethod
-    def makedirs(cls, dir_path):
-        # dir_path = cls.get_absolute_path(dir_path)
+    def makedirs(cls, dir_path, absolute_path_needed=False):
+        if absolute_path_needed:
+            dir_path = cls.get_absolute_path(dir_path)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
