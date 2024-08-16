@@ -7,7 +7,9 @@ import os
 import random
 import re
 import secrets
+import shutil
 import string
+import zipfile
 from datetime import datetime
 from io import TextIOWrapper, StringIO
 
@@ -105,7 +107,7 @@ class PhUtil:
 
     @classmethod
     def is_hex(cls, s):
-        # Don't verify length here, this is just to verify String Type
+        # Don't verify length here; this is just to verify String Type
         return all(c in string.hexdigits for c in s)
 
     @classmethod
@@ -197,6 +199,16 @@ class PhUtil:
 
     @classmethod
     def print_(cls, data, log=None):
+        """
+        Deprecated; use print
+        :param data:
+        :param log:
+        :return:
+        """
+        cls.print(data=data, log=log)
+
+    @classmethod
+    def print(cls, data, log=None):
         print_or_log = log.info if log else print
         print_or_log(data)
 
@@ -320,15 +332,25 @@ class PhUtil:
         print_or_log(msg)
 
     @classmethod
-    def print_done(cls, log=None):
+    def print_cmt(cls, character='-', count=40, main_text='', log=None):
+        cls.print_separator(character=character, count=count, main_text=main_text, log=log)
+
+    @classmethod
+    def print_done(cls, main_text='All Done.', log=None):
         cls.print_separator(log=log)
-        cls.print_separator(character=' ', count=35, main_text='All Done.', log=log)
+        cls.print_separator(character=' ', count=35, main_text=main_text, log=log)
         cls.print_separator(log=log)
 
     @classmethod
     def print_error(cls, str_heading, log=None):
         cls.print_separator(log=log)
-        cls.print_separator(main_text=f'Error Occurred: {str_heading}', log=log)
+        cls.print_separator(character='+', main_text=f'Error Occurred: {str_heading}', log=log)
+        cls.print_separator(log=log)
+
+    @classmethod
+    def print_work_in_progress(cls, str_heading, log=None):
+        cls.print_separator(log=log)
+        cls.print_separator(character='+', main_text=f'Work In Progress', log=log)
         cls.print_separator(log=log)
 
     @classmethod
@@ -959,10 +981,27 @@ class PhUtil:
 
     @classmethod
     def makedirs(cls, dir_path, absolute_path_needed=False):
+        """
+        Deprecated; use make_dirs
+        :param dir_path:
+        :param absolute_path_needed:
+        :return:
+        """
+        cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
+
+    @classmethod
+    def make_dirs(cls, dir_path, absolute_path_needed=False):
         if absolute_path_needed:
             dir_path = cls.get_absolute_path(dir_path)
         if not os.path.exists(dir_path):
+            cls.print_cmt(f'Creating Folder: {dir_path}')
             os.makedirs(dir_path)
+
+    @classmethod
+    def clean_dirs(cls, target_dir):
+        if os.path.exists(target_dir) and os.path.isdir(target_dir):
+            cls.print_cmt(f'Deleting Folder: {target_dir}')
+            shutil.rmtree(target_dir)
 
     @classmethod
     def find_offset_of_section(cls, data, char_to_find, corresponding_char_to_find):
@@ -1396,14 +1435,13 @@ class PhUtil:
     def print_data_frame_shape(cls, output, cmt='', level=1, log=None):
         if not isinstance(output, DataFrame):
             return
-        count_row, count_col = output.shape
         print_or_log = log.info if log else print
-        print_or_log(','.join(filter(None, ['Shape: {} x {}'.format(count_row, count_col), cmt])))
+        print_or_log(','.join(filter(None, ['Shape: {} x {}'.format(output.shape[0], output.shape[1]), cmt])))
         # Faster alternate
         # count_row = len(output.index)
         if level < 1:
             return
-        print_or_log(list(output))
+        print_or_log(f'Cols Headers: {list(output)}')
         if level < 2:
             return
         print_or_log(output.info())
@@ -1965,3 +2003,35 @@ class PhUtil:
         if not dict1:
             return dict2
         return {**dict1, **dict2}
+
+    @classmethod
+    def create_zip(cls, zip_file_name, source_dir):
+        files_list = []
+        with zipfile.ZipFile(zip_file_name, 'w', zipfile.ZIP_DEFLATED) as zip_file:
+            for root, dirs, files in os.walk(source_dir):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    files_list.append(file_path)
+                    zip_file.write(file_path,
+                                   os.path.relpath(os.path.join(root, file), os.path.join(source_dir, '..')))
+        return files_list
+
+    @classmethod
+    def zip_and_clean_dir(cls, target_dir, file_name, source_files_dir, delete_dir_after_zip=True, export_hash=True):
+        zip_file_path = os.sep.join(filter(None, [target_dir, f'{file_name}.zip']))
+        cls.print_cmt(f'Exporting Zip File: {zip_file_path}')
+        # shutil.make_archive(base_name=zip_file_name, format='zip', root_dir=folder_path)
+        files_list = cls.create_zip(zip_file_path, source_files_dir)
+        if export_hash:
+            hash_file_path = os.sep.join(filter(None, [target_dir, f'{file_name}.hash']))
+            cls.print_cmt(f'Exporting Hash of Files inside Zip File: {hash_file_path}')
+            # Zip file contains Time stamp of archived files, hence its hash is changing always
+            # so Grab the hash of individual files
+            cls.generate_hash(files_list, hash_file_path)
+        if delete_dir_after_zip:
+            cls.clean_dirs(source_files_dir)
+        return zip_file_path
+
+    @classmethod
+    def generate_hash(cls, files_list, hash_file_path):
+        cls.print_work_in_progress()

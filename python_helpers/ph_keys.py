@@ -97,7 +97,12 @@ class PhKeys:
     APP_TITLE_PRE = 'app_title_pre'
     APP_TITLE_POST = 'app_title_post'
     APP_DESCRIPTION = 'app_description'
+    APP_DESCRIPTION_LEVEL_1 = 'app_description_level_1'
     APP_DESCRIPTION_LEVEL_2 = 'app_description_level_2'
+    APP_DESCRIPTION_LEVEL_3 = 'app_description_level_3'
+    APP_DESCRIPTION_LEVEL_4 = 'app_description_level_4'
+    APP_DESCRIPTION_LEVEL_5 = 'app_description_level_5'
+    APP_DESCRIPTION_LEVEL_6 = 'app_description_level_6'
     APP_VERSION = 'app_version'
     APP_GITHUB_URL = 'app_github_url'
     APP_GITHUB_PAGES_URL = 'app_github_pages_url'
@@ -188,6 +193,7 @@ class PhKeys:
     API = 'api'
     LOG = 'log'
     INTERNAL = 'internal'
+    ROOT_PATH = 'root_path'
 
     #
     BEFORE = 'Before: '
