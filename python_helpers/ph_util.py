@@ -44,7 +44,10 @@ class PhUtil:
     path_default_res_folder = path_current_folder + os.sep + 'res'
     path_default_log_folder = path_current_folder + os.sep + 'logs'
     path_default_out_folder = path_current_folder + os.sep + 'out'
+    path_default_data_folder = path_current_folder + os.sep + 'data'
     path_default_tst_folder = path_current_folder + os.sep + 'tests'
+    path_default_bkp_folder = path_current_folder + os.sep + 'backup'
+    path_default_data_bkp_folder = os.sep.join([path_current_folder, 'data', 'backup'])
     # Sample Data:
     # in Real Environment: D:\ProgramFiles\Python37
     # in Virtual Environment: D:\Other\Github_Self\asn1Play\venv\Scripts
@@ -332,7 +335,7 @@ class PhUtil:
         print_or_log(msg)
 
     @classmethod
-    def print_cmt(cls, character='-', count=40, main_text='', log=None):
+    def print_cmt(cls, main_text='', character='-', count=40, log=None):
         cls.print_separator(character=character, count=count, main_text=main_text, log=log)
 
     @classmethod
@@ -342,15 +345,17 @@ class PhUtil:
         cls.print_separator(log=log)
 
     @classmethod
-    def print_error(cls, str_heading, log=None):
+    def print_work_in_progress(cls, main_text='Work In Progress', append_function_name=True, log=None):
         cls.print_separator(log=log)
-        cls.print_separator(character='+', main_text=f'Error Occurred: {str_heading}', log=log)
+        if append_function_name:
+            main_text = f'{cls.get_current_func_name(parent_level=2)}(): {main_text}'
+        cls.print_separator(character='+', count=50, main_text=main_text, log=log)
         cls.print_separator(log=log)
 
     @classmethod
-    def print_work_in_progress(cls, str_heading, log=None):
+    def print_error(cls, str_heading, log=None):
         cls.print_separator(log=log)
-        cls.print_separator(character='+', main_text=f'Work In Progress', log=log)
+        cls.print_separator(character='+', main_text=f'Error Occurred: {str_heading}', log=log)
         cls.print_separator(log=log)
 
     @classmethod
@@ -463,7 +468,7 @@ class PhUtil:
             cls.print_separator(log=log)
 
     @classmethod
-    def print_heading(cls, str_heading=None, heading_level=1, char=None, max_length=None, log=None):
+    def print_heading(cls, str_heading=None, heading_level=1, char=None, max_length=None, log=None, parent_level=None):
         """
 
         :param str_heading:
@@ -481,8 +486,10 @@ class PhUtil:
         }
         if char is None:
             char = char_selector.get(heading_level, '-')
+        if parent_level is None:
+            parent_level = 2
         if str_heading is None:
-            str_heading = cls.get_current_func_name(parent_level=2)
+            str_heading = cls.get_current_func_name(parent_level=parent_level)
         if isinstance(str_heading, list):
             str_heading = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, str_heading))
         if max_length is None:
@@ -594,11 +601,12 @@ class PhUtil:
         return file_name
 
     @classmethod
-    def backup_file_name(cls, str_file_path, default_file_ext=PhFileExtensions.BKP, default_key_word='backup'):
-        if not str_file_path:
-            str_file_path = default_file_ext
+    def backup_file_name(cls, str_file_path, default_file_ext=PhFileExtensions.BKP, default_key_word='backup',
+                         file_path_is_dir=None):
         return cls.append_in_file_name(str_file_path,
-                                       str_append=[default_key_word, cls.get_time_stamp(files_format=True)])
+                                       str_append=[default_key_word, cls.get_time_stamp(files_format=True)],
+                                       file_path_is_dir=file_path_is_dir, treat_folder_as_file=False,
+                                       default_ext=default_file_ext)
 
     @classmethod
     def rreplace(cls, main_str, old, new, max_split=1):
@@ -606,9 +614,12 @@ class PhUtil:
 
     @classmethod
     def append_in_file_name(cls, str_file_path, str_append=None, sep=None, new_name=None, new_ext=None,
-                            file_path_is_dir=None, ext_available_in_file_name=None, append_post=None):
+                            file_path_is_dir=None, ext_available_in_file_name=None, append_post=None,
+                            treat_folder_as_file=False, default_ext=None):
         """
 
+        :param default_ext:
+        :param treat_folder_as_file:
         :param str_file_path:
         :param str_append:
         :param sep:
@@ -626,6 +637,8 @@ class PhUtil:
             sep = '_'
         if new_ext is None:
             new_ext = ''
+        if default_ext is None:
+            default_ext = ''
         if file_path_is_dir is None:
             file_path_is_dir = False
         if ext_available_in_file_name is None:
@@ -638,7 +651,7 @@ class PhUtil:
         if file_path_is_dir or str_file_path.endswith(os.sep):
             str_ext = ''
             ext_available_in_file_name = False
-            if file_path_is_dir:
+            if treat_folder_as_file:
                 # consider folder name as file name
                 str_file_name = cls.get_file_name_and_extn(str_file_path)
                 str_path = cls.get_file_name_and_extn(str_file_path, only_path=True)
@@ -646,6 +659,8 @@ class PhUtil:
                 # consider folder name as folder name
                 str_file_name = ''
                 str_path = str_file_path
+                if not str_file_path.endswith(os.sep):
+                    str_path += os.sep
         else:
             str_path = cls.get_file_name_and_extn(str_file_path, only_path=True)
             str_ext = cls.get_file_name_and_extn(str_file_path, only_extn=True,
@@ -663,6 +678,8 @@ class PhUtil:
         else:
             str_append = ''
         #
+        if not str_ext and not new_ext and default_ext:
+            new_ext = default_ext
         str_new_ext = (str_ext if not new_ext else new_ext)
         str_temp_name = new_name if new_name is not None else str_file_name
         str_new_file_name = (str_temp_name + str_append) if append_post else (str_append + str_temp_name)
@@ -994,13 +1011,13 @@ class PhUtil:
         if absolute_path_needed:
             dir_path = cls.get_absolute_path(dir_path)
         if not os.path.exists(dir_path):
-            cls.print_cmt(f'Creating Folder: {dir_path}')
+            cls.print_cmt(main_text=f'Creating Folder: {dir_path}')
             os.makedirs(dir_path)
 
     @classmethod
     def clean_dirs(cls, target_dir):
         if os.path.exists(target_dir) and os.path.isdir(target_dir):
-            cls.print_cmt(f'Deleting Folder: {target_dir}')
+            cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
             shutil.rmtree(target_dir)
 
     @classmethod
@@ -1295,9 +1312,10 @@ class PhUtil:
 
     @classmethod
     def to_file(cls, output_lines, file_name='', str_append='', new_ext='', lines_sep='\n', encoding='utf-8',
-                back_up_file=False):
+                back_up_file=False, file_path_is_dir=None):
         """
 
+        :param file_path_is_dir:
         :param output_lines:
         :param file_name:
         :param str_append:
@@ -1310,7 +1328,7 @@ class PhUtil:
         if output_lines is None:
             return None
         if back_up_file:
-            file_name = cls.backup_file_name(file_name)
+            file_name = cls.backup_file_name(str_file_path=file_name, file_path_is_dir=file_path_is_dir)
         if str_append or new_ext:
             file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
         folder_path = cls.get_file_name_and_extn(file_name, only_path=True)
@@ -2005,26 +2023,35 @@ class PhUtil:
         return {**dict1, **dict2}
 
     @classmethod
-    def create_zip(cls, zip_file_name, source_dir):
+    def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False):
         files_list = []
         with zipfile.ZipFile(zip_file_name, 'w', zipfile.ZIP_DEFLATED) as zip_file:
             for root, dirs, files in os.walk(source_dir):
                 for file in files:
                     file_path = os.path.join(root, file)
                     files_list.append(file_path)
-                    zip_file.write(file_path,
-                                   os.path.relpath(os.path.join(root, file), os.path.join(source_dir, '..')))
+                    rel_path = os.path.join(source_dir, '..') if keep_source_dir_in_zip else source_dir
+                    zip_file.write(file_path, os.path.relpath(file_path, rel_path))
         return files_list
 
     @classmethod
-    def zip_and_clean_dir(cls, target_dir, file_name, source_files_dir, delete_dir_after_zip=True, export_hash=True):
-        zip_file_path = os.sep.join(filter(None, [target_dir, f'{file_name}.zip']))
-        cls.print_cmt(f'Exporting Zip File: {zip_file_path}')
+    def zip_and_clean_dir(cls, source_files_dir, target_dir=None, target_file_name_wo_extn=None,
+                          delete_dir_after_zip=False, keep_source_dir_in_zip=False, export_hash=True):
+        if not source_files_dir:
+            return None
+        if not target_file_name_wo_extn:
+            target_file_name_wo_extn = cls.get_file_name_and_extn(file_path=source_files_dir)
+        if not target_dir or target_dir == source_files_dir:
+            # source & target_dir should not be the same
+            target_dir = os.sep.join([source_files_dir, os.pardir])
+        cls.make_dirs(target_dir)
+        zip_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.zip']))
+        cls.print_cmt(main_text=f'Exporting Zip File: {zip_file_path}')
         # shutil.make_archive(base_name=zip_file_name, format='zip', root_dir=folder_path)
-        files_list = cls.create_zip(zip_file_path, source_files_dir)
+        files_list = cls.create_zip(zip_file_path, source_files_dir, keep_source_dir_in_zip=keep_source_dir_in_zip)
         if export_hash:
-            hash_file_path = os.sep.join(filter(None, [target_dir, f'{file_name}.hash']))
-            cls.print_cmt(f'Exporting Hash of Files inside Zip File: {hash_file_path}')
+            hash_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.hash']))
+            cls.print_cmt(main_text=f'Exporting Hash of Files inside Zip File: {hash_file_path}')
             # Zip file contains Time stamp of archived files, hence its hash is changing always
             # so Grab the hash of individual files
             cls.generate_hash(files_list, hash_file_path)

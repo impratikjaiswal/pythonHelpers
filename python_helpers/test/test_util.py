@@ -26,8 +26,8 @@ class test_obj_get_file_name_and_extn:
 
 
 class test_obj_append_in_file_name:
-    def __init__(self, str_file_path, str_append=None, sep=None, new_name=None, new_ext=None,
-                 file_path_is_dir=None, ext_available_in_file_name=None, append_post=None,
+    def __init__(self, str_file_path, str_append=None, sep=None, new_name=None, new_ext=None, file_path_is_dir=None,
+                 ext_available_in_file_name=None, append_post=None, treat_folder_as_file=None, default_ext=None,
                  expected_op=None):
         self.str_file_path = str_file_path
         self.str_append = str_append
@@ -37,6 +37,8 @@ class test_obj_append_in_file_name:
         self.file_path_is_dir = file_path_is_dir
         self.ext_available_in_file_name = ext_available_in_file_name
         self.append_post = append_post
+        self.treat_folder_as_file = treat_folder_as_file
+        self.default_ext = default_ext
         self.expected_op = expected_op
 
 
@@ -183,6 +185,7 @@ class util_test(unittest.TestCase):
         op_file_path = os.sep.join([PhUtil.path_default_out_folder, 'Youtube_PlayList.tmp'])
         op_file_path_dir = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\out_Youtube_PlayList\\.tmp'
         src_file_path = 'D:/abc/def/123/out_file_12564.txt'
+        default_ext = '.default'
         test_obj_pool = [
             test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
                                          expected_op='D:\\Other\\python_gen\\sgp22\\sgp22_mapping.py'),
@@ -263,22 +266,37 @@ class util_test(unittest.TestCase):
                                          expected_op='mapping.txt'),
             test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
                                          file_path_is_dir=True,
+                                         expected_op='D:\\Other\\python_gen\\sgp22\\sgp22.py\\mapping'),
+            test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22.py', str_append='mapping',
+                                         file_path_is_dir=True, treat_folder_as_file=True,
                                          expected_op='D:\\Other\\python_gen\\sgp22\\sgp22.py_mapping'),
             test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22', str_append='mapping',
                                          file_path_is_dir=True,
+                                         expected_op='D:\\Other\\python_gen\\sgp22\\sgp22\\mapping'),
+            test_obj_append_in_file_name(str_file_path='D:\\Other\\python_gen\\sgp22\\sgp22', str_append='mapping',
+                                         file_path_is_dir=True, treat_folder_as_file=True,
                                          expected_op='D:\\Other\\python_gen\\sgp22\\sgp22_mapping'),
             test_obj_append_in_file_name(
                 str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
-                new_ext='.tmp', expected_op=op_file_path),
+                new_ext='.tmp', file_path_is_dir=False, expected_op=op_file_path),
             test_obj_append_in_file_name(
                 str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
-                new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path_dir),
+                new_ext='.tmp', file_path_is_dir=True, expected_op=op_file_path),
+            test_obj_append_in_file_name(
+                str_file_path=PhUtil.path_default_out_folder + os.sep, str_append=['Youtube', 'PlayList'],
+                new_ext='.tmp', file_path_is_dir=True, treat_folder_as_file=True, expected_op=op_file_path_dir),
             test_obj_append_in_file_name(
                 str_file_path=os.sep.join([PhUtil.path_default_out_folder, '']), str_append=['Youtube', 'PlayList'],
                 new_ext='.tmp', expected_op=op_file_path),
             test_obj_append_in_file_name(
                 str_file_path=os.sep.join([PhUtil.path_default_out_folder, '']), new_name='dest_vs_block',
                 new_ext='.txt', expected_op=os.sep.join([PhUtil.path_default_out_folder, 'dest_vs_block.txt'])),
+            test_obj_append_in_file_name(str_file_path='\\sgp22\\sgp22.py', str_append='mapping',
+                                         expected_op='\\sgp22\\sgp22_mapping.py', default_ext=default_ext),
+            test_obj_append_in_file_name(str_file_path='\\sgp22\\sgp22.py', str_append='mapping', new_ext='.pyc',
+                                         expected_op='\\sgp22\\sgp22_mapping.pyc', default_ext=default_ext),
+            test_obj_append_in_file_name(str_file_path='\\sgp22\\sgp22', str_append='mapping',
+                                         expected_op='\\sgp22\\sgp22_mapping.default', default_ext=default_ext),
         ]
         for count, test_obj in enumerate(test_obj_pool, start=1):
             with self.subTest(STR_TEST_OBJ + str(count)):
@@ -287,6 +305,8 @@ class util_test(unittest.TestCase):
                                                sep=test_obj.sep, new_name=test_obj.new_name, new_ext=test_obj.new_ext,
                                                file_path_is_dir=test_obj.file_path_is_dir,
                                                ext_available_in_file_name=test_obj.ext_available_in_file_name,
+                                               treat_folder_as_file=test_obj.treat_folder_as_file,
+                                               default_ext=test_obj.default_ext,
                                                append_post=test_obj.append_post), test_obj.expected_op)
 
     def test_get_version_from_name(self):

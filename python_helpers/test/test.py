@@ -1,3 +1,4 @@
+import os
 import unittest
 
 import sys
@@ -234,8 +235,14 @@ def test_get_time_stamp_file_name():
 def test_to_file():
     PhUtil.print_heading()
     PhUtil.to_file(output_lines='abc', file_name='abc.txt')
-    PhUtil.to_file(output_lines=['abc', 'def', 'ghi'], file_name='abc_list.txt')
+    PhUtil.to_file(output_lines='abc', file_name=os.sep.join([PhUtil.path_default_data_folder, 'abc.txt']))
+    PhUtil.to_file(output_lines=['abc', 'def', 'ghi'],
+                   file_name=os.sep.join([PhUtil.path_default_data_folder, 'abc_list.txt']))
     PhUtil.to_file(output_lines='abc', back_up_file=True)
+    PhUtil.to_file(output_lines='abc', file_name=os.sep.join([PhUtil.path_default_bkp_folder, 'a_b_c.txt']),
+                   back_up_file=True)
+    PhUtil.to_file(output_lines='abc', file_name=PhUtil.path_default_bkp_folder, back_up_file=True,
+                   file_path_is_dir=True)
 
 
 def test_print_iter():
@@ -356,6 +363,25 @@ def test_generalise_list():
     PhUtil.print_iter(generalise_list_append_others_rev, header='generalise_list_append_others_rev')
 
 
+def test_zipfile():
+    PhUtil.print_heading()
+    source_files_dir = PhUtil.path_default_data_folder
+    target_dir = PhUtil.path_default_res_folder
+    PhUtil.print_heading(str_heading='keep_source_dir_in_zip=True')
+    PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir, target_dir=target_dir, keep_source_dir_in_zip=True,
+                             target_file_name_wo_extn='test_zipfile_keep_source_dir_in_zip_true')
+    PhUtil.print_heading(str_heading='keep_source_dir_in_zip=False')
+    PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir, target_dir=target_dir, keep_source_dir_in_zip=False,
+                             target_file_name_wo_extn='test_zipfile_keep_source_dir_in_zip_false')
+    PhUtil.print_heading(str_heading='source_files_dir=target_dir')
+    PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir, target_dir=source_files_dir,
+                             target_file_name_wo_extn='test_zipfile_keep_source_path_is_dest_path')
+    PhUtil.print_heading(str_heading='source_files_and_target_dir')
+    PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir, target_dir=target_dir)
+    PhUtil.print_heading(str_heading='only_source_files')
+    PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir)
+
+
 def main():
     """
 
@@ -379,6 +405,7 @@ def main():
     test_get_classes_list()
     test_generalise_list()
     test_hash()
+    test_zipfile()
 
 
 if __name__ == '__main__':
