@@ -236,6 +236,8 @@ def test_to_file():
     PhUtil.print_heading()
     PhUtil.to_file(output_lines='abc', file_name='abc.txt')
     PhUtil.to_file(output_lines='abc', file_name=os.sep.join([PhUtil.path_default_data_folder, 'abc.txt']))
+    PhUtil.to_file(output_lines='abc', file_name=os.sep.join([PhUtil.path_default_data_folder, 'abc.list']))
+    PhUtil.to_file(output_lines='abc', file_name=os.sep.join([PhUtil.path_default_data_folder, 'abc.ini']))
     PhUtil.to_file(output_lines=['abc', 'def', 'ghi'],
                    file_name=os.sep.join([PhUtil.path_default_data_folder, 'abc_list.txt']))
     PhUtil.to_file(output_lines='abc', back_up_file=True)
@@ -380,6 +382,10 @@ def test_zipfile():
     PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir, target_dir=target_dir)
     PhUtil.print_heading(str_heading='only_source_files')
     PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir)
+    PhUtil.print_heading(str_heading='source_dir_custom_extn_files')
+    file_list = ['*.txt']
+    PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir, include_files=file_list,
+                             target_file_name_wo_extn='test_zipfile_source_dir_custom_extn_files')
 
 
 def main():
@@ -388,7 +394,7 @@ def main():
     :return:
     """
     test_temp()
-    # Keep on the 2nd Number
+    # ## Keep on the 2nd Number
     test_version()
     test_get_git_info()
     test_get_time_stamp_file_name()

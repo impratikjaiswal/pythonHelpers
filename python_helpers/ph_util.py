@@ -763,8 +763,7 @@ class PhUtil:
 
     @classmethod
     def traverse_it(cls, top=path_current_folder, traverse_mode='Regex', include_files=None, include_dirs=None,
-                    excludes=None,
-                    detail_info=False):
+                    excludes=None, detail_info=False):
         """
         Usage: python <programName.py> <folderName>
 
@@ -2023,20 +2022,21 @@ class PhUtil:
         return {**dict1, **dict2}
 
     @classmethod
-    def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False):
+    def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False, include_files=None, include_dirs=None,
+                   excludes=None):
         files_list = []
         with zipfile.ZipFile(zip_file_name, 'w', zipfile.ZIP_DEFLATED) as zip_file:
-            for root, dirs, files in os.walk(source_dir):
-                for file in files:
-                    file_path = os.path.join(root, file)
-                    files_list.append(file_path)
-                    rel_path = os.path.join(source_dir, '..') if keep_source_dir_in_zip else source_dir
-                    zip_file.write(file_path, os.path.relpath(file_path, rel_path))
-        return files_list
+            files_list = cls.traverse_it(top=source_dir, include_files=include_files, include_dirs=include_dirs,
+                                         excludes=excludes)
+            for file_path in files_list:
+                rel_path = os.path.join(source_dir, '..') if keep_source_dir_in_zip else source_dir
+                zip_file.write(file_path, os.path.relpath(file_path, rel_path))
+            return files_list
 
     @classmethod
     def zip_and_clean_dir(cls, source_files_dir, target_dir=None, target_file_name_wo_extn=None,
-                          delete_dir_after_zip=False, keep_source_dir_in_zip=False, export_hash=True):
+                          delete_dir_after_zip=False, keep_source_dir_in_zip=False, export_hash=True,
+                          include_files=None, include_dirs=None, excludes=None):
         if not source_files_dir:
             return None
         if not target_file_name_wo_extn:
@@ -2048,7 +2048,8 @@ class PhUtil:
         zip_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.zip']))
         cls.print_cmt(main_text=f'Exporting Zip File: {zip_file_path}')
         # shutil.make_archive(base_name=zip_file_name, format='zip', root_dir=folder_path)
-        files_list = cls.create_zip(zip_file_path, source_files_dir, keep_source_dir_in_zip=keep_source_dir_in_zip)
+        files_list = cls.create_zip(zip_file_path, source_files_dir, keep_source_dir_in_zip=keep_source_dir_in_zip,
+                                    include_files=include_files, include_dirs=include_dirs, excludes=excludes)
         if export_hash:
             hash_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.hash']))
             cls.print_cmt(main_text=f'Exporting Hash of Files inside Zip File: {hash_file_path}')
