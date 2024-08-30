@@ -271,3 +271,6 @@ class PhConstants:
 
     YES = True
     NO = False
+
+    DIR_CREATION = 1
+    DIR_DELETION = 2

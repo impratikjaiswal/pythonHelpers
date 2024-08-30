@@ -1,7 +1,7 @@
 import base64
-import ctypes
 import enum
 import fnmatch
+import getpass
 import inspect
 import os
 import random
@@ -32,10 +32,20 @@ from python_helpers.ph_keys import PhKeys
 
 _base_profiles_available = False
 _psutil_available = True
+_ctypes_available = True
+_pwd_available = True
 try:
     import psutil
 except ImportError:
     _psutil_available = False
+try:
+    import ctypes
+except ImportError:
+    _ctypes_available = False
+try:
+    import pwd
+except ImportError:
+    _pwd_available = False
 
 
 class PhUtil:
@@ -441,9 +451,17 @@ class PhUtil:
                 print(f'Python executable Path is {cls.path_python_folder}')
                 cls.print_separator(log=log)
             if with_user_info:
-                print(f'User Name is {cls.get_user_details_display_name_windows()}')
+                print(f'User Name is {cls.get_user_details_display_name()}')
                 cls.print_separator(log=log)
-                print(f'User Account is {cls.get_user_details_account_name()}')
+                print(f'User Account (os.environ) is {cls.get_user_details_account_name()}')
+                print(f'User Account (getpass) is {getpass.getuser()}')
+                print(f'User Account (getlogin) is {os.getlogin()}')
+                if _pwd_available:
+                    cls.print_separator(log=log)
+                    # this is also available only in Unix
+                    print(f'User ID (getuid) is {os.getuid()}')
+                    print(f'User ID (getpwuid; 0) is {pwd.getpwuid(os.getuid())[0]}')
+                    print(f'User ID (getpwuid; pw_name) is {pwd.getpwuid(os.getuid()).pw_name}')
                 cls.print_separator(log=log)
             if with_time_stamp:
                 print(f'Time Stamp is {cls.get_time_stamp(files_format=False)}')
@@ -1003,21 +1021,49 @@ class PhUtil:
         :param absolute_path_needed:
         :return:
         """
-        cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
-
-    @classmethod
-    def make_dirs(cls, dir_path, absolute_path_needed=False):
-        if absolute_path_needed:
-            dir_path = cls.get_absolute_path(dir_path)
-        if not os.path.exists(dir_path):
-            cls.print_cmt(main_text=f'Creating Folder: {dir_path}')
-            os.makedirs(dir_path)
+        return cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
 
     @classmethod
     def clean_dirs(cls, target_dir):
+        """
+        Deprecated; use remove_dirs
+        :param dir_path:
+        :return:
+        """
         if os.path.exists(target_dir) and os.path.isdir(target_dir):
             cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
             shutil.rmtree(target_dir)
+
+    @classmethod
+    def make_dirs(cls, dir_path, absolute_path_needed=False):
+        return cls._handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
+                                operation_type=PhConstants.DIR_CREATION)
+
+    @classmethod
+    def remove_dirs(cls, dir_path, absolute_path_needed=False):
+        return cls._handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
+                                operation_type=PhConstants.DIR_DELETION)
+
+    @classmethod
+    def _handle_dirs(cls, dir_path, absolute_path_needed, operation_type):
+        if absolute_path_needed:
+            dir_path = cls.get_absolute_path(dir_path)
+        if os.path.exists(dir_path):
+            if operation_type == PhConstants.DIR_CREATION:
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Existed')
+            if operation_type == PhConstants.DIR_DELETION:
+                if os.path.isdir(dir_path):
+                    cls.print_cmt(main_text=f'Target Folder: {dir_path}; Deletion Initiated')
+                    shutil.rmtree(dir_path)
+                else:
+                    cls.print_cmt(main_text=f'Target path {dir_path} does not belongs to a Folder')
+        else:
+            if operation_type == PhConstants.DIR_CREATION:
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated')
+                os.makedirs(dir_path)
+            if operation_type == PhConstants.DIR_DELETION:
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted')
+        return dir_path
 
     @classmethod
     def find_offset_of_section(cls, data, char_to_find, corresponding_char_to_find):
@@ -1419,7 +1465,6 @@ class PhUtil:
         print(output.head())
         print(output[['ICCID']])
         print(output['ICCID'].head())
-
     """
 
     @classmethod
@@ -1735,7 +1780,6 @@ class PhUtil:
 
     @classmethod
     def get_classes_list(cls, module_to_explore, parent_class=None, obj_name_needed=True, sort=True, print_also=False):
-
         def __get_classes_list(module_to_explore, parent_class, obj_name_needed, sort):
             INDEX_CLASS_NAME = 0
             INDEX_CLASS_OBJECT = 1
@@ -1862,20 +1906,25 @@ class PhUtil:
         return module_version, res
 
     @classmethod
-    def get_user_details_display_name_windows(cls):
+    def get_user_details_display_name(cls):
         """
 
         :return:
         """
-        get_user_name_ex = ctypes.windll.secur32.GetUserNameExW
-        name_display = 3
+        if _ctypes_available:
+            get_user_name_ex = ctypes.windll.secur32.GetUserNameExW
+            name_display = 3
 
-        size = ctypes.pointer(ctypes.c_ulong(0))
-        get_user_name_ex(name_display, None, size)
+            size = ctypes.pointer(ctypes.c_ulong(0))
+            get_user_name_ex(name_display, None, size)
 
-        name_buffer = ctypes.create_unicode_buffer(size.contents.value)
-        get_user_name_ex(name_display, name_buffer, size)
-        return name_buffer.value
+            name_buffer = ctypes.create_unicode_buffer(size.contents.value)
+            get_user_name_ex(name_display, name_buffer, size)
+            return name_buffer.value
+        if _pwd_available:
+            # Note that for some reason pwd.getpwuid(os.geteuid())[4] did not work for me
+            display_name = (entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid()).next()
+            return display_name
 
     @classmethod
     def get_user_details_account_name(cls):
