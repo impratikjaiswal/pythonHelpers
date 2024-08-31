@@ -22,7 +22,7 @@ import time
 import tzlocal
 from binascii import unhexlify
 from packaging import version
-from pandas import DataFrame
+from pandas import DataFrame, Series
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
@@ -32,16 +32,16 @@ from python_helpers.ph_keys import PhKeys
 
 _base_profiles_available = False
 _psutil_available = True
-_ctypes_available = True
+_ctypes_windll_available = True
 _pwd_available = True
 try:
     import psutil
 except ImportError:
     _psutil_available = False
 try:
-    import ctypes
+    import ctypes.windll
 except ImportError:
-    _ctypes_available = False
+    _ctypes_windll_available = False
 try:
     import pwd
 except ImportError:
@@ -1342,18 +1342,18 @@ class PhUtil:
         """
         if output is None:
             return None
-        if not isinstance(output, DataFrame):
-            return cls.to_file(output_lines=output, file_name=file_name, str_append=str_append, new_ext=new_ext,
-                               encoding=encoding)
-        if print_shape:
-            cls.print_data_frame_shape(output, file_name, log=log)
-        if print_frame:
-            cls.print_data_frame(output)
-        if str_append or new_ext:
-            file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
-        cls.makedirs(cls.get_file_name_and_extn(file_name, only_path=True))
-        output.to_csv(path_or_buf=file_name, index=index, sep=sep, encoding=encoding)
-        return file_name
+        if isinstance(output, DataFrame) or isinstance(output, Series):
+            if print_shape:
+                cls.print_data_frame_shape(output, file_name, log=log)
+            if print_frame:
+                cls.print_data_frame(output)
+            if str_append or new_ext:
+                file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
+            cls.makedirs(cls.get_file_name_and_extn(file_name, only_path=True))
+            output.to_csv(path_or_buf=file_name, index=index, sep=sep, encoding=encoding)
+            return file_name
+        return cls.to_file(output_lines=output, file_name=file_name, str_append=str_append, new_ext=new_ext,
+                           encoding=encoding)
 
     @classmethod
     def to_file(cls, output_lines, file_name='', str_append='', new_ext='', lines_sep='\n', encoding='utf-8',
@@ -1911,7 +1911,7 @@ class PhUtil:
 
         :return:
         """
-        if _ctypes_available:
+        if _ctypes_windll_available:
             get_user_name_ex = ctypes.windll.secur32.GetUserNameExW
             name_display = 3
 
