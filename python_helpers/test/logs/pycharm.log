@@ -3,39 +3,31 @@
 ------------------------------------------------- tool_version="1.0.1" -------------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:06:513161, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:36:001257, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 -----------------------------------------------------------  -----------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:06:514160, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:36:002255, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
 ------------------------------------------------ no_additional_info=True -----------------------------------------------
@@ -45,219 +37,191 @@ Test Tool version is v1.0.1
 --------------------------------------------------- tool_version=None --------------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:06:514160, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:36:002255, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is 
 --------------------------------------------------------------------------------
 ----------------------------------------------------- with_ip=True -----------------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
---------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:36:005253, IST (GMT+0530)
+Time Stamp is Saturday, Aug 31 2024, 13:49:06:514160, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.206.3.231
 IPV6 is 49.206.3.231
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 ----------------------------------------------------- with_ip=False ----------------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:07:714899, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:37:181644, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 ------------------------------------------------- with_git_summary=True ------------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:07:716904, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:37:182641, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 ------------------------------------------------ with_git_summary=False ------------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:07:717901, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:37:183641, IST (GMT+0530)
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 ---------------------------------------------- with_git_detailed_info=True ---------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:07:719939, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:37:183641, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-Git Details are
 cat: '..\.git\HEAD': No such file or directory
-git_rev_parse_hash: 81da485ec55f6a7fa5f4010a7e772983cbf93364
-git_rev_parse_short_hash: 81da485
+Git Details are:
+git_rev_parse_hash: af9c5c6cb47ce077b09b90ed26341109d0970977
+git_rev_parse_short_hash: af9c5c6
 git_rev_parse_branch: main
-git_describe: v4.2.1
-git_describe_always: v4.2.1
-git_summary: 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
-git_log_commit_hash: 81da485ec55f6a7fa5f4010a7e772983cbf93364
-git_log_commit_short_hash: 81da485
-git_log_tree_hash: b0547bcd110c9ddddd4371bb0d692f377d38003a
-git_log_tree_short_hash: b0547bc
-git_log_parent_hash: 54ca6ed30eac4b29a5f3b453bf06c527b2b60f14
-git_log_parent_short_hash: 54ca6ed
-git_log_head: (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD)
-git_log_time: 2024-08-21 22:29:56 +0530
+git_describe: v4.2.3.dev3
+git_describe_always: v4.2.3.dev3
+git_summary: af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
+git_log_commit_hash: af9c5c6cb47ce077b09b90ed26341109d0970977
+git_log_commit_short_hash: af9c5c6
+git_log_tree_hash: ef10d5fdb5c6141f129df93ce5bf88e5088c5824
+git_log_tree_short_hash: ef10d5f
+git_log_parent_hash: abf9aec8898595205024ff5b0b07ad30e51845e7
+git_log_parent_short_hash: abf9aec
+git_log_head: (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD)
+git_log_time: 2024-08-31 13:31:35 +0530
 git_log_commiter_name: imPratik
 git_log_commiter_email: impratikjaiswal@gmail.com
-git_log_message: create zip with includes filter
+git_log_message: v4.2.3.dev3
 git_symbolic-ref_head: refs/heads/main
 git_local_file_head: None
-git_describe_always_path: v4.2.1
-git_describe_always_pathlib: v4.2.1
+git_describe_always_path: v4.2.3.dev3
+git_describe_always_pathlib: v4.2.3.dev3
 git_local_file_head_path: ref: refs/heads/main
 git_local_file_head_pathlib: ref: refs/heads/main
 
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 --------------------------------------------- with_git_detailed_info=False ---------------------------------------------
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
---------------------------------------------------------------------------------
 Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 --------------------------------------------------------------------------------
 User Name is Pratik Jaiswal
+User Account is impra
 --------------------------------------------------------------------------------
-User Account (os.environ) is impra
-User Account (getpass) is impra
-User Account (getlogin) is impra
+Time Stamp is Saturday, Aug 31 2024, 13:49:08:489406, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Aug 30 2024, 10:03:37:972134, IST (GMT+0530)
+Git Summary is af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 --------------------------------------------------------------------------------
-Git Summary is 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
---------------------------------------------------------------------------------
-pythonHelpers version is v4.2.2
+pythonHelpers version is v4.2.4
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
 --------------------------------------------------- test_get_git_info --------------------------------------------------
 ------------------------------------------ get_git_info_detailed; GIT_SUMMARY ------------------------------------------
-GIT_SUMMARY: 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
+GIT_SUMMARY: af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
 ------------------------------------------------- get_git_info_detailed ------------------------------------------------
 cat: '..\.git\HEAD': No such file or directory
-{'git_rev_parse_hash': '81da485ec55f6a7fa5f4010a7e772983cbf93364', 'git_rev_parse_short_hash': '81da485', 'git_rev_parse_branch': 'main', 'git_describe': 'v4.2.1', 'git_describe_always': 'v4.2.1', 'git_summary': '81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter', 'git_log_commit_hash': '81da485ec55f6a7fa5f4010a7e772983cbf93364', 'git_log_commit_short_hash': '81da485', 'git_log_tree_hash': 'b0547bcd110c9ddddd4371bb0d692f377d38003a', 'git_log_tree_short_hash': 'b0547bc', 'git_log_parent_hash': '54ca6ed30eac4b29a5f3b453bf06c527b2b60f14', 'git_log_parent_short_hash': '54ca6ed', 'git_log_head': '(HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD)', 'git_log_time': '2024-08-21 22:29:56 +0530', 'git_log_commiter_name': 'imPratik', 'git_log_commiter_email': 'impratikjaiswal@gmail.com', 'git_log_message': 'create zip with includes filter', 'git_symbolic-ref_head': 'refs/heads/main', 'git_local_file_head': None, 'git_describe_always_path': 'v4.2.1', 'git_describe_always_pathlib': 'v4.2.1', 'git_local_file_head_path': 'ref: refs/heads/main', 'git_local_file_head_pathlib': 'ref: refs/heads/main'}
+{'git_rev_parse_hash': 'af9c5c6cb47ce077b09b90ed26341109d0970977', 'git_rev_parse_short_hash': 'af9c5c6', 'git_rev_parse_branch': 'main', 'git_describe': 'v4.2.3.dev3', 'git_describe_always': 'v4.2.3.dev3', 'git_summary': 'af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3', 'git_log_commit_hash': 'af9c5c6cb47ce077b09b90ed26341109d0970977', 'git_log_commit_short_hash': 'af9c5c6', 'git_log_tree_hash': 'ef10d5fdb5c6141f129df93ce5bf88e5088c5824', 'git_log_tree_short_hash': 'ef10d5f', 'git_log_parent_hash': 'abf9aec8898595205024ff5b0b07ad30e51845e7', 'git_log_parent_short_hash': 'abf9aec', 'git_log_head': '(HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD)', 'git_log_time': '2024-08-31 13:31:35 +0530', 'git_log_commiter_name': 'imPratik', 'git_log_commiter_email': 'impratikjaiswal@gmail.com', 'git_log_message': 'v4.2.3.dev3', 'git_symbolic-ref_head': 'refs/heads/main', 'git_local_file_head': None, 'git_describe_always_path': 'v4.2.3.dev3', 'git_describe_always_pathlib': 'v4.2.3.dev3', 'git_local_file_head_path': 'ref: refs/heads/main', 'git_local_file_head_pathlib': 'ref: refs/heads/main'}
 ---------------------------------------------- get_git_info_detailed iter ----------------------------------------------
 cat: '..\.git\HEAD': No such file or directory
-git_rev_parse_hash: 81da485ec55f6a7fa5f4010a7e772983cbf93364
-git_rev_parse_short_hash: 81da485
+git_rev_parse_hash: af9c5c6cb47ce077b09b90ed26341109d0970977
+git_rev_parse_short_hash: af9c5c6
 git_rev_parse_branch: main
-git_describe: v4.2.1
-git_describe_always: v4.2.1
-git_summary: 81da485;  (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD); 2024-08-21 22:29:56 +0530; imPratik <impratikjaiswal@gmail.com>; create zip with includes filter
-git_log_commit_hash: 81da485ec55f6a7fa5f4010a7e772983cbf93364
-git_log_commit_short_hash: 81da485
-git_log_tree_hash: b0547bcd110c9ddddd4371bb0d692f377d38003a
-git_log_tree_short_hash: b0547bc
-git_log_parent_hash: 54ca6ed30eac4b29a5f3b453bf06c527b2b60f14
-git_log_parent_short_hash: 54ca6ed
-git_log_head: (HEAD -> main, tag: v4.2.1, origin/main, origin/HEAD)
-git_log_time: 2024-08-21 22:29:56 +0530
+git_describe: v4.2.3.dev3
+git_describe_always: v4.2.3.dev3
+git_summary: af9c5c6;  (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD); 2024-08-31 13:31:35 +0530; imPratik <impratikjaiswal@gmail.com>; v4.2.3.dev3
+git_log_commit_hash: af9c5c6cb47ce077b09b90ed26341109d0970977
+git_log_commit_short_hash: af9c5c6
+git_log_tree_hash: ef10d5fdb5c6141f129df93ce5bf88e5088c5824
+git_log_tree_short_hash: ef10d5f
+git_log_parent_hash: abf9aec8898595205024ff5b0b07ad30e51845e7
+git_log_parent_short_hash: abf9aec
+git_log_head: (HEAD -> main, tag: v4.2.3.dev3, origin/main, origin/HEAD)
+git_log_time: 2024-08-31 13:31:35 +0530
 git_log_commiter_name: imPratik
 git_log_commiter_email: impratikjaiswal@gmail.com
-git_log_message: create zip with includes filter
+git_log_message: v4.2.3.dev3
 git_symbolic-ref_head: refs/heads/main
 git_local_file_head: None
-git_describe_always_path: v4.2.1
-git_describe_always_pathlib: v4.2.1
+git_describe_always_path: v4.2.3.dev3
+git_describe_always_pathlib: v4.2.3.dev3
 git_local_file_head_path: ref: refs/heads/main
 git_local_file_head_pathlib: ref: refs/heads/main
 
 --------------------------------------------- test_get_time_stamp_file_name --------------------------------------------
-20240830_1003 39 550503
-20240830_1003 39 566498
-20240830_1003 39 582495
-20240830_1003 39 598498
-20240830_1003 39 613508
-20240830_1003 39 629501
-20240830_1003 39 645538
-20240830_1003 39 661559
-20240830_1003 39 677509
-20240830_1003 39 692495
-20240830_1003 39 707836
-20240830_1003 39 724112
-20240830_1003 39 739812
-20240830_1003 39 755817
-20240830_1003 39 771837
+20240831_1349 10 016058
+20240831_1349 10 032061
+20240831_1349 10 047440
+20240831_1349 10 063487
+20240831_1349 10 078785
+20240831_1349 10 094817
+20240831_1349 10 110781
+20240831_1349 10 126783
+20240831_1349 10 142784
+20240831_1349 10 157784
+20240831_1349 10 173782
+20240831_1349 10 189782
+20240831_1349 10 205781
+20240831_1349 10 221782
+20240831_1349 10 237781
 Duplicate Items:
 
 ----------------------------------------------------- test_to_file -----------------------------------------------------
@@ -719,7 +683,7 @@ item 100000000000000000000000000000000000000000000000000000000000000000000000000
 item 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...
 -------------------------------------------------- test_print_modules --------------------------------------------------
 --------------------------------------------------- No filter String ---------------------------------------------------
-Total Modules Count: 863
+Total Modules Count: 862
 sys: <module 'sys' (built-in)>
 builtins: <module 'builtins' (built-in)>
 _frozen_importlib: <module 'importlib._bootstrap' (frozen)>
@@ -1000,7 +964,7 @@ zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\l
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000002122C87F910>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000002B296E1F910>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -1386,7 +1350,6 @@ Crypto.Cipher._mode_gcm: <module 'Crypto.Cipher._mode_gcm' from 'D:\\Other\\Gith
 Crypto.Cipher._mode_ocb: <module 'Crypto.Cipher._mode_ocb' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\_mode_ocb.py'>
 Crypto.Cipher: <module 'Crypto.Cipher' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\__init__.py'>
 Crypto.Cipher.AES: <module 'Crypto.Cipher.AES' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\AES.py'>
-getpass: <module 'getpass' from 'D:\\ProgramFiles\\Python39\\lib\\getpass.py'>
 xml: <module 'xml' from 'D:\\ProgramFiles\\Python39\\lib\\xml\\__init__.py'>
 xml.parsers: <module 'xml.parsers' from 'D:\\ProgramFiles\\Python39\\lib\\xml\\parsers\\__init__.py'>
 pyexpat.errors: <module 'pyexpat.errors'>
@@ -1398,19 +1361,19 @@ xml.parsers.expat: <module 'xml.parsers.expat' from 'D:\\ProgramFiles\\Python39\
 plistlib: <module 'plistlib' from 'D:\\ProgramFiles\\Python39\\lib\\plistlib.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
 pkg_resources.extern.packaging._typing: <module 'pkg_resources.extern.packaging._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_typing.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
 pkg_resources.extern.packaging._compat: <module 'pkg_resources.extern.packaging._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_compat.py'>
 pkg_resources.extern.packaging.utils: <module 'pkg_resources.extern.packaging.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py'>
 pkg_resources.extern.packaging.specifiers: <module 'pkg_resources.extern.packaging.specifiers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
@@ -1585,7 +1548,7 @@ shlex: <module 'shlex' from 'D:\\ProgramFiles\\Python39\\lib\\shlex.py'>
 netrc: <module 'netrc' from 'D:\\ProgramFiles\\Python39\\lib\\netrc.py'>
 
 -------------------------------------------- filter_string='python_helpers' --------------------------------------------
-Total Modules Count: 863
+Total Modules Count: 862
 Filtered Modules Count: 14
 python_helpers: <module 'python_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\__init__.py'>
 python_helpers.ph_constants: <module 'python_helpers.ph_constants' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants.py'>
@@ -1981,7 +1944,7 @@ zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\l
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000002122C87F910>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000002B296E1F910>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -2367,7 +2330,6 @@ Crypto.Cipher._mode_gcm: <module 'Crypto.Cipher._mode_gcm' from 'D:\\Other\\Gith
 Crypto.Cipher._mode_ocb: <module 'Crypto.Cipher._mode_ocb' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\_mode_ocb.py'>
 Crypto.Cipher: <module 'Crypto.Cipher' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\__init__.py'>
 Crypto.Cipher.AES: <module 'Crypto.Cipher.AES' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\AES.py'>
-getpass: <module 'getpass' from 'D:\\ProgramFiles\\Python39\\lib\\getpass.py'>
 xml: <module 'xml' from 'D:\\ProgramFiles\\Python39\\lib\\xml\\__init__.py'>
 xml.parsers: <module 'xml.parsers' from 'D:\\ProgramFiles\\Python39\\lib\\xml\\parsers\\__init__.py'>
 pyexpat.errors: <module 'pyexpat.errors'>
@@ -2379,19 +2341,19 @@ xml.parsers.expat: <module 'xml.parsers.expat' from 'D:\\ProgramFiles\\Python39\
 plistlib: <module 'plistlib' from 'D:\\ProgramFiles\\Python39\\lib\\plistlib.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
 pkg_resources.extern.packaging._typing: <module 'pkg_resources.extern.packaging._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_typing.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
 pkg_resources.extern.packaging._compat: <module 'pkg_resources.extern.packaging._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_compat.py'>
 pkg_resources.extern.packaging.utils: <module 'pkg_resources.extern.packaging.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py'>
 pkg_resources.extern.packaging.specifiers: <module 'pkg_resources.extern.packaging.specifiers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002122F3114F0>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000002B298859580>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>

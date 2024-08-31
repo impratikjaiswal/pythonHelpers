@@ -1,4 +1,5 @@
 import base64
+import ctypes
 import enum
 import fnmatch
 import inspect
@@ -38,7 +39,7 @@ try:
 except ImportError:
     _psutil_available = False
 try:
-    import ctypes.windll
+    from ctypes import windll
     # this is available only in Windows
 except ImportError:
     _ctypes_windll_available = False
@@ -448,7 +449,6 @@ class PhUtil:
         if not no_additional_info:
             if with_libs:
                 cls.print_version(log=log, no_additional_info=True)
-                cls.print_separator(log=log)
                 print(f'Python executable Path is {cls.path_python_folder}')
                 cls.print_separator(log=log)
             if with_user_info:
@@ -466,8 +466,7 @@ class PhUtil:
                 print(f'Git Summary is {PhConfigConst.TOOL_GIT_SUMMARY}')
                 cls.print_separator(log=log)
             if with_git_detailed_info:
-                print(f'Git Details are')
-                cls.print_iter(PhGit.get_git_info_detailed())
+                cls.print_iter(PhGit.get_git_info_detailed(), header='Git Details are')
                 cls.print_separator(log=log)
             if with_libs:
                 cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
@@ -1904,7 +1903,7 @@ class PhUtil:
         :return:
         """
         if _ctypes_windll_available:
-            get_user_name_ex = ctypes.windll.secur32.GetUserNameExW
+            get_user_name_ex = windll.secur32.GetUserNameExW
             name_display = 3
 
             size = ctypes.pointer(ctypes.c_ulong(0))
@@ -1918,9 +1917,9 @@ class PhUtil:
             # print(f'User ID (geteuid; 0) is {os.geteuid()}')
             # cls.print_iter(pwd.getpwall(), header='pwd.getpwall(); List All Users')
             # print(f'User Account (pwd.getpwuid(os.getuid())[4]) is {next(entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid())}')
-            print(f'User Account (pwd.getpwuid(os.getuid()).pw_gecos) is {pwd.getpwuid(os.getuid()).pw_gecos}')
-            print(f'User Account (pwd.getpwuid(os.getuid())[4]) is {pwd.getpwuid(os.getuid())[4]}')
-            print(f'User Account (pwd.getpwuid(os.geteuid())[4]) is {pwd.getpwuid(os.geteuid())[4]}')
+            # print(f'User Account (pwd.getpwuid(os.getuid()).pw_gecos) is {pwd.getpwuid(os.getuid()).pw_gecos}')
+            # print(f'User Account (pwd.getpwuid(os.getuid())[4]) is {pwd.getpwuid(os.getuid())[4]}')
+            # print(f'User Account (pwd.getpwuid(os.geteuid())[4]) is {pwd.getpwuid(os.geteuid())[4]}')
             return pwd.getpwuid(os.getuid()).pw_gecos
 
     @classmethod
@@ -1939,201 +1938,181 @@ class PhUtil:
         #     print(f'User Account (getpwuid; 0) is {pwd.getpwuid(os.getuid())[0]}')
         return user_name
 
+    @classmethod
+    def append_remarks(cls, main_remarks, additional_remarks=None, max_length=PhConstants.REMARKS_MAX_LENGTH,
+                       append_mode_post=True):
+        main_remarks = cls.set_if_not_none(main_remarks, new_type=str)
+        additional_remarks = cls.set_if_not_none(additional_remarks, new_type=str)
+        len_sep = len(PhConstants.SEPERATOR_MULTI_OBJ) if len(main_remarks) > 0 and len(additional_remarks) > 0 else 0
+        len_main_remarks = len(main_remarks)
+        diff_length = len_main_remarks - max_length + len_sep + PhConstants.DEFAULT_TRIM_STRING_LENGTH
+        if diff_length > 0:
+            return cls.trim_remarks(main_remarks, max_length)
+        diff_length = max_length - len_main_remarks - len_sep
+        additional_remarks = cls.trim_remarks(additional_remarks, diff_length)
+        if append_mode_post:
+            return cls.combine_list_items([main_remarks, additional_remarks])
+        else:
+            return cls.combine_list_items([additional_remarks, main_remarks])
 
-@classmethod
-def append_remarks(cls, main_remarks, additional_remarks=None, max_length=PhConstants.REMARKS_MAX_LENGTH,
-                   append_mode_post=True):
-    main_remarks = cls.set_if_not_none(main_remarks, new_type=str)
-    additional_remarks = cls.set_if_not_none(additional_remarks, new_type=str)
-    len_sep = len(PhConstants.SEPERATOR_MULTI_OBJ) if len(main_remarks) > 0 and len(additional_remarks) > 0 else 0
-    len_main_remarks = len(main_remarks)
-    diff_length = len_main_remarks - max_length + len_sep + PhConstants.DEFAULT_TRIM_STRING_LENGTH
-    if diff_length > 0:
-        return cls.trim_remarks(main_remarks, max_length)
-    diff_length = max_length - len_main_remarks - len_sep
-    additional_remarks = cls.trim_remarks(additional_remarks, diff_length)
-    if append_mode_post:
-        return cls.combine_list_items([main_remarks, additional_remarks])
-    else:
-        return cls.combine_list_items([additional_remarks, main_remarks])
+    @classmethod
+    def trim_remarks(cls, user_remarks, max_length=PhConstants.REMARKS_MAX_LENGTH):
+        if len(user_remarks) > max_length > 0:
+            # Trimming is needed
+            user_remarks = user_remarks[
+                           :max_length - PhConstants.DEFAULT_TRIM_STRING_LENGTH] + PhConstants.DEFAULT_TRIM_STRING
+        return user_remarks
 
+    @classmethod
+    def to_list(cls, obj, all_str=False, trim_data=True):
+        data_list = [] if obj is None else (obj if isinstance(obj, list) else [obj])
+        if all_str:
+            data_list = [str(x) for x in data_list]
+        if trim_data:
+            data_list = [cls.trim_white_spaces_in_str(x) for x in data_list]
+        return data_list
 
-@classmethod
-def trim_remarks(cls, user_remarks, max_length=PhConstants.REMARKS_MAX_LENGTH):
-    if len(user_remarks) > max_length > 0:
-        # Trimming is needed
-        user_remarks = user_remarks[
-                       :max_length - PhConstants.DEFAULT_TRIM_STRING_LENGTH] + PhConstants.DEFAULT_TRIM_STRING
-    return user_remarks
+    @classmethod
+    def extend_list(cls, obj, expected_length=0, filler='', unique_entries=False, trim_data=False):
+        obj = cls.to_list(obj, trim_data=trim_data)
+        current_length = len(obj)
+        if expected_length <= current_length:
+            return obj
+        target_filler = filler if filler or current_length < 1 else obj[-1]
+        if trim_data:
+            target_filler = cls.trim_white_spaces_in_str(target_filler)
+        extended_list = ([target_filler] * (expected_length - current_length))
+        if unique_entries:
+            extended_list = [PhConstants.SEPERATOR_FILE_NAME.join(filter(None, [str(x), str(y + 1)])) for x, y in
+                             zip(extended_list, range(len(extended_list)))]
+        return obj + extended_list
 
+    @classmethod
+    def combine_list_items(cls, list_data, trim_data=True, clean_data=True):
+        if not isinstance(list_data, list):
+            temp = list_data
+            list_data = list()
+            list_data.append(temp)
+        list_data = list(filter(None, list_data))
+        if trim_data:
+            list_data = [x.strip() if x is not None and isinstance(x, str) else x for x in list_data]
+        if clean_data:
+            list_data = [re.sub(r'^(;+ *)*|(;+ *)*$', '', x) if x is not None and isinstance(x, str) else x for x in
+                         list_data]
+        if 0 < len(list_data) < 2:
+            return list_data[0]
+        list_data = [str(x) for x in list_data]
+        res = PhConstants.SEPERATOR_MULTI_OBJ.join(list_data)
+        return res
 
-@classmethod
-def to_list(cls, obj, all_str=False, trim_data=True):
-    data_list = [] if obj is None else (obj if isinstance(obj, list) else [obj])
-    if all_str:
-        data_list = [str(x) for x in data_list]
-    if trim_data:
-        data_list = [cls.trim_white_spaces_in_str(x) for x in data_list]
-    return data_list
+    @classmethod
+    def get_absolute_path(cls, rel_path):
+        return os.path.abspath(rel_path)
 
+    @classmethod
+    def get_relative_path(cls, abs_path):
+        return os.path.relpath(abs_path)
 
-@classmethod
-def extend_list(cls, obj, expected_length=0, filler='', unique_entries=False, trim_data=False):
-    obj = cls.to_list(obj, trim_data=trim_data)
-    current_length = len(obj)
-    if expected_length <= current_length:
-        return obj
-    target_filler = filler if filler or current_length < 1 else obj[-1]
-    if trim_data:
-        target_filler = cls.trim_white_spaces_in_str(target_filler)
-    extended_list = ([target_filler] * (expected_length - current_length))
-    if unique_entries:
-        extended_list = [PhConstants.SEPERATOR_FILE_NAME.join(filter(None, [str(x), str(y + 1)])) for x, y in
-                         zip(extended_list, range(len(extended_list)))]
-    return obj + extended_list
+    @classmethod
+    def get_current_dir_path(cls):
+        return cls.path_current_folder
 
+    @classmethod
+    def get_current_script_path(cls):
+        path_current_file = os.path.realpath(__file__)
+        # path_current_file = os.path.abspath(inspect.getfile(inspect.currentframe()))
+        return path_current_file
 
-@classmethod
-def combine_list_items(cls, list_data, trim_data=True, clean_data=True):
-    if not isinstance(list_data, list):
-        temp = list_data
-        list_data = list()
-        list_data.append(temp)
-    list_data = list(filter(None, list_data))
-    if trim_data:
-        list_data = [x.strip() if x is not None and isinstance(x, str) else x for x in list_data]
-    if clean_data:
-        list_data = [re.sub(r'^(;+ *)*|(;+ *)*$', '', x) if x is not None and isinstance(x, str) else x for x in
-                     list_data]
-    if 0 < len(list_data) < 2:
-        return list_data[0]
-    list_data = [str(x) for x in list_data]
-    res = PhConstants.SEPERATOR_MULTI_OBJ.join(list_data)
-    return res
+    @classmethod
+    def get_current_script_folder(cls):
+        return cls.get_directory_path(cls.get_current_script_path())
 
+    @classmethod
+    def get_directory_path(cls, path):
+        return os.path.dirname(path)
 
-@classmethod
-def get_absolute_path(cls, rel_path):
-    return os.path.abspath(rel_path)
+    @classmethod
+    def generalise_list(cls, data_list, append_na=True, sort=True, append_others=False):
+        new_data_list = data_list.copy() if data_list is not None else []
+        if sort:
+            new_data_list.sort()
+        if append_na:
+            new_data_list.insert(PhConstants.OFFSET_ZERO, PhConstants.STR_SELECT_OPTION)
+        if append_others:
+            new_data_list.append(PhConstants.STR_OTHER_OPTION)
+        return new_data_list
 
+    @classmethod
+    def generalise_list_reverse(cls, data_list):
+        new_data_list = data_list.copy() if data_list is not None else []
+        if cls.is_generalised_item(new_data_list[PhConstants.OFFSET_ZERO], PhConstants.STR_SELECT_OPTION):
+            new_data_list = new_data_list[1:]
+        if cls.is_generalised_item(new_data_list[-1], PhConstants.STR_OTHER_OPTION):
+            new_data_list = new_data_list[:-1]
+        return new_data_list
 
-@classmethod
-def get_relative_path(cls, abs_path):
-    return os.path.relpath(abs_path)
+    @classmethod
+    def is_generalised_item(cls, item, target_item=PhConstants.STR_SELECT_OPTION):
+        return True if str(item) in target_item else False
 
+    @classmethod
+    def filter_processing_related_keys(cls, data_dic):
+        return {k: v for k, v in data_dic.items() if not (k.startswith(PhKeys.SAMPLE) or k.startswith(PhKeys.PROCESS))}
 
-@classmethod
-def get_current_dir_path(cls):
-    return cls.path_current_folder
+    @classmethod
+    def generate_key_and_data_group(cls, remarks):
+        remarks = PhUtil.to_list(remarks, all_str=True, trim_data=True)[0]
+        data_group_list = remarks.split(PhConstants.SEPERATOR_MULTI_OBJ)
+        data_group = data_group_list[0] if len(data_group_list) > 0 else data_group_list
+        return remarks, data_group
 
+    @classmethod
+    def dict_merge(cls, dict1, dict2):
+        if not dict2:
+            return dict1
+        if not dict1:
+            return dict2
+        return {**dict1, **dict2}
 
-@classmethod
-def get_current_script_path(cls):
-    path_current_file = os.path.realpath(__file__)
-    # path_current_file = os.path.abspath(inspect.getfile(inspect.currentframe()))
-    return path_current_file
+    @classmethod
+    def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False, include_files=None, include_dirs=None,
+                   excludes=None):
+        files_list = []
+        with zipfile.ZipFile(zip_file_name, 'w', zipfile.ZIP_DEFLATED) as zip_file:
+            files_list = cls.traverse_it(top=source_dir, include_files=include_files, include_dirs=include_dirs,
+                                         excludes=excludes)
+            for file_path in files_list:
+                rel_path = os.path.join(source_dir, '..') if keep_source_dir_in_zip else source_dir
+                zip_file.write(file_path, os.path.relpath(file_path, rel_path))
+            return files_list
 
+    @classmethod
+    def zip_and_clean_dir(cls, source_files_dir, target_dir=None, target_file_name_wo_extn=None,
+                          delete_dir_after_zip=False, keep_source_dir_in_zip=False, export_hash=True,
+                          include_files=None, include_dirs=None, excludes=None):
+        if not source_files_dir:
+            return None
+        if not target_file_name_wo_extn:
+            target_file_name_wo_extn = cls.get_file_name_and_extn(file_path=source_files_dir)
+        if not target_dir or target_dir == source_files_dir:
+            # source & target_dir should not be the same
+            target_dir = os.sep.join([source_files_dir, os.pardir])
+        cls.make_dirs(target_dir)
+        zip_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.zip']))
+        cls.print_cmt(main_text=f'Exporting Zip File: {zip_file_path}')
+        # shutil.make_archive(base_name=zip_file_name, format='zip', root_dir=folder_path)
+        files_list = cls.create_zip(zip_file_path, source_files_dir, keep_source_dir_in_zip=keep_source_dir_in_zip,
+                                    include_files=include_files, include_dirs=include_dirs, excludes=excludes)
+        if export_hash:
+            hash_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.hash']))
+            cls.print_cmt(main_text=f'Exporting Hash of Files inside Zip File: {hash_file_path}')
+            # Zip file contains Time stamp of archived files, hence its hash is changing always
+            # so Grab the hash of individual files
+            cls.generate_hash(files_list, hash_file_path)
+        if delete_dir_after_zip:
+            cls.clean_dirs(source_files_dir)
+        return zip_file_path
 
-@classmethod
-def get_current_script_folder(cls):
-    return cls.get_directory_path(cls.get_current_script_path())
-
-
-@classmethod
-def get_directory_path(cls, path):
-    return os.path.dirname(path)
-
-
-@classmethod
-def generalise_list(cls, data_list, append_na=True, sort=True, append_others=False):
-    new_data_list = data_list.copy() if data_list is not None else []
-    if sort:
-        new_data_list.sort()
-    if append_na:
-        new_data_list.insert(PhConstants.OFFSET_ZERO, PhConstants.STR_SELECT_OPTION)
-    if append_others:
-        new_data_list.append(PhConstants.STR_OTHER_OPTION)
-    return new_data_list
-
-
-@classmethod
-def generalise_list_reverse(cls, data_list):
-    new_data_list = data_list.copy() if data_list is not None else []
-    if cls.is_generalised_item(new_data_list[PhConstants.OFFSET_ZERO], PhConstants.STR_SELECT_OPTION):
-        new_data_list = new_data_list[1:]
-    if cls.is_generalised_item(new_data_list[-1], PhConstants.STR_OTHER_OPTION):
-        new_data_list = new_data_list[:-1]
-    return new_data_list
-
-
-@classmethod
-def is_generalised_item(cls, item, target_item=PhConstants.STR_SELECT_OPTION):
-    return True if str(item) in target_item else False
-
-
-@classmethod
-def filter_processing_related_keys(cls, data_dic):
-    return {k: v for k, v in data_dic.items() if not (k.startswith(PhKeys.SAMPLE) or k.startswith(PhKeys.PROCESS))}
-
-
-@classmethod
-def generate_key_and_data_group(cls, remarks):
-    remarks = PhUtil.to_list(remarks, all_str=True, trim_data=True)[0]
-    data_group_list = remarks.split(PhConstants.SEPERATOR_MULTI_OBJ)
-    data_group = data_group_list[0] if len(data_group_list) > 0 else data_group_list
-    return remarks, data_group
-
-
-@classmethod
-def dict_merge(cls, dict1, dict2):
-    if not dict2:
-        return dict1
-    if not dict1:
-        return dict2
-    return {**dict1, **dict2}
-
-
-@classmethod
-def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False, include_files=None, include_dirs=None,
-               excludes=None):
-    files_list = []
-    with zipfile.ZipFile(zip_file_name, 'w', zipfile.ZIP_DEFLATED) as zip_file:
-        files_list = cls.traverse_it(top=source_dir, include_files=include_files, include_dirs=include_dirs,
-                                     excludes=excludes)
-        for file_path in files_list:
-            rel_path = os.path.join(source_dir, '..') if keep_source_dir_in_zip else source_dir
-            zip_file.write(file_path, os.path.relpath(file_path, rel_path))
-        return files_list
-
-
-@classmethod
-def zip_and_clean_dir(cls, source_files_dir, target_dir=None, target_file_name_wo_extn=None,
-                      delete_dir_after_zip=False, keep_source_dir_in_zip=False, export_hash=True,
-                      include_files=None, include_dirs=None, excludes=None):
-    if not source_files_dir:
-        return None
-    if not target_file_name_wo_extn:
-        target_file_name_wo_extn = cls.get_file_name_and_extn(file_path=source_files_dir)
-    if not target_dir or target_dir == source_files_dir:
-        # source & target_dir should not be the same
-        target_dir = os.sep.join([source_files_dir, os.pardir])
-    cls.make_dirs(target_dir)
-    zip_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.zip']))
-    cls.print_cmt(main_text=f'Exporting Zip File: {zip_file_path}')
-    # shutil.make_archive(base_name=zip_file_name, format='zip', root_dir=folder_path)
-    files_list = cls.create_zip(zip_file_path, source_files_dir, keep_source_dir_in_zip=keep_source_dir_in_zip,
-                                include_files=include_files, include_dirs=include_dirs, excludes=excludes)
-    if export_hash:
-        hash_file_path = os.sep.join(filter(None, [target_dir, f'{target_file_name_wo_extn}.hash']))
-        cls.print_cmt(main_text=f'Exporting Hash of Files inside Zip File: {hash_file_path}')
-        # Zip file contains Time stamp of archived files, hence its hash is changing always
-        # so Grab the hash of individual files
-        cls.generate_hash(files_list, hash_file_path)
-    if delete_dir_after_zip:
-        cls.clean_dirs(source_files_dir)
-    return zip_file_path
-
-
-@classmethod
-def generate_hash(cls, files_list, hash_file_path):
-    cls.print_work_in_progress()
+    @classmethod
+    def generate_hash(cls, files_list, hash_file_path):
+        cls.print_work_in_progress()
