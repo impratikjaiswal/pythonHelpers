@@ -1914,9 +1914,14 @@ class PhUtil:
             get_user_name_ex(name_display, name_buffer, size)
             return name_buffer.value
         if _pwd_available:
-            cls.print_iter(pwd.getpwall(), header='pwd.getpwall(); List All Users')
-            display_name = next(entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid())
-            return display_name
+            # print(f'User ID (getuid; 0) is {os.getuid()}')
+            # print(f'User ID (geteuid; 0) is {os.geteuid()}')
+            # cls.print_iter(pwd.getpwall(), header='pwd.getpwall(); List All Users')
+            # print(f'User Account (pwd.getpwuid(os.getuid())[4]) is {next(entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid())}')
+            print(f'User Account (pwd.getpwuid(os.getuid()).pw_gecos) is {pwd.getpwuid(os.getuid()).pw_gecos}')
+            print(f'User Account (pwd.getpwuid(os.getuid())[4]) is {pwd.getpwuid(os.getuid())[4]}')
+            print(f'User Account (pwd.getpwuid(os.geteuid())[4]) is {pwd.getpwuid(os.geteuid())[4]}')
+            return pwd.getpwuid(os.getuid()).pw_gecos
 
     @classmethod
     def get_user_details_account_name(cls):
@@ -1928,14 +1933,10 @@ class PhUtil:
         # print(f'User Account (getpass) is {getpass.getuser()}')
         # print(f'User Account (getlogin) is {os.getlogin()}')
         # if _ctypes_windll_available:
-        # print(f'User Account (os.environ) is {os.environ.get("USERNAME")}')
-        if _pwd_available:
-            print(f'User Account (getuid; 0) is {os.getuid()}')
-            print(f'User Account (geteuid; 0) is {os.geteuid()}')
-            print(f'User Account (pwd.getpwuid(os.geteuid())[4]) is {pwd.getpwuid(os.geteuid())[4]}')
-            print(f'User Account (pwd.getpwuid(os.getuid())[4]) is {pwd.getpwuid(os.getuid())[4]}')
-            print(f'User Account (getpwuid; 0) is {pwd.getpwuid(os.getuid())[0]}')
-            print(f'User Account (getpwuid; pw_name) is {pwd.getpwuid(os.getuid()).pw_name}')
+        #     print(f'User Account (os.environ) is {os.environ.get("USERNAME")}')
+        # if _pwd_available:
+        #     print(f'User Account (getpwuid; pw_name) is {pwd.getpwuid(os.getuid()).pw_name}')
+        #     print(f'User Account (getpwuid; 0) is {pwd.getpwuid(os.getuid())[0]}')
         return user_name
 
 
