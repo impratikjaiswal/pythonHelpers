@@ -1,7 +1,6 @@
 import base64
 import enum
 import fnmatch
-import getpass
 import inspect
 import os
 import random
@@ -40,10 +39,12 @@ except ImportError:
     _psutil_available = False
 try:
     import ctypes.windll
+    # this is available only in Windows
 except ImportError:
     _ctypes_windll_available = False
 try:
     import pwd
+    # this is available only in Unix
 except ImportError:
     _pwd_available = False
 
@@ -452,16 +453,7 @@ class PhUtil:
                 cls.print_separator(log=log)
             if with_user_info:
                 print(f'User Name is {cls.get_user_details_display_name()}')
-                cls.print_separator(log=log)
-                print(f'User Account (os.environ) is {cls.get_user_details_account_name()}')
-                print(f'User Account (getpass) is {getpass.getuser()}')
-                print(f'User Account (getlogin) is {os.getlogin()}')
-                if _pwd_available:
-                    cls.print_separator(log=log)
-                    # this is also available only in Unix
-                    print(f'User ID (getuid) is {os.getuid()}')
-                    print(f'User ID (getpwuid; 0) is {pwd.getpwuid(os.getuid())[0]}')
-                    print(f'User ID (getpwuid; pw_name) is {pwd.getpwuid(os.getuid()).pw_name}')
+                print(f'User Account is {cls.get_user_details_account_name()}')
                 cls.print_separator(log=log)
             if with_time_stamp:
                 print(f'Time Stamp is {cls.get_time_stamp(files_format=False)}')
@@ -1922,11 +1914,9 @@ class PhUtil:
             get_user_name_ex(name_display, name_buffer, size)
             return name_buffer.value
         if _pwd_available:
-            print(f'pwd.getpwall() is {pwd.getpwall()}')
-            print(f'os.geteuid() is {os.geteuid()}')
+            cls.print_iter(pwd.getpwall(), header='pwd.getpwall()')
             # Note that for some reason pwd.getpwuid(os.geteuid())[4] did not work for me
             display_name = next(entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid())
-            print(f'display_name is {display_name}')
             return display_name
 
     @classmethod
@@ -1935,7 +1925,15 @@ class PhUtil:
 
         :return:
         """
-        return os.environ.get('USERNAME')
+        user_name = os.getlogin()
+        # print(f'User Account (getpass) is {getpass.getuser()}')
+        # print(f'User Account (getlogin) is {os.getlogin()}')
+        # if _ctypes_windll_available:
+        # print(f'User Account (os.environ) is {os.environ.get("USERNAME")}')
+        # if _pwd_available:
+        # print(f'User Account (getpwuid; 0) is {pwd.getpwuid(os.getuid())[0]}')
+        # print(f'User Account (getpwuid; pw_name) is {pwd.getpwuid(os.getuid()).pw_name}')
+        return user_name
 
     @classmethod
     def append_remarks(cls, main_remarks, additional_remarks=None, max_length=PhConstants.REMARKS_MAX_LENGTH,
