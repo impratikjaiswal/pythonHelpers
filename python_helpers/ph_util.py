@@ -1922,8 +1922,11 @@ class PhUtil:
             get_user_name_ex(name_display, name_buffer, size)
             return name_buffer.value
         if _pwd_available:
+            print(f'pwd.getpwall() is {pwd.getpwall()}')
+            print(f'os.geteuid() is {os.geteuid()}')
             # Note that for some reason pwd.getpwuid(os.geteuid())[4] did not work for me
-            display_name = (entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid()).next()
+            display_name = next(entry[4] for entry in pwd.getpwall() if entry[2] == os.geteuid())
+            print(f'display_name is {display_name}')
             return display_name
 
     @classmethod
