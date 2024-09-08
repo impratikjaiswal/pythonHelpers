@@ -194,6 +194,7 @@ class PhConstants:
     SEPERATOR_INFO = ' => '
     SEPERATOR_MULTI_LINE = ':\n'
     SEPERATOR_MULTI_OBJ = '; '
+    SEPERATOR_NAME_VERSION = ' '
 
     ENCLOSE_HEX = 1
     ENCLOSE_NAME_VALUE = 2
