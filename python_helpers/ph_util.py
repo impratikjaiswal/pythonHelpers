@@ -296,7 +296,7 @@ class PhUtil:
             return
         if header:
             print_or_log(header)
-        # Iterable is Dictionary
+        # Iterable is a Dictionary
         if isinstance(the_iter, dict):
             for key in the_iter.keys():
                 value = the_iter[key]
@@ -924,6 +924,33 @@ class PhUtil:
         return ''.join(
             random.choice(letters_mapping.get(str_type, letters_mapping.get(PhConstants.STR_TYPE_HEX_UPPER_CASE))) for _
             in range(target_str_length))
+
+    @classmethod
+    def get_random_item_from_iter(cls, the_iter, skip_generalise_item=True):
+        def __get_random_from_iter(the_iter):
+            if isinstance(the_iter, dict):
+                if not the_iter:  # Empty Dict
+                    return None
+                return random.choice(list(the_iter.keys()))
+            if isinstance(the_iter, list):
+                if len(the_iter) == 0:  # Empty List
+                    return None
+                return random.choice(the_iter)
+            return random.choice(list(the_iter))
+
+        def __is_generalise_item(item):
+            return item in [PhConstants.STR_SELECT_OPTION, PhConstants.STR_OTHER_OPTION]
+
+        res = __get_random_from_iter(the_iter)
+        if not (skip_generalise_item and __is_generalise_item(res)):
+            return res
+        # need to skip a couple of items
+        max_attempt = 3
+        while max_attempt > 0:
+            res = __get_random_from_iter(the_iter)
+            if not __is_generalise_item(res):
+                break
+        return res
 
     @classmethod
     def generate_transaction_id(cls):

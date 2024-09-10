@@ -77,6 +77,7 @@ class PhKeys:
     PROCESS_DOWNLOAD_OUTPUT = 'process_download_output'
     PROCESS_DOWNLOAD_YML = 'process_download_yml'
     PROCESS_SAMPLE = 'process_sample'
+    PROCESS_SAMPLE_RANDOM = 'process_sample_random'
 
     # Sample
     SAMPLE_OPTION = 'sample_option'
