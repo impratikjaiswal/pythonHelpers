@@ -118,7 +118,16 @@ class PhKeys:
     APP_HOST = 'app_host'
     APP_END_POINT = 'app_end_point'
     APP_CODE = 'app_code'
+    APP_CANONICAL_URL = 'app_canonical_url'
+    APP_STATS_ID= 'app_stats_id'
     NAV_BAR_APP_ITEMS = 'nav_bar_app_items'
+
+    #
+    CFG_HIGHLIGHT_SYNTAX = 'cfg_highlight_syntax'
+    CFG_HIGHLIGHT_SYNTAX_LANGUAGE = 'cfg_highlight_syntax_language'
+    CFG_HIGHLIGHT_SYNTAX_STYLE = 'cfg_highlight_syntax_style'
+    CFG_COUNTERS_STATS = 'cfg_counters_stats'
+    CFG_COUNTERS_STATS_FORMAT = 'cfg_counters_stats_format'
 
     #
     ALERT_CSS_CLASS_DANGER = 'danger'
