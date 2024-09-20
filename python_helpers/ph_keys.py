@@ -167,6 +167,7 @@ class PhKeys:
     DATA_GROUP = 'data_group'
     REMARKS = 'remarks'
     REMARKS_GENERATED = 'remarks_generated'
+    DEFAULT = 'default'
 
     INPUT = 'input'
     INPUT_DATA = 'input_data'
