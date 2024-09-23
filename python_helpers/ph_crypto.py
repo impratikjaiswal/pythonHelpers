@@ -15,7 +15,7 @@ class PhCrypto:
         return list(sorted(hashlib.algorithms_available))
 
     @classmethod
-    def hash_str(cls, msg, hash_algo='sha256', encoding=PhConstants.DECODE_MODE_UTF8, hex_digest=True):
+    def hash_str(cls, msg, hash_algo='sha256', encoding=PhConstants.STR_ENCODING_FORMAT_UTF8, hex_digest=True):
         """
 
         :param encoding:
@@ -33,7 +33,7 @@ class PhCrypto:
         return hash_obj.hexdigest() if hex_digest else hash_obj.digest()
 
     @classmethod
-    def hash_str_sha256(cls, msg, encoding=PhConstants.DECODE_MODE_UTF8, hex_digest=True):
+    def hash_str_sha256(cls, msg, encoding=PhConstants.STR_ENCODING_FORMAT_UTF8, hex_digest=True):
         """
 
         :param encoding:

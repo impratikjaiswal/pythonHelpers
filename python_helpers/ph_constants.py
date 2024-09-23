@@ -193,6 +193,7 @@ class PhConstants:
     SEPERATOR_KEY_VALUE = ': '
     SEPERATOR_INFO = ' => '
     SEPERATOR_MULTI_LINE = ':\n'
+    SEPERATOR_MULTI_LINE_TABBED = ':\n\t'
     SEPERATOR_MULTI_OBJ = '; '
     SEPERATOR_NAME_VERSION = ' '
 
@@ -262,7 +263,13 @@ class PhConstants:
 
     STR_SELECT_OPTION = '-- Select --'
     STR_OTHER_OPTION = '-- Other --'
+    STR_ENCODING_FORMAT_ASCII = 'ascii'
+    STR_ENCODING_FORMAT_UTF8 = 'utf-8'
+    STR_ENCODING_FORMAT_ISO_8859 = 'ISO-8859-1'
+
+    '**DEPRECATED**'
     DECODE_MODE_ASCII = 'ascii'
+    '**DEPRECATED**'
     DECODE_MODE_UTF8 = 'utf-8'
 
     BEGIN_CERTIFICATE = '-----BEGIN CERTIFICATE-----'

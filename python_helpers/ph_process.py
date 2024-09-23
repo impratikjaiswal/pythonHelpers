@@ -9,7 +9,7 @@ class PhProcess:
     """
 
     @classmethod
-    def execute_command_in_shell(cls, cmd, cwd=None, decode_mode=PhConstants.DECODE_MODE_UTF8, strip_data=True,
+    def execute_command_in_shell(cls, cmd, cwd=None, decode_mode=PhConstants.STR_ENCODING_FORMAT_UTF8, strip_data=True,
                                  fail_safe=False):
         try:
             result = subprocess.check_output(cmd, cwd=cwd)

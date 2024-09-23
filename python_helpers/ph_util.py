@@ -83,9 +83,14 @@ class PhUtil:
             prefix = '    X '
         print('%s got: %s, expected: %s' % (prefix, repr(actual), repr(expected)))
 
-    # Deprecated
     @classmethod
     def line_is_comment(cls, str_data):
+        """**DEPRECATED**
+
+        New Function line_is_comment_or_empty()
+        :param str_data:
+        :return:
+        """
         return cls.line_is_comment_or_empty(str_data)
 
     @classmethod
@@ -1606,11 +1611,19 @@ class PhUtil:
         return ascii_str.encode('utf-8').hex()
 
     @classmethod
-    def hex_str_to_ascii(cls, str_data):
-        # Check if printable
-        hex_bytes = [cls.hex_str_to_dec(str_data[i:i + 2]) for i in range(0, len(str_data), 2)]
-        printable = all((0x20 <= hex_byte <= 0x7E) for hex_byte in hex_bytes)
-        return bytearray.fromhex(str_data).decode() if printable else ''
+    def hex_str_to_ascii(cls, str_data, only_if_printable=True, decoding_format=PhConstants.STR_ENCODING_FORMAT_UTF8):
+        printable = True
+        res = ''
+        if only_if_printable:
+            # Check if printable
+            hex_bytes = [cls.hex_str_to_dec(str_data[i:i + 2]) for i in range(0, len(str_data), 2)]
+            printable = all((0x20 <= hex_byte <= 0x7E) for hex_byte in hex_bytes)
+        if printable:
+            try:
+                res = bytearray.fromhex(str_data).decode(encoding=decoding_format)
+            except UnicodeDecodeError:
+                pass
+        return res
 
     @classmethod
     def gen_acc(cls, str_imsi):
@@ -2100,6 +2113,14 @@ class PhUtil:
         if not dict1:
             return dict2
         return {**dict1, **dict2}
+
+    @classmethod
+    def dict_clean(cls, dict1):
+        return {k: v for k, v in dict1.items() if v is not None}
+
+    @classmethod
+    def list_clean(cls, list1):
+        return [x for x in list1 if x is not None]
 
     @classmethod
     def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False, include_files=None, include_dirs=None,

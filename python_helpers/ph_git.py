@@ -17,7 +17,7 @@ class PhGit:
     _CWD_PATH_LIB = Path(__file__).resolve().parent
 
     _cwd_default = _CWD_PATH_LIB
-    _decode_mode_default = PhConstants.DECODE_MODE_ASCII
+    _decode_mode_default = PhConstants.STR_ENCODING_FORMAT_ASCII
 
     git_cmds_pool = {
         'git_rev_parse_hash': ['git', 'rev-parse', 'HEAD'],
