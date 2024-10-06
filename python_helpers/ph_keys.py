@@ -168,6 +168,7 @@ class PhKeys:
     REMARKS = 'remarks'
     REMARKS_GENERATED = 'remarks_generated'
     DEFAULT = 'default'
+    UNKNOWN = 'unknown'
 
     INPUT = 'input'
     INPUT_DATA = 'input_data'

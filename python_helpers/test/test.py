@@ -1,4 +1,5 @@
 import os
+import time
 import unittest
 
 import sys
@@ -7,6 +8,7 @@ import python_helpers
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_crypto import PhCrypto
 from python_helpers.ph_git import PhGit
+from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
 
@@ -388,14 +390,32 @@ def test_zipfile():
                              target_file_name_wo_extn='test_zipfile_source_dir_custom_extn_files')
 
 
-def main():
-    """
+def test_chars_to_utf8():
+    PhUtil.print_heading()
+    target_file_name = 'test_chars_to_utf8.asn'
+    lines = []
+    encoding_pool = [
+        PhConstants.STR_ENCODING_FORMAT_UTF8,
+        PhConstants.STR_ENCODING_FORMAT_ISO_8859,
+        PhConstants.STR_ENCODING_FORMAT_CP_1252,
+    ]
+    for encoding in encoding_pool:
+        PhUtil.print_heading(f'encoding: {encoding}')
+        with open(os.sep.join([PhUtil.path_default_res_folder, target_file_name]),
+                  encoding=encoding, errors=None) as f:
+            lines = f.readlines()
+        for input_data in lines:
+            output_data = PhUtil.all_chars_to_utf8(input_data)
+            data = PhConstants.SEPERATOR_MULTI_LINE_TABBED.join(
+                [f'input_data: {input_data}', f'output_data: {output_data}'])
+            print(data)
 
-    :return:
-    """
+
+def test_functions():
     test_temp()
     # ## Keep on the 2nd Number
     test_version()
+    test_chars_to_utf8()
     test_get_git_info()
     test_get_time_stamp_file_name()
     test_to_file()
@@ -412,6 +432,27 @@ def main():
     test_generalise_list()
     test_hash()
     test_zipfile()
+
+
+def main():
+    """
+
+    :return:
+    """
+    """
+    """
+    ph_time = PhTime()
+    ph_time.start()
+    """
+    """
+    test_functions()
+    """
+    """
+    ph_time.print()
+    ph_time.stop()
+    time.sleep(5)
+    ph_time.print()
+    PhUtil.print_done()
 
 
 if __name__ == '__main__':

@@ -754,6 +754,13 @@ class PhUtil:
         return date_time
 
     @classmethod
+    def format_time(cls, time_value, time_interval=False):
+        time_format = '%H:%M:%S'
+        if time_interval:
+            time_value = time.gmtime(time_value)
+        return time.strftime(time_format, time_value)
+
+    @classmethod
     def get_user_friendly_name(cls, python_variable_name):
         temp_data = re.sub(r'[_]', repl=' ', string=python_variable_name)
         return temp_data.title()
@@ -2164,3 +2171,83 @@ class PhUtil:
     @classmethod
     def generate_hash(cls, files_list, hash_file_path):
         cls.print_work_in_progress()
+
+    @classmethod
+    def all_chars_to_utf8(cls, input_text, current_encoding=None, target_encoding=PhConstants.STR_ENCODING_FORMAT_UTF8,
+                          encoding_errors='replace', via_regex=True):
+        if not input_text:
+            return input_text
+        if current_encoding is not None and target_encoding is not None:
+            input_text = input_text.encode(current_encoding).decode(target_encoding, errors=encoding_errors)
+        # List of annoying characters
+        replacement_characters_dict = {
+            '\x82': ',',  # High code comma
+            '\x84': ',,',  # High code double comma
+            '\x85': '...',  # Tripple dot
+            '\x88': '^',  # High carat
+            '\x91': '\x27',  # Forward single quote
+            '\x92': '\x27',  # Reverse single quote
+            '\x93': '\x22',  # Forward double quote
+            '\x94': '\x22',  # Reverse double quote
+            '\x95': ' ',
+            '\x96': '-',  # High hyphen
+            '\x97': '--',  # Double hyphen
+            '\x99': ' ',
+            '\xa0': ' ',
+            '\xa6': '|',  # Split vertical bar
+            '\xab': '<<',  # Double less than
+            '\xbb': '>>',  # Double greater than
+            '\xbc': '1/4',  # one quarter
+            '\xbd': '1/2',  # one half
+            '\xbe': '3/4',  # three quarters
+            '\xbf': '\x27',  # c-single quote
+            '\xa8': '',  # modifier - under curve
+            '\xb1': '',  # modifier - under line
+            ##################################### ISO 78
+            '\xe2\x80\x99': '\x27',  # Forward single quote
+            '\xe2\x80\x98': '\x27',  # Forward single quote
+            '\xe2\x80\x93': '-',  # High hyphen
+            '\xe2\x80¦': '...',  # Tripple dot
+            #####################################
+            "‘": "'",
+            "’": "'",
+            "…": '...',
+            "â€˜": "'",
+            "â€™": "'",
+            "–": '-',
+            "â€“": '-',
+        }
+
+        def _replace_chars(match):
+            char = match.group(0)
+            return replacement_characters_dict[char]
+
+        result_regex = re.sub('(' + '|'.join(replacement_characters_dict.keys()) + ')', _replace_chars, input_text)
+        if via_regex:
+            return result_regex
+        return cls.replace_multiple(input_text=input_text, replacement_characters_dict=replacement_characters_dict)
+
+    @classmethod
+    def replace_multiple(cls, input_text, replacement_characters_dict):
+        if not input_text:
+            return input_text
+        if not replacement_characters_dict:
+            return input_text
+        output_text = input_text
+        for key, value in replacement_characters_dict.items():
+            to_find = key
+            if to_find not in input_text:
+                continue
+            if isinstance(value, tuple) and len(value) >= 2:
+                to_replace = value[0]
+                regex_pattern = value[1]
+            else:
+                to_replace = value
+                regex_pattern = None
+            search_type = PhConstants.SEARCH_TYPE_PLAIN if (
+                    not regex_pattern or regex_pattern is None) else PhConstants.SEARCH_TYPE_REGEX
+            if search_type == PhConstants.SEARCH_TYPE_PLAIN:
+                output_text = input_text.replace(to_find, to_replace)
+            elif search_type == PhConstants.SEARCH_TYPE_REGEX:
+                output_text = re.sub(regex_pattern, to_replace, input_text)
+        return output_text

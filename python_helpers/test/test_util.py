@@ -699,8 +699,9 @@ class util_test(unittest.TestCase):
 
     def test_print_separator(self):
         """
-              :return:
-              """
+
+        :return:
+        """
         test_obj_pool = [
             test_obj_print_seperator(
                 character='-', count=80,
