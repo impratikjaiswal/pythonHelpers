@@ -84,39 +84,6 @@ class PhUtil:
         print('%s got: %s, expected: %s' % (prefix, repr(actual), repr(expected)))
 
     @classmethod
-    def line_is_comment(cls, str_data):
-        """**DEPRECATED**
-
-        New Function line_is_comment_or_empty()
-        :param str_data:
-        :return:
-        """
-        return cls.line_is_comment_or_empty(str_data)
-
-    @classmethod
-    def line_is_comment_or_empty(cls, str_data):
-        # Check if line is a comment
-        comments_pool = ['#', '*', ';', '-', '/*']
-        for comment_char in comments_pool:
-            if len(str_data.strip()) == 0 or str_data.strip().startswith(comment_char):
-                return True
-        return False
-
-    @classmethod
-    def string_is_blank(cls, str_data):
-        # Check if line is a comment
-        return True if str_data is None or str_data.strip() == '' else False
-
-    @classmethod
-    def string_is_not_blank(cls, str_data):
-        """
-
-        :param str_data:
-        :return:
-        """
-        return not cls.string_is_blank(str_data)
-
-    @classmethod
     def trim_and_kill_all_white_spaces(cls, str_data):
         return re.sub(r'\s+', '', str_data)
         # return str_data.translate({ord(c): None for c in string.whitespace})
@@ -216,16 +183,6 @@ class PhUtil:
             except AttributeError:
                 is_iter = False
         return is_iter, the_iter
-
-    @classmethod
-    def print_(cls, data, log=None):
-        """
-        Deprecated; use print
-        :param data:
-        :param log:
-        :return:
-        """
-        cls.print(data=data, log=log)
 
     @classmethod
     def print(cls, data, log=None):
@@ -548,11 +505,69 @@ class PhUtil:
         return analysed_str
 
     @classmethod
+    def is_empty(cls, value):
+        return True if value is None or len(value) == 0 else False
+
+    @classmethod
+    def is_not_empty(cls, value):
+        return not cls.is_empty(value)
+
+    @classmethod
+    def is_none(cls, value):
+        return True if value is None else False
+
+    @classmethod
+    def is_not_none(cls, value):
+        return not cls.is_none(value)
+
+    @classmethod
+    def is_empty_or_comment_string(cls, str_data, comments_pool=None):
+        """
+        Check if line is a comment
+        :param str_data:
+        :param comments_pool:
+        :return:
+        """
+        comments_pool = cls.set_if_not_empty(comments_pool, new_value=['#', '*', ';', '-', '/*'])
+        if cls.is_empty_string(str_data):
+            return True
+        str_data = str_data.strip()
+        for comment_char in comments_pool:
+            if str_data.startswith(comment_char):
+                return True
+        return False
+
+    @classmethod
+    def is_empty_string(cls, str_data):
+        """
+
+        :param str_data:
+        :return:
+        """
+        return True if str_data is None or str_data.strip() == '' else False
+
+    @classmethod
+    def is_not_empty_string(cls, str_data):
+        """
+
+        :param str_data:
+        :return:
+        """
+        return not cls.is_empty_string(str_data)
+
+    @classmethod
+    def set_type_if_different(cls, value=None, new_type=None):
+        return new_type(value) if new_type and not isinstance(value, new_type) else value
+
+    @classmethod
     def set_if_not_none(cls, current_value, new_value='', new_type=None):
-        value = new_value if current_value is None else current_value
-        if new_type and not isinstance(value, new_type):
-            return new_type(value)
-        return value
+        value = new_value if cls.is_none(current_value) else current_value
+        return cls.set_type_if_different(value, new_type=new_type)
+
+    @classmethod
+    def set_if_not_empty(cls, current_value, new_value='', new_type=None):
+        value = new_value if cls.is_empty(current_value) else current_value
+        return cls.set_type_if_different(value, new_type=new_type)
 
     @classmethod
     def get_file_name_and_extn(cls, file_path, name_with_out_extn=None, only_extn=None, extn_with_out_dot=None,
@@ -802,10 +817,16 @@ class PhUtil:
         """
         if not include_files:
             include_files = []
+        if isinstance(include_files, str):
+            include_files = [include_files]
         if not include_dirs:
             include_dirs = []
+        if isinstance(include_dirs, str):
+            include_dirs = [include_dirs]
         if not excludes:
             excludes = []
+        if isinstance(excludes, str):
+            excludes = [excludes]
         output_list = []
         output_list_temp = []
 
@@ -1044,56 +1065,14 @@ class PhUtil:
         return range_data
 
     @classmethod
-    def makedirs(cls, dir_path, absolute_path_needed=False):
-        """
-        Deprecated; use make_dirs
-        :param dir_path:
-        :param absolute_path_needed:
-        :return:
-        """
-        return cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
-
-    @classmethod
-    def clean_dirs(cls, target_dir):
-        """
-        Deprecated; use remove_dirs
-        :param dir_path:
-        :return:
-        """
-        if os.path.exists(target_dir) and os.path.isdir(target_dir):
-            cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
-            shutil.rmtree(target_dir)
-
-    @classmethod
     def make_dirs(cls, dir_path, absolute_path_needed=False):
-        return cls._handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
-                                operation_type=PhConstants.DIR_CREATION)
+        return cls.__handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
+                                 operation_type=PhConstants.DIR_CREATION)
 
     @classmethod
     def remove_dirs(cls, dir_path, absolute_path_needed=False):
-        return cls._handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
-                                operation_type=PhConstants.DIR_DELETION)
-
-    @classmethod
-    def _handle_dirs(cls, dir_path, absolute_path_needed, operation_type):
-        if absolute_path_needed:
-            dir_path = cls.get_absolute_path(dir_path)
-        if os.path.exists(dir_path):
-            if operation_type == PhConstants.DIR_CREATION:
-                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Existed')
-            if operation_type == PhConstants.DIR_DELETION:
-                if os.path.isdir(dir_path):
-                    cls.print_cmt(main_text=f'Target Folder: {dir_path}; Deletion Initiated')
-                    shutil.rmtree(dir_path)
-                else:
-                    cls.print_cmt(main_text=f'Target path {dir_path} does not belongs to a Folder')
-        else:
-            if operation_type == PhConstants.DIR_CREATION:
-                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated')
-                os.makedirs(dir_path)
-            if operation_type == PhConstants.DIR_DELETION:
-                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted')
-        return dir_path
+        return cls.__handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
+                                 operation_type=PhConstants.DIR_DELETION)
 
     @classmethod
     def find_offset_of_section(cls, data, char_to_find, corresponding_char_to_find):
@@ -2251,3 +2230,89 @@ class PhUtil:
             elif search_type == PhConstants.SEARCH_TYPE_REGEX:
                 output_text = re.sub(regex_pattern, to_replace, input_text)
         return output_text
+
+    ####################################################################################################################
+    ### INTENRAL ###
+    ####################################################################################################################
+
+    @classmethod
+    def __handle_dirs(cls, dir_path, absolute_path_needed, operation_type):
+        if absolute_path_needed:
+            dir_path = cls.get_absolute_path(dir_path)
+        if os.path.exists(dir_path):
+            if operation_type == PhConstants.DIR_CREATION:
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Existed')
+            if operation_type == PhConstants.DIR_DELETION:
+                if os.path.isdir(dir_path):
+                    cls.print_cmt(main_text=f'Target Folder: {dir_path}; Deletion Initiated')
+                    shutil.rmtree(dir_path)
+                else:
+                    cls.print_cmt(main_text=f'Target path {dir_path} does not belongs to a Folder')
+        else:
+            if operation_type == PhConstants.DIR_CREATION:
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated')
+                os.makedirs(dir_path)
+            if operation_type == PhConstants.DIR_DELETION:
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted')
+        return dir_path
+
+    ####################################################################################################################
+    ### DEPRECATED ###
+    ####################################################################################################################
+    @classmethod
+    def line_is_comment(cls, str_data):
+        """**DEPRECATED**
+
+        Refer: is_empty_or_comment_string()
+        """
+        return cls.is_empty_or_comment_string(str_data)
+
+    @classmethod
+    def line_is_comment_or_empty(cls, str_data):
+        """**DEPRECATED**
+
+        Refer: is_empty_or_comment_string()
+        """
+        return cls.is_empty_or_comment_string(str_data)
+
+    @classmethod
+    def string_is_blank(cls, str_data):
+        """**DEPRECATED**
+
+        Refer: is_empty_string()
+        """
+        return cls.is_empty_string(str_data)
+
+    @classmethod
+    def string_is_not_blank(cls, str_data):
+        """**DEPRECATED**
+
+        Refer: is_not_empty_string()
+        """
+        return cls.is_not_empty_string(str_data)
+
+    @classmethod
+    def print_(cls, data, log=None):
+        """**DEPRECATED**
+
+        Refer: print()
+        """
+        cls.print(data=data, log=log)
+
+    @classmethod
+    def makedirs(cls, dir_path, absolute_path_needed=False):
+        """**DEPRECATED**
+
+        Refer: make_dirs()
+        """
+        return cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
+
+    @classmethod
+    def clean_dirs(cls, target_dir):
+        """**DEPRECATED**
+
+        Refer: remove_dirs()
+        """
+        if os.path.exists(target_dir) and os.path.isdir(target_dir):
+            cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
+            shutil.rmtree(target_dir)
