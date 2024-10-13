@@ -1,8 +1,8 @@
 import os
-import time
 import unittest
 
 import sys
+import time
 
 import python_helpers
 from python_helpers.ph_constants import PhConstants
@@ -411,9 +411,68 @@ def test_chars_to_utf8():
             print(data)
 
 
+def test_traverse_it():
+    PhUtil.print_heading()
+    """
+    Test Data
+    """
+    src_dir_rel = os.sep.join([PhUtil.path_current_folder, os.pardir])
+    src_dir = PhUtil.get_absolute_path(src_dir_rel)
+    inc_files_pattern1_ok = '*.py'
+    inc_files_pattern2_ok = '*__.py'
+    inc_files_pattern_nok = ['*_*.py']
+    inc_files_pattern_dual_ok = ['*.py', '*.txt']
+    inc_files_name_nok = 'ph_bits.py'
+    #
+    exc_file_name_nok = 'ph_bits.py'
+    exc_dir_name_nok = 'test'
+    #
+    exc_file_path_ok = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py'
+    exc_dir_path_ok = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test'
+    """
+    Test Cases
+    """
+    #
+    PhUtil.print_heading(str_heading='No Args; Working')
+    PhUtil.traverse_it(print_also=True)
+    #
+    PhUtil.print_heading(str_heading='include_files=inc_files_pattern_dual_ok')
+    PhUtil.traverse_it(print_also=True, include_files=inc_files_pattern_dual_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir_rel')
+    PhUtil.traverse_it(print_also=True, top=src_dir_rel)
+    #
+    PhUtil.print_heading(str_heading='src_dir_rel, include_files=inc_files_pattern1_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir_rel, include_files=inc_files_pattern1_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_pattern1_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_pattern1_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_pattern2_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_pattern2_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_pattern_nok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_pattern_nok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_nok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_nok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, excludes=exc_file_name_nok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, excludes=exc_file_name_nok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, excludes=exc_dir_name_nok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, excludes=exc_dir_name_nok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, excludes=exc_file_path_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, excludes=exc_file_path_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, excludes=exc_dir_path_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, excludes=exc_dir_path_ok)
+
+
 def test_functions():
     test_temp()
-    # ## Keep on the 2nd Number
+    # Keep on the 2nd Number
     test_version()
     test_chars_to_utf8()
     test_get_git_info()
@@ -432,6 +491,7 @@ def test_functions():
     test_generalise_list()
     test_hash()
     test_zipfile()
+    test_traverse_it()
 
 
 def main():

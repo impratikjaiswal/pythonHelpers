@@ -33,7 +33,7 @@ class PhDos:
 
     @classmethod
     def get_seperator(cls, heading=None):
-        heading = PhUtil.set_if_not_empty(heading, '---------------')
+        heading = PhUtil.set_if_empty(heading, '---------------')
         return SEPERATOR.replace('XXX', heading)
 
     @classmethod

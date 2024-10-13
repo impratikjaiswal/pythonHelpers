@@ -185,7 +185,7 @@ class PhUtil:
         return is_iter, the_iter
 
     @classmethod
-    def print(cls, data, log=None):
+    def print(cls, data='', log=None):
         print_or_log = log.info if log else print
         print_or_log(data)
 
@@ -281,7 +281,7 @@ class PhUtil:
         _print_item()
 
     @classmethod
-    def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False):
+    def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False, multi_line=False):
         """
 
         :param character:
@@ -304,6 +304,8 @@ class PhUtil:
         sep_end = count * character
         sep_mid = ' ' if main_text else ''
         msg = f'{sep_initial}{sep_mid}{main_text}{sep_mid}{sep_end}'
+        if multi_line:
+            msg = f'\n\n\n\n{msg}'
         if get_only:
             return msg
         print_or_log(msg)
@@ -384,7 +386,7 @@ class PhUtil:
             tool_version = f'{version_keyword}{tool_version}' if version_keyword_needed else tool_version
         if dic_format:
             return {tool_name: tool_version}
-        return str_format_keyword.join([tool_name, cls.set_if_not_none(tool_version)])
+        return str_format_keyword.join([tool_name, cls.set_if_none(tool_version)])
 
     @classmethod
     def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
@@ -528,7 +530,7 @@ class PhUtil:
         :param comments_pool:
         :return:
         """
-        comments_pool = cls.set_if_not_empty(comments_pool, new_value=['#', '*', ';', '-', '/*'])
+        comments_pool = cls.set_if_empty(comments_pool, new_value=['#', '*', ';', '-', '/*'])
         if cls.is_empty_string(str_data):
             return True
         str_data = str_data.strip()
@@ -560,12 +562,12 @@ class PhUtil:
         return new_type(value) if new_type and not isinstance(value, new_type) else value
 
     @classmethod
-    def set_if_not_none(cls, current_value, new_value='', new_type=None):
+    def set_if_none(cls, current_value, new_value='', new_type=None):
         value = new_value if cls.is_none(current_value) else current_value
         return cls.set_type_if_different(value, new_type=new_type)
 
     @classmethod
-    def set_if_not_empty(cls, current_value, new_value='', new_type=None):
+    def set_if_empty(cls, current_value, new_value='', new_type=None):
         value = new_value if cls.is_empty(current_value) else current_value
         return cls.set_type_if_different(value, new_type=new_type)
 
@@ -584,13 +586,13 @@ class PhUtil:
         :param only_folder_name:
         :return:
         """
-        name_with_out_extn = cls.set_if_not_none(name_with_out_extn, False)
-        only_extn = cls.set_if_not_none(only_extn, False)
-        extn_with_out_dot = cls.set_if_not_none(extn_with_out_dot, False)
-        only_path = cls.set_if_not_none(only_path, False)
-        ext_available = cls.set_if_not_none(ext_available, True)
-        path_with_out_extn = cls.set_if_not_none(path_with_out_extn, False)
-        only_folder_name = cls.set_if_not_none(only_folder_name, False)
+        name_with_out_extn = cls.set_if_none(name_with_out_extn, False)
+        only_extn = cls.set_if_none(only_extn, False)
+        extn_with_out_dot = cls.set_if_none(extn_with_out_dot, False)
+        only_path = cls.set_if_none(only_path, False)
+        ext_available = cls.set_if_none(ext_available, True)
+        path_with_out_extn = cls.set_if_none(path_with_out_extn, False)
+        only_folder_name = cls.set_if_none(only_folder_name, False)
 
         if not file_path:
             return ''
@@ -799,7 +801,7 @@ class PhUtil:
 
     @classmethod
     def traverse_it(cls, top=path_current_folder, traverse_mode='Regex', include_files=None, include_dirs=None,
-                    excludes=None, detail_info=False):
+                    excludes=None, detail_info=False, print_also=False):
         """
         Usage: python <programName.py> <folderName>
 
@@ -899,6 +901,9 @@ class PhUtil:
                 filenames = [f for f in filenames if not re.match(excludes, f, re.IGNORECASE)]
                 filenames = [f for f in filenames if re.match(include_files, f, re.IGNORECASE)]
                 output_list = output_list + filenames
+        if print_also:
+            cls.print(f'Count is: {len(output_list)}')
+            cls.print_iter(output_list)
         return output_list
 
     @classmethod
@@ -1967,8 +1972,8 @@ class PhUtil:
     @classmethod
     def append_remarks(cls, main_remarks, additional_remarks=None, max_length=PhConstants.REMARKS_MAX_LENGTH,
                        append_mode_post=True):
-        main_remarks = cls.set_if_not_none(main_remarks, new_type=str)
-        additional_remarks = cls.set_if_not_none(additional_remarks, new_type=str)
+        main_remarks = cls.set_if_none(main_remarks, new_type=str)
+        additional_remarks = cls.set_if_none(additional_remarks, new_type=str)
         len_sep = len(PhConstants.SEPERATOR_MULTI_OBJ) if len(main_remarks) > 0 and len(additional_remarks) > 0 else 0
         len_main_remarks = len(main_remarks)
         diff_length = len_main_remarks - max_length + len_sep + PhConstants.DEFAULT_TRIM_STRING_LENGTH
@@ -2316,3 +2321,19 @@ class PhUtil:
         if os.path.exists(target_dir) and os.path.isdir(target_dir):
             cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
             shutil.rmtree(target_dir)
+
+    @classmethod
+    def set_if_not_none(cls, current_value, new_value='', new_type=None):
+        """**DEPRECATED**
+
+        Refer: set_if_none()
+        """
+        raise AttributeError(f'set_if_not_none() is removed from v4.4.0, use set_if_none() instead !!!')
+
+    @classmethod
+    def set_if_not_empty(cls, current_value, new_value='', new_type=None):
+        """**DEPRECATED**
+
+        Refer: set_if_empty()
+        """
+        raise AttributeError(f'set_if_not_empty() is removed from v4.4.0, use set_if_empty() instead !!!')
