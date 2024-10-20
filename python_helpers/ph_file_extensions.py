@@ -1,4 +1,6 @@
 class PhFileExtensions:
+    ALL_EXT = '.*'
+    SEP = '.'
     TXT = '.txt'
     ASN = '.asn'
     ASN1 = '.asn1'
@@ -18,3 +20,14 @@ class PhFileExtensions:
     JPEG = '.jpeg'
     BKP = '.bkp'
     TMP = '.tmp'
+    PY = '.py'
+    JAVA = '.java'
+    _7Z = '.7z'
+    ZIP = '.zip'
+    HASH = '.hash'
+    FUNCTION_SPECIFIC = '.function_specific'
+    ASN_ORG = '.asn_org'
+    ASN_MANUALLY_CORRECTED = '.asn_manually_corrected'
+    ASN_AUTO_CORRECTED = '.asn_auto_corrected'
+    ASN_FORMATTED = '.asn_formatted'
+

@@ -1,8 +1,12 @@
+import pandas as pd
+
+
 class PhConstants:
     DICT_EMPTY = {}
     LIST_EMPTY = []
-
     STR_EMPTY = ''
+    DF_EMPTY = pd.DataFrame()
+
     STR_TAB = '    '
     STR_SPACE = ' '
 
@@ -196,6 +200,7 @@ class PhConstants:
     SEPERATOR_MULTI_LINE_TABBED = ':\n\t'
     SEPERATOR_MULTI_OBJ = '; '
     SEPERATOR_NAME_VERSION = ' '
+    SEPERATOR_TITLE = ' | '
 
     ENCLOSE_HEX = 1
     ENCLOSE_NAME_VALUE = 2

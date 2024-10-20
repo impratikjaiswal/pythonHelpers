@@ -95,8 +95,9 @@ class PhKeys:
 
     # App
     APP_TITLE = 'app_title'
-    APP_TITLE_PRE = 'app_title_pre'
-    APP_TITLE_POST = 'app_title_post'
+    APP_HEADER = 'app_header'
+    APP_HEADER_PRE = 'app_header_pre'
+    APP_HEADER_POST = 'app_header_post'
     APP_DESCRIPTION = 'app_description'
     APP_DESCRIPTION_LEVEL_1 = 'app_description_level_1'
     APP_DESCRIPTION_LEVEL_2 = 'app_description_level_2'
@@ -119,7 +120,7 @@ class PhKeys:
     APP_END_POINT = 'app_end_point'
     APP_CODE = 'app_code'
     APP_CANONICAL_URL = 'app_canonical_url'
-    APP_STATS_ID= 'app_stats_id'
+    APP_STATS_ID = 'app_stats_id'
     NAV_BAR_APP_ITEMS = 'nav_bar_app_items'
 
     #

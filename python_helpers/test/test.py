@@ -416,19 +416,27 @@ def test_traverse_it():
     """
     Test Data
     """
+    #
+    target_file_name = 'ph_bits.py'
+    target_file_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py'
+    target_dir_name = 'test'
+    target_dir_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test'
+    #
     src_dir_rel = os.sep.join([PhUtil.path_current_folder, os.pardir])
     src_dir = PhUtil.get_absolute_path(src_dir_rel)
+    src_file_nok = target_file_path
+    #
     inc_files_pattern1_ok = '*.py'
     inc_files_pattern2_ok = '*__.py'
     inc_files_pattern_nok = ['*_*.py']
     inc_files_pattern_dual_ok = ['*.py', '*.txt']
-    inc_files_name_nok = 'ph_bits.py'
+    inc_files_name_nok = target_file_name
+    inc_files_name_pattern_ok = '*' + target_file_name
     #
-    exc_file_name_nok = 'ph_bits.py'
-    exc_dir_name_nok = 'test'
-    #
-    exc_file_path_ok = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py'
-    exc_dir_path_ok = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test'
+    exc_file_name_nok = target_file_name
+    exc_dir_name_nok = target_dir_name
+    exc_file_path_ok = target_file_path
+    exc_dir_path_ok = target_dir_path
     """
     Test Cases
     """
@@ -456,6 +464,15 @@ def test_traverse_it():
     #
     PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_nok')
     PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_nok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_pattern_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_ok)
+    #
+    PhUtil.print_heading(str_heading='src_file_nok, include_files=inc_files_pattern1_ok')
+    PhUtil.traverse_it(print_also=True, top=src_file_nok, include_files=inc_files_pattern1_ok)
+    #
+    PhUtil.print_heading(str_heading='src_file_nok')
+    PhUtil.traverse_it(print_also=True, top=src_file_nok)
     #
     PhUtil.print_heading(str_heading='src_dir, excludes=exc_file_name_nok')
     PhUtil.traverse_it(print_also=True, top=src_dir, excludes=exc_file_name_nok)
