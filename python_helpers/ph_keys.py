@@ -68,6 +68,8 @@ class PhKeys:
 
     # certPlay
     URL_PRE_ACCESS = 'url_pre_access'
+    URL_CERT_FETCH_ONLY = 'url_cert_fetch_only'
+    URL_ALL_CERTS = 'url_all_certs'
 
     # Process
     PROCESS = 'process'

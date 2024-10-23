@@ -4,8 +4,8 @@ import binascii
 from Crypto.Cipher import AES
 from itertools import cycle
 
-from python_helpers import ph_util
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_util import PhUtil
 
 
 class PhCrypto:
@@ -154,18 +154,24 @@ class PhCrypto:
         return int(num) if (num < 10) else int(cls.sum_to_single_digit(num / 10) + num % 10)
 
     @classmethod
-    # Function needs to be thoroughly test
+    def get_odd_even_digits(cls, msg, sum_to_single_digit=True):
+        digits = list(msg)
+        odd_digits_rev = [*map(int, digits[-2::-2])]
+        even_digits_rev = [
+            *map(lambda x: cls.sum_to_single_digit(int(x) * 2), digits[-1::-2])] if sum_to_single_digit else [
+            *map(int, digits[-1::-2])]
+        return odd_digits_rev, even_digits_rev
+
+    @classmethod
     def get_luhn_digit(cls, msg):
         """
+	    TODO: Function needs to be thoroughly tested
 
         :param msg:
         :return:
         """
         try:
-            digits = list(msg)
-            odd_digits_rev = [*map(int, digits[-2::-2])]
-            # even_digits_rev = [*map(int, digits[-1::-2])]
-            even_digits_rev = [*map(lambda x: cls.sum_to_single_digit(int(x) * 2), digits[-1::-2])]
+            odd_digits_rev, even_digits_rev = cls.get_odd_even_digits(msg, sum_to_single_digit=True)
             x = sum(odd_digits_rev) + sum(even_digits_rev)
             x = (10 - x % 10)
             return 0 if x == 10 else x
@@ -177,17 +183,35 @@ class PhCrypto:
     @classmethod
     def validate_luhn_digit(cls, msg):
         """
-        Check if iccid last digit is with or with out Luhn Check sum digit
+        TODO:Check if iccid last digit is with or without Luhn Check sum digit
         :param msg:
         :return:
         """
+        msg = PhUtil.trim_and_kill_all_white_spaces(msg)
+        check_sum_length = 1
         if not msg:
             return False
-        if not ph_util.is_numeric(msg):
+        if not PhUtil.is_numeric(msg):
             return False
-        last_digit = int(msg[-1])
-        luhn = cls.get_luhn_digit(msg[:-1])
+        last_digit = int(msg[-check_sum_length:])
+        luhn = cls.get_luhn_digit(msg[:-check_sum_length])
         return luhn == last_digit
+
+    @classmethod
+    def validate_eid(cls, msg):
+        """
+        TODO:Check if EID last digit is with or without Luhn Check sum digit
+        :param msg:
+        :return:
+        """
+        msg = PhUtil.trim_and_kill_all_white_spaces(msg)
+        if not msg:
+            return False
+        if not PhUtil.is_numeric(msg):
+            return False
+        msg_int = int(msg)
+        reminder = msg_int % 97
+        return reminder == 1
 
     @classmethod
     def append_luhn(cls, str_plain_data, min_len_iccid_wo_luhn=18):

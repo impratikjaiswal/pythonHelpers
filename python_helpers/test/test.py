@@ -487,6 +487,48 @@ def test_traverse_it():
     PhUtil.traverse_it(print_also=True, top=src_dir, excludes=exc_dir_path_ok)
 
 
+def test_eid():
+    PhUtil.print_heading()
+    eid_pool = [
+        '89049032007008882600117893640261',
+        '89049032123451234512345678901235',
+    ]
+    for eid in eid_pool:
+        print(f'EID {eid} is Valid ? {PhCrypto.validate_eid(eid)}')
+
+
+def test_luhn():
+    PhUtil.print_heading()
+    PhUtil.print_heading(str_heading='debit_card_pool')
+    debit_card_pool = [
+        '4722 5410 5101 6295',
+    ]
+    for debit_card in debit_card_pool:
+        print(f'Debit Card {debit_card} is Valid ? {PhCrypto.validate_luhn_digit(debit_card)}')
+    PhUtil.print_heading(str_heading='credit_card_pool')
+    credit_card_pool = [
+        '4386 2800 2898 6424',
+    ]
+    for cebit_card in credit_card_pool:
+        print(f'Cebit Card {cebit_card} is Valid ? {PhCrypto.validate_luhn_digit(cebit_card)}')
+    PhUtil.print_heading(str_heading='iccid_pool')
+    iccid_pool = [
+        '894461721200000114',
+        '8944617212000001146',
+        '89423 10220 00089 671 6',
+    ]
+    for iccid in iccid_pool:
+        print(f'ICCID {iccid} is Valid ? {PhCrypto.validate_luhn_digit(iccid)}')
+    PhUtil.print_heading(str_heading='imei_pool')
+    imei_pool = [
+        '501944690893758',
+        '910107118819392',
+        '502652252218376',
+    ]
+    for imei in imei_pool:
+        print(f'imei {imei} is Valid ? {PhCrypto.validate_luhn_digit(imei)}')
+
+
 def test_functions():
     test_temp()
     # Keep on the 2nd Number
@@ -509,6 +551,8 @@ def test_functions():
     test_hash()
     test_zipfile()
     test_traverse_it()
+    test_eid()
+    test_luhn()
 
 
 def main():
