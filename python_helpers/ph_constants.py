@@ -268,10 +268,32 @@ class PhConstants:
 
     STR_SELECT_OPTION = '-- Select --'
     STR_OTHER_OPTION = '-- Other --'
+
     STR_ENCODING_FORMAT_ASCII = 'ascii'
     STR_ENCODING_FORMAT_UTF8 = 'utf-8'
     STR_ENCODING_FORMAT_ISO_8859 = 'ISO-8859-1'
     STR_ENCODING_FORMAT_CP_1252 = 'cp1252'
+
+    STR_ENCODING_FORMAT_POOL = [
+        STR_ENCODING_FORMAT_ASCII,
+        STR_ENCODING_FORMAT_UTF8,
+        STR_ENCODING_FORMAT_ISO_8859,
+        STR_ENCODING_FORMAT_CP_1252,
+    ]
+
+    STR_ENCODING_ERROR_HANDLING_REPLACE = 'replace'
+    STR_ENCODING_ERROR_HANDLING_IGNORE = 'ignore'
+
+    # Copied from "venv/Lib/site-packages/pandas/_typing.py"
+    STR_ENCODING_ERROR_HANDLING_POOL = [
+        'strict',
+        STR_ENCODING_ERROR_HANDLING_IGNORE,
+        STR_ENCODING_ERROR_HANDLING_REPLACE,
+        'surrogateescape',
+        'xmlcharrefreplace',
+        'backslashreplace',
+        'namereplace',
+    ]
 
     '**DEPRECATED**'
     DECODE_MODE_ASCII = 'ascii'

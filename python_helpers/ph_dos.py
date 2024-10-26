@@ -28,6 +28,10 @@ class PhDos:
         return 'pushd %~dp0'
 
     @classmethod
+    def change_directory_parent(cls):
+        return 'cd ..'
+
+    @classmethod
     def echo_off(cls):
         return '@echo off'
 
@@ -39,3 +43,20 @@ class PhDos:
     @classmethod
     def comment_line(cls, line=None):
         return f'REM {line}'
+
+    @classmethod
+    def call_script_for_env_handling(cls, activate_venv=True):
+        batch_name = 'activate_vir_env.bat' if activate_venv else 'deactivate_vir_env.bat'
+        return [
+            'cd scripts',
+            f'call {batch_name}',
+            'cd ..',
+        ]
+
+    @classmethod
+    def run_python(cls, module_name):
+        return f'python -m {module_name}'
+
+    @classmethod
+    def redirect_output(cls, file_path):
+        return f'> {file_path}'

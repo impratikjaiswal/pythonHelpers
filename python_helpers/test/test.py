@@ -1,5 +1,6 @@
 import os
 import unittest
+from collections import OrderedDict
 
 import sys
 import time
@@ -277,40 +278,43 @@ def test_print_iter():
     list3 = [list1, list2]
     list4 = []
     list5 = ['app_title']
+    ordered_dic1 = OrderedDict()
+    ordered_dic1.update({'dic1': dic1})
+    ordered_dic1.update({'dic2': dic2})
+    ordered_dic1.update({'dic3': dic3})
     sep = PhConstants.SEPERATOR_MULTI_OBJ
-    PhUtil.print_heading(str_heading='iters printing, with sep')
-    PhUtil.print_iter(dic1, sep=sep)
-    PhUtil.print_iter(dic2, sep=sep)
-    PhUtil.print_iter(dic3, sep=sep)
-    PhUtil.print_iter(dic4, sep=sep)
-    PhUtil.print_iter(dic5, sep=sep)
-    PhUtil.print_iter(list1, sep=sep)
-    PhUtil.print_iter(list2, sep=sep)
-    PhUtil.print_iter(list3, sep=sep)
-    PhUtil.print_iter(list4, sep=sep)
-    PhUtil.print_iter(list5, sep=sep)
-    PhUtil.print_heading(str_heading='iters printing')
-    PhUtil.print_iter(dic1)
-    PhUtil.print_iter(dic2)
-    PhUtil.print_iter(dic3)
-    PhUtil.print_iter(dic4)
-    PhUtil.print_iter(dic5)
-    PhUtil.print_iter(list1)
-    PhUtil.print_iter(list2)
-    PhUtil.print_iter(list3)
-    PhUtil.print_iter(list4)
-    PhUtil.print_iter(list5)
+    list_of_items = [
+        [dic1, 'dic1'],
+        [dic2, 'dic2'],
+        [dic3, 'dic3'],
+        [dic4, 'dic4'],
+        [dic5, 'dic5'],
+        [list1, 'list1'],
+        [list2, 'list2'],
+        [list3, 'list3'],
+        [list4, 'list4'],
+        [list5, 'list5'],
+        [ordered_dic1, 'orderedDic1'],
+    ]
+
     PhUtil.print_heading(str_heading='iters printing with heading')
-    PhUtil.print_iter(dic1, header='dic1')
-    PhUtil.print_iter(dic2, header='dic2')
-    PhUtil.print_iter(dic3, header='dic3')
-    PhUtil.print_iter(dic4, header='dic4')
-    PhUtil.print_iter(dic5, header='dic5')
-    PhUtil.print_iter(list1, header='list1')
-    PhUtil.print_iter(list2, header='list2')
-    PhUtil.print_iter(list3, header='list3')
-    PhUtil.print_iter(list4, header='list4')
-    PhUtil.print_iter(list5, header='list5')
+    for item in list_of_items:
+        actual_iter = item[0]
+        header = item[1]
+        PhUtil.print_iter(actual_iter, header=header)
+
+    PhUtil.print_heading(str_heading='iters printing')
+    for item in list_of_items:
+        PhUtil.print_iter(item[0])
+
+    PhUtil.print_heading(str_heading='iters printing; depth_level=1')
+    for item in list_of_items:
+        PhUtil.print_iter(item[0], depth_level=1)
+
+    PhUtil.print_heading(str_heading='iters printing, with sep')
+    for item in list_of_items:
+        PhUtil.print_iter(item[0], sep=sep)
+
     PhUtil.print_heading(str_heading='sys.modules; depth_level=0')
     data = sys.modules
     PhUtil.print_iter(data, depth_level=0)

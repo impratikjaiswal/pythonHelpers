@@ -155,6 +155,11 @@ class PhKeys:
     TESTIMONIAL_POST_CREATED = 'testimonial_post_created'
 
     #
+    TEST_CASE_ID = 'test_case_id'
+    TEST_CASE_NAME = 'test_case_name'
+    TEST_CASE_FILE_NAME = 'test_case_file_name'
+
+    #
     LOGIN_USER_NAME = 'login_user_name'
     LOGIN_USER_NAME = 'login_pass_word'
 
@@ -186,6 +191,11 @@ class PhKeys:
     EXPORT_FILE = 'export_file'
     RE_OUTPUT_FILE = 're_output_file'
     OUTPUT_FILE_NAME_KEYWORD = 'output_file_name_keyword'
+
+    #
+    VAR_EXECUTION_MODE = 'execution_mode'
+    VAR_ERROR_HANDLING_MODE = 'error_handling_mode'
+    VAR_TOP_FOLDER_PATH = 'top_folder_path'
 
     #
     GET = 'GET'

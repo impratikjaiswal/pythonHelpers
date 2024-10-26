@@ -208,7 +208,7 @@ class PhUtil:
         :return:
         """
 
-        def _print_item():
+        def _print_item(_dict_format=False):
             """
 
             :param _value:
@@ -242,8 +242,9 @@ class PhUtil:
 
         print_or_log = log.info if log else print
         data_pool = []
-        formatting_level = 0
-        spaces = PhConstants.STR_TAB * formatting_level
+        formatting_level = cls.set_if_none(formatting_level, 0)
+        # spaces = PhConstants.STR_TAB * formatting_level
+        spaces = PhConstants.STR_TAB * 0
         list_as_str = False if list_as_str is None else list_as_str
         sep = PhConstants.SEPERATOR_TWO_LINES if sep is None else sep
         sep_child = PhConstants.SEPERATOR_MULTI_OBJ if sep_child is None else sep_child
@@ -258,17 +259,17 @@ class PhUtil:
             return
         if header:
             print_or_log(header)
-        # Iterable is a Dictionary
+        # Iterable is a Dictionary, OrderedDictionary etc.
         if isinstance(the_iter, dict):
             for key in the_iter.keys():
                 value = the_iter[key]
                 if depth_level == -1 and cls.check_if_iter(value)[0]:
                     nested = PhConstants.YES
                     cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str,
-                                   formatting_level=formatting_level + 1, sep=sep_child)
+                                   formatting_level=formatting_level + 1, sep=sep)
                 else:
                     _collect_item(_key=key, _value=value, _dict_format=True)
-            _print_item()
+            _print_item(_dict_format=True)
             return
         # Other iterable Items
         for each_item in the_iter:
@@ -311,8 +312,9 @@ class PhUtil:
         print_or_log(msg)
 
     @classmethod
-    def print_cmt(cls, main_text='', character='-', count=40, log=None):
-        cls.print_separator(character=character, count=count, main_text=main_text, log=log)
+    def print_cmt(cls, main_text='', character='-', count=40, log=None, quite_mode=False):
+        if not quite_mode:
+            cls.print_separator(character=character, count=count, main_text=main_text, log=log)
 
     @classmethod
     def print_done(cls, main_text='All Done.', log=None):
@@ -508,7 +510,14 @@ class PhUtil:
 
     @classmethod
     def is_empty(cls, value):
-        return True if value is None or len(value) == 0 else False
+        if value is None:
+            return True
+        # TODO: Need to find a propr way to handle all int like scenarios (float etc)
+        if isinstance(value, int):
+            return False
+        if len(value) == 0:
+            return True
+        return False
 
     @classmethod
     def is_not_empty(cls, value):
@@ -1070,14 +1079,14 @@ class PhUtil:
         return range_data
 
     @classmethod
-    def make_dirs(cls, dir_path, absolute_path_needed=False):
-        return cls.__handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
-                                 operation_type=PhConstants.DIR_CREATION)
+    def make_dirs(cls, dir_path=None, file_path=None, absolute_path_needed=False, quite_mode=False):
+        return cls.__handle_dirs(dir_path=dir_path, file_path=file_path, absolute_path_needed=absolute_path_needed,
+                                 operation_type=PhConstants.DIR_CREATION, quite_mode=quite_mode)
 
     @classmethod
-    def remove_dirs(cls, dir_path, absolute_path_needed=False):
-        return cls.__handle_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed,
-                                 operation_type=PhConstants.DIR_DELETION)
+    def remove_dirs(cls, dir_path=None, file_path=None, absolute_path_needed=False, quite_mode=False):
+        return cls.__handle_dirs(dir_path=dir_path, file_path=file_path, absolute_path_needed=absolute_path_needed,
+                                 operation_type=PhConstants.DIR_DELETION, quite_mode=quite_mode)
 
     @classmethod
     def find_offset_of_section(cls, data, char_to_find, corresponding_char_to_find):
@@ -2236,29 +2245,44 @@ class PhUtil:
                 output_text = re.sub(regex_pattern, to_replace, input_text)
         return output_text
 
+    @classmethod
+    def popup_msg(cls, msg, caption=None, no_user_interation=False):
+        if cls.is_empty(msg):
+            return
+        print(f'Popup Msg: {msg}')
+        if no_user_interation:
+            return
+        if _ctypes_windll_available:
+            message_box_ = windll.user32.MessageBoxW
+            caption = cls.set_if_none(caption, os.path.basename(__file__))
+            message_box_(0, msg, caption, 1)
+
     ####################################################################################################################
     ### INTENRAL ###
     ####################################################################################################################
 
     @classmethod
-    def __handle_dirs(cls, dir_path, absolute_path_needed, operation_type):
+    def __handle_dirs(cls, dir_path, file_path, absolute_path_needed, operation_type, quite_mode):
+        if cls.is_empty(dir_path) and cls.is_not_empty(file_path):
+            dir_path = cls.get_file_name_and_extn(file_path=file_path, only_path=True)
         if absolute_path_needed:
             dir_path = cls.get_absolute_path(dir_path)
         if os.path.exists(dir_path):
             if operation_type == PhConstants.DIR_CREATION:
-                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Existed')
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Existed', quite_mode=quite_mode)
             if operation_type == PhConstants.DIR_DELETION:
                 if os.path.isdir(dir_path):
-                    cls.print_cmt(main_text=f'Target Folder: {dir_path}; Deletion Initiated')
+                    cls.print_cmt(main_text=f'Target Folder: {dir_path}; Deletion Initiated', quite_mode=quite_mode)
                     shutil.rmtree(dir_path)
                 else:
-                    cls.print_cmt(main_text=f'Target path {dir_path} does not belongs to a Folder')
+                    cls.print_cmt(main_text=f'Target path {dir_path} does not belongs to a Folder',
+                                  quite_mode=quite_mode)
         else:
             if operation_type == PhConstants.DIR_CREATION:
-                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated')
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated', quite_mode=quite_mode)
                 os.makedirs(dir_path)
             if operation_type == PhConstants.DIR_DELETION:
-                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted')
+                cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted', quite_mode=quite_mode)
         return dir_path
 
     ####################################################################################################################

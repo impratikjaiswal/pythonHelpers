@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 from python_helpers.ph_constants import PhConstants
@@ -26,3 +27,22 @@ class PhProcess:
             if fail_safe is True:
                 return None
             raise e
+
+    @classmethod
+    def open_file(cls, file_path):
+        print(f'Opening {file_path}')
+        subprocess.Popen([file_path], shell=True)
+
+    @classmethod
+    def run_batch_file(cls, batch_file_path):
+        """
+        Run a batch file
+
+        :param batch_file_path:
+        :return:
+        """
+        batch_file_path = f'"{batch_file_path}"'
+        print(f'Executing {batch_file_path}')
+        os.system(batch_file_path)
+        # https://pratikj.atlassian.net/browse/SML-409; Delay did not work
+        # time.sleep(2)
