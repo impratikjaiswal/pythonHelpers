@@ -6,3 +6,4 @@ class PhExecutionModes:
     SAMPLE_GENERIC = 5
     ALL = 6
     UNIT_TESTING_EXTERNAL = 7
+    SAMPLES_LIST = 8
