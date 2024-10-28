@@ -65,6 +65,12 @@ class PhKeys:
     # dataPlay
     CONTENT_MAPPINGS = 'content_mappings'
     NAME_MAPPINGS = 'name_mappings'
+    INCLUDE_SEARCH_PATTERN = 'include_search_pattern'
+    INCLUDE_SEARCH_PATTERN_IS_REGEX = 'include_search_pattern_is_regex'
+    EXCLUDE_SEARCH_PATTERN = 'exclude_search_pattern'
+    EXCLUDE_SEARCH_PATTERN_IS_REGEX = 'exclude_search_pattern_is_regex'
+    REPLACE_WITH = 'replace_with'
+    REPLACE_WITH_IS_REGEX = 'replace_with_is_regex'
 
     # qrPlay
     SCALE = 'scale'
