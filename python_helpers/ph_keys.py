@@ -62,6 +62,10 @@ class PhKeys:
     LENGTH_IN_DECIMAL = 'length_in_decimal'
     NON_TLV_NEIGHBOR = 'non_tlv_neighbor'
 
+    # dataPlay
+    CONTENT_MAPPINGS = 'content_mappings'
+    NAME_MAPPINGS = 'name_mappings'
+
     # qrPlay
     SCALE = 'scale'
     SPLIT_QRS = 'split_qrs'

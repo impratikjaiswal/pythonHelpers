@@ -2257,6 +2257,15 @@ class PhUtil:
             caption = cls.set_if_none(caption, os.path.basename(__file__))
             message_box_(0, msg, caption, 1)
 
+    @classmethod
+    def clear_quotation_marks(cls, v):
+        if cls.is_empty(v) or not isinstance(v, str):
+            return v
+        if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")) or (
+                v.startswith('"""') and v.endswith('"""')):
+            v = v[1:-1]
+        return v
+
     ####################################################################################################################
     ### INTENRAL ###
     ####################################################################################################################
