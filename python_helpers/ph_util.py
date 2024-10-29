@@ -16,7 +16,6 @@ from io import TextIOWrapper, StringIO
 import math
 import pandas as pd
 import pkg_resources
-import requests
 import sys
 import time
 import tzlocal
@@ -24,6 +23,7 @@ from binascii import unhexlify
 from packaging import version
 from pandas import DataFrame, Series
 
+import requests
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_file_extensions import PhFileExtensions
@@ -824,6 +824,7 @@ class PhUtil:
             Sample1: ['/home/paulo-freitas/Documents']
             Sample2: ['E:\\Entertainment\\Songs_Mp3\\19's', 'E:\\Entertainment\\Songs_Mp3\\2000-2009']
         :param detail_info:
+        :param print_also:
         :return:
         """
         if not include_files:
@@ -841,17 +842,20 @@ class PhUtil:
         output_list = []
         output_list_temp = []
 
-        print('traverseMode: ', traverse_mode)
-        print('top: ', top)
+        print(f'traverse_mode: {traverse_mode}')
+        print(f'top: {top}')
+        print(f'include_files: {include_files}')
+        print(f'include_dirs: {include_dirs}')
+        print(f'excludes: {excludes}')
 
         if traverse_mode == 'Regex':
             # transform glob patterns to regular expressions
             include_files = r'|'.join([fnmatch.translate(x) for x in include_files])
             include_dirs = r'|'.join([fnmatch.translate(x) for x in include_dirs])
             excludes = r'|'.join([fnmatch.translate(x) for x in excludes]) or r'$.'
-            print('include_files: ', include_files)
-            print('include_dirs: ', include_dirs)
-            print('excludes: ', excludes)
+            # print('include_files: ', include_files)
+            # print('include_dirs: ', include_dirs)
+            # print('excludes: ', excludes)
 
         for dirpath, dirnames, filenames in os.walk(top):
             if traverse_mode == 'ImmediateFilesOnly':

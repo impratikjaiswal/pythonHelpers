@@ -421,26 +421,63 @@ def test_traverse_it():
     Test Data
     """
     #
-    target_file_name = 'ph_bits.py'
-    target_file_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py'
+    target_file1_name = 'ph_bits.py'
+    target_file2_name = 'ph_constants.py'
+    target_file3_name = 'ph_data_master.py'
+    target_file1_name_star_w_ext = 'ph_bit*.py'
+    target_file2_name_star_w_ext = 'ph_constant*.py'
+    target_file3_name_star_w_ext = 'ph_data_*.py'
+    target_file1_name_star_wo_ext = 'ph_bit*'
+    target_file2_name_star_wo_ext = 'ph_constant*'
+    target_file3_name_star_wo_ext = 'ph_data_*'
+    target_file2_name = 'ph_constants.py'
+    target_file3_name = 'ph_data_master.py'
+    target_file1_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py'
+    target_file2_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants.py'
+    target_file3_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_data_master.py'
     target_dir_name = 'test'
     target_dir_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test'
     #
     src_dir_rel = os.sep.join([PhUtil.path_current_folder, os.pardir])
     src_dir = PhUtil.get_absolute_path(src_dir_rel)
-    src_file_nok = target_file_path
+    src_file_nok = target_file1_path
     #
     inc_files_pattern1_ok = '*.py'
     inc_files_pattern2_ok = '*__.py'
     inc_files_pattern_nok = ['*_*.py']
     inc_files_pattern_dual_ok = ['*.py', '*.txt']
-    inc_files_name_nok = target_file_name
-    inc_files_name_pattern_ok = '*' + target_file_name
     #
-    exc_file_name_nok = target_file_name
+    inc_files_name_nok = target_file1_name
+    inc_files_name_pattern_ok = '*' + target_file1_name
+    inc_files_names_pattern_multi_ok = [
+        '*' + target_file1_name,
+        '*' + target_file2_name,
+        '*' + target_file3_name
+    ]
+    inc_files_name_pattern_star_w_ext_ok = '*' + target_file1_name_star_w_ext
+    inc_files_name_pattern_star_wo_ext_ok = '*' + target_file1_name_star_wo_ext
+    inc_files_name_pattern_star_w_ext_multi_ok = [
+        '*' + target_file1_name_star_w_ext,
+        '*' + target_file2_name_star_w_ext,
+        '*' + target_file3_name_star_w_ext
+    ]
+    inc_files_name_pattern_star_wo_ext_multi_ok = [
+        '*' + target_file1_name_star_wo_ext,
+        '*' + target_file2_name_star_wo_ext,
+        '*' + target_file3_name_star_wo_ext
+    ]
+    #
+    inc_files_path_ok = target_file1_path
+    inc_files_path_multi_ok = [target_file1_path, target_file2_path, target_file3_path]
+    inc_files_path_pattern_ok = '*' + target_file1_path
+    inc_files_path_pattern_multi_ok = ['*' + target_file1_path, '*' + target_file2_path, '*' + target_file3_path]
+    #
+    exc_file_name_nok = target_file1_name
     exc_dir_name_nok = target_dir_name
-    exc_file_path_ok = target_file_path
+    exc_file_path_ok = target_file1_path
     exc_dir_path_ok = target_dir_path
+    #
+    exc_files_pattern_ok = '*.pyc'
     """
     Test Cases
     """
@@ -471,6 +508,38 @@ def test_traverse_it():
     #
     PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_pattern_ok')
     PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_names_pattern_multi_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_names_pattern_multi_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_pattern_star_w_ext_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_star_w_ext_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_pattern_star_w_ext_multi_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_star_w_ext_multi_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_pattern_star_wo_ext')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_star_wo_ext_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_name_pattern_star_wo_ext_multi_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_star_wo_ext_multi_ok)
+    #
+    PhUtil.print_heading(
+        str_heading='src_dir, include_files=inc_files_name_pattern_star_wo_ext_multi_ok, excludes=exc_files_pattern_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_name_pattern_star_wo_ext_multi_ok,
+                       excludes=exc_files_pattern_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_path_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_path_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_path_multi_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_path_multi_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_path_pattern_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_path_pattern_ok)
+    #
+    PhUtil.print_heading(str_heading='src_dir, include_files=inc_files_path_pattern_multi_ok')
+    PhUtil.traverse_it(print_also=True, top=src_dir, include_files=inc_files_path_pattern_multi_ok)
     #
     PhUtil.print_heading(str_heading='src_file_nok, include_files=inc_files_pattern1_ok')
     PhUtil.traverse_it(print_also=True, top=src_file_nok, include_files=inc_files_pattern1_ok)

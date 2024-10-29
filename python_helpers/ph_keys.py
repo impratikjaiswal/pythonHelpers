@@ -72,6 +72,10 @@ class PhKeys:
     REPLACE_WITH = 'replace_with'
     REPLACE_WITH_IS_REGEX = 'replace_with_is_regex'
 
+    #
+    ENCODING = 'encoding'
+    ENCODING_ERRORS = 'encoding_errors'
+
     # qrPlay
     SCALE = 'scale'
     SPLIT_QRS = 'split_qrs'
@@ -195,12 +199,17 @@ class PhKeys:
     INPUT_DIR = 'input_dir'
     INPUT_YML = 'input_yml'
     INPUT_MODES_HIERARCHY = 'input_modes_hierarchy'
+    INPUT_ENCODING = 'input_encoding'
+    INPUT_ENCODING_ERRORS = 'input_encoding_errors'
+
     #
     OUTPUT = 'output'
     OUTPUT_FILE = 'output_file'
     EXPORT_FILE = 'export_file'
     RE_OUTPUT_FILE = 're_output_file'
     OUTPUT_FILE_NAME_KEYWORD = 'output_file_name_keyword'
+    OUTPUT_ENCODING = 'output_encoding'
+    OUTPUT_ENCODING_ERRORS = 'output_encoding_errors'
 
     #
     VAR_EXECUTION_MODE = 'execution_mode'
@@ -232,6 +241,12 @@ class PhKeys:
     LOG = 'log'
     INTERNAL = 'internal'
     ROOT_PATH = 'root_path'
+
+    # traverse
+    TRAVERSE_MODE = 'traverse_mode'
+    INCLUDE_FILES = 'include_files'
+    INCLUDE_DIRS = 'include_dirs'
+    EXCLUDES = 'excludes'
 
     #
     BEFORE = 'Before: '
