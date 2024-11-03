@@ -19,3 +19,6 @@ requests
 
 # Crypto
 pycryptodome
+
+# YML API
+ruamel.yaml

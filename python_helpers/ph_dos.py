@@ -9,6 +9,7 @@ echo "XXX"
 
 
 class PhDos:
+    BATCH_RUN_TC = 'run_tc.bat'
 
     @classmethod
     def delete_file(cls, target_file_path, conditional=True):

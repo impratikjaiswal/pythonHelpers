@@ -4,12 +4,12 @@ from python_helpers.ph_exception_helper import PhExceptionHelper
 
 
 class PhMasterData:
-    # TODO:Deprecated
-    INDEX_DATA = 0
-    # TODO:Deprecated
-    INDEX_META_DATA = 1
-    # TODO:Deprecated
-    INDEX_ERROR_DATA = 2
+    # # TODO:Deprecated
+    # INDEX_DATA = 0
+    # # TODO:Deprecated
+    # INDEX_META_DATA = 1
+    # # TODO:Deprecated
+    # INDEX_ERROR_DATA = 2
 
     def __init__(self, data=None, meta_data=None, info_data=None, error_data=None):
         self.master_data = {}

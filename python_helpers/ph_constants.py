@@ -146,11 +146,6 @@ class PhConstants:
     STR_TYPE_PASSWORD_UPPER_CASE = 41
     STR_TYPE_PASSWORD_RANDOM_CASE = 42
 
-    # Deprecated!!!
-    STR_TYPE_HEX = STR_TYPE_HEX_UPPER_CASE
-    # Deprecated!!!
-    STR_TYPE_PLAIN = STR_TYPE_ALPHA_NUMERIC_RANDOM_CASE
-
     FILE_TYPE_IN = 1
     FILE_TYPE_OUT = 2
 
@@ -269,36 +264,32 @@ class PhConstants:
     STR_SELECT_OPTION = '-- Select --'
     STR_OTHER_OPTION = '-- Other --'
 
-    STR_ENCODING_FORMAT_ASCII = 'ascii'
-    STR_ENCODING_FORMAT_UTF8 = 'utf-8'
-    STR_ENCODING_FORMAT_ISO_8859 = 'ISO-8859-1'
-    STR_ENCODING_FORMAT_CP_1252 = 'cp1252'
+    CHAR_ENCODING_ASCII = 'ascii'
+    CHAR_ENCODING_UTF8 = 'utf-8'
+    CHAR_ENCODING_ISO_8859 = 'ISO-8859-1'
+    CHAR_ENCODING_CP_1252 = 'cp1252'
 
-    STR_ENCODING_FORMAT_POOL = [
-        STR_ENCODING_FORMAT_ASCII,
-        STR_ENCODING_FORMAT_UTF8,
-        STR_ENCODING_FORMAT_ISO_8859,
-        STR_ENCODING_FORMAT_CP_1252,
+    CHAR_ENCODING_POOL = [
+        CHAR_ENCODING_ASCII,
+        CHAR_ENCODING_UTF8,
+        CHAR_ENCODING_ISO_8859,
+        CHAR_ENCODING_CP_1252,
     ]
 
-    STR_ENCODING_ERROR_HANDLING_REPLACE = 'replace'
-    STR_ENCODING_ERROR_HANDLING_IGNORE = 'ignore'
+    CHAR_ENCODING_ERRORS_STRICT = 'strict'
+    CHAR_ENCODING_ERRORS_IGNORE = 'ignore'
+    CHAR_ENCODING_ERRORS_REPLACE = 'replace'
 
     # Copied from "venv/Lib/site-packages/pandas/_typing.py"
-    STR_ENCODING_ERROR_HANDLING_POOL = [
-        'strict',
-        STR_ENCODING_ERROR_HANDLING_IGNORE,
-        STR_ENCODING_ERROR_HANDLING_REPLACE,
+    CHAR_ENCODING_ERRORS_POOL = [
+        CHAR_ENCODING_ERRORS_STRICT,
+        CHAR_ENCODING_ERRORS_IGNORE,
+        CHAR_ENCODING_ERRORS_REPLACE,
         'surrogateescape',
         'xmlcharrefreplace',
         'backslashreplace',
         'namereplace',
     ]
-
-    '**DEPRECATED**'
-    DECODE_MODE_ASCII = 'ascii'
-    '**DEPRECATED**'
-    DECODE_MODE_UTF8 = 'utf-8'
 
     BEGIN_CERTIFICATE = '-----BEGIN CERTIFICATE-----'
     END_CERTIFICATE = '-----END CERTIFICATE-----'
@@ -310,3 +301,24 @@ class PhConstants:
 
     DIR_CREATION = 1
     DIR_DELETION = 2
+
+    # '**DEPRECATED**'
+    # DECODE_MODE_ASCII = 'ascii'
+    # '**DEPRECATED**'
+    # DECODE_MODE_UTF8 = 'utf-8'
+    # '**DEPRECATED**'
+    # STR_ENCODING_FORMAT_ASCII = 'ascii'
+    # '**DEPRECATED**'
+    # STR_ENCODING_FORMAT_UTF8 = 'utf-8'
+    # '**DEPRECATED**'
+    # STR_ENCODING_FORMAT_ISO_8859 = 'ISO-8859-1'
+    # '**DEPRECATED**'
+    # STR_ENCODING_FORMAT_CP_1252 = 'cp1252'
+    # '**DEPRECATED**'
+    # STR_ENCODING_ERRORS_IGNORE = 'ignore'
+    # '**DEPRECATED**'
+    # STR_ENCODING_ERRORS_REPLACE = 'replace'
+    # '**DEPRECATED**'
+    # STR_TYPE_HEX = STR_TYPE_HEX_UPPER_CASE
+    # '**DEPRECATED**'
+    # STR_TYPE_PLAIN = STR_TYPE_ALPHA_NUMERIC_RANDOM_CASE

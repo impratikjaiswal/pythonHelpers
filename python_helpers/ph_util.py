@@ -22,10 +22,12 @@ import tzlocal
 from binascii import unhexlify
 from packaging import version
 from pandas import DataFrame, Series
+from ruamel.yaml.scalarstring import PreservedScalarString
 
 import requests
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_keys import PhKeys
@@ -1351,8 +1353,8 @@ class PhUtil:
 
     @classmethod
     def to_csv(cls, output, file_name, str_append='', new_ext='', sep=' ', index=False, print_shape=True,
-               print_frame=False,
-               encoding=None, log=None):
+               print_frame=False, log=None,
+               encoding=PhDefaults.CHAR_ENCODING, encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS):
         """
 
         :param output: DataFrame
@@ -1376,14 +1378,15 @@ class PhUtil:
                 cls.print_data_frame(output)
             if str_append or new_ext:
                 file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
-            cls.makedirs(cls.get_file_name_and_extn(file_name, only_path=True))
-            output.to_csv(path_or_buf=file_name, index=index, sep=sep, encoding=encoding)
+            cls.make_dirs(cls.get_file_name_and_extn(file_name, only_path=True))
+            output.to_csv(path_or_buf=file_name, index=index, sep=sep, encoding=encoding, errors=encoding_errors)
             return file_name
         return cls.to_file(output_lines=output, file_name=file_name, str_append=str_append, new_ext=new_ext,
-                           encoding=encoding)
+                           encoding=encoding, encoding_errors=encoding_errors)
 
     @classmethod
-    def to_file(cls, output_lines, file_name='', str_append='', new_ext='', lines_sep='\n', encoding='utf-8',
+    def to_file(cls, output_lines, file_name='', str_append='', new_ext='', lines_sep='\n',
+                encoding=PhDefaults.CHAR_ENCODING, encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS,
                 back_up_file=False, file_path_is_dir=None):
         """
 
@@ -1394,6 +1397,7 @@ class PhUtil:
         :param new_ext:
         :param lines_sep:
         :param encoding:
+        :param encoding_errors:
         :param back_up_file:
         :return:
         """
@@ -1405,8 +1409,8 @@ class PhUtil:
             file_name = cls.append_in_file_name(str_file_path=file_name, str_append=str_append, new_ext=new_ext)
         folder_path = cls.get_file_name_and_extn(file_name, only_path=True)
         if folder_path:
-            cls.makedirs(folder_path)
-        with open(file_name, 'w', encoding=encoding) as file_write:
+            cls.make_dirs(folder_path)
+        with open(file_name, 'w', encoding=encoding, errors=encoding_errors) as file_write:
             if isinstance(output_lines, list):
                 file_write.writelines(lines_sep.join(output_lines))
             else:
@@ -1612,10 +1616,11 @@ class PhUtil:
 
     @classmethod
     def ascii_to_hex_str(cls, ascii_str):
-        return ascii_str.encode('utf-8').hex()
+        return ascii_str.encode(PhConstants.CHAR_ENCODING_UTF8).hex()
 
     @classmethod
-    def hex_str_to_ascii(cls, str_data, only_if_printable=True, decoding_format=PhConstants.STR_ENCODING_FORMAT_UTF8):
+    def hex_str_to_ascii(cls, str_data, only_if_printable=True, encoding=PhConstants.CHAR_ENCODING_UTF8,
+                         encoding_errors=PhConstants.CHAR_ENCODING_ERRORS_STRICT):
         printable = True
         res = ''
         if only_if_printable:
@@ -1624,7 +1629,7 @@ class PhUtil:
             printable = all((0x20 <= hex_byte <= 0x7E) for hex_byte in hex_bytes)
         if printable:
             try:
-                res = bytearray.fromhex(str_data).decode(encoding=decoding_format)
+                res = bytearray.fromhex(str_data).decode(encoding=encoding, errors=encoding_errors)
             except UnicodeDecodeError:
                 pass
         return res
@@ -2170,8 +2175,8 @@ class PhUtil:
         cls.print_work_in_progress()
 
     @classmethod
-    def all_chars_to_utf8(cls, input_text, current_encoding=None, target_encoding=PhConstants.STR_ENCODING_FORMAT_UTF8,
-                          encoding_errors='replace', via_regex=True):
+    def all_chars_to_utf8(cls, input_text, current_encoding=None, target_encoding=PhConstants.CHAR_ENCODING_UTF8,
+                          encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS, via_regex=True):
         if not input_text:
             return input_text
         if current_encoding is not None and target_encoding is not None:
@@ -2270,6 +2275,52 @@ class PhUtil:
             v = v[1:-1]
         return v
 
+    @classmethod
+    def parse_config(cls, config_data):
+        # cls.print_iter(config_data, 'config_data initial', verbose=True)
+        for k, v in config_data.items():
+            if not v:
+                continue
+            if isinstance(v, str):
+                # Trim Garbage data
+                v = PhUtil.trim_white_spaces_in_str(v)
+                v = PhUtil.clear_quotation_marks(v)
+                v_lower_case = v.lower()
+                v_eval = None
+                try:
+                    v_eval = eval(v)
+                    if isinstance(v_eval, str):
+                        # Everything was already str
+                        v_eval = None
+                except:
+                    pass
+                if v_lower_case in ['none']:
+                    v = None
+                    config_data[k] = v
+                if v_lower_case in ['true']:
+                    v = True
+                    config_data[k] = v
+                if v_lower_case in ['false']:
+                    v = False
+                    config_data[k] = v
+            if not v:
+                continue
+            if v in [PhConstants.STR_SELECT_OPTION]:
+                v = None
+                config_data[k] = v
+            if k in [PhKeys.INPUT_DATA]:
+                if v_eval is not None:
+                    v = v_eval
+                config_data[k] = v
+        # cls.print_iter(config_data, 'config_data processed', verbose=True)
+        return config_data
+
+    @classmethod
+    def get_dic_data_and_print(cls, key, sep, value, dic_format=True, print_also=True):
+        if value is not None and isinstance(value, str) and '\n' in value:
+            value = PreservedScalarString(value)
+        return cls.get_key_value_pair(key=key, value=value, sep=sep, dic_format=dic_format, print_also=print_also)
+
     ####################################################################################################################
     ### INTENRAL ###
     ####################################################################################################################
@@ -2293,7 +2344,7 @@ class PhUtil:
         else:
             if operation_type == PhConstants.DIR_CREATION:
                 cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated', quite_mode=quite_mode)
-                os.makedirs(dir_path)
+                os.make_dirs(dir_path)
             if operation_type == PhConstants.DIR_DELETION:
                 cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted', quite_mode=quite_mode)
         return dir_path
@@ -2301,76 +2352,76 @@ class PhUtil:
     ####################################################################################################################
     ### DEPRECATED ###
     ####################################################################################################################
-    @classmethod
-    def line_is_comment(cls, str_data):
-        """**DEPRECATED**
+    # @classmethod
+    # def line_is_comment(cls, str_data):
+    # """**DEPRECATED**
 
-        Refer: is_empty_or_comment_string()
-        """
-        return cls.is_empty_or_comment_string(str_data)
+    # Refer: is_empty_or_comment_string()
+    # """
+    # return cls.is_empty_or_comment_string(str_data)
 
-    @classmethod
-    def line_is_comment_or_empty(cls, str_data):
-        """**DEPRECATED**
+    # @classmethod
+    # def line_is_comment_or_empty(cls, str_data):
+    # """**DEPRECATED**
 
-        Refer: is_empty_or_comment_string()
-        """
-        return cls.is_empty_or_comment_string(str_data)
+    # Refer: is_empty_or_comment_string()
+    # """
+    # return cls.is_empty_or_comment_string(str_data)
 
-    @classmethod
-    def string_is_blank(cls, str_data):
-        """**DEPRECATED**
+    # @classmethod
+    # def string_is_blank(cls, str_data):
+    # """**DEPRECATED**
 
-        Refer: is_empty_string()
-        """
-        return cls.is_empty_string(str_data)
+    # Refer: is_empty_string()
+    # """
+    # return cls.is_empty_string(str_data)
 
-    @classmethod
-    def string_is_not_blank(cls, str_data):
-        """**DEPRECATED**
+    # @classmethod
+    # def string_is_not_blank(cls, str_data):
+    # """**DEPRECATED**
 
-        Refer: is_not_empty_string()
-        """
-        return cls.is_not_empty_string(str_data)
+    # Refer: is_not_empty_string()
+    # """
+    # return cls.is_not_empty_string(str_data)
 
-    @classmethod
-    def print_(cls, data, log=None):
-        """**DEPRECATED**
+    # @classmethod
+    # def print_(cls, data, log=None):
+    # """**DEPRECATED**
 
-        Refer: print()
-        """
-        cls.print(data=data, log=log)
+    # Refer: print()
+    # """
+    # cls.print(data=data, log=log)
 
-    @classmethod
-    def makedirs(cls, dir_path, absolute_path_needed=False):
-        """**DEPRECATED**
+    # @classmethod
+    # def makedirs(cls, dir_path, absolute_path_needed=False):
+    # """**DEPRECATED**
 
-        Refer: make_dirs()
-        """
-        return cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
+    # Refer: make_dirs()
+    # """
+    # return cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
 
-    @classmethod
-    def clean_dirs(cls, target_dir):
-        """**DEPRECATED**
+    # @classmethod
+    # def clean_dirs(cls, target_dir):
+    # """**DEPRECATED**
 
-        Refer: remove_dirs()
-        """
-        if os.path.exists(target_dir) and os.path.isdir(target_dir):
-            cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
-            shutil.rmtree(target_dir)
+    # Refer: remove_dirs()
+    # """
+    # if os.path.exists(target_dir) and os.path.isdir(target_dir):
+    # cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
+    # shutil.rmtree(target_dir)
 
-    @classmethod
-    def set_if_not_none(cls, current_value, new_value='', new_type=None):
-        """**DEPRECATED**
+    # @classmethod
+    # def set_if_not_none(cls, current_value, new_value='', new_type=None):
+    # """**DEPRECATED**
 
-        Refer: set_if_none()
-        """
-        raise AttributeError(f'set_if_not_none() is removed from v4.4.0, use set_if_none() instead !!!')
+    # Refer: set_if_none()
+    # """
+    # raise AttributeError(f'set_if_not_none() is removed from v4.4.0, use set_if_none() instead !!!')
 
-    @classmethod
-    def set_if_not_empty(cls, current_value, new_value='', new_type=None):
-        """**DEPRECATED**
+    # @classmethod
+    # def set_if_not_empty(cls, current_value, new_value='', new_type=None):
+    # """**DEPRECATED**
 
-        Refer: set_if_empty()
-        """
-        raise AttributeError(f'set_if_not_empty() is removed from v4.4.0, use set_if_empty() instead !!!')
+    # Refer: set_if_empty()
+    # """
+    # raise AttributeError(f'set_if_not_empty() is removed from v4.4.0, use set_if_empty() instead !!!')

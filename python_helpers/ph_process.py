@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_defaults import PhDefaults
 
 
 class PhProcess:
@@ -10,12 +10,12 @@ class PhProcess:
     """
 
     @classmethod
-    def execute_command_in_shell(cls, cmd, cwd=None, decode_mode=PhConstants.STR_ENCODING_FORMAT_UTF8, strip_data=True,
-                                 fail_safe=False):
+    def execute_command_in_shell(cls, cmd, cwd=None, encoding=PhDefaults.CHAR_ENCODING,
+                                 encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS, strip_data=True, fail_safe=False):
         try:
             result = subprocess.check_output(cmd, cwd=cwd)
-            if decode_mode:
-                result = result.decode(decode_mode)
+            if encoding:
+                result = result.decode(encoding=encoding, errors=encoding_errors)
             if strip_data:
                 result = result.strip()
             return result

@@ -4,7 +4,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from python_helpers._tool_name import TOOL_NAME
+from python_helpers.ph_constants_config import PhConfigConst
 
 # all packages dependencies
 packages = find_packages()
@@ -38,7 +38,7 @@ with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="u
 setup(
     use_incremental=True,
     setup_requires=setup_reqs,
-    name=TOOL_NAME,
+    name=PhConfigConst.TOOL_NAME,
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
     description="A Python software package suite to provide various utility functions",
@@ -46,7 +46,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/impratikjaiswal/pythonHelpers",
     project_urls={
-        "Bug Tracker": "https://github.com/impratikjaiswal/pythonHelpers",
+        "Bug Tracker": "https://github.com/impratikjaiswal/pythonHelpers/issues",
     },
     keywords="Common Functions Funcs Util Utility",
     license="MIT",

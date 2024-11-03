@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_process import PhProcess
 
 
@@ -17,7 +17,8 @@ class PhGit:
     _CWD_PATH_LIB = Path(__file__).resolve().parent
 
     _cwd_default = _CWD_PATH_LIB
-    _decode_mode_default = PhConstants.STR_ENCODING_FORMAT_ASCII
+    _char_encoding_default = PhDefaults.CHAR_ENCODING
+    _char_encoding_errors_default = PhDefaults.CHAR_ENCODING_ERRORS
 
     git_cmds_pool = {
         'git_rev_parse_hash': ['git', 'rev-parse', 'HEAD'],
@@ -49,16 +50,20 @@ class PhGit:
         return cls.get_git_info_detailed(key=cls.KEY_GIT_SUMMARY, with_path_always=True)
 
     @classmethod
-    def get_git_info_detailed(cls, key=None, cwd=None, decode_mode=None, with_path_always=False):
+    def get_git_info_detailed(cls, key=None, cwd=None, encoding=None, encoding_errors=None, with_path_always=False):
         if with_path_always and cwd is None:
             cwd = cls._cwd_default
-        if decode_mode is None:
-            decode_mode = cls._decode_mode_default
+        if encoding is None:
+            encoding = cls._char_encoding_default
+        if encoding_errors is None:
+            encoding_errors = cls._char_encoding_errors_default
         if key:
-            return cls.execute_command_in_shell(cmd=cls.git_cmds_pool.get(key), cwd=cwd, decode_mode=decode_mode)
+            return cls.execute_command_in_shell(cmd=cls.git_cmds_pool.get(key), cwd=cwd, encoding=encoding,
+                                                encoding_errors=encoding_errors)
         output = {}
         for key in cls.git_cmds_pool:
-            output[key] = cls.execute_command_in_shell(cmd=cls.git_cmds_pool.get(key), cwd=cwd, decode_mode=decode_mode)
+            output[key] = cls.execute_command_in_shell(cmd=cls.git_cmds_pool.get(key), cwd=cwd, encoding=encoding,
+                                                       encoding_errors=encoding_errors)
         # Additional data
         # TODO: To be removed post analysis
         output[cls.KEY_GIT_DESCRIBE_ALWAYS + '_path'] = cls.get_git_info_detailed(key=cls.KEY_GIT_DESCRIBE_ALWAYS,
@@ -73,9 +78,11 @@ class PhGit:
         return output
 
     @classmethod
-    def execute_command_in_shell(cls, cmd, cwd=None, decode_mode='utf-8'):
+    def execute_command_in_shell(cls, cmd, cwd=None, encoding=PhDefaults.CHAR_ENCODING,
+                                 encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS):
         try:
-            return PhProcess.execute_command_in_shell(cmd=cmd, cwd=cwd, decode_mode=decode_mode)
+            return PhProcess.execute_command_in_shell(cmd=cmd, cwd=cwd, encoding=encoding,
+                                                      encoding_errors=encoding_errors)
         except Exception as e:
             # print(f"Error executing command: {e}")
             # TODO: Future handling; Additional data for '_path & _pathlib can be removed

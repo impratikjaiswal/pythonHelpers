@@ -74,7 +74,11 @@ class PhKeys:
 
     #
     ENCODING = 'encoding'
+    ENCODING_POOL = 'encoding_pool'
+    ENCODING_SELECTED = 'encoding_selected'
     ENCODING_ERRORS = 'encoding_errors'
+    ENCODING_ERRORS_POOL = 'encoding_errors_pool'
+    ENCODING_ERRORS_SELECTED = 'encoding_errors_selected'
 
     # qrPlay
     SCALE = 'scale'
@@ -254,19 +258,19 @@ class PhKeys:
 
     # Deprecated
     # Start
-    SAMPLE_1 = 'sample_1'
-    SAMPLE_2 = 'sample_2'
-    SAMPLE_3 = 'sample_3'
-    SAMPLE_4 = 'sample_4'
-    SAMPLE_5 = 'sample_5'
-    SAMPLE_6 = 'sample_6'
-    SAMPLE_7 = 'sample_7'
-    SAMPLE_8 = 'sample_8'
-    SAMPLE_9 = 'sample_9'
-    SAMPLE_10 = 'sample_10'
-    RAW_DATA = 'raw_data'
-    REMARKS_LIST = 'remarks_list'
-    REMARKS_LIST_GENERATED = 'remarks_list_generated'
-    SAMPLE_PROCESSING = 'sample_processing'
-    TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
+    # SAMPLE_1 = 'sample_1'
+    # SAMPLE_2 = 'sample_2'
+    # SAMPLE_3 = 'sample_3'
+    # SAMPLE_4 = 'sample_4'
+    # SAMPLE_5 = 'sample_5'
+    # SAMPLE_6 = 'sample_6'
+    # SAMPLE_7 = 'sample_7'
+    # SAMPLE_8 = 'sample_8'
+    # SAMPLE_9 = 'sample_9'
+    # SAMPLE_10 = 'sample_10'
+    # RAW_DATA = 'raw_data'
+    # REMARKS_LIST = 'remarks_list'
+    # REMARKS_LIST_GENERATED = 'remarks_list_generated'
+    # SAMPLE_PROCESSING = 'sample_processing'
+    # TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
     # End

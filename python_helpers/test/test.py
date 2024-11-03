@@ -8,6 +8,7 @@ import time
 import python_helpers
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_crypto import PhCrypto
+from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
@@ -398,15 +399,10 @@ def test_chars_to_utf8():
     PhUtil.print_heading()
     target_file_name = 'test_chars_to_utf8.asn'
     lines = []
-    encoding_pool = [
-        PhConstants.STR_ENCODING_FORMAT_UTF8,
-        PhConstants.STR_ENCODING_FORMAT_ISO_8859,
-        PhConstants.STR_ENCODING_FORMAT_CP_1252,
-    ]
-    for encoding in encoding_pool:
+    for encoding in PhConstants.CHAR_ENCODING_POOL:
         PhUtil.print_heading(f'encoding: {encoding}')
         with open(os.sep.join([PhUtil.path_default_res_folder, target_file_name]),
-                  encoding=encoding, errors=None) as f:
+                  encoding=encoding, errors=PhDefaults.CHAR_ENCODING_ERRORS) as f:
             lines = f.readlines()
         for input_data in lines:
             output_data = PhUtil.all_chars_to_utf8(input_data)

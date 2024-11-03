@@ -4,7 +4,7 @@ import binascii
 from Crypto.Cipher import AES
 from itertools import cycle
 
-from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_util import PhUtil
 
 
@@ -15,10 +15,9 @@ class PhCrypto:
         return list(sorted(hashlib.algorithms_available))
 
     @classmethod
-    def hash_str(cls, msg, hash_algo='sha256', encoding=PhConstants.STR_ENCODING_FORMAT_UTF8, hex_digest=True):
+    def hash_str(cls, msg, hash_algo='sha256', hex_digest=True,
+                 encoding=PhDefaults.CHAR_ENCODING, encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS):
         """
-
-        :param encoding:
         :param msg:
         :param hash_algo: check hash_algos_list()
 
@@ -26,24 +25,29 @@ class PhCrypto:
         'whirlpool', 'sha3_512', 'mdc2', 'sha1', 'md4', 'sha512_256', 'ripemd160', 'blake2s', 'blake2b',
         'sha512_224', 'md5', 'shake_256', 'sha224'
         :param hex_digest:
+        :param encoding:
+        :param encoding_errors:
+
         :return:
         """
         hash_obj = hashlib.new(hash_algo)
-        hash_obj.update(msg.encode(encoding))
+        hash_obj.update(msg.encode(encoding=encoding, errors=encoding_errors))
         return hash_obj.hexdigest() if hex_digest else hash_obj.digest()
 
     @classmethod
-    def hash_str_sha256(cls, msg, encoding=PhConstants.STR_ENCODING_FORMAT_UTF8, hex_digest=True):
+    def hash_str_sha256(cls, msg, hex_digest=True, encoding=PhDefaults.CHAR_ENCODING,
+                        encoding_errors=PhDefaults.CHAR_ENCODING_ERRORS):
         """
 
-        :param encoding:
-        :param hash_algo:
-        :param hex_digest:
         :param msg:
+        :param hex_digest:
+        :param encoding:
+        :param encoding_errors:
+
         :return:
         """
         sha256 = hashlib.sha256()
-        sha256.update(msg.encode(encoding))
+        sha256.update(msg.encode(encoding=encoding, errors=encoding_errors))
         return sha256.hexdigest() if hex_digest else sha256.digest()
 
     @classmethod

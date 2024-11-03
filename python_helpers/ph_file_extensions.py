@@ -30,4 +30,3 @@ class PhFileExtensions:
     ASN_MANUALLY_CORRECTED = '.asn_manually_corrected'
     ASN_AUTO_CORRECTED = '.asn_auto_corrected'
     ASN_FORMATTED = '.asn_formatted'
-
