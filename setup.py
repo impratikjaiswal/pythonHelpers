@@ -25,6 +25,7 @@ install_reqs = [
     'twisted',
     'requests',
     'pycryptodome',
+    'ruamel.yaml',
 ]
 
 setup_reqs = [

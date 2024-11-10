@@ -1,17 +1,27 @@
 from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_data_master_keys import PhMasterDataKeys
 from python_helpers.ph_exception_helper import PhExceptionHelper
 
 
+class PhMasterDataKeys:
+    DATA = 'data'
+    META_DATA = 'meta_data'
+    INFO_DATA = 'info_data'
+    ERROR_DATA = 'error_data'
+
+
 class PhMasterData:
-    # # TODO:Deprecated
-    # INDEX_DATA = 0
-    # # TODO:Deprecated
-    # INDEX_META_DATA = 1
-    # # TODO:Deprecated
-    # INDEX_ERROR_DATA = 2
+    """
+
+    """
 
     def __init__(self, data=None, meta_data=None, info_data=None, error_data=None):
+        """
+
+        :param data:
+        :param meta_data:
+        :param info_data:
+        :param error_data:
+        """
         self.master_data = {}
         if data is not None:
             self.master_data.update({PhMasterDataKeys.DATA: data})

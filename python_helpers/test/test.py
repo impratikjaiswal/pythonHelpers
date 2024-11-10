@@ -598,9 +598,55 @@ def test_luhn():
         print(f'imei {imei} is Valid ? {PhCrypto.validate_luhn_digit(imei)}')
 
 
-def test_functions():
+def test_handle_dirs():
+    PhUtil.print_heading()
+    PhUtil.print_heading('quite_mode=True; Default')
+    PhUtil.make_dirs(dir_path='sample1')
+    PhUtil.remove_dirs(dir_path='sample1')
+    PhUtil.print_heading('quite_mode=False')
+    PhUtil.make_dirs(dir_path='sample2', quite_mode=False)
+    PhUtil.remove_dirs(dir_path='sample2', quite_mode=False)
+
+
+def test_normalise_list():
+    PhUtil.print_heading()
+    data = [1, 2, 3, 4, 5, [6, 7, 8], 9]
+    for x in range(5):
+        res = PhUtil.normalise_list(data)
+        PhUtil.print(res)
+
+
+def test_time_delay(ph_time):
+    ph_time.print()
+    time.sleep(5)
+    ph_time.print()
+
+
+def test_doc_string():
+    PhUtil.print_heading()
+    func = PhCrypto.hash_str
+    PhUtil.print_heading('help')
+    help(func)
+    PhUtil.print_heading('__doc__')
+    print(func.__doc__)
+
+
+def test_get_help_for_param():
+    PhUtil.print_heading()
+    PhUtil.print(PhUtil.get_help_for_param('Sample Param'))
+    PhUtil.print(PhUtil.get_help_for_param('Sample Param with Valid Default Value', '5'))
+    PhUtil.print(
+        PhUtil.get_help_for_param('Sample Param with None Default Value; include_none=False', None, include_none=False))
+    PhUtil.print(
+        PhUtil.get_help_for_param('Sample Param with None Default Value; include_none=True', None, include_none=True))
+
+
+def test_functions(ph_time):
     test_temp()
-    # Keep on the 2nd Number
+    ## Keep on the 2nd Number
+    ##
+    test_doc_string()
+    test_get_help_for_param()
     test_version()
     test_chars_to_utf8()
     test_get_git_info()
@@ -622,6 +668,11 @@ def test_functions():
     test_traverse_it()
     test_eid()
     test_luhn()
+    test_normalise_list()
+    test_handle_dirs()
+    ##
+    ## Keep on last
+    test_time_delay(ph_time)
 
 
 def main():
@@ -637,13 +688,11 @@ def main():
     """
     Process
     """
-    test_functions()
+    test_functions(ph_time)
     """
     Wrap up 
     """
-    ph_time.print()
     ph_time.stop()
-    time.sleep(5)
     ph_time.print()
     PhUtil.print_done()
 

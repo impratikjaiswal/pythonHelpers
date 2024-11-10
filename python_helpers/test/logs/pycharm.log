@@ -1,4 +1,40 @@
 ------------------------------------------------------- test_temp ------------------------------------------------------
+---------------------------------------------------- test_doc_string ---------------------------------------------------
+--------------------------------------------------------- help ---------------------------------------------------------
+Help on method hash_str in module python_helpers.ph_crypto:
+
+hash_str(msg, hash_algo='sha256', hex_digest=True, encoding='utf-8', encoding_errors='replace') method of builtins.type instance
+    :param msg:
+    :param hash_algo: check hash_algos_list()
+    
+    'md5-sha1', 'sha3_224', 'sha3_256', 'shake_128', 'sm3', 'sha512', 'sha3_384', 'sha256', 'sha384',
+    'whirlpool', 'sha3_512', 'mdc2', 'sha1', 'md4', 'sha512_256', 'ripemd160', 'blake2s', 'blake2b',
+    'sha512_224', 'md5', 'shake_256', 'sha224'
+    :param hex_digest:
+    :param encoding:
+    :param encoding_errors:
+    
+    :return:
+
+-------------------------------------------------------- __doc__ -------------------------------------------------------
+
+        :param msg:
+        :param hash_algo: check hash_algos_list()
+
+        'md5-sha1', 'sha3_224', 'sha3_256', 'shake_128', 'sm3', 'sha512', 'sha3_384', 'sha256', 'sha384',
+        'whirlpool', 'sha3_512', 'mdc2', 'sha1', 'md4', 'sha512_256', 'ripemd160', 'blake2s', 'blake2b',
+        'sha512_224', 'md5', 'shake_256', 'sha224'
+        :param hex_digest:
+        :param encoding:
+        :param encoding_errors:
+
+        :return:
+        
+------------------------------------------------ test_get_help_for_param -----------------------------------------------
+Sample Param
+Sample Param with Valid Default Value; 5 is Default
+Sample Param with None Default Value; include_none=False
+Sample Param with None Default Value; include_none=True; None is Default
 ----------------------------------------------------- test_version -----------------------------------------------------
 ------------------------------------------------- tool_version="1.0.1" -------------------------------------------------
 --------------------------------------------------------------------------------
@@ -8,11 +44,11 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:17:665012, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:24:711595, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -23,11 +59,11 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:17:665012, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:24:711595, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
 ------------------------------------------------ no_additional_info=True -----------------------------------------------
@@ -42,11 +78,11 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:17:666012, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:24:712597, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is 
 --------------------------------------------------------------------------------
@@ -58,14 +94,14 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:17:666012, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:24:712597, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.206.2.67
 IPV6 is 49.206.2.67
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -77,11 +113,11 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:18:668093, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:25:918443, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -93,11 +129,11 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:18:668093, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:25:919409, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -109,9 +145,9 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:18:669093, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:25:919409, IST (GMT+0530)
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -123,38 +159,38 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:18:671095, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:25:922408, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
 cat: '..\.git\HEAD': No such file or directory
 Git Details are:
-git_rev_parse_hash: 6240a415a4546ed092940fb5c4020affd4843667
-git_rev_parse_short_hash: 6240a41
+git_rev_parse_hash: 10b088e4aab987e483e6a7c83fe4ce5c5c72a75a
+git_rev_parse_short_hash: 10b088e
 git_rev_parse_branch: main
-git_describe: v4.4.8
-git_describe_always: v4.4.8
-git_summary: 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
-git_log_commit_hash: 6240a415a4546ed092940fb5c4020affd4843667
-git_log_commit_short_hash: 6240a41
-git_log_tree_hash: d34fbaef344480d1705c8a7f3a539c1e9b733867
-git_log_tree_short_hash: d34fbae
-git_log_parent_hash: c6d084df2bf81a4c6815fb448488791fa773a417
-git_log_parent_short_hash: c6d084d
-git_log_head: (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD)
-git_log_time: 2024-10-29 12:05:15 +0530
+git_describe: v4.4.8-1-g10b088e
+git_describe_always: v4.4.8-1-g10b088e
+git_summary: 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
+git_log_commit_hash: 10b088e4aab987e483e6a7c83fe4ce5c5c72a75a
+git_log_commit_short_hash: 10b088e
+git_log_tree_hash: 7d85f0dbc444c2581fcf958545a4402a750c1a51
+git_log_tree_short_hash: 7d85f0d
+git_log_parent_hash: 6240a415a4546ed092940fb5c4020affd4843667
+git_log_parent_short_hash: 6240a41
+git_log_head: (HEAD -> main)
+git_log_time: 2024-11-03 15:31:34 +0530
 git_log_commiter_name: imPratik
 git_log_commiter_email: impratikjaiswal@gmail.com
-git_log_message: v4.4.8
+git_log_message: ph_defaults added
 git_symbolic-ref_head: refs/heads/main
 git_local_file_head: None
-git_describe_always_path: v4.4.8
-git_describe_always_pathlib: v4.4.8
+git_describe_always_path: v4.4.8-1-g10b088e
+git_describe_always_pathlib: v4.4.8-1-g10b088e
 git_local_file_head_path: ref: refs/heads/main
 git_local_file_head_pathlib: ref: refs/heads/main
 
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -166,11 +202,11 @@ Python executable Path is D:\Other\Github_Self\pythonHelpers\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Nov 03 2024, 15:23:20:519752, IST (GMT+0530)
+Time Stamp is Sunday, Nov 10 2024, 22:01:26:801584, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+Git Summary is 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.8.dev8
+pythonHelpers version is v5.0.0
 --------------------------------------------------------------------------------
 Test Tool version is v1.0.1
 --------------------------------------------------------------------------------
@@ -189,61 +225,55 @@ input_data: DisableProfileRequest ::= [49] SEQUENCE { -- Tag â€˜BF31â€™
 	output_data: DisableProfileRequest ::= [49] SEQUENCE { -- Tag 'BF31' 
 --------------------------------------------------- test_get_git_info --------------------------------------------------
 ------------------------------------------ get_git_info_detailed; GIT_SUMMARY ------------------------------------------
-GIT_SUMMARY: 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
+GIT_SUMMARY: 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
 ------------------------------------------------- get_git_info_detailed ------------------------------------------------
 cat: '..\.git\HEAD': No such file or directory
-{'git_rev_parse_hash': '6240a415a4546ed092940fb5c4020affd4843667', 'git_rev_parse_short_hash': '6240a41', 'git_rev_parse_branch': 'main', 'git_describe': 'v4.4.8', 'git_describe_always': 'v4.4.8', 'git_summary': '6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8', 'git_log_commit_hash': '6240a415a4546ed092940fb5c4020affd4843667', 'git_log_commit_short_hash': '6240a41', 'git_log_tree_hash': 'd34fbaef344480d1705c8a7f3a539c1e9b733867', 'git_log_tree_short_hash': 'd34fbae', 'git_log_parent_hash': 'c6d084df2bf81a4c6815fb448488791fa773a417', 'git_log_parent_short_hash': 'c6d084d', 'git_log_head': '(HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD)', 'git_log_time': '2024-10-29 12:05:15 +0530', 'git_log_commiter_name': 'imPratik', 'git_log_commiter_email': 'impratikjaiswal@gmail.com', 'git_log_message': 'v4.4.8', 'git_symbolic-ref_head': 'refs/heads/main', 'git_local_file_head': None, 'git_describe_always_path': 'v4.4.8', 'git_describe_always_pathlib': 'v4.4.8', 'git_local_file_head_path': 'ref: refs/heads/main', 'git_local_file_head_pathlib': 'ref: refs/heads/main'}
+{'git_rev_parse_hash': '10b088e4aab987e483e6a7c83fe4ce5c5c72a75a', 'git_rev_parse_short_hash': '10b088e', 'git_rev_parse_branch': 'main', 'git_describe': 'v4.4.8-1-g10b088e', 'git_describe_always': 'v4.4.8-1-g10b088e', 'git_summary': '10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added', 'git_log_commit_hash': '10b088e4aab987e483e6a7c83fe4ce5c5c72a75a', 'git_log_commit_short_hash': '10b088e', 'git_log_tree_hash': '7d85f0dbc444c2581fcf958545a4402a750c1a51', 'git_log_tree_short_hash': '7d85f0d', 'git_log_parent_hash': '6240a415a4546ed092940fb5c4020affd4843667', 'git_log_parent_short_hash': '6240a41', 'git_log_head': '(HEAD -> main)', 'git_log_time': '2024-11-03 15:31:34 +0530', 'git_log_commiter_name': 'imPratik', 'git_log_commiter_email': 'impratikjaiswal@gmail.com', 'git_log_message': 'ph_defaults added', 'git_symbolic-ref_head': 'refs/heads/main', 'git_local_file_head': None, 'git_describe_always_path': 'v4.4.8-1-g10b088e', 'git_describe_always_pathlib': 'v4.4.8-1-g10b088e', 'git_local_file_head_path': 'ref: refs/heads/main', 'git_local_file_head_pathlib': 'ref: refs/heads/main'}
 ---------------------------------------------- get_git_info_detailed iter ----------------------------------------------
 cat: '..\.git\HEAD': No such file or directory
-git_rev_parse_hash: 6240a415a4546ed092940fb5c4020affd4843667
-git_rev_parse_short_hash: 6240a41
+git_rev_parse_hash: 10b088e4aab987e483e6a7c83fe4ce5c5c72a75a
+git_rev_parse_short_hash: 10b088e
 git_rev_parse_branch: main
-git_describe: v4.4.8
-git_describe_always: v4.4.8
-git_summary: 6240a41;  (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD); 2024-10-29 12:05:15 +0530; imPratik <impratikjaiswal@gmail.com>; v4.4.8
-git_log_commit_hash: 6240a415a4546ed092940fb5c4020affd4843667
-git_log_commit_short_hash: 6240a41
-git_log_tree_hash: d34fbaef344480d1705c8a7f3a539c1e9b733867
-git_log_tree_short_hash: d34fbae
-git_log_parent_hash: c6d084df2bf81a4c6815fb448488791fa773a417
-git_log_parent_short_hash: c6d084d
-git_log_head: (HEAD -> main, tag: v4.4.8, origin/main, origin/HEAD)
-git_log_time: 2024-10-29 12:05:15 +0530
+git_describe: v4.4.8-1-g10b088e
+git_describe_always: v4.4.8-1-g10b088e
+git_summary: 10b088e;  (HEAD -> main); 2024-11-03 15:31:34 +0530; imPratik <impratikjaiswal@gmail.com>; ph_defaults added
+git_log_commit_hash: 10b088e4aab987e483e6a7c83fe4ce5c5c72a75a
+git_log_commit_short_hash: 10b088e
+git_log_tree_hash: 7d85f0dbc444c2581fcf958545a4402a750c1a51
+git_log_tree_short_hash: 7d85f0d
+git_log_parent_hash: 6240a415a4546ed092940fb5c4020affd4843667
+git_log_parent_short_hash: 6240a41
+git_log_head: (HEAD -> main)
+git_log_time: 2024-11-03 15:31:34 +0530
 git_log_commiter_name: imPratik
 git_log_commiter_email: impratikjaiswal@gmail.com
-git_log_message: v4.4.8
+git_log_message: ph_defaults added
 git_symbolic-ref_head: refs/heads/main
 git_local_file_head: None
-git_describe_always_path: v4.4.8
-git_describe_always_pathlib: v4.4.8
+git_describe_always_path: v4.4.8-1-g10b088e
+git_describe_always_pathlib: v4.4.8-1-g10b088e
 git_local_file_head_path: ref: refs/heads/main
 git_local_file_head_pathlib: ref: refs/heads/main
 
 --------------------------------------------- test_get_time_stamp_file_name --------------------------------------------
-20241103_1523 22 858458
-20241103_1523 22 874455
-20241103_1523 22 890455
-20241103_1523 22 906455
-20241103_1523 22 922457
-20241103_1523 22 938456
-20241103_1523 22 954455
-20241103_1523 22 970458
-20241103_1523 22 986455
-20241103_1523 23 002455
-20241103_1523 23 017456
-20241103_1523 23 033456
-20241103_1523 23 049456
-20241103_1523 23 065455
-20241103_1523 23 081457
+20241110_2201 28 512590
+20241110_2201 28 527883
+20241110_2201 28 543130
+20241110_2201 28 559123
+20241110_2201 28 574627
+20241110_2201 28 590627
+20241110_2201 28 606627
+20241110_2201 28 622626
+20241110_2201 28 638627
+20241110_2201 28 654629
+20241110_2201 28 669626
+20241110_2201 28 685630
+20241110_2201 28 700629
+20241110_2201 28 717211
+20241110_2201 28 732437
 Duplicate Items:
 
 ----------------------------------------------------- test_to_file -----------------------------------------------------
-- Target Folder: D:/Other/Github_Self/pythonHelpers/python_helpers/test/data/; Already Existed -
-- Target Folder: D:/Other/Github_Self/pythonHelpers/python_helpers/test/data/; Already Existed -
-- Target Folder: D:/Other/Github_Self/pythonHelpers/python_helpers/test/data/; Already Existed -
-- Target Folder: D:/Other/Github_Self/pythonHelpers/python_helpers/test/data/; Already Existed -
-- Target Folder: D:/Other/Github_Self/pythonHelpers/python_helpers/test/backup/; Already Existed -
-- Target Folder: D:/Other/Github_Self/pythonHelpers/python_helpers/test/backup/; Already Existed -
 ------------------------------------------------------- test_misc ------------------------------------------------------
 True
 False
@@ -696,7 +726,7 @@ item 100000000000000000000000000000000000000000000000000000000000000000000000000
 item 100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000...
 -------------------------------------------------- test_print_modules --------------------------------------------------
 --------------------------------------------------- No filter String ---------------------------------------------------
-Total Modules Count: 901
+Total Modules Count: 902
 sys: <module 'sys' (built-in)>
 builtins: <module 'builtins' (built-in)>
 _frozen_importlib: <module 'importlib._bootstrap' (frozen)>
@@ -977,7 +1007,7 @@ zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\l
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000001A5FB88F910>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x0000019360EAF910>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -1363,6 +1393,7 @@ Crypto.Cipher._mode_gcm: <module 'Crypto.Cipher._mode_gcm' from 'D:\\Other\\Gith
 Crypto.Cipher._mode_ocb: <module 'Crypto.Cipher._mode_ocb' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\_mode_ocb.py'>
 Crypto.Cipher: <module 'Crypto.Cipher' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\__init__.py'>
 Crypto.Cipher.AES: <module 'Crypto.Cipher.AES' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\AES.py'>
+python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
 python_helpers.ph_modes_error_handling: <module 'python_helpers.ph_modes_error_handling' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_modes_error_handling.py'>
 python_helpers.ph_modes_execution: <module 'python_helpers.ph_modes_execution' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_modes_execution.py'>
 python_helpers.ph_defaults: <module 'python_helpers.ph_defaults' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_defaults.py'>
@@ -1377,31 +1408,24 @@ xml.parsers.expat: <module 'xml.parsers.expat' from 'D:\\ProgramFiles\\Python39\
 plistlib: <module 'plistlib' from 'D:\\ProgramFiles\\Python39\\lib\\plistlib.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
 pkg_resources.extern.packaging._typing: <module 'pkg_resources.extern.packaging._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_typing.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
 pkg_resources.extern.packaging._compat: <module 'pkg_resources.extern.packaging._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_compat.py'>
 pkg_resources.extern.packaging.utils: <module 'pkg_resources.extern.packaging.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py'>
 pkg_resources.extern.packaging.specifiers: <module 'pkg_resources.extern.packaging.specifiers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
 atexit: <module 'atexit' (built-in)>
 logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
-tzlocal.windows_tz: <module 'tzlocal.windows_tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\windows_tz.py'>
-tzlocal.utils: <module 'tzlocal.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\utils.py'>
-tzlocal.win32: <module 'tzlocal.win32' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\win32.py'>
-tzlocal: <module 'tzlocal' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\__init__.py'>
-packaging: <module 'packaging' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\__init__.py'>
-packaging._structures: <module 'packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\_structures.py'>
-packaging.version: <module 'packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\version.py'>
 urllib3.exceptions: <module 'urllib3.exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\exceptions.py'>
 urllib3.util.timeout: <module 'urllib3.util.timeout' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\util\\timeout.py'>
 urllib3.util.connection: <module 'urllib3.util.connection' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\util\\connection.py'>
@@ -1504,16 +1528,13 @@ requests.adapters: <module 'requests.adapters' from 'D:\\Other\\Github_Self\\pyt
 requests.sessions: <module 'requests.sessions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\sessions.py'>
 requests.api: <module 'requests.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\api.py'>
 requests: <module 'requests' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\__init__.py'>
-python_helpers.ph_process: <module 'python_helpers.ph_process' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_process.py'>
-python_helpers.ph_git: <module 'python_helpers.ph_git' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_git.py'>
-python_helpers._git_info: <module 'python_helpers._git_info' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_git_info.py'>
-python_helpers._tool_name: <module 'python_helpers._tool_name' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_tool_name.py'>
-incremental._version: <module 'incremental._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\_version.py'>
-incremental: <module 'incremental' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\__init__.py'>
-python_helpers._version: <module 'python_helpers._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_version.py'>
-python_helpers.ph_constants_config: <module 'python_helpers.ph_constants_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants_config.py'>
-python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
-python_helpers.ph_keys: <module 'python_helpers.ph_keys' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_keys.py'>
+tzlocal.windows_tz: <module 'tzlocal.windows_tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\windows_tz.py'>
+tzlocal.utils: <module 'tzlocal.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\utils.py'>
+tzlocal.win32: <module 'tzlocal.win32' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\win32.py'>
+tzlocal: <module 'tzlocal' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\__init__.py'>
+packaging: <module 'packaging' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\__init__.py'>
+packaging._structures: <module 'packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\_structures.py'>
+packaging.version: <module 'packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\version.py'>
 ruamel: <module 'ruamel' (namespace)>
 _cython_3_0_11: <module '_cython_3_0_11'>
 ruamel.yaml.clib._ruamel_yaml: <module '_ruamel_yaml' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\_ruamel_yaml.cp39-win_amd64.pyd'>
@@ -1548,6 +1569,15 @@ ruamel.yaml.loader: <module 'ruamel.yaml.loader' from 'D:\\Other\\Github_Self\\p
 ruamel.yaml.dumper: <module 'ruamel.yaml.dumper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\ruamel\\yaml\\dumper.py'>
 ruamel.yaml.main: <module 'ruamel.yaml.main' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\ruamel\\yaml\\main.py'>
 ruamel.yaml: <module 'ruamel.yaml' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\ruamel\\yaml\\__init__.py'>
+python_helpers.ph_process: <module 'python_helpers.ph_process' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_process.py'>
+python_helpers.ph_git: <module 'python_helpers.ph_git' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_git.py'>
+python_helpers._git_info: <module 'python_helpers._git_info' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_git_info.py'>
+python_helpers._tool_name: <module 'python_helpers._tool_name' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_tool_name.py'>
+incremental._version: <module 'incremental._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\_version.py'>
+incremental: <module 'incremental' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\__init__.py'>
+python_helpers._version: <module 'python_helpers._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_version.py'>
+python_helpers.ph_constants_config: <module 'python_helpers.ph_constants_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants_config.py'>
+python_helpers.ph_keys: <module 'python_helpers.ph_keys' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_keys.py'>
 psutil._common: <module 'psutil._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_common.py'>
 psutil._compat: <module 'psutil._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_compat.py'>
 psutil._psutil_windows: <module 'psutil._psutil_windows' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_psutil_windows.pyd'>
@@ -1592,6 +1622,7 @@ asyncio.windows_events: <module 'asyncio.windows_events' from 'D:\\ProgramFiles\
 asyncio: <module 'asyncio' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\__init__.py'>
 unittest.mock: <module 'unittest.mock' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\mock.py'>
 python_helpers.test.test_util: <module 'python_helpers.test.test_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\test_util.py'>
+pydoc: <module 'pydoc' from 'D:\\ProgramFiles\\Python39\\lib\\pydoc.py'>
 tzdata: <module 'tzdata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\__init__.py'>
 tzdata.zoneinfo: <module 'tzdata.zoneinfo' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\__init__.py'>
 tzdata.zoneinfo.Asia: <module 'tzdata.zoneinfo.Asia' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\Asia\\__init__.py'>
@@ -1600,10 +1631,11 @@ netrc: <module 'netrc' from 'D:\\ProgramFiles\\Python39\\lib\\netrc.py'>
 encodings.ascii: <module 'encodings.ascii' from 'D:\\ProgramFiles\\Python39\\lib\\encodings\\ascii.py'>
 
 -------------------------------------------- filter_string='python_helpers' --------------------------------------------
-Total Modules Count: 901
+Total Modules Count: 902
 Filtered Modules Count: 18
 python_helpers: <module 'python_helpers' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\__init__.py'>
 python_helpers.ph_constants: <module 'python_helpers.ph_constants' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants.py'>
+python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
 python_helpers.ph_modes_error_handling: <module 'python_helpers.ph_modes_error_handling' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_modes_error_handling.py'>
 python_helpers.ph_modes_execution: <module 'python_helpers.ph_modes_execution' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_modes_execution.py'>
 python_helpers.ph_defaults: <module 'python_helpers.ph_defaults' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_defaults.py'>
@@ -1613,7 +1645,6 @@ python_helpers._git_info: <module 'python_helpers._git_info' from 'D:\\Other\\Gi
 python_helpers._tool_name: <module 'python_helpers._tool_name' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_tool_name.py'>
 python_helpers._version: <module 'python_helpers._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_version.py'>
 python_helpers.ph_constants_config: <module 'python_helpers.ph_constants_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants_config.py'>
-python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
 python_helpers.ph_keys: <module 'python_helpers.ph_keys' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_keys.py'>
 python_helpers.ph_util: <module 'python_helpers.ph_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_util.py'>
 python_helpers.ph_crypto: <module 'python_helpers.ph_crypto' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_crypto.py'>
@@ -2133,7 +2164,7 @@ zoneinfo._common: <module 'zoneinfo._common' from 'D:\\ProgramFiles\\Python39\\l
 _zoneinfo: <module '_zoneinfo' from 'D:\\ProgramFiles\\Python39\\DLLs\\_zoneinfo.pyd'>
 zoneinfo: <module 'zoneinfo' from 'D:\\ProgramFiles\\Python39\\lib\\zoneinfo\\__init__.py'>
 six: <module 'six' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\six.py'>
-six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x000001A5FB88F910>)>
+six.moves: <module 'six.moves' (<six._SixMetaPathImporter object at 0x0000019360EAF910>)>
 dateutil.tz._common: <module 'dateutil.tz._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_common.py'>
 dateutil.tz._factories: <module 'dateutil.tz._factories' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\dateutil\\tz\\_factories.py'>
 ctypes.wintypes: <module 'ctypes.wintypes' from 'D:\\ProgramFiles\\Python39\\lib\\ctypes\\wintypes.py'>
@@ -2519,6 +2550,7 @@ Crypto.Cipher._mode_gcm: <module 'Crypto.Cipher._mode_gcm' from 'D:\\Other\\Gith
 Crypto.Cipher._mode_ocb: <module 'Crypto.Cipher._mode_ocb' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\_mode_ocb.py'>
 Crypto.Cipher: <module 'Crypto.Cipher' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\__init__.py'>
 Crypto.Cipher.AES: <module 'Crypto.Cipher.AES' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\Crypto\\Cipher\\AES.py'>
+python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
 python_helpers.ph_modes_error_handling: <module 'python_helpers.ph_modes_error_handling' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_modes_error_handling.py'>
 python_helpers.ph_modes_execution: <module 'python_helpers.ph_modes_execution' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_modes_execution.py'>
 python_helpers.ph_defaults: <module 'python_helpers.ph_defaults' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_defaults.py'>
@@ -2533,31 +2565,24 @@ xml.parsers.expat: <module 'xml.parsers.expat' from 'D:\\ProgramFiles\\Python39\
 plistlib: <module 'plistlib' from 'D:\\ProgramFiles\\Python39\\lib\\plistlib.py'>
 pkg_resources.extern: <module 'pkg_resources.extern' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\extern\\__init__.py'>
 pkg_resources._vendor: <module 'pkg_resources._vendor' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\__init__.py'>
-pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
-pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
+pkg_resources._vendor.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
+pkg_resources.extern.appdirs: <module 'pkg_resources.extern.appdirs' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
 pkg_resources._vendor.packaging.__about__: <module 'pkg_resources._vendor.packaging.__about__' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\__about__.py'>
-pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
-pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
+pkg_resources._vendor.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
+pkg_resources.extern.packaging: <module 'pkg_resources.extern.packaging' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
 pkg_resources.extern.packaging._structures: <module 'pkg_resources.extern.packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_structures.py'>
 pkg_resources.extern.packaging._typing: <module 'pkg_resources.extern.packaging._typing' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_typing.py'>
 pkg_resources.extern.packaging.version: <module 'pkg_resources.extern.packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\version.py'>
 pkg_resources.extern.packaging._compat: <module 'pkg_resources.extern.packaging._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\_compat.py'>
 pkg_resources.extern.packaging.utils: <module 'pkg_resources.extern.packaging.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\utils.py'>
 pkg_resources.extern.packaging.specifiers: <module 'pkg_resources.extern.packaging.specifiers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\specifiers.py'>
-pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
-pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x000001A5FD2ACBB0>)>
+pkg_resources._vendor.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
+pkg_resources.extern.pyparsing: <module 'pkg_resources.extern.pyparsing' (<pkg_resources.extern.VendorImporter object at 0x00000193638F0CA0>)>
 pkg_resources.extern.packaging.markers: <module 'pkg_resources.extern.packaging.markers' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\markers.py'>
 pkg_resources.extern.packaging.requirements: <module 'pkg_resources.extern.packaging.requirements' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\_vendor\\packaging\\requirements.py'>
 pkg_resources: <module 'pkg_resources' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\pkg_resources\\__init__.py'>
 atexit: <module 'atexit' (built-in)>
 logging: <module 'logging' from 'D:\\ProgramFiles\\Python39\\lib\\logging\\__init__.py'>
-tzlocal.windows_tz: <module 'tzlocal.windows_tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\windows_tz.py'>
-tzlocal.utils: <module 'tzlocal.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\utils.py'>
-tzlocal.win32: <module 'tzlocal.win32' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\win32.py'>
-tzlocal: <module 'tzlocal' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\__init__.py'>
-packaging: <module 'packaging' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\__init__.py'>
-packaging._structures: <module 'packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\_structures.py'>
-packaging.version: <module 'packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\version.py'>
 urllib3.exceptions: <module 'urllib3.exceptions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\exceptions.py'>
 urllib3.util.timeout: <module 'urllib3.util.timeout' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\util\\timeout.py'>
 urllib3.util.connection: <module 'urllib3.util.connection' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\urllib3\\util\\connection.py'>
@@ -2660,16 +2685,13 @@ requests.adapters: <module 'requests.adapters' from 'D:\\Other\\Github_Self\\pyt
 requests.sessions: <module 'requests.sessions' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\sessions.py'>
 requests.api: <module 'requests.api' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\api.py'>
 requests: <module 'requests' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\requests\\__init__.py'>
-python_helpers.ph_process: <module 'python_helpers.ph_process' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_process.py'>
-python_helpers.ph_git: <module 'python_helpers.ph_git' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_git.py'>
-python_helpers._git_info: <module 'python_helpers._git_info' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_git_info.py'>
-python_helpers._tool_name: <module 'python_helpers._tool_name' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_tool_name.py'>
-incremental._version: <module 'incremental._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\_version.py'>
-incremental: <module 'incremental' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\__init__.py'>
-python_helpers._version: <module 'python_helpers._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_version.py'>
-python_helpers.ph_constants_config: <module 'python_helpers.ph_constants_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants_config.py'>
-python_helpers.ph_file_extensions: <module 'python_helpers.ph_file_extensions' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_file_extensions.py'>
-python_helpers.ph_keys: <module 'python_helpers.ph_keys' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_keys.py'>
+tzlocal.windows_tz: <module 'tzlocal.windows_tz' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\windows_tz.py'>
+tzlocal.utils: <module 'tzlocal.utils' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\utils.py'>
+tzlocal.win32: <module 'tzlocal.win32' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\win32.py'>
+tzlocal: <module 'tzlocal' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzlocal\\__init__.py'>
+packaging: <module 'packaging' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\__init__.py'>
+packaging._structures: <module 'packaging._structures' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\_structures.py'>
+packaging.version: <module 'packaging.version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\packaging\\version.py'>
 ruamel: <module 'ruamel' (namespace)>
 _cython_3_0_11: <module '_cython_3_0_11'>
 ruamel.yaml.clib._ruamel_yaml: <module '_ruamel_yaml' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\_ruamel_yaml.cp39-win_amd64.pyd'>
@@ -2704,6 +2726,15 @@ ruamel.yaml.loader: <module 'ruamel.yaml.loader' from 'D:\\Other\\Github_Self\\p
 ruamel.yaml.dumper: <module 'ruamel.yaml.dumper' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\ruamel\\yaml\\dumper.py'>
 ruamel.yaml.main: <module 'ruamel.yaml.main' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\ruamel\\yaml\\main.py'>
 ruamel.yaml: <module 'ruamel.yaml' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\ruamel\\yaml\\__init__.py'>
+python_helpers.ph_process: <module 'python_helpers.ph_process' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_process.py'>
+python_helpers.ph_git: <module 'python_helpers.ph_git' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_git.py'>
+python_helpers._git_info: <module 'python_helpers._git_info' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_git_info.py'>
+python_helpers._tool_name: <module 'python_helpers._tool_name' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_tool_name.py'>
+incremental._version: <module 'incremental._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\_version.py'>
+incremental: <module 'incremental' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\incremental\\__init__.py'>
+python_helpers._version: <module 'python_helpers._version' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\_version.py'>
+python_helpers.ph_constants_config: <module 'python_helpers.ph_constants_config' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants_config.py'>
+python_helpers.ph_keys: <module 'python_helpers.ph_keys' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_keys.py'>
 psutil._common: <module 'psutil._common' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_common.py'>
 psutil._compat: <module 'psutil._compat' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_compat.py'>
 psutil._psutil_windows: <module 'psutil._psutil_windows' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\psutil\\_psutil_windows.pyd'>
@@ -2748,6 +2779,7 @@ asyncio.windows_events: <module 'asyncio.windows_events' from 'D:\\ProgramFiles\
 asyncio: <module 'asyncio' from 'D:\\ProgramFiles\\Python39\\lib\\asyncio\\__init__.py'>
 unittest.mock: <module 'unittest.mock' from 'D:\\ProgramFiles\\Python39\\lib\\unittest\\mock.py'>
 python_helpers.test.test_util: <module 'python_helpers.test.test_util' from 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\test_util.py'>
+pydoc: <module 'pydoc' from 'D:\\ProgramFiles\\Python39\\lib\\pydoc.py'>
 tzdata: <module 'tzdata' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\__init__.py'>
 tzdata.zoneinfo: <module 'tzdata.zoneinfo' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\__init__.py'>
 tzdata.zoneinfo.Asia: <module 'tzdata.zoneinfo.Asia' from 'D:\\Other\\Github_Self\\pythonHelpers\\venv\\lib\\site-packages\\tzdata\\zoneinfo\\Asia\\__init__.py'>
@@ -2769,6 +2801,7 @@ analyse_profile
 append_in_file_name
 append_path
 append_remarks
+archive_files
 ascii_to_hex_str
 backup_file_name
 check_and_assign
@@ -2810,6 +2843,7 @@ get_dic_data_and_print
 get_directory_path
 get_environment_variables
 get_file_name_and_extn
+get_help_for_param
 get_ip
 get_key_from_dict_based_on_val
 get_key_value_pair
@@ -2850,6 +2884,7 @@ list_clean
 lstrip_hex_str
 lstrip_str
 make_dirs
+normalise_list
 normalise_name_pandas_to_user
 normalise_name_user_to_pandas
 normalise_user_input
@@ -3043,7 +3078,6 @@ Input String: First; hash_str: a151ceb1711aad529a7704248f03333990022ebbfa07a7f04
 Input String: First; hash_str(hash_algo=sha512) 4b8e5aa1cd6cf2441e84257416a62e2fa5da4fe2864943bd129f797000e9b79ce37c55fd8a7092999630dbd75811ad50ef8fecd5e56449a32857fb4d285e2ad3
 ----------------------------------------------------- test_zipfile -----------------------------------------------------
 ---------------------------------------------- keep_source_dir_in_zip=True ---------------------------------------------
-- Target Folder: D:\Other\Github_Self\pythonHelpers\python_helpers\test\res; Already Existed -
 - Exporting Zip File: D:\Other\Github_Self\pythonHelpers\python_helpers\test\res\test_zipfile_keep_source_dir_in_zip_true.zip -
 traverse_mode: Regex
 top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data
@@ -3055,7 +3089,6 @@ excludes: []
 ++++++++ generate_hash(): Work In Progress ++++++++
 --------------------------------------------------------------------------------
 --------------------------------------------- keep_source_dir_in_zip=False ---------------------------------------------
-- Target Folder: D:\Other\Github_Self\pythonHelpers\python_helpers\test\res; Already Existed -
 - Exporting Zip File: D:\Other\Github_Self\pythonHelpers\python_helpers\test\res\test_zipfile_keep_source_dir_in_zip_false.zip -
 traverse_mode: Regex
 top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data
@@ -3067,7 +3100,6 @@ excludes: []
 ++++++++ generate_hash(): Work In Progress ++++++++
 --------------------------------------------------------------------------------
 ---------------------------------------------- source_files_dir=target_dir ---------------------------------------------
-- Target Folder: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\..; Already Existed -
 - Exporting Zip File: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\..\test_zipfile_keep_source_path_is_dest_path.zip -
 traverse_mode: Regex
 top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data
@@ -3079,7 +3111,6 @@ excludes: []
 ++++++++ generate_hash(): Work In Progress ++++++++
 --------------------------------------------------------------------------------
 ---------------------------------------------- source_files_and_target_dir ---------------------------------------------
-- Target Folder: D:\Other\Github_Self\pythonHelpers\python_helpers\test\res; Already Existed -
 - Exporting Zip File: D:\Other\Github_Self\pythonHelpers\python_helpers\test\res\data.zip -
 traverse_mode: Regex
 top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data
@@ -3091,7 +3122,6 @@ excludes: []
 ++++++++ generate_hash(): Work In Progress ++++++++
 --------------------------------------------------------------------------------
 --------------------------------------------------- only_source_files --------------------------------------------------
-- Target Folder: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\..; Already Existed -
 - Exporting Zip File: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\..\data.zip -
 traverse_mode: Regex
 top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data
@@ -3103,7 +3133,6 @@ excludes: []
 ++++++++ generate_hash(): Work In Progress ++++++++
 --------------------------------------------------------------------------------
 --------------------------------------------- source_dir_custom_extn_files ---------------------------------------------
-- Target Folder: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\..; Already Existed -
 - Exporting Zip File: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\..\test_zipfile_source_dir_custom_extn_files.zip -
 traverse_mode: Regex
 top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\data
@@ -3125,7 +3154,7 @@ Count is: 32
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\abc.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240819_202659272163.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240908_205828490575.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241103_152330987296.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241110_220136592581.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data.zip
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test_util.py
@@ -3136,12 +3165,12 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_170029648753.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_185514051480.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_202659287121.txt
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241103_152331003298.txt
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241110_220136616579.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195100361051.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195115172133.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_202659303119.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240908_205828521210.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241103_152331019297.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241110_220136622579.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.ini
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.list
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.txt
@@ -3170,7 +3199,7 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_170029648753.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_185514051480.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_202659287121.txt
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241103_152331003298.txt
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241110_220136616579.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc_list.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\def.txt
@@ -3181,13 +3210,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\..
 include_files: []
 include_dirs: []
 excludes: []
-Count is: 75
+Count is: 74
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_exception.py
@@ -3212,7 +3240,7 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\tbd\ph_hash.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\abc.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup_20240819_202659272163.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup_20240908_205828490575.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup_20241103_152330987296.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup_20241110_220136592581.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\data.zip
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\test.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\test_util.py
@@ -3223,12 +3251,12 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\a_b_c_back
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\a_b_c_backup_20240819_170029648753.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\a_b_c_backup_20240819_185514051480.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\a_b_c_backup_20240819_202659287121.txt
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\a_b_c_backup_20241103_152331003298.txt
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\a_b_c_backup_20241110_220136616579.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\backup_20240819_195100361051.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\backup_20240819_195115172133.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\backup_20240819_202659303119.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\backup_20240908_205828521210.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\backup_20241103_152331019297.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\backup\backup_20241110_220136622579.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\data\abc.ini
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\data\abc.list
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\test\data\abc.txt
@@ -3264,13 +3292,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers\test\..
 include_files: ['*.py']
 include_dirs: []
 excludes: []
-Count is: 29
+Count is: 28
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\..\ph_exception.py
@@ -3301,13 +3328,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: ['*.py']
 include_dirs: []
 excludes: []
-Count is: 29
+Count is: 28
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_exception.py
@@ -3348,13 +3374,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: ['*_*.py']
 include_dirs: []
 excludes: []
-Count is: 29
+Count is: 28
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_exception.py
@@ -3419,12 +3444,11 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: ['*ph_bit*.py', '*ph_constant*.py', '*ph_data_*.py']
 include_dirs: []
 excludes: []
-Count is: 5
+Count is: 4
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 
 ------------------------------- src_dir, include_files=inc_files_name_pattern_star_wo_ext ------------------------------
 traverse_mode: Regex
@@ -3440,12 +3464,11 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: ['*ph_bit*', '*ph_constant*', '*ph_data_*']
 include_dirs: []
 excludes: []
-Count is: 7
+Count is: 6
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\__pycache__\ph_constants.cpython-39.pyc
 D:\Other\Github_Self\pythonHelpers\python_helpers\__pycache__\ph_constants_config.cpython-39.pyc
 
@@ -3455,12 +3478,11 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: ['*ph_bit*', '*ph_constant*', '*ph_data_*']
 include_dirs: []
 excludes: ['*.pyc']
-Count is: 5
+Count is: 4
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 
 --------------------------------------- src_dir, include_files=inc_files_path_ok ---------------------------------------
 traverse_mode: Regex
@@ -3520,13 +3542,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: []
 include_dirs: []
 excludes: ['ph_bits.py']
-Count is: 75
+Count is: 74
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_exception.py
@@ -3551,7 +3572,7 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\tbd\ph_hash.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\abc.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240819_202659272163.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240908_205828490575.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241103_152330987296.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241110_220136592581.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data.zip
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test_util.py
@@ -3562,12 +3583,12 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_170029648753.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_185514051480.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_202659287121.txt
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241103_152331003298.txt
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241110_220136616579.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195100361051.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195115172133.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_202659303119.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240908_205828521210.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241103_152331019297.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241110_220136622579.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.ini
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.list
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.txt
@@ -3603,13 +3624,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: []
 include_dirs: []
 excludes: ['test']
-Count is: 75
+Count is: 74
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_exception.py
@@ -3634,7 +3654,7 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\tbd\ph_hash.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\abc.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240819_202659272163.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240908_205828490575.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241103_152330987296.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241110_220136592581.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data.zip
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test_util.py
@@ -3645,12 +3665,12 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_170029648753.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_185514051480.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_202659287121.txt
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241103_152331003298.txt
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241110_220136616579.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195100361051.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195115172133.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_202659303119.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240908_205828521210.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241103_152331019297.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241110_220136622579.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.ini
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.list
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.txt
@@ -3686,12 +3706,11 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: []
 include_dirs: []
 excludes: ['D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py']
-Count is: 74
+Count is: 73
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_exception.py
@@ -3716,7 +3735,7 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\tbd\ph_hash.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\abc.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240819_202659272163.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20240908_205828490575.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241103_152330987296.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup_20241110_220136592581.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data.zip
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\test_util.py
@@ -3727,12 +3746,12 @@ D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_170029648753.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_185514051480.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20240819_202659287121.txt
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241103_152331003298.txt
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\a_b_c_backup_20241110_220136616579.txt
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195100361051.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_195115172133.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240819_202659303119.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20240908_205828521210.bkp
-D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241103_152331019297.bkp
+D:\Other\Github_Self\pythonHelpers\python_helpers\test\backup\backup_20241110_220136622579.bkp
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.ini
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.list
 D:\Other\Github_Self\pythonHelpers\python_helpers\test\data\abc.txt
@@ -3768,13 +3787,12 @@ top: D:\Other\Github_Self\pythonHelpers\python_helpers
 include_files: []
 include_dirs: []
 excludes: ['D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test']
-Count is: 43
+Count is: 42
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_bits.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_constants_config.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_crypto.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master.py
-D:\Other\Github_Self\pythonHelpers\python_helpers\ph_data_master_keys.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_defaults.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_dos.py
 D:\Other\Github_Self\pythonHelpers\python_helpers\ph_exception.py
@@ -3829,16 +3847,33 @@ ICCID 89423 10220 00089 671 6 is Valid ? True
 imei 501944690893758 is Valid ? True
 imei 910107118819392 is Valid ? True
 imei 502652252218376 is Valid ? True
+-------------------------------------------------- test_normalise_list -------------------------------------------------
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+--------------------------------------------------- test_handle_dirs ---------------------------------------------------
+----------------------------------------------- quite_mode=True; Default -----------------------------------------------
+--------------------------------------------------- quite_mode=False ---------------------------------------------------
+- Target Folder: sample2; Creation Initiated -
+- Target Folder: sample2; Deletion Initiated -
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2024-11-03 15:23:31.162786+05:30
-Execution Time: 00:00:14; Milliseconds: 14034.314155578613
-Execution Time CPU: 00:00:00; Milliseconds: 640.625
+Current Time Stamp: 2024-11-10 22:01:36.986580+05:30
+Execution Time: 00:00:12; Milliseconds: 12538.538932800293
+Execution Time CPU: 00:00:00; Milliseconds: 625.0
 Timer State: TIMER_ON
 --------------------------------------------------------------------------------
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2024-11-03 15:23:36.192315+05:30
-Execution Time: 00:00:14; Milliseconds: 14037.314176559448
-Execution Time CPU: 00:00:00; Milliseconds: 640.625
+Current Time Stamp: 2024-11-10 22:01:42.015446+05:30
+Execution Time: 00:00:17; Milliseconds: 17556.712865829468
+Execution Time CPU: 00:00:00; Milliseconds: 625.0
+Timer State: TIMER_ON
+--------------------------------------------------------------------------------
+---------------------------------- Time Details ----------------------------------
+Current Time Stamp: 2024-11-10 22:01:42.031477+05:30
+Execution Time: 00:00:17; Milliseconds: 17572.405338287354
+Execution Time CPU: 00:00:00; Milliseconds: 625.0
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

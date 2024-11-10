@@ -7,3 +7,20 @@ class PhExecutionModes:
     ALL = 6
     UNIT_TESTING_EXTERNAL = 7
     SAMPLES_LIST = 8
+    CLI = 9
+
+    KEYS_NAME = {
+        USER: 'user',
+        DEV: 'dev',
+        UNIT_TESTING: 'unit_testing',
+        SAMPLE_SPECIFIC: 'sample_specific',
+        SAMPLE_GENERIC: 'sample_generic',
+        ALL: 'all',
+        UNIT_TESTING_EXTERNAL: 'unit_testing_external',
+        SAMPLES_LIST: 'samples_list',
+        CLI: 'cli',
+    }
+
+    @classmethod
+    def get_key_name(cls, key):
+        return cls.KEYS_NAME.get(key, None)

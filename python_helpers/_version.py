@@ -7,5 +7,5 @@ Provides python_helpers version information.
 
 from incremental import Version
 
-__version__ = Version("python_helpers", 4, 4, 8, dev=8)
+__version__ = Version("python_helpers", 5, 0, 0)
 __all__ = ["__version__"]

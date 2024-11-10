@@ -18,6 +18,11 @@ class PhKeys:
     OUTPUT_FORMAT_SELECTED = 'output_format_selected'
 
     #
+    ARCHIVE_OUTPUT_FORMAT = 'archive_output_format'
+    ARCHIVE_OUTPUT_FORMATS = 'archive_output_formats'
+    ARCHIVE_OUTPUT_FORMAT_SELECTED = 'archive_output_format_selected'
+
+    #
     SAMPLE = 'sample'
     SAMPLES = 'samples'
     SAMPLE_SELECTED = 'sample_selected'
@@ -55,6 +60,7 @@ class PhKeys:
     ASN1_MODULE_VERSION = 'asn1_module_version'
     ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
     FETCH_ASN1_OBJECTS_LIST = 'fetch_asn1_objects_list'
+    TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
 
     # tlvPlay
     ONE_LINER = 'one_liner'
@@ -88,6 +94,12 @@ class PhKeys:
     URL_PRE_ACCESS = 'url_pre_access'
     URL_CERT_FETCH_ONLY = 'url_cert_fetch_only'
     URL_ALL_CERTS = 'url_all_certs'
+
+    # excelPlay
+    OUTPUT_PATH = 'output_path'
+
+    # Batch
+    BATCH_PARAMS = 'batch_params'
 
     # Process
     PROCESS = 'process'
@@ -188,6 +200,8 @@ class PhKeys:
     PRINT_INPUT = 'print_input'
     PRINT_OUTPUT = 'print_output'
     PRINT_INFO = 'print_info'
+    ARCHIVE_OUTPUT = 'archive_output'
+
     QUITE_MODE = 'quite_mode'
     RE_PARSE_OUTPUT = 're_parse_output'
     DATA_GROUP = 'data_group'
@@ -200,6 +214,7 @@ class PhKeys:
     INPUT_DATA = 'input_data'
     INPUT_FILE = 'input_file'
     INPUT_LIST = 'input_list'
+    INPUT_TUPLE = 'input_tuple'
     INPUT_DIR = 'input_dir'
     INPUT_YML = 'input_yml'
     INPUT_MODES_HIERARCHY = 'input_modes_hierarchy'
@@ -268,9 +283,10 @@ class PhKeys:
     # SAMPLE_8 = 'sample_8'
     # SAMPLE_9 = 'sample_9'
     # SAMPLE_10 = 'sample_10'
-    # RAW_DATA = 'raw_data'
-    # REMARKS_LIST = 'remarks_list'
+    # **DEPRECATED**
+    RAW_DATA = 'raw_data'
+    # ** DEPRECATED **
+    REMARKS_LIST = 'remarks_list'
     # REMARKS_LIST_GENERATED = 'remarks_list_generated'
     # SAMPLE_PROCESSING = 'sample_processing'
-    # TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
     # End

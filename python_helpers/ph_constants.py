@@ -2,9 +2,17 @@ import pandas as pd
 
 
 class PhConstants:
+    # Mutable Data Type; use copy.copy(x) to create object without reference
     DICT_EMPTY = {}
+    # Mutable Data Type; use copy.copy(x) to create object without reference
     LIST_EMPTY = []
+    # Mutable Data Type; use copy.copy(x) to create object without reference
+    SET_EMPTY = set()
+    # Immutable Data Type
+    TUPLE_EMPTY = ((),)
+    # Immutable Data Type
     STR_EMPTY = ''
+    # Value Mutable; but favor immutability
     DF_EMPTY = pd.DataFrame()
 
     STR_TAB = '    '
@@ -230,6 +238,7 @@ class PhConstants:
     INVALID_RAW_DATA = 'Check your Raw Data'
     INVALID_INPUT_DATA = 'Check your Input Data'
     MISSING_INPUT_DATA = 'Missing Input Data'
+    EMPTY_INPUT_FILE = 'Empty Input File'
     UNKNOWN_INPUT_FORMAT = 'Unknown Input Format'
     INVALID_TIME_OUT = 'Invalid Time Out'
     INVALID_URL_TIME_OUT = 'Invalid URL Time Out'

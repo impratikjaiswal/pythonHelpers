@@ -33,8 +33,46 @@ class PhDos:
         return 'cd ..'
 
     @classmethod
+    def echo_on(cls):
+        return '@echo on'
+
+    @classmethod
     def echo_off(cls):
         return '@echo off'
+
+    @classmethod
+    def echo(cls, msg, wrap_up=False):
+        res = f'echo {msg}'
+        if not wrap_up:
+            return res
+        return [
+            cls.echo_off(),
+            res,
+            cls.echo_on()
+        ]
+
+    @classmethod
+    def time_stamp(cls):
+        return 'echo Time Stamp is: %DATE% %TIME%'
+
+    @classmethod
+    def windows_version(cls):
+        return 'ver'
+
+    @classmethod
+    def user_name(cls):
+        return 'echo %USERNAME%'
+
+    @classmethod
+    def common_info(cls):
+        return [
+            cls.echo_off(),
+            cls.time_stamp(),
+            cls.user_name(),
+            'echo %USERDOMAIN%',
+            cls.windows_version(),
+            cls.echo_on(),
+        ]
 
     @classmethod
     def get_seperator(cls, heading=None):

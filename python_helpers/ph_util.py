@@ -1,4 +1,5 @@
 import base64
+import copy
 import ctypes
 import enum
 import fnmatch
@@ -16,6 +17,7 @@ from io import TextIOWrapper, StringIO
 import math
 import pandas as pd
 import pkg_resources
+import requests
 import sys
 import time
 import tzlocal
@@ -24,7 +26,6 @@ from packaging import version
 from pandas import DataFrame, Series
 from ruamel.yaml.scalarstring import PreservedScalarString
 
-import requests
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_defaults import PhDefaults
@@ -1085,12 +1086,12 @@ class PhUtil:
         return range_data
 
     @classmethod
-    def make_dirs(cls, dir_path=None, file_path=None, absolute_path_needed=False, quite_mode=False):
+    def make_dirs(cls, dir_path=None, file_path=None, absolute_path_needed=False, quite_mode=True):
         return cls.__handle_dirs(dir_path=dir_path, file_path=file_path, absolute_path_needed=absolute_path_needed,
                                  operation_type=PhConstants.DIR_CREATION, quite_mode=quite_mode)
 
     @classmethod
-    def remove_dirs(cls, dir_path=None, file_path=None, absolute_path_needed=False, quite_mode=False):
+    def remove_dirs(cls, dir_path=None, file_path=None, absolute_path_needed=False, quite_mode=True):
         return cls.__handle_dirs(dir_path=dir_path, file_path=file_path, absolute_path_needed=absolute_path_needed,
                                  operation_type=PhConstants.DIR_DELETION, quite_mode=quite_mode)
 
@@ -1318,6 +1319,34 @@ class PhUtil:
             all_caps_keywords = ['ICCID', 'IMSI', 'ID', 'MSISDN']
         return ' '.join(
             x.title() if x not in all_caps_keywords else x for x in [x for x in re.split('_', string=str(col_name))])
+
+    @classmethod
+    def normalise_user_input(cls, user_input):
+        """
+
+        :param user_input:
+        :return:
+        """
+        temp_user_input = cls.str_to_bool(user_input)
+        if temp_user_input is not None:
+            return temp_user_input
+        if user_input in PhConstants.EXIT_VALUE_POOL:
+            # return 'e'
+            sys.exit()
+        print(f'Oops! "{user_input}" was not a valid input. Try again...')
+        return None
+
+    @classmethod
+    def normalise_list(cls, user_list):
+        new_list = copy.copy(PhConstants.LIST_EMPTY)
+        for item in user_list:
+            if cls.is_none(item):
+                continue
+            if isinstance(item, list):
+                new_list.extend(item)
+            else:
+                new_list.append(item)
+        return new_list
 
     @classmethod
     def read_csv(cls,
@@ -1846,22 +1875,6 @@ class PhUtil:
         return data
 
     @classmethod
-    def normalise_user_input(cls, user_input):
-        """
-
-        :param user_input:
-        :return:
-        """
-        temp_user_input = cls.str_to_bool(user_input)
-        if temp_user_input is not None:
-            return temp_user_input
-        if user_input in PhConstants.EXIT_VALUE_POOL:
-            # return 'e'
-            sys.exit()
-        print(f'Oops! "{user_input}" was not a valid input. Try again...')
-        return None
-
-    @classmethod
     def get_environment_variables(cls, var_name, check_presence_only=False):
         """
 
@@ -2132,6 +2145,15 @@ class PhUtil:
         return [x for x in list1 if x is not None]
 
     @classmethod
+    def archive_files(cls, source_files_dir, archive_format=PhDefaults.ARCHIVE_FORMAT, delete_dir_after_archive=False,
+                      export_hash=False):
+        if archive_format == PhFileExtensions.ZIP:
+            return PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir,
+                                            delete_dir_after_zip=delete_dir_after_archive,
+                                            export_hash=export_hash)
+        return None
+
+    @classmethod
     def create_zip(cls, zip_file_name, source_dir, keep_source_dir_in_zip=False, include_files=None, include_dirs=None,
                    excludes=None):
         files_list = []
@@ -2276,17 +2298,17 @@ class PhUtil:
         return v
 
     @classmethod
-    def parse_config(cls, config_data):
+    def parse_config(cls, config_data, data_types=copy.copy(PhConstants.DICT_EMPTY)):
         # cls.print_iter(config_data, 'config_data initial', verbose=True)
         for k, v in config_data.items():
             if not v:
                 continue
+            v_eval = None
             if isinstance(v, str):
                 # Trim Garbage data
                 v = PhUtil.trim_white_spaces_in_str(v)
                 v = PhUtil.clear_quotation_marks(v)
                 v_lower_case = v.lower()
-                v_eval = None
                 try:
                     v_eval = eval(v)
                     if isinstance(v_eval, str):
@@ -2312,6 +2334,10 @@ class PhUtil:
                 if v_eval is not None:
                     v = v_eval
                 config_data[k] = v
+            # Handle Custom Objects (like int)
+            if k in data_types:
+                v = data_types[k](v)
+                config_data[k] = v
         # cls.print_iter(config_data, 'config_data processed', verbose=True)
         return config_data
 
@@ -2321,8 +2347,14 @@ class PhUtil:
             value = PreservedScalarString(value)
         return cls.get_key_value_pair(key=key, value=value, sep=sep, dic_format=dic_format, print_also=print_also)
 
+    @classmethod
+    def get_help_for_param(cls, help_msg=None, default_value=None, include_none=False):
+        default_value_msg = None if cls.is_none(
+            default_value) and include_none is False else f'{default_value} is Default'
+        return PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [help_msg, default_value_msg]))
+
     ####################################################################################################################
-    ### INTENRAL ###
+    ### INTERNAL ###
     ####################################################################################################################
 
     @classmethod
@@ -2344,7 +2376,7 @@ class PhUtil:
         else:
             if operation_type == PhConstants.DIR_CREATION:
                 cls.print_cmt(main_text=f'Target Folder: {dir_path}; Creation Initiated', quite_mode=quite_mode)
-                os.make_dirs(dir_path)
+                os.makedirs(dir_path)
             if operation_type == PhConstants.DIR_DELETION:
                 cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted', quite_mode=quite_mode)
         return dir_path
