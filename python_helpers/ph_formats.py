@@ -28,6 +28,8 @@ class PhFormats:
     ASN_MANUALLY_CORRECTED = 'asn_manually_corrected'
     ASN_AUTO_CORRECTED = 'asn_auto_corrected'
     ASN_FORMATTED = 'asn_formatted'
+    PNG_URI = 'png_uri'
+    SVG_URI = 'svg_uri'
 
 
 class PhFormatsGroups:

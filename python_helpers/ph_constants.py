@@ -1,4 +1,4 @@
-import pandas as pd
+# import pandas as pd
 
 
 class PhConstants:
@@ -12,8 +12,10 @@ class PhConstants:
     TUPLE_EMPTY = ((),)
     # Immutable Data Type
     STR_EMPTY = ''
+    # TODO: Causing issues in setup.py as module is not installed during setup.
+    # No Module Names Pandas
     # Value Mutable; but favor immutability
-    DF_EMPTY = pd.DataFrame()
+    # DF_EMPTY = pd.DataFrame()
 
     STR_TAB = '    '
     STR_SPACE = ' '
@@ -223,6 +225,8 @@ class PhConstants:
 
     REMARKS_MAX_LENGTH = HEADING_LENGTH_MAX - HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_SYMBOL - HEADING_LENGTH_RESERVE_STARTING_AND_ENDING_WHITE_SPACES
 
+    START_BLOCK = 1
+    END_BLOCK = 2
     KNOWN = 'Known'
     UNKNOWN = 'UnKnown'
     DETAILS = 'Details'
@@ -238,6 +242,7 @@ class PhConstants:
     INVALID_RAW_DATA = 'Check your Raw Data'
     INVALID_INPUT_DATA = 'Check your Input Data'
     MISSING_INPUT_DATA = 'Missing Input Data'
+    MISSING_INPUT_YML = 'Missing "input" in Yml Config'
     EMPTY_INPUT_FILE = 'Empty Input File'
     UNKNOWN_INPUT_FORMAT = 'Unknown Input Format'
     INVALID_TIME_OUT = 'Invalid Time Out'
