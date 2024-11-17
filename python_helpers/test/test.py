@@ -1,3 +1,4 @@
+import copy
 import os
 import unittest
 from collections import OrderedDict
@@ -10,6 +11,7 @@ from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_crypto import PhCrypto
 from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_git import PhGit
+from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
@@ -641,13 +643,110 @@ def test_get_help_for_param():
         PhUtil.get_help_for_param('Sample Param with None Default Value; include_none=True', None, include_none=True))
 
 
+def test_parse_config():
+    PhUtil.print_heading()
+    test_data_set = [
+        {
+            'remarks': 'Simple Data Types',
+            'remarks_str01': 'Simple Data Types',
+            'remarks_str02': ' Simple Data Types ',
+            'remarks_str03': "  Simple Data Types  ",
+            'remarks_str04': '"    Simple Data Types  "  ',
+            'remarks_str05': '   """Simple Data Types  """',
+            'remarks_str06': " '     Simple Data Types ' ",
+            'remarks_str07': '86020102',
+            'remarks_str08': 'False',
+            'remarks_str09': 'True',
+            'remarks_str0A': '86020102.0',
+            'remarks_str0B': 'None',
+            'item_s01': 'False',
+            'item_s02': False,
+            'item_s03': 'false',
+            'item_s04': 'Fals e',
+            'item_s05': 'FaLse',
+            'item_s06': 'False ',
+            'item_s07': ' False ',
+            'item_s08': '"False"',
+            'item_s11': 'True',
+            'item_s12': True,
+            'item_s13': 'true',
+            'item_s14': 'Tr ue',
+            'item_s15': 'TruE',
+            'item_s16': 'True ',
+            'item_s17': '   True ',
+            'item_s18': '"True"',
+            'item_s21': 'yes',
+            'item_s22': 'Yes',
+            'item_s23': 'no',
+            'item_s24': 'No',
+            'item_s25': ' ',
+            'item_s26': "",
+            'item_s27': """""",
+            'item_s31': '86020102',
+            'item_s32': '086020102',
+            'item_s33': '8 6020102',
+            'item_s34': '860201020 ',
+            'item_s35': '   860201020 ',
+            'item_s36': '86020102.0',
+            'item_s37': '86020102.0 ',
+            'item_s38': """
+                            86020102.0
+                        """,
+            'item_s39': '86020102.064654767',
+            'item_s3A': "'86020102'",
+            'item_s3B': '"86020102"',
+            'item_s41': 'none',
+            'item_s42': None,
+            'item_s43': 'None',
+            'item_s44': 'NONE',
+        },
+        {
+            'remarks': 'Complex Data Types',
+            'item_c1': "[{'brown': 'black'}, {'dog': 'cattttttt'}]",
+            'item_c2': [{'brown': 'black'}, {'dog': 'cattttttt'}],
+            'item_c3': '[]',
+            'item_c4': [],
+            'item_c5': "{1: {'brown': 'black'},2: {'dog': 'cattttttt'}}",
+            'item_c6': {1: {'brown': 'black'}, 2: {'dog': 'cattttttt'}},
+            'item_c7': '{}',
+            'item_c8': {},
+        },
+    ]
+    remarks_exclude = [int, float, bool]
+    for test_data in test_data_set:
+        PhUtil.print_heading(test_data.get(PhKeys.REMARKS))
+        PhUtil.print_iter(the_iter=test_data, verbose=True, header='Before')
+        new_config = PhUtil.dict_to_data(copy.copy(test_data))
+        PhUtil.print_iter(the_iter=new_config, verbose=True, header='After')
+        # Prepare Exclude
+        exclude_data = {}
+        for key in test_data:
+            if key.startswith('remarks_str'):
+                exclude_data.update({key: remarks_exclude})
+        new_config = PhUtil.dict_to_data(copy.copy(test_data), data_types_exclude=exclude_data)
+        PhUtil.print_iter(the_iter=new_config, verbose=True, header='After Exclude')
+
+
+def test_expired_attr():
+    PhUtil.print_heading()
+    # TODO: This does not work as expected, check implementation in Numpy
+    # makedirs()
+
+
 def test_functions(ph_time):
+    """
+
+    :param ph_time:
+    :return:
+    """
     test_temp()
     ## Keep on the 2nd Number
     ##
+    test_version()
+    test_parse_config()
+    test_expired_attr()
     test_doc_string()
     test_get_help_for_param()
-    test_version()
     test_chars_to_utf8()
     test_get_git_info()
     test_get_time_stamp_file_name()

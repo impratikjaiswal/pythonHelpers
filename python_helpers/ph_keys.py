@@ -72,6 +72,7 @@ class PhKeys:
     CONTENT_MAPPINGS = 'content_mappings'
     NAME_MAPPINGS = 'name_mappings'
     DELETE_BLOCK = 'delete_block'
+    BLOCK_LEVEL = 'block_level'
     INCLUDE_SEARCH_PATTERN = 'include_search_pattern'
     INCLUDE_SEARCH_PATTERN_IS_REGEX = 'include_search_pattern_is_regex'
     EXCLUDE_SEARCH_PATTERN = 'exclude_search_pattern'

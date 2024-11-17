@@ -32,6 +32,7 @@ from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_keys import PhKeys
+from ._expired_attributes import __expired_attributes__
 
 _base_profiles_available = False
 _psutil_available = True
@@ -54,6 +55,30 @@ except ImportError:
 
 
 class PhUtil:
+
+    # init method or constructor
+    def __init__(self):
+        pass
+
+    def __call__(self):
+        pass
+
+    def __getattr__(attr):
+
+        # Warn for expired attributes
+        if attr in __expired_attributes__:
+            key_name = attr
+            details_dic = __expired_attributes__.get(attr)
+            since = f" {details_dic.get('since')} release." if 'since' in details_dic else None
+            alternate = f", use {details_dic.get('alternate')} instead !!!" if 'alternate' in details_dic else None
+            raise AttributeError(''.join(filter(None, [
+                f"`{attr}` was removed in the PythonHelpers",
+                f'{since}',
+                f'{alternate}',
+            ])))
+            # f"`np.{attr}` was removed in the NumPy 2.0 release. "
+            # f"{__expired_attributes__[attr]}"
+
     # path_current_folder = os.getcwd()
     path_current_folder = os.path.realpath(sys.path[0])
     path_default_res_folder = path_current_folder + os.sep + 'res'
@@ -2292,54 +2317,73 @@ class PhUtil:
     def clear_quotation_marks(cls, v):
         if cls.is_empty(v) or not isinstance(v, str):
             return v
-        if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")) or (
-                v.startswith('"""') and v.endswith('"""')):
-            v = v[1:-1]
+        if v.startswith('"""') and v.endswith('"""'):
+            return v[3:-3]
+        if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")):
+            return v[1:-1]
         return v
 
     @classmethod
-    def parse_config(cls, config_data, data_types=copy.copy(PhConstants.DICT_EMPTY)):
-        # cls.print_iter(config_data, 'config_data initial', verbose=True)
-        for k, v in config_data.items():
-            if not v:
+    def dict_to_data(cls, user_dict, data_types_include=copy.copy(PhConstants.DICT_EMPTY),
+                     data_types_exclude=copy.copy(PhConstants.DICT_EMPTY)):
+        # cls.print_iter(user_dict, 'user_dict initial', verbose=True)
+        for k, v in user_dict.items():
+            v_org = v
+            if PhUtil.is_none(v):
                 continue
-            v_eval = None
             if isinstance(v, str):
+                v_eval = None
                 # Trim Garbage data
                 v = PhUtil.trim_white_spaces_in_str(v)
                 v = PhUtil.clear_quotation_marks(v)
+                # Trim spaces again may be uncovered after quotation mark
+                v = PhUtil.trim_white_spaces_in_str(v)
                 v_lower_case = v.lower()
                 try:
                     v_eval = eval(v)
                     if isinstance(v_eval, str):
                         # Everything was already str
                         v_eval = None
+                    else:
+                        v = v_eval
+                        user_dict[k] = v
                 except:
                     pass
+                # Handel cases which are not supported with eval()
                 if v_lower_case in ['none']:
+                    # none, None, NONE
                     v = None
-                    config_data[k] = v
+                    user_dict[k] = v
                 if v_lower_case in ['true']:
+                    # true, TruE
                     v = True
-                    config_data[k] = v
+                    user_dict[k] = v
                 if v_lower_case in ['false']:
+                    # false, FaLse
                     v = False
-                    config_data[k] = v
-            if not v:
-                continue
+                    user_dict[k] = v
+                if v_org != v:
+                    user_dict[k] = v
+                # Handle Custom Objects (like int, float)
+                data_type = type(v)
+                data_type_org = type(v_org)
+                if k in data_types_exclude:
+                    block_data_types = cls.to_list(data_types_exclude.get(k))
+                    if data_type in block_data_types and data_type_org not in block_data_types:
+                        # new data_type is excluded, set the org data
+                        user_dict[k] = v_org
+                        continue
+                if k in data_types_include:
+                    allow_data_types = cls.to_list(data_types_include.get(k))
+                    if data_type_org in allow_data_types and data_type_org not in allow_data_types:
+                        # old data_type is included, set the org data
+                        user_dict[k] = v_org
+                        continue
             if v in [PhConstants.STR_SELECT_OPTION]:
-                v = None
-                config_data[k] = v
-            if k in [PhKeys.INPUT_DATA]:
-                if v_eval is not None:
-                    v = v_eval
-                config_data[k] = v
-            # Handle Custom Objects (like int)
-            if k in data_types:
-                v = data_types[k](v)
-                config_data[k] = v
-        # cls.print_iter(config_data, 'config_data processed', verbose=True)
-        return config_data
+                user_dict[k] = None
+                continue
+        # cls.print_iter(user_dict, 'user_dict processed', verbose=True)
+        return user_dict
 
     @classmethod
     def get_dic_data_and_print(cls, key, sep, value, dic_format=True, print_also=True):
@@ -2380,80 +2424,3 @@ class PhUtil:
             if operation_type == PhConstants.DIR_DELETION:
                 cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Deleted', quite_mode=quite_mode)
         return dir_path
-
-    ####################################################################################################################
-    ### DEPRECATED ###
-    ####################################################################################################################
-    # @classmethod
-    # def line_is_comment(cls, str_data):
-    # """**DEPRECATED**
-
-    # Refer: is_empty_or_comment_string()
-    # """
-    # return cls.is_empty_or_comment_string(str_data)
-
-    # @classmethod
-    # def line_is_comment_or_empty(cls, str_data):
-    # """**DEPRECATED**
-
-    # Refer: is_empty_or_comment_string()
-    # """
-    # return cls.is_empty_or_comment_string(str_data)
-
-    # @classmethod
-    # def string_is_blank(cls, str_data):
-    # """**DEPRECATED**
-
-    # Refer: is_empty_string()
-    # """
-    # return cls.is_empty_string(str_data)
-
-    # @classmethod
-    # def string_is_not_blank(cls, str_data):
-    # """**DEPRECATED**
-
-    # Refer: is_not_empty_string()
-    # """
-    # return cls.is_not_empty_string(str_data)
-
-    # @classmethod
-    # def print_(cls, data, log=None):
-    # """**DEPRECATED**
-
-    # Refer: print()
-    # """
-    # cls.print(data=data, log=log)
-
-    # @classmethod
-    # def makedirs(cls, dir_path, absolute_path_needed=False):
-    # """**DEPRECATED**
-
-    # Refer: make_dirs()
-    # """
-    # return cls.make_dirs(dir_path=dir_path, absolute_path_needed=absolute_path_needed)
-
-    # @classmethod
-    # def clean_dirs(cls, target_dir):
-    # """**DEPRECATED**
-
-    # Refer: remove_dirs()
-    # """
-    # if os.path.exists(target_dir) and os.path.isdir(target_dir):
-    # cls.print_cmt(main_text=f'Deleting Folder: {target_dir}')
-    # shutil.rmtree(target_dir)
-
-    # @classmethod
-    # def set_if_not_none(cls, current_value, new_value='', new_type=None):
-    # """**DEPRECATED**
-
-    # Refer: set_if_none()
-    # """
-    # raise AttributeError(f'set_if_not_none() is removed from v4.4.0, use set_if_none() instead !!!')
-
-    # @classmethod
-    # def set_if_not_empty(cls, current_value, new_value='', new_type=None):
-    # """**DEPRECATED**
-
-    # Refer: set_if_empty()
-    # """
-    # raise AttributeError(f'set_if_not_empty() is removed from v4.4.0, use set_if_empty() instead !!!')

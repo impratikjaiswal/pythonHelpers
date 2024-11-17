@@ -12,24 +12,47 @@ Dependencies
 ------------
 
 All Required packages are listed in requirements.txt, which is further bifurcated in 4 categories:
-1. ```requirements_build.txt```Needed Build Tools / Libraries 
-2. ```requirements_external.txt```Needed External Tools / Libraries
-3. ```requirements_internal_lib.txt```Needed Internal Libraries
-4. ```requirements_internal_tool.txt```Needed Internal Tools
+1. ```requirements_build.txt```Required Build Tools / Libraries 
+2. ```requirements_external.txt```Required External Tools / Libraries
+3. ```requirements_internal_lib.txt```Required Internal Libraries
+4. ```requirements_internal_tool.txt```Required Internal Tools
 
-Few Basic Scripts are also present under <i>scripts</i> folder.
-   - Currently, Scripts are targeting virtual environment with folder name as <i>venv</i> (Present in parallel of <i>scripts</i> folder)
-   - However, same can be modified as per user choice.
+Few dedciated Basic Scripts are also present under <i>scripts</i> folder.
+   - Currently, Scripts are targeting <i>venv</i> (virtual environment folder, Present in parallel of <i>scripts</i> folder)
+   - However, the same can be modified as per user choice.
     
    **Note:** installing library/tool in virtual environment is optional but preferred.
+   
 
 Automatic installation
 ----------------------
 
-An installation script is available.
+*Recommended*: An installation script is (requirements_install.bat / requirements_install.sh) available in <i>scripts</i> folder.
 As soon as you have cloned or downloaded the repository, you can use it to install
-the tool/library within your Python package directory:
+the tool/library within your Python package directory.
+
+   
+Manual installation
+----------------------
+
+The usual pip command(s) can be used for manual installation.
+
 
 ```
-python setup.py install
+Sample Commands: 
+
+pip install -r requirements.txt
+pip install -r requirements_internal_lib.txt
+pip install git+https://github.com/impratikjaiswal/pythonHelpers@v5.2.0
 ```
+
+An installation script is (requirements_install.bat / requirements_install.sh) available.
+As soon as you have cloned or downloaded the repository, you can use it to install
+the tool/library within your Python package directory.
+
+
+Installation Troubleshoot
+----------------------
+
+If requirements Installation is failed due to *ModuleNotFoundError: No Module named 'incremental'*
+Try installing build requirements using dedicated script (requirements_install_build.bat / requirements_install_build.sh) prior to actual Installation.

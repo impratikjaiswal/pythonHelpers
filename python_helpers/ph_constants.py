@@ -229,6 +229,8 @@ class PhConstants:
     END_BLOCK = 2
     KNOWN = 'Known'
     UNKNOWN = 'UnKnown'
+    PARENT = 21
+    CHILD = 22
     DETAILS = 'Details'
     SUMMARY = 'Summary'
     EXCEPTION_OCCURRED = 'Exception Occurred'
@@ -243,6 +245,7 @@ class PhConstants:
     INVALID_INPUT_DATA = 'Check your Input Data'
     MISSING_INPUT_DATA = 'Missing Input Data'
     MISSING_INPUT_YML = 'Missing "input" in Yml Config'
+    INCORRECT_BLOCK_STRUCTURE = 'Incorrect Block Structure; Opening and Closing Sequences are not matching'
     EMPTY_INPUT_FILE = 'Empty Input File'
     UNKNOWN_INPUT_FORMAT = 'Unknown Input Format'
     INVALID_TIME_OUT = 'Invalid Time Out'
