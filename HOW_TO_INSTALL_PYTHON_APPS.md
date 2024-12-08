@@ -24,22 +24,22 @@ Few dedciated Basic Scripts are also present under <i>scripts</i> folder.
    **Note:** installing library/tool in virtual environment is optional but preferred.
    
 
-Automatic installation
+Automatic installation using dedicated scripts (Recommended)
 ----------------------
 
-*Recommended*: An installation script is (requirements_install.bat / requirements_install.sh) available in <i>scripts</i> folder.
+An installation script is (requirements_install.bat / requirements_install.sh) available in <i>scripts</i> folder.
 As soon as you have cloned or downloaded the repository, you can use it to install
 the tool/library within your Python package directory.
 
    
-Manual installation
+Manual installation using pip commands
 ----------------------
 
 The usual pip command(s) can be used for manual installation.
 
 
 ```
-Sample Commands: 
+Sample Command(s):
 
 pip install -r requirements.txt
 pip install -r requirements_internal_lib.txt
@@ -50,6 +50,18 @@ An installation script is (requirements_install.bat / requirements_install.sh) a
 As soon as you have cloned or downloaded the repository, you can use it to install
 the tool/library within your Python package directory.
 
+
+Manual installation using setup.py
+----------------------
+
+Setup File can also be executed manully.
+
+
+```
+Sample Command(s): 
+
+python setup.py install
+```
 
 Installation Troubleshoot
 ----------------------
