@@ -43,9 +43,9 @@ class PhKeys:
     QR_CODE_VERSION_SELECTED = 'qr_code_version_selected'
 
     #
-    IMAGE_FORMAT = 'image_format'
-    IMAGE_FORMATS = 'image_formats'
-    IMAGE_FORMAT_SELECTED = 'image_format_selected'
+    SIZE = 'size'
+    SIZES = 'sizes'
+    SIZE_SELECTED = 'size_selected'
 
     #
     URL_TIME_OUT = 'url_time_out'
@@ -97,16 +97,13 @@ class PhKeys:
     ENCODING_ERRORS_SELECTED = 'encoding_errors_selected'
 
     # qrPlay
-    SCALE = 'scale'
     SPLIT_QRS = 'split_qrs'
+    DECORATE_QR = 'decorate_qr'
 
     # certPlay
     URL_PRE_ACCESS = 'url_pre_access'
     URL_CERT_FETCH_ONLY = 'url_cert_fetch_only'
     URL_ALL_CERTS = 'url_all_certs'
-
-    # excelPlay
-    OUTPUT_PATH = 'output_path'
 
     # Batch
     BATCH_PARAMS = 'batch_params'
@@ -211,7 +208,7 @@ class PhKeys:
     PRINT_OUTPUT = 'print_output'
     PRINT_INFO = 'print_info'
     ARCHIVE_OUTPUT = 'archive_output'
-
+    OUTPUT_PATH = 'output_path'
     QUITE_MODE = 'quite_mode'
     RE_PARSE_OUTPUT = 're_parse_output'
     DATA_GROUP = 'data_group'
@@ -297,6 +294,10 @@ class PhKeys:
     RAW_DATA = 'raw_data'
     # ** DEPRECATED **
     REMARKS_LIST = 'remarks_list'
+    # ** DEPRECATED **
+    IMAGE_FORMAT = 'image_format'
+    # ** DEPRECATED **
+    SCALE = 'scale'
     # REMARKS_LIST_GENERATED = 'remarks_list_generated'
     # SAMPLE_PROCESSING = 'sample_processing'
     # End

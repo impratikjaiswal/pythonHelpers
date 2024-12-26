@@ -699,20 +699,14 @@ class PhUtil:
         :return:
         """
         # Set Default Values, if not available
-        if str_append is None:
-            str_append = ''
-        if sep is None:
-            sep = '_'
-        if new_ext is None:
-            new_ext = ''
-        if default_ext is None:
-            default_ext = ''
-        if file_path_is_dir is None:
-            file_path_is_dir = False
-        if ext_available_in_file_name is None:
-            ext_available_in_file_name = True
-        if append_post is None:
-            append_post = True
+        str_file_path = cls.set_if_none(str_file_path)
+        str_append = cls.set_if_none(str_append)
+        sep = cls.set_if_none(sep, new_value='_')
+        new_ext = cls.set_if_none(new_ext)
+        default_ext = cls.set_if_none(default_ext)
+        file_path_is_dir = cls.set_if_none(file_path_is_dir, False)
+        ext_available_in_file_name = cls.set_if_none(ext_available_in_file_name, True)
+        append_post = cls.set_if_none(append_post, True)
 
         if isinstance(str_file_path, TextIOWrapper):
             str_file_path = str_file_path.name
@@ -2375,7 +2369,7 @@ class PhUtil:
                         continue
                 if k in data_types_include:
                     allow_data_types = cls.to_list(data_types_include.get(k))
-                    if data_type_org in allow_data_types and data_type_org not in allow_data_types:
+                    if data_type_org in allow_data_types and data_type not in allow_data_types:
                         # old data_type is included, set the org data
                         user_dict[k] = v_org
                         continue
