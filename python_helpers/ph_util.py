@@ -33,6 +33,7 @@ from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_keys import PhKeys
 from ._expired_attributes import __expired_attributes__
+from .ph_modules import PhModules
 
 _base_profiles_available = False
 _psutil_available = True
@@ -218,6 +219,21 @@ class PhUtil:
         print_or_log(data)
 
     @classmethod
+    def print_input_output(cls, input_data, output_data, log=None, verbose=False):
+        print_or_log = log.info if log else print
+        if verbose:
+            msg = '\n'.join([
+                f'input: {input_data}; type: {type(input_data)}, length: {len(str(input_data))}',
+                f'output: {output_data}; type: {type(output_data)}, length: {len(str(output_data))}',
+                # Additional New Line
+                '',
+            ]
+            )
+        else:
+            msg = f'input: {input_data}; output: {output_data}'
+        print_or_log(msg)
+
+    @classmethod
     def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False,
                    formatting_level=0, sep=None, sep_child=None):
         """
@@ -377,9 +393,10 @@ class PhUtil:
 
     @classmethod
     def get_key_value_pair(cls, key, value, sep=PhConstants.SEPERATOR_ONE_LINE, dic_format=False, print_also=False,
-                           log=None, user_friendly_key=True, pair_is_must=False):
+                           log=None, user_friendly_key=True, pair_is_must=False, length_needed=False):
         """
 
+        :param length_needed:
         :param key:
         :param value:
         :param sep:
@@ -397,6 +414,10 @@ class PhUtil:
             if pair_is_must is True:
                 return None
             value = ''
+        if length_needed:
+            if PhKeys.LENGTH not in key:
+                key = f'{key}_{PhKeys.LENGTH}'
+            value = len(str(value))
         str_data = f'{cls.get_user_friendly_name(key) if user_friendly_key else key}{sep}{value}'
         if print_also:
             print_or_log(str_data)
@@ -421,11 +442,12 @@ class PhUtil:
     @classmethod
     def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
                       with_time_stamp=True, no_additional_info=False, with_ip=False, with_git_summary=True,
-                      with_git_detailed_info=False):
+                      with_git_detailed_info=False, fetch_tool_version=None):
         """
 
         :param tool_name:
         :param tool_version:
+        :param fetch_tool_version:
         :param log:
         :param with_libs:
         :param with_user_info:
@@ -466,6 +488,8 @@ class PhUtil:
                 cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
                                   no_additional_info=True)
                 cls.print_separator(log=log)
+        if fetch_tool_version:
+            tool_version = cls.get_module_version(tool_name)
         print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
         if sep_needed:
             cls.print_separator(log=log)
@@ -1245,8 +1269,8 @@ class PhUtil:
         # Logic is needed to analyse Custom Profiles
         msg = [f'Profile Name is: {bp_name}{" (Base Profile)" if bp_status else ""}']
         if imp_info:
-            module_name = PhConstants.MODULE_PYCRATE_NAME
-            module_version = cls.get_module_version(module_name)[0]
+            module_name = PhModules.PYCRATE
+            module_version = cls.get_module_version(module_name)
             msg.append(f'\nImportant Info: {module_name} version is: {module_version}')
         return '\n'.join(msg), bp_status
 
@@ -1262,11 +1286,48 @@ class PhUtil:
 
     @classmethod
     def remove_file(cls, file_path):
-        if os.path.exists(file_path):
+        if cls.file_dir_exists(file_path):
             os.remove(file_path)
             print('File {0} deleted successfully.'.format(file_path))
         else:
-            print('File {0} does not exist.'.format(file_path))
+            print(f'File {file_path} does not exist.')
+
+    @classmethod
+    def get_file_size(cls, file_path, unit_level=None, print_also=False):
+        default_unit_level = 1
+        size_unit = 1024
+        level_mapping = {
+            0: ('Bits', -1),
+            1: ('Bytes', 0),
+            2: ('KB (Kilobytes)', 1),
+            3: ('MB (Megabytes)', 2),
+            4: ('GB (Gigabytes)', 3),
+            5: ('TB (Terabytes)', 4),
+            6: ('PB (Petabytes)', 5),
+            7: ('EB (Exabytes)', 6),
+        }
+        if cls.file_dir_exists(file_path):
+            file_size_bytes = os.path.getsize(file_path)
+            if unit_level not in level_mapping.keys():
+                unit_level = default_unit_level
+            level_data = level_mapping.get(unit_level)
+            _unit_level_opration = level_data[1]
+            if _unit_level_opration == -1:  # Bits
+                file_size_bytes = file_size_bytes * 8
+            elif _unit_level_opration == 0:  # Bytes
+                file_size_bytes = file_size_bytes
+            else:
+                file_size_bytes = {file_size_bytes / (size_unit * _unit_level_opration)}
+            msg = f'{file_size_bytes} {level_data[0]}'
+            if print_also:
+                print(f'File Size: {msg}')
+        else:
+            print(f'File {file_path} does not exist.')
+        return msg
+
+    @classmethod
+    def file_dir_exists(cls, file_path):
+        return True if os.path.exists(file_path) else False
 
     @classmethod
     def get_current_func_name(cls, parent_level=1):
@@ -1962,7 +2023,7 @@ class PhUtil:
             print(f'getloadavg is {res}')
 
     @classmethod
-    def get_module_version(cls, module_name=PhConstants.MODULE_PYCRATE_NAME, minimum_version_required=None):
+    def get_module_version(cls, module_name=PhModules.PYCRATE, minimum_version_required=None):
         """
 
         :param module_name:
@@ -1971,11 +2032,12 @@ class PhUtil:
         """
         module_version = pkg_resources.get_distribution(module_name).version
         module_version = version.parse(module_version)
-        res = None
         if minimum_version_required:
             minimum_version_required = version.parse(minimum_version_required)
-            res = True if module_version >= minimum_version_required else False
-        return module_version, res
+            version_available = True if module_version >= minimum_version_required else False
+            return module_version, version_available
+        else:
+            return module_version
 
     @classmethod
     def get_user_details_display_name(cls):
@@ -2380,10 +2442,11 @@ class PhUtil:
         return user_dict
 
     @classmethod
-    def get_dic_data_and_print(cls, key, sep, value, dic_format=True, print_also=True):
+    def get_dic_data_and_print(cls, key, sep, value, dic_format=True, print_also=True, length_needed=False):
         if value is not None and isinstance(value, str) and '\n' in value:
             value = PreservedScalarString(value)
-        return cls.get_key_value_pair(key=key, value=value, sep=sep, dic_format=dic_format, print_also=print_also)
+        return cls.get_key_value_pair(key=key, value=value, sep=sep, dic_format=dic_format, print_also=print_also,
+                                      length_needed=length_needed)
 
     @classmethod
     def get_help_for_param(cls, help_msg=None, default_value=None, include_none=False):
@@ -2401,7 +2464,7 @@ class PhUtil:
             dir_path = cls.get_file_name_and_extn(file_path=file_path, only_path=True)
         if absolute_path_needed:
             dir_path = cls.get_absolute_path(dir_path)
-        if os.path.exists(dir_path):
+        if cls.file_dir_exists(dir_path):
             if operation_type == PhConstants.DIR_CREATION:
                 cls.print_cmt(main_text=f'Target Folder: {dir_path}; Already Existed', quite_mode=quite_mode)
             if operation_type == PhConstants.DIR_DELETION:

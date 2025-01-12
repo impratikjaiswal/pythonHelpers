@@ -217,6 +217,7 @@ class PhKeys:
     DEFAULT = 'default'
     UNKNOWN = 'unknown'
 
+    LENGTH = 'length'
     INPUT = 'input'
     INPUT_DATA = 'input_data'
     INPUT_FILE = 'input_file'
@@ -230,7 +231,6 @@ class PhKeys:
 
     #
     OUTPUT = 'output'
-    OUTPUT_FILE = 'output_file'
     EXPORT_FILE = 'export_file'
     RE_OUTPUT_FILE = 're_output_file'
     OUTPUT_FILE_NAME_KEYWORD = 'output_file_name_keyword'
@@ -298,6 +298,8 @@ class PhKeys:
     IMAGE_FORMAT = 'image_format'
     # ** DEPRECATED **
     SCALE = 'scale'
+    # ** DEPRECATED **
+    OUTPUT_FILE = 'output_file'
     # REMARKS_LIST_GENERATED = 'remarks_list_generated'
     # SAMPLE_PROCESSING = 'sample_processing'
     # End

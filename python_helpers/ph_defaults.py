@@ -25,6 +25,7 @@ class PhDefaults:
     # REMARKS
     ENCODING = CHAR_ENCODING
     ENCODING_ERRORS = CHAR_ENCODING_ERRORS
+    OUTPUT_PATH = ''
     ARCHIVE_OUTPUT = True
     ARCHIVE_OUTPUT_FORMAT = ARCHIVE_FORMAT
 
@@ -39,6 +40,7 @@ class PhDefaultTypesInclude:
     # REMARKS
     ENCODING = str
     ENCODING_ERRORS = str
+    OUTPUT_PATH = str
     ARCHIVE_OUTPUT = bool
     ARCHIVE_OUTPUT_FORMAT = str
 

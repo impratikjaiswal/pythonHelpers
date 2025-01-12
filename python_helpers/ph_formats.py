@@ -12,10 +12,14 @@ class PhFormats:
     CSV = 'csv'
     XLSX = 'xlsx'
     XLS = 'xls'
+    APNG = 'apng'
     PNG = 'png'
+    AVIF = 'avif'
+    GIF = 'gif'
     SVG = 'svg'
     JPG = 'jpg'
     JPEG = 'jpeg'
+    WEBP = 'webp'
     BKP = 'bkp'
     TMP = 'tmp'
     PY = 'py'
@@ -36,3 +40,27 @@ class PhFormatsGroups:
     ARCHIVE_OUTPUT_FORMATS_SUPPORTED = [
         PhFormats.ZIP,
     ]
+
+
+class PhMimeTypes:
+    """
+    Ref: https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types#image_types
+    """
+    APNG = 'image/apng'
+    AVIF = 'image/avif'
+    GIF = 'image/gif'
+    JPEG = 'image/jpeg'
+    PNG = 'image/png'
+    SVG = 'image/svg+xml'
+    WEBP = 'image/webp'
+
+    format_to_mimetype_mappings = {
+        PhFormats.APNG: APNG,
+        PhFormats.AVIF: AVIF,
+        PhFormats.GIF: GIF,
+        PhFormats.JPEG: JPEG,
+        PhFormats.JPG: JPEG,
+        PhFormats.PNG: PNG,
+        PhFormats.SVG: PNG,
+        PhFormats.WEBP: WEBP,
+    }
