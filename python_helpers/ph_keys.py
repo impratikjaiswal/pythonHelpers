@@ -4,7 +4,6 @@ class PhKeys:
 
     #
     TRANSACTION_ID = 'transaction_id'
-    OUTPUT_DATA = 'output_data'
     INFO_DATA = 'info_data'
 
     #
@@ -216,13 +215,15 @@ class PhKeys:
     REMARKS_GENERATED = 'remarks_generated'
     DEFAULT = 'default'
     UNKNOWN = 'unknown'
-
     LENGTH = 'length'
+
+    #
     INPUT = 'input'
     INPUT_DATA = 'input_data'
     INPUT_FILE = 'input_file'
     INPUT_LIST = 'input_list'
     INPUT_TUPLE = 'input_tuple'
+    INPUT_DIC = 'input_dic'
     INPUT_DIR = 'input_dir'
     INPUT_YML = 'input_yml'
     INPUT_MODES_HIERARCHY = 'input_modes_hierarchy'
@@ -230,10 +231,19 @@ class PhKeys:
     INPUT_ENCODING_ERRORS = 'input_encoding_errors'
 
     #
-    OUTPUT = 'output'
     EXPORT_FILE = 'export_file'
     RE_OUTPUT_FILE = 're_output_file'
     OUTPUT_FILE_NAME_KEYWORD = 'output_file_name_keyword'
+    #
+    OUTPUT = 'output'
+    OUTPUT_DATA = 'output_data'
+    OUTPUT_FILE = 'output_file'
+    OUTPUT_LIST = 'output_list'
+    OUTPUT_TUPLE = 'output_tuple'
+    OUTPUT_DIC = 'output_dic'
+    OUTPUT_DIR = 'output_dir'
+    OUTPUT_YML = 'output_yml'
+    OUTPUT_MODES_HIERARCHY = 'output_modes_hierarchy'
     OUTPUT_ENCODING = 'output_encoding'
     OUTPUT_ENCODING_ERRORS = 'output_encoding_errors'
 
@@ -298,8 +308,6 @@ class PhKeys:
     IMAGE_FORMAT = 'image_format'
     # ** DEPRECATED **
     SCALE = 'scale'
-    # ** DEPRECATED **
-    OUTPUT_FILE = 'output_file'
     # REMARKS_LIST_GENERATED = 'remarks_list_generated'
     # SAMPLE_PROCESSING = 'sample_processing'
     # End

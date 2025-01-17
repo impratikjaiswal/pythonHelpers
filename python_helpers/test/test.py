@@ -733,6 +733,43 @@ def test_expired_attr():
     # makedirs()
 
 
+def test_trim_white_spaces_in_str():
+    PhUtil.print_heading()
+    input_data_set = [
+        '       ',
+        ' rgdrg  rtert',
+        '\85',
+        '\85 ',
+        '\x85',
+        ' \85 ',
+    ]
+    for input_data in input_data_set:
+        output_data = PhUtil.trim_white_spaces_in_str(input_data)
+        PhUtil.print_input_output(input_data=input_data, output_data=output_data, verbose=True)
+
+
+def test_generate_test_data():
+    PhUtil.print_heading()
+    #
+    sep = PhConstants.SEPERATOR_MULTI_LINE
+    input_data_set = [
+        0,
+        1,
+        -5,
+        5,
+        226,
+        227,
+        228,
+        229,
+        14765,
+    ]
+    for input_data in input_data_set:
+        PhUtil.print_heading(f'require_length={input_data}')
+        test_data = PhUtil.generate_test_data(require_length=input_data)
+        PhUtil.get_key_value_pair(key='Test Data', value=test_data, sep=sep, print_also=True)
+        PhUtil.get_key_value_pair(key='Test Data', value=test_data, print_also=True, length_needed=True)
+
+
 def test_functions(ph_time):
     """
 
@@ -769,6 +806,8 @@ def test_functions(ph_time):
     test_luhn()
     test_normalise_list()
     test_handle_dirs()
+    test_trim_white_spaces_in_str()
+    test_generate_test_data()
     ##
     ## Keep on last
     test_time_delay(ph_time)

@@ -305,6 +305,11 @@ class PhConstants:
         'namereplace',
     ]
 
+    CRLF = '\r\n'
+    LF = '\n'
+    WINDOWS_LINE_ENDING = CRLF
+    UNIX_LINE_ENDING = LF
+
     BEGIN_CERTIFICATE = '-----BEGIN CERTIFICATE-----'
     END_CERTIFICATE = '-----END CERTIFICATE-----'
     CERTIFICATE = 'CERTIFICATE'
@@ -315,6 +320,12 @@ class PhConstants:
 
     DIR_CREATION = 1
     DIR_DELETION = 2
+
+    TEST_DATA_A_Z_LOWER_LEN_26 = 'abcdefghijklmnopqrstuvwxyz'
+    TEST_DATA_A_Z_UPPER_LEN_26 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    TEST_DATA_0_9_LEN_10 = '0123456789'
+    TEST_DATA_SYMBOL_LEN_13 = '~!@#$%^&*()_+'
+    TEST_DATA_MIX_LEN_75 = TEST_DATA_A_Z_LOWER_LEN_26 + TEST_DATA_0_9_LEN_10 + TEST_DATA_A_Z_UPPER_LEN_26 + TEST_DATA_SYMBOL_LEN_13
 
     # '**DEPRECATED**'
     # DECODE_MODE_ASCII = 'ascii'

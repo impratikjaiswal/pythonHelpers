@@ -29,8 +29,19 @@ class PhDos:
         return 'pushd %~dp0'
 
     @classmethod
+    def create_directory(cls, dir_path=None, file_path=None, conditional=True):
+        if PhUtil.is_empty(dir_path) and PhUtil.is_not_empty(file_path):
+            dir_path = PhUtil.get_file_name_and_extn(file_path=file_path, only_path=True)
+        mk_cmd = f'MD "{dir_path}"'
+        return f'if not exist "{dir_path}" {mk_cmd}' if conditional else mk_cmd
+
+    @classmethod
     def change_directory_parent(cls):
         return 'cd ..'
+
+    @classmethod
+    def change_directory(cls, target_dir_path):
+        return f'cd "{target_dir_path}"'
 
     @classmethod
     def echo_on(cls):

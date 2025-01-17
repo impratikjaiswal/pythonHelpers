@@ -2380,20 +2380,42 @@ class PhUtil:
         return v
 
     @classmethod
+    def replace_line_endings(cls, v):
+        if cls.is_empty(v) or not isinstance(v, str):
+            return v
+        if PhConstants.WINDOWS_LINE_ENDING in v:
+            return v.replace(PhConstants.WINDOWS_LINE_ENDING, PhConstants.UNIX_LINE_ENDING)
+        return v
+
+    @classmethod
     def dict_to_data(cls, user_dict, data_types_include=copy.copy(PhConstants.DICT_EMPTY),
-                     data_types_exclude=copy.copy(PhConstants.DICT_EMPTY)):
+                     data_types_exclude=copy.copy(PhConstants.DICT_EMPTY), trim_quotation_marks=True, trim_data=True,
+                     replace_line_endings=True):
         # cls.print_iter(user_dict, 'user_dict initial', verbose=True)
+        cleaning_needed = trim_quotation_marks or trim_data or replace_line_endings
         for k, v in user_dict.items():
             v_org = v
             if PhUtil.is_none(v):
                 continue
             if isinstance(v, str):
                 v_eval = None
-                # Trim Garbage data
-                v = PhUtil.trim_white_spaces_in_str(v)
-                v = PhUtil.clear_quotation_marks(v)
-                # Trim spaces again may be uncovered after quotation mark
-                v = PhUtil.trim_white_spaces_in_str(v)
+                if cleaning_needed:
+                    if trim_data:
+                        # Trim Garbage data
+                        v = PhUtil.trim_white_spaces_in_str(v)
+                    if trim_quotation_marks:
+                        v = PhUtil.clear_quotation_marks(v)
+                        if trim_data:
+                            # Trim spaces again may be uncovered after quotation mark
+                            v = PhUtil.trim_white_spaces_in_str(v)
+                    if replace_line_endings:
+                        # Web Request (Chrome on windows) is sending CRLF, which is causing increment in input data size
+                        v = PhUtil.replace_line_endings(v)
+                    print(
+                        f'dict_to_data; {k}'
+                        f'; length_before_clean: {len(v_org)}'
+                        f'; length_after_clean: {len(v)}'
+                    )
                 v_lower_case = v.lower()
                 try:
                     v_eval = eval(v)
@@ -2453,6 +2475,22 @@ class PhUtil:
         default_value_msg = None if cls.is_none(
             default_value) and include_none is False else f'{default_value} is Default'
         return PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [help_msg, default_value_msg]))
+
+    @classmethod
+    def generate_test_data(cls, require_length, sample_data=None, sep=None):
+        sample_data = PhUtil.set_if_none(sample_data, PhConstants.TEST_DATA_MIX_LEN_75)
+        sep = PhUtil.set_if_none(sep, '\n')
+        sample_data_with_sep = sample_data + sep
+        #
+        len_sample_data_with_sep = len(sample_data_with_sep)
+        multiplier = require_length // len_sample_data_with_sep
+        # if multiplier < 0:
+        #     multiplier = 1
+        test_data = sample_data_with_sep * multiplier
+        len_diff = require_length - len(test_data)
+        if len_diff > 0:
+            test_data = test_data + sample_data_with_sep[0:len_diff]
+        return test_data
 
     ####################################################################################################################
     ### INTERNAL ###
