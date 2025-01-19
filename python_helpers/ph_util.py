@@ -426,7 +426,9 @@ class PhUtil:
         return str_data
 
     @classmethod
-    def get_tool_name_w_version(cls, tool_name=None, tool_version=None, dic_format=False):
+    def get_tool_name_w_version(cls, tool_name=None, tool_version=None, dic_format=False, fetch_tool_version=None):
+        if fetch_tool_version:
+            tool_version = cls.get_module_version(tool_name)
         str_format_keyword = ' version is '
         version_keyword = 'v'
         tool_name = 'Python' if tool_name is None else tool_name
@@ -440,30 +442,35 @@ class PhUtil:
         return str_format_keyword.join([tool_name, cls.set_if_none(tool_version)])
 
     @classmethod
-    def print_version(cls, tool_name=None, tool_version=None, log=None, with_libs=True, with_user_info=True,
-                      with_time_stamp=True, no_additional_info=False, with_ip=False, with_git_summary=True,
-                      with_git_detailed_info=False, fetch_tool_version=None):
+    def print_version(cls, tool_name=None, tool_version=None, fetch_tool_version=False, log=None,
+                      no_additional_info=False, with_python=True, with_ph_lib=True,
+                      with_user_info=True, with_time_stamp=True, with_git_summary=True,
+                      with_ip=False, with_git_detailed_info=False):
         """
 
         :param tool_name:
         :param tool_version:
         :param fetch_tool_version:
         :param log:
-        :param with_libs:
+        :param no_additional_info:
+        :param with_python:
+        :param with_ph_lib:
         :param with_user_info:
         :param with_time_stamp:
-        :param no_additional_info:
-        :param with_ip:
         :param with_git_summary:
+        :param with_ip:
         :param with_git_detailed_info:
         :return:
         """
         print_or_log = log.info if log else print
+        if tool_name == PhConfigConst.TOOL_NAME:
+            # Avoid Redundant Info (when explicitly asked)
+            with_ph_lib = False
         sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
         if sep_needed:
             cls.print_separator(log=log)
         if not no_additional_info:
-            if with_libs:
+            if with_python:
                 cls.print_version(log=log, no_additional_info=True)
                 print(f'Python executable Path is {cls.path_python_folder}')
                 cls.print_separator(log=log)
@@ -484,15 +491,20 @@ class PhUtil:
             if with_git_detailed_info:
                 cls.print_iter(PhGit.get_git_info_detailed(), header='Git Details are')
                 cls.print_separator(log=log)
-            if with_libs:
+            if with_ph_lib:
                 cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
                                   no_additional_info=True)
                 cls.print_separator(log=log)
-        if fetch_tool_version:
-            tool_version = cls.get_module_version(tool_name)
-        print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
+        print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version,
+                                                 fetch_tool_version=fetch_tool_version))
         if sep_needed:
             cls.print_separator(log=log)
+
+    @classmethod
+    def print_versions(cls, version_parameters_dicts):
+        for index, version_parameters_dict in enumerate(version_parameters_dicts):
+            version_parameters_dict.update({'no_additional_info': False if index == 0 else True})
+            cls.print_version(**version_parameters_dict)
 
     @classmethod
     def print_heading(cls, str_heading=None, heading_level=1, char=None, max_length=None, log=None, parent_level=None):

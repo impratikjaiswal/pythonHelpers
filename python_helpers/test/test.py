@@ -8,10 +8,12 @@ import time
 
 import python_helpers
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_crypto import PhCrypto
 from python_helpers.ph_defaults import PhDefaults
 from python_helpers.ph_git import PhGit
 from python_helpers.ph_keys import PhKeys
+from python_helpers.ph_modules import PhModules
 from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
@@ -23,10 +25,16 @@ def test_version():
     PhUtil.print_version('Test Tool', '1.0.1')
     PhUtil.print_heading(str_heading='')
     PhUtil.print_version()
-    PhUtil.print_heading(str_heading='no_additional_info=True')
-    PhUtil.print_version('Test Tool', '1.0.1', no_additional_info=True)
     PhUtil.print_heading(str_heading='tool_version=None')
     PhUtil.print_version('Test Tool', None)
+    PhUtil.print_heading(str_heading='fetch_tool_version=True')
+    PhUtil.print_version(PhModules.PYTHON_HELPERS, '1.0.1', fetch_tool_version=True)
+    PhUtil.print_heading(str_heading='fetch_tool_version=False')
+    PhUtil.print_version(PhModules.PYTHON_HELPERS, '1.0.1', fetch_tool_version=False)
+    PhUtil.print_heading(str_heading='no_additional_info=True')
+    PhUtil.print_version('Test Tool', '1.0.1', no_additional_info=True)
+    PhUtil.print_heading(str_heading='no_additional_info=False')
+    PhUtil.print_version('Test Tool', '1.0.1', no_additional_info=False)
     PhUtil.print_heading(str_heading='with_ip=True')
     PhUtil.print_version('Test Tool', '1.0.1', with_ip=True)
     PhUtil.print_heading(str_heading='with_ip=False')
@@ -39,6 +47,18 @@ def test_version():
     PhUtil.print_version('Test Tool', '1.0.1', with_git_detailed_info=True)
     PhUtil.print_heading(str_heading='with_git_detailed_info=False')
     PhUtil.print_version('Test Tool', '1.0.1', with_git_detailed_info=False)
+    PhUtil.print_heading(str_heading='version_parameters_dicts')
+    version_parameters_dicts = [
+        {'tool_name': PhConfigConst.TOOL_NAME, 'tool_version': PhConfigConst.TOOL_VERSION},
+        {'tool_name': 'packaging', 'tool_version': None, 'fetch_tool_version': True},
+        {'tool_name': 'pandas', 'fetch_tool_version': True},
+        {'tool_name': 'psutil', 'fetch_tool_version': True},
+        {'tool_name': 'tzlocal', 'fetch_tool_version': True},
+        {'tool_name': 'requests', 'fetch_tool_version': True},
+        {'tool_name': 'pycryptodome', 'fetch_tool_version': True},
+        {'tool_name': 'ruamel.yaml', 'fetch_tool_version': True},
+    ]
+    PhUtil.print_versions(version_parameters_dicts)
 
 
 def test_misc():
@@ -806,7 +826,6 @@ def test_functions(ph_time):
     test_luhn()
     test_normalise_list()
     test_handle_dirs()
-    test_trim_white_spaces_in_str()
     test_generate_test_data()
     ##
     ## Keep on last
@@ -827,6 +846,7 @@ def main():
     Process
     """
     test_functions(ph_time)
+    # test_trim_white_spaces_in_str()
     """
     Wrap up 
     """

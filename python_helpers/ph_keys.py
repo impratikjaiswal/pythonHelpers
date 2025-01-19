@@ -1,71 +1,58 @@
 class PhKeys:
-    #
-    PH_KEYS = 'PhKeys'
-
-    #
-    TRANSACTION_ID = 'transaction_id'
-    INFO_DATA = 'info_data'
-
-    #
+    #####################
+    # asn1Play
     INPUT_FORMAT = 'input_format'
+    OUTPUT_FORMAT = 'output_format'
+    ASN1_ELEMENT = 'asn1_element'
+    TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
+    RE_PARSE_OUTPUT = 're_parse_output'
+
+    # asn1Play Web
     INPUT_FORMATS = 'input_formats'
     INPUT_FORMAT_SELECTED = 'input_format_selected'
-
-    #
-    OUTPUT_FORMAT = 'output_format'
     OUTPUT_FORMATS = 'output_formats'
     OUTPUT_FORMAT_SELECTED = 'output_format_selected'
 
-    #
-    ARCHIVE_OUTPUT_FORMAT = 'archive_output_format'
-    ARCHIVE_OUTPUT_FORMATS = 'archive_output_formats'
-    ARCHIVE_OUTPUT_FORMAT_SELECTED = 'archive_output_format_selected'
-
-    #
-    SAMPLE = 'sample'
-    SAMPLES = 'samples'
-    SAMPLE_SELECTED = 'sample_selected'
-
-    #
+    # asn1
     ASN1_SCHEMA = 'asn1_schema'
-    ASN1_SCHEMAS = 'asn1_schemas'
-    ASN1_SCHEMA_SELECTED = 'asn1_schema_selected'
-
-    #
     ASN1_OBJECT = 'asn1_object'
-    ASN1_OBJECTS = 'asn1_objects'
-    ASN1_OBJECT_SELECTED = 'asn1_object_selected'
-
-    #
-    QR_CODE_VERSION = 'qr_code_version'
-    QR_CODE_VERSIONS = 'qr_code_versions'
-    QR_CODE_VERSION_SELECTED = 'qr_code_version_selected'
-
-    #
-    SIZE = 'size'
-    SIZES = 'sizes'
-    SIZE_SELECTED = 'size_selected'
-
-    #
-    URL_TIME_OUT = 'url_time_out'
-    URL_TIME_OUTS = 'url_time_outs'
-    URL_TIME_OUT_SELECTED = 'url_time_out_selected'
-
-    #####################
-    # asn1Play
-    RE_PARSED_DATA = 're_parsed_data'
-    ASN1_ELEMENT = 'asn1_element'
-    ASN1_MODULE = 'asn1_module'
-    ASN1_MODULE_VERSION = 'asn1_module_version'
     ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
     FETCH_ASN1_OBJECTS_LIST = 'fetch_asn1_objects_list'
-    TLV_PARSING_OF_OUTPUT = 'tlv_parsing_of_output'
+
+    # asn1 Web
+    ASN1_SCHEMAS = 'asn1_schemas'
+    ASN1_SCHEMA_SELECTED = 'asn1_schema_selected'
+    ASN1_OBJECTS = 'asn1_objects'
+    ASN1_OBJECT_SELECTED = 'asn1_object_selected'
 
     # tlvPlay
     ONE_LINER = 'one_liner'
     VALUE_IN_ASCII = 'value_in_ascii'
     LENGTH_IN_DECIMAL = 'length_in_decimal'
     NON_TLV_NEIGHBOR = 'non_tlv_neighbor'
+
+    # qrPlay
+    # OUTPUT_FORMAT = 'output_format'
+    SIZE = 'size'
+    QR_CODE_VERSION = 'qr_code_version'
+    SPLIT_QRS = 'split_qrs'
+    DECORATE_QR = 'decorate_qr'
+
+    # qrPlay Web
+    SIZES = 'sizes'
+    SIZE_SELECTED = 'size_selected'
+    QR_CODE_VERSIONS = 'qr_code_versions'
+    QR_CODE_VERSION_SELECTED = 'qr_code_version_selected'
+
+    # certPlay
+    URL_PRE_ACCESS = 'url_pre_access'
+    URL_CERT_FETCH_ONLY = 'url_cert_fetch_only'
+    URL_ALL_CERTS = 'url_all_certs'
+
+    # certPlay Web
+    URL_TIME_OUT = 'url_time_out'
+    URL_TIME_OUTS = 'url_time_outs'
+    URL_TIME_OUT_SELECTED = 'url_time_out_selected'
 
     # dataPlay
     CONTENT_MAPPINGS = 'content_mappings'
@@ -87,6 +74,28 @@ class PhKeys:
     EXCLUDE_END_BLOCK_PATTERN = 'exclude_end_block_pattern'
     EXCLUDE_END_BLOCK_PATTERN_IS_REGEX = 'exclude_end_block_pattern_is_regex'
 
+    #####################
+    # Others
+    PH_KEYS = 'PhKeys'
+
+    #
+    TRANSACTION_ID = 'transaction_id'
+    INFO_DATA = 'info_data'
+
+    #
+    ARCHIVE_OUTPUT_FORMAT = 'archive_output_format'
+    ARCHIVE_OUTPUT_FORMATS = 'archive_output_formats'
+    ARCHIVE_OUTPUT_FORMAT_SELECTED = 'archive_output_format_selected'
+
+    #
+    SAMPLE = 'sample'
+    SAMPLES = 'samples'
+    SAMPLE_SELECTED = 'sample_selected'
+
+    RE_PARSED_DATA = 're_parsed_data'
+    ASN1_MODULE = 'asn1_module'
+    ASN1_MODULE_VERSION = 'asn1_module_version'
+
     #
     ENCODING = 'encoding'
     ENCODING_POOL = 'encoding_pool'
@@ -94,15 +103,6 @@ class PhKeys:
     ENCODING_ERRORS = 'encoding_errors'
     ENCODING_ERRORS_POOL = 'encoding_errors_pool'
     ENCODING_ERRORS_SELECTED = 'encoding_errors_selected'
-
-    # qrPlay
-    SPLIT_QRS = 'split_qrs'
-    DECORATE_QR = 'decorate_qr'
-
-    # certPlay
-    URL_PRE_ACCESS = 'url_pre_access'
-    URL_CERT_FETCH_ONLY = 'url_cert_fetch_only'
-    URL_ALL_CERTS = 'url_all_certs'
 
     # Batch
     BATCH_PARAMS = 'batch_params'
@@ -199,7 +199,6 @@ class PhKeys:
     LOGIN_USER_NAME = 'login_user_name'
     LOGIN_USER_NAME = 'login_pass_word'
 
-    ##############
     INFO = 'info'
     VERSION = 'version'
     MODE = 'mode'
@@ -209,7 +208,6 @@ class PhKeys:
     ARCHIVE_OUTPUT = 'archive_output'
     OUTPUT_PATH = 'output_path'
     QUITE_MODE = 'quite_mode'
-    RE_PARSE_OUTPUT = 're_parse_output'
     DATA_GROUP = 'data_group'
     REMARKS = 'remarks'
     REMARKS_GENERATED = 'remarks_generated'
