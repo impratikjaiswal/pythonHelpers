@@ -207,6 +207,7 @@ class PhKeys:
     PRINT_INFO = 'print_info'
     ARCHIVE_OUTPUT = 'archive_output'
     OUTPUT_PATH = 'output_path'
+    RE_OUTPUT_PATH = 're_output_path'
     QUITE_MODE = 'quite_mode'
     DATA_GROUP = 'data_group'
     REMARKS = 'remarks'
@@ -221,7 +222,7 @@ class PhKeys:
     INPUT_FILE = 'input_file'
     INPUT_LIST = 'input_list'
     INPUT_TUPLE = 'input_tuple'
-    INPUT_DIC = 'input_dic'
+    INPUT_DICT = 'input_dict'
     INPUT_DIR = 'input_dir'
     INPUT_YML = 'input_yml'
     INPUT_MODES_HIERARCHY = 'input_modes_hierarchy'
@@ -230,7 +231,6 @@ class PhKeys:
 
     #
     EXPORT_FILE = 'export_file'
-    RE_OUTPUT_FILE = 're_output_file'
     OUTPUT_FILE_NAME_KEYWORD = 'output_file_name_keyword'
     #
     OUTPUT = 'output'

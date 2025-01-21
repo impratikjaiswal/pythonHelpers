@@ -39,6 +39,7 @@ _base_profiles_available = False
 _psutil_available = True
 _ctypes_windll_available = True
 _pwd_available = True
+_debug = False
 try:
     import psutil
 except ImportError:
@@ -329,6 +330,7 @@ class PhUtil:
     def print_separator(cls, character='-', count=80, main_text='', log=None, get_only=False, multi_line=False):
         """
 
+        :param multi_line:
         :param character:
         :param count:
         :param main_text:
@@ -442,16 +444,17 @@ class PhUtil:
         return str_format_keyword.join([tool_name, cls.set_if_none(tool_version)])
 
     @classmethod
-    def print_version(cls, tool_name=None, tool_version=None, fetch_tool_version=False, log=None,
+    def print_version(cls, tool_name=None, tool_version=None, fetch_tool_version=False, log=None, parameters_pool=None,
                       no_additional_info=False, with_python=True, with_ph_lib=True,
                       with_user_info=True, with_time_stamp=True, with_git_summary=True,
-                      with_ip=False, with_git_detailed_info=False):
+                      with_ip=False, with_git_detailed_info=False, get_only=False, dic_format=False):
         """
 
         :param tool_name:
         :param tool_version:
         :param fetch_tool_version:
         :param log:
+        :param parameters_pool: List of Dicts containing parameters
         :param no_additional_info:
         :param with_python:
         :param with_ph_lib:
@@ -460,51 +463,72 @@ class PhUtil:
         :param with_git_summary:
         :param with_ip:
         :param with_git_detailed_info:
+        :param get_only:
+        :param dic_format:
         :return:
         """
-        print_or_log = log.info if log else print
-        if tool_name == PhConfigConst.TOOL_NAME:
-            # Avoid Redundant Info (when explicitly asked)
-            with_ph_lib = False
-        sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
-        if sep_needed:
-            cls.print_separator(log=log)
-        if not no_additional_info:
-            if with_python:
-                cls.print_version(log=log, no_additional_info=True)
-                print(f'Python executable Path is {cls.path_python_folder}')
-                cls.print_separator(log=log)
-            if with_user_info:
-                print(f'User Name is {cls.get_user_details_display_name()}')
-                print(f'User Account is {cls.get_user_details_account_name()}')
-                cls.print_separator(log=log)
-            if with_time_stamp:
-                print(f'Time Stamp is {cls.get_time_stamp(files_format=False)}')
-                cls.print_separator(log=log)
-            if with_ip:
-                print(f'IPV4 is {cls.get_ip(ipv4=True)}')
-                print(f'IPV6 is {cls.get_ip(ipv4=False)}')
-                cls.print_separator(log=log)
-            if with_git_summary:
-                print(f'Git Summary is {PhConfigConst.TOOL_GIT_SUMMARY}')
-                cls.print_separator(log=log)
-            if with_git_detailed_info:
-                cls.print_iter(PhGit.get_git_info_detailed(), header='Git Details are')
-                cls.print_separator(log=log)
-            if with_ph_lib:
-                cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION, log=log,
-                                  no_additional_info=True)
-                cls.print_separator(log=log)
-        print_or_log(cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version,
-                                                 fetch_tool_version=fetch_tool_version))
-        if sep_needed:
-            cls.print_separator(log=log)
 
-    @classmethod
-    def print_versions(cls, version_parameters_dicts):
-        for index, version_parameters_dict in enumerate(version_parameters_dicts):
-            version_parameters_dict.update({'no_additional_info': False if index == 0 else True})
-            cls.print_version(**version_parameters_dict)
+        def __print_version():
+            nonlocal with_ph_lib, no_additional_info
+            print_or_log = log.info if log else print
+            sep_needed = False if tool_name in [None, PhConfigConst.TOOL_NAME] else True
+            if dic_format:
+                no_additional_info = True
+                sep_needed = False
+            if tool_name == PhConfigConst.TOOL_NAME:
+                # Avoid Redundant Info (when explicitly asked)
+                with_ph_lib = False
+            if sep_needed:
+                cls.print_separator(log=log)
+            if not no_additional_info:
+                if with_python:
+                    cls.print_version(log=log, no_additional_info=True)
+                    print(f'Python executable Path is {cls.path_python_folder}')
+                    cls.print_separator(log=log)
+                if with_user_info:
+                    print(f'User Name is {cls.get_user_details_display_name()}')
+                    print(f'User Account is {cls.get_user_details_account_name()}')
+                    cls.print_separator(log=log)
+                if with_time_stamp:
+                    print(f'Time Stamp is {cls.get_time_stamp(files_format=False)}')
+                    cls.print_separator(log=log)
+                if with_ip:
+                    print(f'IPV4 is {cls.get_ip(ipv4=True)}')
+                    print(f'IPV6 is {cls.get_ip(ipv4=False)}')
+                    cls.print_separator(log=log)
+                if with_git_summary:
+                    print(f'Git Summary is {PhConfigConst.TOOL_GIT_SUMMARY}')
+                    cls.print_separator(log=log)
+                if with_git_detailed_info:
+                    cls.print_iter(PhGit.get_git_info_detailed(), header='Git Details are')
+                    cls.print_separator(log=log)
+                if with_ph_lib:
+                    cls.print_version(tool_name=PhConfigConst.TOOL_NAME, tool_version=PhConfigConst.TOOL_VERSION,
+                                      log=log, no_additional_info=True)
+                    cls.print_separator(log=log)
+            name_w_version = cls.get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version,
+                                                         fetch_tool_version=fetch_tool_version, dic_format=dic_format)
+            if get_only:
+                return name_w_version
+            print_or_log(name_w_version)
+            if sep_needed:
+                cls.print_separator(log=log)
+            return name_w_version
+
+        if parameters_pool is None:
+            # Single Mode
+            return __print_version()
+        # Bulk Mode
+        output = []
+        for index, parameters_dict in enumerate(parameters_pool):
+            # Avoid Redundent info
+            parameters_dict.update({'no_additional_info': no_additional_info if index == 0 else True})
+            if get_only:
+                parameters_dict.update({'get_only': get_only})
+            if dic_format:
+                parameters_dict.update({'dic_format': dic_format})
+            output.append(cls.print_version(**parameters_dict))
+        return output
 
     @classmethod
     def print_heading(cls, str_heading=None, heading_level=1, char=None, max_length=None, log=None, parent_level=None):
@@ -2234,6 +2258,13 @@ class PhUtil:
         return {k: v for k, v in dict1.items() if v is not None}
 
     @classmethod
+    def dict_update(cls, dict1, key_pair_list):
+        key_pair_list = cls.to_list(key_pair_list, trim_data=False)
+        for key_pair in key_pair_list:
+            dict1.update(key_pair)
+        return dict1
+
+    @classmethod
     def list_clean(cls, list1):
         return [x for x in list1 if x is not None]
 
@@ -2423,11 +2454,12 @@ class PhUtil:
                     if replace_line_endings:
                         # Web Request (Chrome on windows) is sending CRLF, which is causing increment in input data size
                         v = PhUtil.replace_line_endings(v)
-                    print(
-                        f'dict_to_data; {k}'
-                        f'; length_before_clean: {len(v_org)}'
-                        f'; length_after_clean: {len(v)}'
-                    )
+                    if _debug:
+                        print(
+                            f'dict_to_data; {k}'
+                            f'; length_before_clean: {len(v_org)}'
+                            f'; length_after_clean: {len(v)}'
+                        )
                 v_lower_case = v.lower()
                 try:
                     v_eval = eval(v)

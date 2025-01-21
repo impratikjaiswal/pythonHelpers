@@ -48,7 +48,7 @@ def test_version():
     PhUtil.print_heading(str_heading='with_git_detailed_info=False')
     PhUtil.print_version('Test Tool', '1.0.1', with_git_detailed_info=False)
     PhUtil.print_heading(str_heading='version_parameters_dicts')
-    version_parameters_dicts = [
+    version_parameters_pool = [
         {'tool_name': PhConfigConst.TOOL_NAME, 'tool_version': PhConfigConst.TOOL_VERSION},
         {'tool_name': 'packaging', 'tool_version': None, 'fetch_tool_version': True},
         {'tool_name': 'pandas', 'fetch_tool_version': True},
@@ -58,7 +58,11 @@ def test_version():
         {'tool_name': 'pycryptodome', 'fetch_tool_version': True},
         {'tool_name': 'ruamel.yaml', 'fetch_tool_version': True},
     ]
-    PhUtil.print_versions(version_parameters_dicts)
+    PhUtil.print_version(parameters_pool=version_parameters_pool)
+    PhUtil.print_heading(str_heading='parameters_pool=version_parameters_pool, get_only=True, dic_format=True')
+    PhUtil.print_iter(
+        the_iter=PhUtil.print_version(parameters_pool=version_parameters_pool, get_only=True, dic_format=True),
+        header='Pool')
 
 
 def test_misc():
