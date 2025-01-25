@@ -35,11 +35,18 @@ from python_helpers.ph_keys import PhKeys
 from ._expired_attributes import __expired_attributes__
 from .ph_modules import PhModules
 
+"""
+Default Flags
+"""
 _base_profiles_available = False
 _psutil_available = True
+_debug = False
 _ctypes_windll_available = True
 _pwd_available = True
-_debug = False
+
+"""
+Conditional Flags
+"""
 try:
     import psutil
 except ImportError:
@@ -54,6 +61,11 @@ try:
     # this is available only in Unix
 except ImportError:
     _pwd_available = False
+
+"""
+User Choice
+"""
+# _debug = True
 
 
 class PhUtil:
@@ -2434,7 +2446,8 @@ class PhUtil:
     def dict_to_data(cls, user_dict, data_types_include=copy.copy(PhConstants.DICT_EMPTY),
                      data_types_exclude=copy.copy(PhConstants.DICT_EMPTY), trim_quotation_marks=True, trim_data=True,
                      replace_line_endings=True):
-        # cls.print_iter(user_dict, 'user_dict initial', verbose=True)
+        if _debug:
+            cls.print_iter(user_dict, 'user_dict initial', verbose=True, depth_level=1)
         cleaning_needed = trim_quotation_marks or trim_data or replace_line_endings
         for k, v in user_dict.items():
             v_org = v
@@ -2469,6 +2482,12 @@ class PhUtil:
                     else:
                         v = v_eval
                         user_dict[k] = v
+                    if _debug:
+                        print(
+                            f'dict_to_data; {k}'
+                            f'; type_before_eval: {type(v_org)}'
+                            f'; type_after_eval: {type(v)}'
+                        )
                 except:
                     pass
                 # Handel cases which are not supported with eval()
@@ -2504,7 +2523,8 @@ class PhUtil:
             if v in [PhConstants.STR_SELECT_OPTION]:
                 user_dict[k] = None
                 continue
-        # cls.print_iter(user_dict, 'user_dict processed', verbose=True)
+        if _debug:
+            cls.print_iter(user_dict, 'user_dict processed', verbose=True, depth_level=1)
         return user_dict
 
     @classmethod
@@ -2535,6 +2555,14 @@ class PhUtil:
         if len_diff > 0:
             test_data = test_data + sample_data_with_sep[0:len_diff]
         return test_data
+
+    @classmethod
+    def decorate_output_data(cls, output_data):
+        if isinstance(output_data, list):
+            temp_data = '\n,\n'.join(output_data)
+            temp_data = temp_data.replace('\n', '\n  ')
+            output_data = f"[\n  {temp_data}\n]"
+        return output_data
 
     ####################################################################################################################
     ### INTERNAL ###

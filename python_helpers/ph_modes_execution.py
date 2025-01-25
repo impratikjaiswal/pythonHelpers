@@ -1,6 +1,7 @@
 class PhExecutionModes:
     USER = 1
     DEV = 2
+    KNOWN_ISSUES = 22
     UNIT_TESTING = 3
     SAMPLE_SPECIFIC = 4
     SAMPLE_GENERIC = 5
@@ -12,6 +13,7 @@ class PhExecutionModes:
     KEYS_NAME = {
         USER: 'user',
         DEV: 'dev',
+        KNOWN_ISSUES: 'known_issues',
         UNIT_TESTING: 'unit_testing',
         SAMPLE_SPECIFIC: 'sample_specific',
         SAMPLE_GENERIC: 'sample_generic',
