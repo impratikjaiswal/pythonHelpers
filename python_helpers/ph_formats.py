@@ -34,6 +34,8 @@ class PhFormats:
     ASN_FORMATTED = 'asn_formatted'
     PNG_URI = 'png_uri'
     SVG_URI = 'svg_uri'
+    URL = 'url'
+    DER = 'der'
 
 
 class PhFormatsGroups:

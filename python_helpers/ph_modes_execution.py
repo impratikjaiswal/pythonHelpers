@@ -25,4 +25,4 @@ class PhExecutionModes:
 
     @classmethod
     def get_key_name(cls, key):
-        return cls.KEYS_NAME.get(key, None)
+        return cls.KEYS_NAME.get(key, key)

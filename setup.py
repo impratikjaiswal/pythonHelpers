@@ -42,17 +42,17 @@ setup(
     name=PhConfigConst.TOOL_NAME,
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
-    description="A Python software package suite to provide various utility functions",
+    description=PhConfigConst.TOOL_DESCRIPTION,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/impratikjaiswal/pythonHelpers",
+    url=PhConfigConst.TOOL_URL,
     project_urls={
-        "Bug Tracker": "https://github.com/impratikjaiswal/pythonHelpers/issues",
+        "Bug Tracker": PhConfigConst.TOOL_URL_BUG_TRACKER,
     },
-    keywords="Common Functions Funcs Util Utility",
-    license="MIT",
+    keywords=PhConfigConst.TOOL_META_KEYWORDS,
+    license="GNU GENERAL PUBLIC LICENSE v3.0",
     python_requires=">=3.9",
     packages=packages,
-    install_requires=install_reqs
+    install_requires=install_reqs,
     # test_suite="test.sample_package",
 )

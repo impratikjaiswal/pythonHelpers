@@ -65,6 +65,8 @@ except ImportError:
 """
 User Choice
 """
+
+
 # _debug = True
 
 
@@ -612,7 +614,9 @@ class PhUtil:
     def is_empty(cls, value):
         if value is None:
             return True
-        # TODO: Need to find a propr way to handle all int like scenarios (float etc)
+        if isinstance(value, bool):
+            return False
+        # TODO: Need to find a proper way to handle all int like scenarios (float etc)
         if isinstance(value, int):
             return False
         if len(value) == 0:
@@ -2561,8 +2565,15 @@ class PhUtil:
         if isinstance(output_data, list):
             temp_data = '\n,\n'.join(output_data)
             temp_data = temp_data.replace('\n', '\n  ')
-            output_data = f"[\n  {temp_data}\n]"
+            output_data = f'[\n  {temp_data}\n]'
         return output_data
+
+    @classmethod
+    def decorate_info_data(cls, info_data_pool):
+        info_objs = [(cls.get_dic_data_and_print(key, PhConstants.SEPERATOR_ONE_LINE, value, dic_format=False,
+                                                 print_also=False) if value else None) for key, value in
+                     info_data_pool.items()]
+        return PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, info_objs))
 
     ####################################################################################################################
     ### INTERNAL ###

@@ -17,6 +17,10 @@ class PhVariables:
     # asn1 Web
 
     # tlvPlay
+    LENGTH_IN_DECIMAL = f'${PhKeys.LENGTH_IN_DECIMAL}'
+    VALUE_IN_ASCII = f'${PhKeys.VALUE_IN_ASCII}'
+    ONE_LINER = f'${PhKeys.ONE_LINER}'
+    NON_TLV_NEIGHBOR = f'${PhKeys.NON_TLV_NEIGHBOR}'
 
     # qrPlay
     # OUTPUT_FORMAT = f'${PhKeys.OUTPUT_FORMAT}'
@@ -28,6 +32,11 @@ class PhVariables:
     # qrPlay Web
 
     # certPlay
+    INPUT_FORMAT = f'${PhKeys.INPUT_FORMAT}'
+    URL_TIME_OUT = f'${PhKeys.URL_TIME_OUT}'
+    URL_PRE_ACCESS = f'${PhKeys.URL_PRE_ACCESS}'
+    URL_CERT_FETCH_ONLY = f'${PhKeys.URL_CERT_FETCH_ONLY}'
+    URL_ALL_CERTS = f'${PhKeys.URL_ALL_CERTS}'
 
     # certPlay Web
 
