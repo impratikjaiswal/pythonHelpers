@@ -324,6 +324,11 @@ def test_print_iter():
         [ordered_dic1, 'orderedDic1'],
     ]
 
+    PhUtil.print_heading(str_heading='Simple Iters')
+    PhUtil.print_iter(dic1, header='dic1')
+    PhUtil.print_iter(list1, header='list1')
+    PhUtil.print_iter(list1, header='list1; list_as_str=True', list_as_str=True)
+
     PhUtil.print_heading(str_heading='iters printing with heading')
     for item in list_of_items:
         actual_iter = item[0]
@@ -345,9 +350,30 @@ def test_print_iter():
     PhUtil.print_heading(str_heading='sys.modules; depth_level=0')
     data = sys.modules
     PhUtil.print_iter(data, depth_level=0)
-    PhUtil.print_heading(str_heading='sys.modules')
+    # PhUtil.print_heading(str_heading='sys.modules')
     # TODO: https://pratikj.atlassian.net/browse/SML-398
     # PhUtil.print_iter(data)
+
+    PhUtil.print_heading(str_heading='class')
+    PhUtil.print_iter(PhConstants)
+
+    PhUtil.print_heading(str_heading='enum')
+    PhUtil.print_iter(PhConstants.Position)
+
+    PhUtil.print_heading(str_heading='enum item')
+    PhUtil.print_iter(PhConstants.Position.TOP)
+
+    PhUtil.print_heading(str_heading='dict with enum')
+    dic_w_enum = {
+        'app_title': '',
+        'app_description': 'url',
+        'app_version': '',
+        'app_github_url': 'AmenityPj',
+        'app_github_pages_url': 'Load Only',
+        'position': PhConstants.Position.TOP,
+        'items': PhConstants.Position,
+    }
+    PhUtil.print_iter(dic_w_enum)
 
 
 def test_obj_list():
@@ -850,7 +876,7 @@ def main():
     Process
     """
     test_functions(ph_time)
-    # test_trim_white_spaces_in_str()
+    # test_print_iter()
     """
     Wrap up 
     """

@@ -1,4 +1,5 @@
 # import pandas as pd
+from enum import Enum
 
 
 class PhConstants:
@@ -247,7 +248,8 @@ class PhConstants:
     UNKNOWN_INPUT_FORMAT = 'Unknown Input Format'
     INVALID_TIME_OUT = 'Invalid Time Out'
     INVALID_URL_TIME_OUT = 'Invalid URL Time Out'
-
+    ITEM = 'item'
+    SUB = 'sub '
     KEY_DATE_TIME = 'Date & Time'
 
     ENV_VARIABLES = {}
@@ -347,3 +349,9 @@ class PhConstants:
     # STR_TYPE_HEX = STR_TYPE_HEX_UPPER_CASE
     # '**DEPRECATED**'
     # STR_TYPE_PLAIN = STR_TYPE_ALPHA_NUMERIC_RANDOM_CASE
+
+    class Position(Enum):
+        TOP = 1
+        RIGHT = 2
+        BOTTOM = 3
+        LEFT = 4

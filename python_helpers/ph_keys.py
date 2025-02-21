@@ -37,6 +37,8 @@ class PhKeys:
     QR_CODE_VERSION = 'qr_code_version'
     SPLIT_QRS = 'split_qrs'
     DECORATE_QR = 'decorate_qr'
+    LABEL = 'label'
+    LABEL_POSITION = 'label_position'
 
     # qrPlay Web
     SIZES = 'sizes'

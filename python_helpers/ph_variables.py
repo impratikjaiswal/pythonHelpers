@@ -28,6 +28,8 @@ class PhVariables:
     QR_CODE_VERSION = f'${PhKeys.QR_CODE_VERSION}'
     SPLIT_QRS = f'${PhKeys.SPLIT_QRS}'
     DECORATE_QR = f'${PhKeys.DECORATE_QR}'
+    LABEL = f'${PhKeys.LABEL}'
+    LABEL_POSITION = f'${PhKeys.LABEL_POSITION}'
 
     # qrPlay Web
 

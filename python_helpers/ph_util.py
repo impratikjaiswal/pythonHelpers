@@ -166,7 +166,7 @@ class PhUtil:
         :param raw_data:
         :return:
         """
-        if PhUtil.is_hex(raw_data):
+        if cls.is_hex(raw_data):
             return base64.b64encode(unhexlify(raw_data)).decode()
         return raw_data
 
@@ -177,7 +177,7 @@ class PhUtil:
         :param raw_data:
         :return:
         """
-        if not PhUtil.is_hex(raw_data) and PhUtil.is_base64(raw_data):
+        if not cls.is_hex(raw_data) and cls.is_base64(raw_data):
             return base64.b64decode(raw_data).hex()
         return raw_data
 
@@ -208,24 +208,39 @@ class PhUtil:
         return ''.join([y + x for x, y in zip(*[iter(hex_str_data)] * 2)])
 
     @classmethod
-    def check_if_iter(cls, the_iter):
+    def check_if_iter(cls, the_iter, list_as_str, check_for_dict_attibute):
+        is_iter = False
         if the_iter is None:
-            return False, the_iter
+            return is_iter, the_iter
         # Duck Typing
         try:
-            # Check if iterable, but not String as String is also iterable
+            """
+            Scenarios where obj is iterable by default. e.g.: dict, EnumMeta (Enum Class), str
+            """
             if isinstance(the_iter, str):
-                is_iter = False
-            else:
-                iter(the_iter)
-                is_iter = True
+                # String should not be treated as iterable
+                return is_iter, the_iter
+            if isinstance(the_iter, list) and list_as_str:
+                # Here List should not be treated as iterable
+                return is_iter, the_iter
+            iter(the_iter)
+            is_iter = True
+            return is_iter, the_iter
         except TypeError:
             try:
-                # Check if dict attribute is present but obj is not iterable by default, e.g: Namespace
+                if not check_for_dict_attibute:
+                    return is_iter, the_iter
+                """
+                Scenarios where obj is not iterable by default, however dict attribute is present. e.g.: Namespace
+                """
+                if isinstance(the_iter, enum.Enum):
+                    # Child of Enum Class should not be treated as iterable
+                    return is_iter, the_iter
                 the_iter = the_iter.__dict__
                 is_iter = True
+                return is_iter, the_iter
             except AttributeError:
-                is_iter = False
+                return is_iter, the_iter
         return is_iter, the_iter
 
     @classmethod
@@ -250,7 +265,7 @@ class PhUtil:
 
     @classmethod
     def print_iter(cls, the_iter, header=None, log=None, list_as_str=None, depth_level=-1, verbose=False,
-                   formatting_level=0, sep=None, sep_child=None):
+                   formatting_level=0, sep=None, sep_child=None, check_for_dict_attribute=None):
         """
         This function takes a positional argument called 'the_iter', which is any Python list (of, possibly,
         nested lists). Each data item in the provided list is (recursively) printed to the screen on its own line.
@@ -264,6 +279,9 @@ class PhUtil:
         :param header:
         :param log:
         :param list_as_str:
+        :param check_for_dict_attribute: Force checking of Dict Attribute while checking for iter object. However it may caused "RecursionError" for unhandled types
+
+        For "RecursionError", set this flag as false
         :return:
         """
 
@@ -304,15 +322,28 @@ class PhUtil:
         formatting_level = cls.set_if_none(formatting_level, 0)
         # spaces = PhConstants.STR_TAB * formatting_level
         spaces = PhConstants.STR_TAB * 0
-        list_as_str = False if list_as_str is None else list_as_str
-        sep = PhConstants.SEPERATOR_TWO_LINES if sep is None else sep
-        sep_child = PhConstants.SEPERATOR_MULTI_OBJ if sep_child is None else sep_child
+        list_as_str = cls.set_if_none(list_as_str, False)
+        check_for_dict_attribute = cls.set_if_none(check_for_dict_attribute, True)
+        sep = cls.set_if_none(sep, PhConstants.SEPERATOR_TWO_LINES)
+        sep_child = cls.set_if_none(sep_child, PhConstants.SEPERATOR_MULTI_OBJ)
         nested = PhConstants.NO
-        is_iter, the_iter = cls.check_if_iter(the_iter)
+        is_iter, the_iter = cls.check_if_iter(
+            the_iter=the_iter,
+            list_as_str=list_as_str,
+            check_for_dict_attibute=check_for_dict_attribute
+        )
         the_iter_length = len(the_iter) if is_iter else 0
         if header:
             header = f'{header}:'
-        if (list_as_str and isinstance(the_iter, list)) or not is_iter:
+        # NonIterable is an Enum Object
+        if isinstance(the_iter, enum.Enum):
+            # enum_class_name = type(the_iter).__name__
+            enum_class_name = the_iter.__class__.__name__
+            pair_data = cls.get_key_value_pair(the_iter.name, the_iter.value, user_friendly_key=False)
+            _collect_item(_value=' '.join(filter(None, [header, enum_class_name, pair_data])))
+            _print_item()
+            return
+        if not is_iter:
             _collect_item(_value=' '.join(filter(None, [header, str(the_iter)])))
             _print_item()
             return
@@ -322,10 +353,15 @@ class PhUtil:
         if isinstance(the_iter, dict):
             for key in the_iter.keys():
                 value = the_iter[key]
-                if depth_level == -1 and cls.check_if_iter(value)[0]:
+                if depth_level == -1 and cls.check_if_iter(
+                        the_iter=value,
+                        list_as_str=list_as_str,
+                        check_for_dict_attibute=check_for_dict_attribute
+                )[0]:
                     nested = PhConstants.YES
                     cls.print_iter(the_iter=value, header=str(key), log=log, list_as_str=list_as_str,
-                                   formatting_level=formatting_level + 1, sep=sep)
+                                   formatting_level=formatting_level + 1, sep=sep,
+                                   check_for_dict_attribute=check_for_dict_attribute)
                 else:
                     _collect_item(_key=key, _value=value, _dict_format=True)
             _print_item(_dict_format=True)
@@ -333,9 +369,14 @@ class PhUtil:
         # Other iterable Items
         for each_item in the_iter:
             # Check if sub-objects are Iterable
-            if depth_level == -1 and cls.check_if_iter(each_item)[0]:
+            if depth_level == -1 and cls.check_if_iter(
+                    the_iter=each_item,
+                    list_as_str=list_as_str,
+                    check_for_dict_attibute=check_for_dict_attribute
+            )[0]:
                 nested = PhConstants.YES
-                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1, sep=sep_child)
+                cls.print_iter(the_iter=each_item, log=log, formatting_level=formatting_level + 1, sep=sep_child,
+                               check_for_dict_attribute=check_for_dict_attribute)
                 continue
             _collect_item(_value=each_item)
         _print_item()
@@ -403,9 +444,9 @@ class PhUtil:
         if filter_string:
             filtered_data = {k: v for k, v in data.items() if filter_string in k}
             print(f'Filtered Modules Count: {len(filtered_data)}')
-            PhUtil.print_iter(filtered_data, depth_level=depth_level)
+            cls.print_iter(filtered_data, depth_level=depth_level)
         else:
-            PhUtil.print_iter(data, depth_level=depth_level)
+            cls.print_iter(data, depth_level=depth_level)
 
     @classmethod
     def get_key_value_pair(cls, key, value, sep=PhConstants.SEPERATOR_ONE_LINE, dic_format=False, print_also=False,
@@ -755,6 +796,14 @@ class PhUtil:
     @classmethod
     def rreplace(cls, main_str, old, new, max_split=1):
         return new.join(main_str.rsplit(old, max_split))
+
+    @classmethod
+    def count(cls, main_str, sub_string, start=None, end=None):
+        if cls.is_empty_string(main_str) or cls.is_empty_string(sub_string):
+            return 0
+        main_str = main_str.lower()
+        sub_string = sub_string.lower()
+        return main_str.count(sub_string, start, end)
 
     @classmethod
     def append_in_file_name(cls, str_file_path, str_append=None, sep=None, new_name=None, new_ext=None,
@@ -2007,17 +2056,18 @@ class PhUtil:
         return data
 
     @classmethod
-    def get_environment_variables(cls, var_name, check_presence_only=False):
+    def get_environment_variables(cls, var_name, var_default_value=None, check_presence_only=False):
         """
 
         :param var_name:
+        :param var_value:
         :param check_presence_only:
         :return:
         """
         # Check for Custom Variables
         env_variable_name, env_variable_default_value = PhConstants.ENV_VARIABLES.get(var_name, (None, None))
-        if env_variable_name is None:
-            env_variable_name = var_name
+        env_variable_name = cls.set_if_none(env_variable_name, var_name)
+        env_variable_default_value = cls.set_if_none(env_variable_default_value, var_default_value)
         try:
             env_variable_value = os.environ[env_variable_name]
             if check_presence_only:
@@ -2256,7 +2306,7 @@ class PhUtil:
 
     @classmethod
     def generate_key_and_data_group(cls, remarks):
-        remarks = PhUtil.to_list(remarks, all_str=True, trim_data=True)[0]
+        remarks = cls.to_list(remarks, all_str=True, trim_data=True)[0]
         data_group_list = remarks.split(PhConstants.SEPERATOR_MULTI_OBJ)
         data_group = data_group_list[0] if len(data_group_list) > 0 else data_group_list
         return remarks, data_group
@@ -2288,9 +2338,9 @@ class PhUtil:
     def archive_files(cls, source_files_dir, archive_format=PhDefaults.ARCHIVE_FORMAT, delete_dir_after_archive=False,
                       export_hash=False):
         if archive_format == PhFileExtensions.ZIP:
-            return PhUtil.zip_and_clean_dir(source_files_dir=source_files_dir,
-                                            delete_dir_after_zip=delete_dir_after_archive,
-                                            export_hash=export_hash)
+            return cls.zip_and_clean_dir(source_files_dir=source_files_dir,
+                                         delete_dir_after_zip=delete_dir_after_archive,
+                                         export_hash=export_hash)
         return None
 
     @classmethod
@@ -2455,22 +2505,22 @@ class PhUtil:
         cleaning_needed = trim_quotation_marks or trim_data or replace_line_endings
         for k, v in user_dict.items():
             v_org = v
-            if PhUtil.is_none(v):
+            if cls.is_none(v):
                 continue
             if isinstance(v, str):
                 v_eval = None
                 if cleaning_needed:
                     if trim_data:
                         # Trim Garbage data
-                        v = PhUtil.trim_white_spaces_in_str(v)
+                        v = cls.trim_white_spaces_in_str(v)
                     if trim_quotation_marks:
-                        v = PhUtil.clear_quotation_marks(v)
+                        v = cls.clear_quotation_marks(v)
                         if trim_data:
                             # Trim spaces again may be uncovered after quotation mark
-                            v = PhUtil.trim_white_spaces_in_str(v)
+                            v = cls.trim_white_spaces_in_str(v)
                     if replace_line_endings:
                         # Web Request (Chrome on windows) is sending CRLF, which is causing increment in input data size
-                        v = PhUtil.replace_line_endings(v)
+                        v = cls.replace_line_endings(v)
                     if _debug:
                         print(
                             f'dict_to_data; {k}'
@@ -2546,8 +2596,8 @@ class PhUtil:
 
     @classmethod
     def generate_test_data(cls, require_length, sample_data=None, sep=None):
-        sample_data = PhUtil.set_if_none(sample_data, PhConstants.TEST_DATA_MIX_LEN_75)
-        sep = PhUtil.set_if_none(sep, '\n')
+        sample_data = cls.set_if_none(sample_data, PhConstants.TEST_DATA_MIX_LEN_75)
+        sep = cls.set_if_none(sep, '\n')
         sample_data_with_sep = sample_data + sep
         #
         len_sample_data_with_sep = len(sample_data_with_sep)
