@@ -347,11 +347,13 @@ def test_print_iter():
     for item in list_of_items:
         PhUtil.print_iter(item[0], sep=sep)
 
-    PhUtil.print_heading(str_heading='sys.modules; depth_level=0')
     data = sys.modules
+    PhUtil.print_heading(str_heading='sys.modules; depth_level=0')
     PhUtil.print_iter(data, depth_level=0)
-    # PhUtil.print_heading(str_heading='sys.modules')
+    PhUtil.print_heading(str_heading='sys.modules; check_for_dict_attribute=False')
+    PhUtil.print_iter(data, check_for_dict_attribute=False)
     # TODO: https://pratikj.atlassian.net/browse/SML-398
+    # PhUtil.print_heading(str_heading='sys.modules')
     # PhUtil.print_iter(data)
 
     PhUtil.print_heading(str_heading='class')
@@ -788,14 +790,35 @@ def test_trim_white_spaces_in_str():
     input_data_set = [
         '       ',
         ' rgdrg  rtert',
+        ' rgdrg                          rtert',
+        """   rgdrg                      rte
+            rt""",
         '\85',
         '\85 ',
         '\x85',
         ' \85 ',
     ]
     for input_data in input_data_set:
-        output_data = PhUtil.trim_white_spaces_in_str(input_data)
-        PhUtil.print_input_output(input_data=input_data, output_data=output_data, verbose=True)
+        output_data_trim_white_spaces_in_str = PhUtil.trim_white_spaces_in_str(input_data)
+        output_data_trim_and_kill_all_white_spaces = PhUtil.trim_and_kill_all_white_spaces(input_data)
+        output_data_trim_and_kill_extra_white_spaces = PhUtil.trim_and_kill_extra_white_spaces(input_data)
+        PhUtil.print_input_output(
+            input_data=input_data,
+            output_data=
+            [
+                output_data_trim_white_spaces_in_str,
+                output_data_trim_and_kill_all_white_spaces,
+                output_data_trim_and_kill_extra_white_spaces
+            ],
+            output_remarks=
+            ['trim_white_spaces_in_str        ',
+             'trim_and_kill_all_white_spaces  ',
+             'trim_and_kill_extra_white_spaces',
+             ],
+            input_remark
+            ='input Data                      ',
+            verbose=True,
+        )
 
 
 def test_generate_test_data():
@@ -857,6 +880,7 @@ def test_functions(ph_time):
     test_normalise_list()
     test_handle_dirs()
     test_generate_test_data()
+    test_trim_white_spaces_in_str()
     ##
     ## Keep on last
     test_time_delay(ph_time)

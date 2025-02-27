@@ -9,6 +9,7 @@ class PhExecutionModes:
     UNIT_TESTING_EXTERNAL = 7
     SAMPLES_LIST = 8
     CLI = 9
+    PJ_EXCLUSIVE = 999
 
     KEYS_NAME = {
         USER: 'user',
@@ -21,6 +22,7 @@ class PhExecutionModes:
         UNIT_TESTING_EXTERNAL: 'unit_testing_external',
         SAMPLES_LIST: 'samples_list',
         CLI: 'cli',
+        PJ_EXCLUSIVE: 'pj_exclusive',
     }
 
     @classmethod

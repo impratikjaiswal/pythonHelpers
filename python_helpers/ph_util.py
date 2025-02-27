@@ -133,6 +133,10 @@ class PhUtil:
         # return str_data.translate({ord(c): None for c in string.whitespace})
 
     @classmethod
+    def trim_and_kill_extra_white_spaces(cls, str_data):
+        return re.sub(r'\s+', ' ', str_data).strip()
+
+    @classmethod
     def trim_white_spaces_in_str(cls, data):
         return data.strip() if isinstance(data, str) else data
 
@@ -249,18 +253,28 @@ class PhUtil:
         print_or_log(data)
 
     @classmethod
-    def print_input_output(cls, input_data, output_data, log=None, verbose=False):
+    def print_input_output(cls, input_data, output_data, log=None, verbose=False, output_remarks=None,
+                           input_remark=None):
+        if not input_data and not output_data:
+            return
+        if not isinstance(output_data, list):
+            # Cast To List
+            output_data = [output_data]
+        output_count = len(output_data)
+        output_remarks = PhUtil.extend_list(cls.set_if_none(output_remarks, []), expected_length=output_count)
         print_or_log = log.info if log else print
+        EXTRA_NEW_LINE = ''
         if verbose:
-            msg = '\n'.join([
-                f'input: {input_data}; type: {type(input_data)}, length: {len(str(input_data))}',
-                f'output: {output_data}; type: {type(output_data)}, length: {len(str(output_data))}',
-                # Additional New Line
-                '',
-            ]
-            )
+            input_str = f'Remarks: {input_remark}; input: {input_data}; type: {type(input_data)}, length: {len(str(input_data))}'
+            output_str = [f'Remarks: {y}; output: {x}; type: {type(x)}, length: {len(str(x))}' for x, y in
+                          zip(output_data, output_remarks)]
         else:
-            msg = f'input: {input_data}; output: {output_data}'
+            input_str = f'Remarks: {input_remark}; input: {input_data}';
+            output_str = [f'Remarks: {y}; output: {x}' for x, y in zip(output_data, output_remarks)]
+            # msg = f'input: {input_data}; output: {output_data}'
+        # with Additional new line
+        # TODO: Additional new line, can be omitted for scenario where single output if getting listed in normal mode
+        msg = '\n'.join(cls.normalise_list([input_str, output_str, '']))
         print_or_log(msg)
 
     @classmethod
