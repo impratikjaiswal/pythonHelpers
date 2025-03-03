@@ -43,6 +43,8 @@ class PhVariables:
     # certPlay Web
 
     # dataPlay
+    CONTENT_MAPPINGS = f'${PhKeys.CONTENT_MAPPINGS}'
+    NAME_MAPPINGS = f'${PhKeys.NAME_MAPPINGS}'
 
     #####################
     VERSION = f'${PhKeys.VERSION}'
