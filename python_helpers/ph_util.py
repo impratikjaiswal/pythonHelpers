@@ -4,24 +4,24 @@ import ctypes
 import enum
 import fnmatch
 import inspect
+import math
 import os
 import random
 import re
 import secrets
 import shutil
 import string
+import sys
+import time
 import zipfile
+from binascii import unhexlify
 from datetime import datetime
 from io import TextIOWrapper, StringIO
 
-import math
 import pandas as pd
 import pkg_resources
 import requests
-import sys
-import time
 import tzlocal
-from binascii import unhexlify
 from packaging import version
 from pandas import DataFrame, Series
 from ruamel.yaml.scalarstring import PreservedScalarString
@@ -2638,6 +2638,17 @@ class PhUtil:
                                                  print_also=False) if value else None) for key, value in
                      info_data_pool.items()]
         return PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, info_objs))
+
+    @classmethod
+    def adjust_paths(cls, execution_from_inside=False, folder_path=None):
+        """
+
+        :param execution_from_inside:
+        :param folder_path:
+        :return:
+        """
+        return os.sep.join(
+            filter(None, cls.normalise_list([os.pardir if execution_from_inside is True else None, folder_path])))
 
     ####################################################################################################################
     ### INTERNAL ###
