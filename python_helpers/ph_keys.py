@@ -124,6 +124,10 @@ class PhKeys:
     SAMPLE_LOAD_ONLY = 'load_only'
     SAMPLE_LOAD_AND_SUBMIT = 'load_and_submit'
 
+    # Dates
+    DATE_FIRST_AVAILABLE = 'date_first_available'
+    DATE_LAST_UPDATE = 'date_last_updated'
+
     # App Parent
     APP_PARENT_TITLE = 'app_parent_title'
     APP_PARENT_VERSION = 'app_parent_version'

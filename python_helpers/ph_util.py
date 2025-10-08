@@ -97,6 +97,8 @@ class PhUtil:
 
     # path_current_folder = os.getcwd()
     path_current_folder = os.path.realpath(sys.path[0])
+    path_current_script = __file__
+    name_current_script = os.path.basename(__file__)
     path_default_res_folder = path_current_folder + os.sep + 'res'
     path_default_log_folder = path_current_folder + os.sep + 'logs'
     path_default_out_folder = path_current_folder + os.sep + 'out'
@@ -2649,6 +2651,10 @@ class PhUtil:
         """
         return os.sep.join(
             filter(None, cls.normalise_list([os.pardir if execution_from_inside is True else None, folder_path])))
+
+    @classmethod
+    def last_modification_time(cls, file_or_folder_path):
+        return datetime.fromtimestamp(os.path.getmtime(file_or_folder_path))
 
     ####################################################################################################################
     ### INTERNAL ###

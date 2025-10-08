@@ -1,10 +1,9 @@
 import copy
 import os
-import unittest
-from collections import OrderedDict
-
 import sys
 import time
+import unittest
+from collections import OrderedDict
 
 import python_helpers
 from python_helpers.ph_constants import PhConstants
@@ -17,6 +16,7 @@ from python_helpers.ph_modules import PhModules
 from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
 from python_helpers.test import test_util
+from python_helpers.test.ph_constants_test import PhTestConst
 
 
 def test_version():
@@ -471,22 +471,20 @@ def test_traverse_it():
     Test Data
     """
     #
-    target_file1_name = 'ph_bits.py'
-    target_file2_name = 'ph_constants.py'
-    target_file3_name = 'ph_data_master.py'
+    target_file1_name = PhTestConst.SRC_CODE_PH_BITS_FILE_NAME
+    target_file2_name = PhTestConst.SRC_CODE_PH_CONSTANTS_FILE_NAME
+    target_file3_name = PhTestConst.SRC_CODE_PH_DATA_MASTER_FILE_NAME
     target_file1_name_star_w_ext = 'ph_bit*.py'
     target_file2_name_star_w_ext = 'ph_constant*.py'
     target_file3_name_star_w_ext = 'ph_data_*.py'
     target_file1_name_star_wo_ext = 'ph_bit*'
     target_file2_name_star_wo_ext = 'ph_constant*'
     target_file3_name_star_wo_ext = 'ph_data_*'
-    target_file2_name = 'ph_constants.py'
-    target_file3_name = 'ph_data_master.py'
-    target_file1_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_bits.py'
-    target_file2_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_constants.py'
-    target_file3_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\ph_data_master.py'
-    target_dir_name = 'test'
-    target_dir_path = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test'
+    target_file1_path = PhTestConst.SRC_CODE_PH_BITS_FILE_PATH
+    target_file2_path = PhTestConst.SRC_CODE_PH_CONSTANTS_FILE_PATH
+    target_file3_path = PhTestConst.SRC_CODE_PH_DATA_MASTER_FILE_PATH
+    target_dir_name = PhTestConst.SRC_CODE_TEST_DIR_NAME
+    target_dir_path = PhTestConst.SRC_CODE_TEST_DIR_PATH
     #
     src_dir_rel = os.sep.join([PhUtil.path_current_folder, os.pardir])
     src_dir = PhUtil.get_absolute_path(src_dir_rel)
@@ -821,6 +819,21 @@ def test_trim_white_spaces_in_str():
         )
 
 
+def test_last_modification_time():
+    PhUtil.print_heading()
+    path_current_script = __file__
+    name_current_script = os.path.basename(__file__)
+    input_data_set = [
+        PhTestConst.SRC_CODES_PH_FILES_PATHS,
+        PhTestConst.SRC_CODE_TEST_DIR_PATH,
+        PhUtil.path_current_folder,
+        path_current_script,
+        name_current_script,
+    ]
+    for input_data in PhUtil.normalise_list(input_data_set):
+        print(f'{input_data}: {PhUtil.last_modification_time(file_or_folder_path=input_data)}')
+
+
 def test_generate_test_data():
     PhUtil.print_heading()
     #
@@ -881,6 +894,7 @@ def test_functions(ph_time):
     test_handle_dirs()
     test_generate_test_data()
     test_trim_white_spaces_in_str()
+    test_last_modification_time()
     ##
     ## Keep on last
     test_time_delay(ph_time)
@@ -899,6 +913,9 @@ def main():
     """
     Process
     """
+    # Temp Test Cases
+    # test_last_modification_time()
+    # Regular Test Cases
     test_functions(ph_time)
     # test_print_iter()
     """
