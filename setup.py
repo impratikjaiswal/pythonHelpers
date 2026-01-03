@@ -20,15 +20,17 @@ install_reqs = [
     'pandas',
     'psutil',
     'tzlocal',
-    'incremental',
     'click',
     'twisted',
+    'incremental',
     'requests',
     'pycryptodome',
     'ruamel.yaml',
 ]
 
 setup_reqs = [
+    'click',
+    'twisted',
     'incremental',
 ]
 

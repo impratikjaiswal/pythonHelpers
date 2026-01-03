@@ -19,6 +19,11 @@ class PhKeys:
     ASN1_OBJECT_ALTERNATE = 'asn1_object_alternate'
     FETCH_ASN1_OBJECTS_LIST = 'fetch_asn1_objects_list'
 
+    # asn1 source
+    ASN1_SOURCE_PATH_ORG = 'original'
+    ASN1_SOURCE_PATH_MODIFIED = 'modified'
+    ASN1_SOURCE_PATH_FORMATTED = 'formatted'
+
     # asn1 Web
     ASN1_SCHEMAS = 'asn1_schemas'
     ASN1_SCHEMA_SELECTED = 'asn1_schema_selected'
