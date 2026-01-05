@@ -6,6 +6,10 @@ from python_helpers.ph_modes_execution import PhExecutionModes
 
 class PhDefaults:
     #############
+    # Version Objects
+    #############
+    VERSION = '1.0.1'
+    #############
     # Generic Objects
     #############
     CHAR_ENCODING = PhConstants.CHAR_ENCODING_UTF8
