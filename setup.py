@@ -41,7 +41,7 @@ with open(os.path.join(os.path.dirname(__file__), "README.md"), "r", encoding="u
 setup(
     use_incremental=True,
     setup_requires=setup_reqs,
-    name="pythonHelpers",
+    name="pythonhelpers",
     author="Pratik Jaiswal",
     author_email="impratikjaiswal@gmail.com",
     description=PhConfigConst.TOOL_DESCRIPTION,
