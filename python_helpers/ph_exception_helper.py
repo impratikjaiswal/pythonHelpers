@@ -1,5 +1,5 @@
-from play_helpers.ph_constants import PhConstants
-from play_helpers.ph_util import PhUtil
+from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_util import PhUtil
 
 
 class PhExceptionHelper:

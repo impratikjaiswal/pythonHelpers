@@ -1,7 +1,7 @@
 import time
 
-from play_helpers.ph_keys import PhKeys
-from play_helpers.ph_util import PhUtil
+from python_helpers.ph_keys import PhKeys
+from python_helpers.ph_util import PhUtil
 
 
 def _get_time():

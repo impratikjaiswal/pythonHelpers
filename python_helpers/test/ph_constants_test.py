@@ -3,7 +3,7 @@ import os
 
 class PhTestConst:
     SRC_CODE_PATH = 'D:\\Other\\Github_Self\\pythonHelpers'
-    SRC_CODE_PACKAGE_NAME = 'play_helpers'
+    SRC_CODE_PACKAGE_NAME = 'python_helpers'
     SRC_CODE_PH_BITS_FILE_NAME = 'ph_bits.py'
     SRC_CODE_PH_CONSTANTS_FILE_NAME = 'ph_constants.py'
     SRC_CODE_PH_DATA_MASTER_FILE_NAME = 'ph_data_master.py'

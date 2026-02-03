@@ -274,7 +274,7 @@ backup_*bkp
 ##################################################
 
 # TBD folder
-play_helpers/tbd/
+python_helpers/tbd/
 
 # Backup
 backup

@@ -4,8 +4,8 @@ import binascii
 from Crypto.Cipher import AES
 from itertools import cycle
 
-from play_helpers.ph_defaults import PhDefaults
-from play_helpers.ph_util import PhUtil
+from python_helpers.ph_defaults import PhDefaults
+from python_helpers.ph_util import PhUtil
 
 
 class PhCrypto:

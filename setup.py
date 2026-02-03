@@ -4,14 +4,14 @@ import os
 
 from setuptools import setup, find_packages
 
-from play_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_constants_config import PhConfigConst
 
 # all packages dependencies
 packages = find_packages()
 if not packages:
     print(f'Selecting Hardcoded Packages')
     packages = [
-        "play_helpers",
+        "python_helpers",
     ]
 print(f'Packages are {packages}')
 # potential dependencies

@@ -4,8 +4,8 @@ import unittest.mock
 from argparse import Namespace
 from pathlib import PurePath
 
-from play_helpers.ph_constants import PhConstants
-from play_helpers.ph_util import PhUtil
+from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_util import PhUtil
 
 STR_TEST_OBJ = 'test_obj :'
 
@@ -183,7 +183,7 @@ class util_test(unittest.TestCase):
         """
         op_file_name = 'myNameIsKhan.tmp'
         op_file_path = os.sep.join([PhUtil.path_default_out_folder, 'Youtube_PlayList.tmp'])
-        op_file_path_dir = '/play_helpers\\test\\out_Youtube_PlayList\\.tmp'
+        op_file_path_dir = 'D:\\Other\\Github_Self\\pythonHelpers\\python_helpers\\test\\out_Youtube_PlayList\\.tmp'
         src_file_path = 'D:/abc/def/123/out_file_12564.txt'
         default_ext = '.default'
         test_obj_pool = [

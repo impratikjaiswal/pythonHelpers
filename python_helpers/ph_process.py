@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from play_helpers.ph_defaults import PhDefaults
+from python_helpers.ph_defaults import PhDefaults
 
 
 class PhProcess:

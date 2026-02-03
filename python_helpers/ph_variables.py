@@ -1,4 +1,4 @@
-from play_helpers.ph_keys import PhKeys
+from python_helpers.ph_keys import PhKeys
 
 
 class PhVariables:
