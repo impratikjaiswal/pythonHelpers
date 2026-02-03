@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 
-from python_helpers.ph_defaults import PhDefaults
-from python_helpers.ph_process import PhProcess
+from play_helpers.ph_defaults import PhDefaults
+from play_helpers.ph_process import PhProcess
 
 
 class PhGit:

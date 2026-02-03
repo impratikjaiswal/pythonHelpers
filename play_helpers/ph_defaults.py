@@ -1,7 +1,7 @@
-from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_file_extensions import PhFileExtensions
-from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
-from python_helpers.ph_modes_execution import PhExecutionModes
+from play_helpers.ph_constants import PhConstants
+from play_helpers.ph_file_extensions import PhFileExtensions
+from play_helpers.ph_modes_error_handling import PhErrorHandlingModes
+from play_helpers.ph_modes_execution import PhExecutionModes
 
 
 class PhDefaults:

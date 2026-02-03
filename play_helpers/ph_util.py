@@ -26,12 +26,12 @@ from packaging import version
 from pandas import DataFrame, Series
 from ruamel.yaml.scalarstring import PreservedScalarString
 
-from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_constants_config import PhConfigConst
-from python_helpers.ph_defaults import PhDefaults
-from python_helpers.ph_file_extensions import PhFileExtensions
-from python_helpers.ph_git import PhGit
-from python_helpers.ph_keys import PhKeys
+from play_helpers.ph_constants import PhConstants
+from play_helpers.ph_constants_config import PhConfigConst
+from play_helpers.ph_defaults import PhDefaults
+from play_helpers.ph_file_extensions import PhFileExtensions
+from play_helpers.ph_git import PhGit
+from play_helpers.ph_keys import PhKeys
 from ._expired_attributes import __expired_attributes__
 from .ph_modules import PhModules
 

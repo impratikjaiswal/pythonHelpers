@@ -1,4 +1,4 @@
-from python_helpers.ph_exception_helper import PhExceptionHelper
+from play_helpers.ph_exception_helper import PhExceptionHelper
 
 
 class PhException(Exception):

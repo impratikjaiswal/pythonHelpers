@@ -5,18 +5,18 @@ import time
 import unittest
 from collections import OrderedDict
 
-import python_helpers
-from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_constants_config import PhConfigConst
-from python_helpers.ph_crypto import PhCrypto
-from python_helpers.ph_defaults import PhDefaults
-from python_helpers.ph_git import PhGit
-from python_helpers.ph_keys import PhKeys
-from python_helpers.ph_modules import PhModules
-from python_helpers.ph_time import PhTime
-from python_helpers.ph_util import PhUtil
-from python_helpers.test import test_util
-from python_helpers.test.ph_constants_test import PhTestConst
+import play_helpers
+from play_helpers.ph_constants import PhConstants
+from play_helpers.ph_constants_config import PhConfigConst
+from play_helpers.ph_crypto import PhCrypto
+from play_helpers.ph_defaults import PhDefaults
+from play_helpers.ph_git import PhGit
+from play_helpers.ph_keys import PhKeys
+from play_helpers.ph_modules import PhModules
+from play_helpers.ph_time import PhTime
+from play_helpers.ph_util import PhUtil
+from play_helpers.test import test_util
+from play_helpers.test.ph_constants_test import PhTestConst
 
 
 def test_version():
@@ -384,18 +384,18 @@ def test_obj_list():
     PhUtil.get_obj_list(cls_to_explore=PhUtil, print_also=True)
     PhUtil.print_heading(str_heading="cls_to_explore=PhUtil, obj_name_filter='print'")
     PhUtil.get_obj_list(cls_to_explore=PhUtil, obj_name_filter='print', print_also=True)
-    PhUtil.print_heading(str_heading='cls_to_explore=python_helpers')
-    PhUtil.get_obj_list(cls_to_explore=python_helpers, print_also=True)
-    PhUtil.print_heading(str_heading="cls_to_explore=python_helpers, obj_name_filter='ph'")
-    PhUtil.get_obj_list(cls_to_explore=python_helpers, obj_name_filter='ph', print_also=True)
+    PhUtil.print_heading(str_heading='cls_to_explore=play_helpers')
+    PhUtil.get_obj_list(cls_to_explore=play_helpers, print_also=True)
+    PhUtil.print_heading(str_heading="cls_to_explore=play_helpers, obj_name_filter='ph'")
+    PhUtil.get_obj_list(cls_to_explore=play_helpers, obj_name_filter='ph', print_also=True)
 
 
 def test_get_classes_list():
     PhUtil.print_heading()
-    PhUtil.print_heading(str_heading='module_to_explore=python_helpers.ph_util')
-    PhUtil.get_classes_list(module_to_explore=python_helpers.ph_util, print_also=True)
-    PhUtil.print_heading(str_heading='module_to_explore=python_helpers.ph_util, obj_name_needed=False')
-    PhUtil.get_classes_list(module_to_explore=python_helpers.ph_util, obj_name_needed=False, print_also=True)
+    PhUtil.print_heading(str_heading='module_to_explore=play_helpers.ph_util')
+    PhUtil.get_classes_list(module_to_explore=play_helpers.ph_util, print_also=True)
+    PhUtil.print_heading(str_heading='module_to_explore=play_helpers.ph_util, obj_name_needed=False')
+    PhUtil.get_classes_list(module_to_explore=play_helpers.ph_util, obj_name_needed=False, print_also=True)
     PhUtil.print_heading(str_heading='module_to_explore=test_util')
     PhUtil.get_classes_list(module_to_explore=test_util, print_also=True)
     PhUtil.print_heading(str_heading='module_to_explore=test_util, parent_class=unittest.TestCase')
@@ -406,8 +406,8 @@ def test_print_modules():
     PhUtil.print_heading()
     PhUtil.print_heading(str_heading='No filter String')
     PhUtil.print_modules()
-    PhUtil.print_heading(str_heading="filter_string='python_helpers'")
-    PhUtil.print_modules(filter_string='python_helpers')
+    PhUtil.print_heading(str_heading="filter_string='play_helpers'")
+    PhUtil.print_modules(filter_string='play_helpers')
 
 
 def test_generalise_list():
